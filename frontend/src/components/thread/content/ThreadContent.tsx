@@ -355,7 +355,7 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
     project,
     debugMode = false,
     isPreviewMode = false,
-    agentName = 'MEVO Default Agent',
+    agentName = 'Default Agent',
     agentAvatar = <KortixLogo size={16} />,
     emptyStateComponent,
     threadMetadata,
@@ -451,7 +451,7 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
         }
 
         return {
-            name: agentName || 'MEVO Default Agent',
+            name: agentName || 'Default Agent',
             avatar: agentAvatar
         };
     }, [threadMetadata, displayMessages, agentName, agentAvatar, agentMetadata, agentData]);

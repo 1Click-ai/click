@@ -34,23 +34,23 @@ type PromptExample = {
 
 const allPrompts: PromptExample[] = [
   {
-    title: 'Patient Scheduling and Reminders',
-    query: 'Automate appointment scheduling, send intelligent reminders, and handle cancellations or rescheduling requests through natural language processing.',
+    title: 'Планирование приёмов пациентов и напоминания',
+    query: 'Автоматизировать планирование приёмов, отправлять умные напоминания и обрабатывать запросы на отмену или перенос через обработку естественного языка.',
     icon: <Calendar className="text-amber-700 dark:text-amber-400" size={16} />,
   },
   {
-    title: 'Insurance Prior Authorization',
-    query: 'Streamline insurance verification processes and automate prior authorization requests using intelligent document processing and real-time payer integration.',
+    title: 'Предварительное разрешение страховой',
+    query: 'Упростить процессы верификации страхования и автоматизировать запросы предварительного разрешения с помощью интеллектуальной обработки документов и интеграции в реальном времени.',
     icon: <Shield className="text-red-700 dark:text-red-400" size={16} />,
   },
   {
-    title: 'Medical Coding and Billing Audit',
-    query: 'Automatically assign ICD-10 and CPT codes from clinical documentation while conducting real-time billing audits to ensure accuracy and compliance.',
+    title: 'Медицинское кодирование и аудит счетов',
+    query: 'Автоматически назначать коды ICD-10 и CPT из клинической документации при проведении аудита счетов в реальном времени для обеспечения точности и соответствия.',
     icon: <Code className="text-violet-700 dark:text-violet-400" size={16} />,
   },
   {
-    title: 'Patients Recovery EHR Analysis',
-    query: 'Identify patterns, track treatment efficacy, and generate comprehensive clinical insights for improved care coordination and decision support.',
+    title: 'Анализ восстановления пациентов ЭМК',
+    query: 'Выявить закономерности, отслеживать эффективность лечения и генерировать комплексные клинические выводы для улучшения координации ухода и поддержки принятия решений.',
     icon: <Heart className="text-red-600 dark:text-red-300" size={16} />,
   },
   {

@@ -58,9 +58,9 @@ export interface PricingTier {
 }
 
 export const siteConfig = {
-  name: 'MEVO',
-  description: 'The general AI Agent that can act on your behalf.',
-  cta: 'Start Free',
+  name: 'КЛИК',
+  description: 'Универсальный ИИ-сотрудник, который может действовать от вашего имени.',
+  cta: 'Начать бесплатно',
   url: process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000',
   keywords: ['AI Agent', 'General AI', 'Autonomous Agent'],
   links: {
@@ -72,12 +72,12 @@ export const siteConfig = {
   },
   nav: {
     links: [
-      { id: 1, name: 'Home', href: '#hero' },
-      { id: 2, name: 'Process', href: '#process' },
+      { id: 1, name: 'Главная', href: '#hero' },
+      { id: 2, name: 'Процесс', href: '#process' },
       // { id: 3, name: 'Use Cases', href: '#use-cases' },
       //{ id: 4, name: 'Open Source', href: '#open-source' },
-      { id: 5, name: 'Pricing', href: '#pricing' },
-      { id: 6, name: 'Enterprise', href: '/enterprise' },
+      { id: 5, name: 'Цены', href: '#pricing' },
+      { id: 6, name: 'Решения для бизнеса', href: '/enterprise' },
     ],
   },
   hero: {
@@ -107,51 +107,51 @@ export const siteConfig = {
         />
       </svg>
     ),
-    badge: 'AI POWERED',
+    badge: 'С ИИ',
     githubUrl: '',
-    title: 'MEVO. Your Custom AI Employee.',
+    title: 'КЛИК. Ваш персональный ИИ-сотрудник.',
     description:
-      <>Transform Healthcare Operations with AI Employees that <span className="text-secondary">act</span> on your behalf.</>,
-    inputPlaceholder: 'Ask MEVO to...',
+      <>Делегируйте операционку ИИ-сотрудникам, которые <span className="text-secondary">действуют</span> от вашего имени.</>,
+    inputPlaceholder: 'Попросите КЛИК...',
   },
   cloudPricingItems: [
     {
-      name: 'Free',
+      name: 'Бесплатный',
       price: '$0',
-      description: 'Perfect for getting started',
-      buttonText: 'Start Free',
+      description: 'Идеально для начала работы',
+      buttonText: 'Начать бесплатно',
       buttonColor: 'bg-secondary text-white',
       isPopular: false,
       /** @deprecated */
       hours: '60 min',
       features: [
-        '$10 free AI tokens included',
-        '5 custom agents',
-        'Public projects',
-        'Basic Models',
-        'Community support',
+        'Включено $10 бесплатных токенов ИИ',
+        '5 настраиваемых агентов',
+        'Публичные проекты',
+        'Базовые модели',
+        'Поддержка сообщества',
       ],
       stripePriceId: config.SUBSCRIPTION_TIERS.FREE.priceId,
       upgradePlans: [],
     },
     {
-      name: 'Plus',
+      name: 'Плюс',
       price: '$20',
       yearlyPrice: '$204',
       originalYearlyPrice: '$240',
       discountPercentage: 15,
-      description: 'Best for individuals and small teams',
-      buttonText: 'Start Free',
+      description: 'Лучше всего для отдельных лиц и небольших команд',
+      buttonText: 'Начать бесплатно',
       buttonColor: 'bg-primary text-white dark:text-black',
       isPopular: true,
       /** @deprecated */
       hours: '2 hours',
       features: [
-        '$20 AI token credits/month',
-        '5 custom agents',
-        'Private projects',
-        'Premium AI Models',
-        'Community support',
+        '$20 кредитов на ИИ-токены в месяц',
+        '5 настраиваемых агентов',
+        'Частные проекты',
+        'Премиум-модели ИИ',
+        'Поддержка сообщества',
       ],
       stripePriceId: config.SUBSCRIPTION_TIERS.TIER_2_20.priceId,
       yearlyStripePriceId: config.SUBSCRIPTION_TIERS.TIER_2_20_YEARLY.priceId,
@@ -159,23 +159,23 @@ export const siteConfig = {
       upgradePlans: [],
     },
     {
-      name: 'Pro',
+      name: 'Про',
       price: '$50',
       yearlyPrice: '$510',
       originalYearlyPrice: '$600',
       discountPercentage: 15,
-      description: 'Ideal for growing businesses',
-      buttonText: 'Start Free',
+      description: 'Идеально для растущего бизнеса',
+      buttonText: 'Начать бесплатно',
       buttonColor: 'bg-secondary text-white',
       isPopular: false,
       /** @deprecated */
       hours: '6 hours',
       features: [
-        '$50 AI token credits/month',
-        '20 custom agents',
-        'Private projects',
-        'Premium AI Models',
-        'Community support',
+        '$50 кредитов на ИИ-токены в месяц',
+        '20 настраиваемых агентов',
+        'Частные проекты',
+        'Премиум-модели ИИ',
+        'Поддержка сообщества',
       ],
       stripePriceId: config.SUBSCRIPTION_TIERS.TIER_6_50.priceId,
       yearlyStripePriceId: config.SUBSCRIPTION_TIERS.TIER_6_50_YEARLY.priceId,
@@ -183,22 +183,22 @@ export const siteConfig = {
       upgradePlans: [],
     },
     {
-      name: 'Business',
+      name: 'Бизнес',
       price: '$100',
       yearlyPrice: '$1020',
       originalYearlyPrice: '$1200',
       discountPercentage: 15,
-      description: 'For established businesses',
-      buttonText: 'Start Free',
+      description: 'Для устоявшегося бизнеса',
+      buttonText: 'Начать бесплатно',
       buttonColor: 'bg-secondary text-white',
       isPopular: false,
       hours: '12 hours',
       features: [
-        '$100 AI token credits/month',
-        '20 custom agents',
-        'Private projects',
-        'Premium AI Models',
-        'Priority support',
+        '$100 кредитов на ИИ-токены в месяц',
+        '20 настраиваемых агентов',
+        'Частные проекты',
+        'Премиум-модели ИИ',
+        'Приоритетная поддержка',
       ],
       stripePriceId: config.SUBSCRIPTION_TIERS.TIER_12_100.priceId,
       yearlyStripePriceId: config.SUBSCRIPTION_TIERS.TIER_12_100_YEARLY.priceId,
@@ -206,22 +206,22 @@ export const siteConfig = {
       hidden: true,
     },
     {
-      name: 'Ultra',
+      name: 'Ультра',
       price: '$200',
       yearlyPrice: '$2040',
       originalYearlyPrice: '$2400',
       discountPercentage: 15,
-      description: 'For power users',
-      buttonText: 'Start Free',
+      description: 'Для опытных пользователей',
+      buttonText: 'Начать бесплатно',
       buttonColor: 'bg-secondary text-white',
       isPopular: false,
       hours: '25 hours',
       features: [
-        '$200 AI token credits/month',
-        '100 custom agents',
-        'Private projects',
-        'Premium AI Models',
-        'Priority support',
+        '$200 кредитов на ИИ-токены в месяц',
+        '100 настраиваемых агентов',
+        'Частные проекты',
+        'Премиум-модели ИИ',
+        'Приоритетная поддержка',
       ],
       stripePriceId: config.SUBSCRIPTION_TIERS.TIER_25_200.priceId,
       yearlyStripePriceId: config.SUBSCRIPTION_TIERS.TIER_25_200_YEARLY.priceId,
@@ -229,22 +229,22 @@ export const siteConfig = {
       upgradePlans: [],
     },
     {
-      name: 'Enterprise',
+      name: 'Крупный бизнес',
       price: '$400',
       yearlyPrice: '$4080',
       originalYearlyPrice: '$4800',
       discountPercentage: 15,
-      description: 'For large teams',
-      buttonText: 'Start Free',
+      description: 'Для больших команд',
+      buttonText: 'Начать бесплатно',
       buttonColor: 'bg-secondary text-white',
       isPopular: false,
       hours: '50 hours',
       features: [
-        '$400 AI token credits/month',
-        'Private projects',
-        'Premium AI Models',
-        'Priority support',
-        'Custom integrations',
+        '$400 кредитов на ИИ-токены в месяц',
+        'Частные проекты',
+        'Премиум-модели ИИ',
+        'Приоритетная поддержка',
+        'Пользовательские интеграции',
       ],
       stripePriceId: config.SUBSCRIPTION_TIERS.TIER_50_400.priceId,
       yearlyStripePriceId: config.SUBSCRIPTION_TIERS.TIER_50_400_YEARLY.priceId,
@@ -252,23 +252,23 @@ export const siteConfig = {
       hidden: true,
     },
     {
-      name: 'Scale',
+      name: 'Масштаб',
       price: '$800',
       yearlyPrice: '$8160',
       originalYearlyPrice: '$9600',
       discountPercentage: 15,
-      description: 'For scaling teams',
-      buttonText: 'Start Free',
+      description: 'Для масштабируемых команд',
+      buttonText: 'Начать бесплатно',
       buttonColor: 'bg-secondary text-white',
       isPopular: false,
       hours: '125 hours',
       features: [
-        '$800 AI token credits/month',
-        'Private projects',
-        'Premium AI Models',
-        'Priority support',
-        'Custom integrations',
-        'Dedicated account manager',
+        '$800 кредитов на ИИ-токены в месяц',
+        'Частные проекты',
+        'Премиум-модели ИИ',
+        'Приоритетная поддержка',
+        'Пользовательские интеграции',
+        'Выделенный менеджер по работе с клиентами',
       ],
       stripePriceId: config.SUBSCRIPTION_TIERS.TIER_125_800.priceId,
       yearlyStripePriceId: config.SUBSCRIPTION_TIERS.TIER_125_800_YEARLY.priceId,
@@ -276,24 +276,24 @@ export const siteConfig = {
       hidden: true,
     },
     {
-      name: 'Max',
+      name: 'Макс',
       price: '$1000',
       yearlyPrice: '$10200',
       originalYearlyPrice: '$12000',
       discountPercentage: 15,
-      description: 'Maximum performance',
-      buttonText: 'Start Free',
+      description: 'Максимальная производительность',
+      buttonText: 'Начать бесплатно',
       buttonColor: 'bg-secondary text-white',
       isPopular: false,
       hours: '200 hours',
       features: [
-        '$1000 AI token credits/month',
-        'Private projects',
-        'Premium AI Models',
-        'Priority support',
-        'Custom integrations',
-        'Dedicated account manager',
-        'Custom deployment',
+        '$1000 кредитов на ИИ-токены в месяц',
+        'Частные проекты',
+        'Премиум-модели ИИ',
+        'Приоритетная поддержка',
+        'Пользовательские интеграции',
+        'Выделенный менеджер по работе с клиентами',
+        'Пользовательское развертывание',
       ],
       stripePriceId: config.SUBSCRIPTION_TIERS.TIER_200_1000.priceId,
       yearlyStripePriceId: config.SUBSCRIPTION_TIERS.TIER_200_1000_YEARLY.priceId,
@@ -503,62 +503,62 @@ export const siteConfig = {
     ],
   },
   featureSection: {
-    title: 'How MEVO Works',
+    title: 'Как работает КЛИК',
     description:
-      'Discover how MEVO transforms your commands into action in four easy steps',
+      'Узнайте, как КЛИК превращает ваши команды в действия за четыре простых шага',
     items: [
       {
         id: 1,
-        title: 'Request an Action',
+        title: 'Отправьте запрос',
         content:
-          'Speak or type your command—let MEVO capture your intent. Your request instantly sets the process in motion.',
+          'Произнесите или введите свою команду — позвольте КЛИК уловить ваше намерение. Ваш запрос мгновенно запускает процесс.',
         image:
           '/screenshots/Screenshot1.png',
       },
       {
         id: 2,
-        title: 'AI Understanding & Planning',
+        title: 'Понимание и планирование ИИ',
         content:
-          'MEVO analyzes your request, understands the context, and develops a structured plan to complete the task efficiently.',
+          'КЛИК анализирует ваш запрос, понимает контекст и разрабатывает структурированный план для эффективного выполнения задачи.',
         image:
           '/screenshots/Screenshot2.png',
       },
       {
         id: 3,
-        title: 'Autonomous Execution',
+        title: 'Автономное выполнение',
         content:
-          'Using its capabilities and integrations, MEVO executes the task independently, handling any complexities along the way.',
+          'Используя свои возможности и интеграции, КЛИК выполняет задачу самостоятельно, справляясь с любыми сложностями на пути.',
         image:
           '/screenshots/Screenshot3.png',
       },
       {
         id: 4,
-        title: 'Results & Learning',
+        title: 'Результаты и обучение',
         content:
-          'MEVO delivers results and learns from each interaction, continuously improving its performance to better serve your needs.',
+          'КЛИК предоставляет результаты и учится на каждом взаимодействии, постоянно улучшая свою производительность, чтобы лучше соответствовать вашим потребностям.',
         image:
           '/screenshots/Screenshot4.png',
       },
     ],
   },
   bentoSection: {
-    title: 'Empower Your Workflow with MEVO',
+    title: 'Усильте свой рабочий процесс с помощью КЛИК',
     description:
-      'Let MEVO act on your behalf with advanced AI capabilities, seamless integrations, and autonomous task execution.',
+      'Позвольте КЛИК действовать от вашего имени с расширенными возможностями ИИ, бесшовными интеграциями и автономным выполнением задач.',
     items: [
       {
         id: 1,
         content: <FirstBentoAnimation />,
-        title: 'Autonomous Task Execution',
+        title: 'Автономное выполнение задач',
         description:
-          'Experience true automation with MEVO. Ask your AI Agent to complete tasks, research information, and handle complex workflows with minimal supervision.',
+          'Испытайте настоящую автоматизацию с КЛИК. Попросите своего AI-агента выполнять задачи, исследовать информацию и обрабатывать сложные рабочие процессы с минимальным контролем.',
       },
       {
         id: 2,
         content: <SecondBentoAnimation />,
-        title: 'Seamless Integrations',
+        title: 'Бесшовные интеграции',
         description:
-          'Connect MEVO to your existing tools for a unified workflow. Boost productivity through AI-powered interconnected systems.',
+          'Подключите КЛИК к вашим существующим инструментам для единого рабочего процесса. Повысьте производительность с помощью взаимосвязанных систем на базе AI.',
       },
       {
         id: 3,
@@ -570,45 +570,45 @@ export const siteConfig = {
             ]}
           />
         ),
-        title: 'Intelligent Data Analysis',
+        title: 'Интеллектуальный анализ данных',
         description:
-          "Transform raw data into actionable insights in seconds. Make better decisions with MEVO's real-time, adaptive intelligence.",
+          "Превращайте необработанные данные в полезные идеи за считанные секунды. Принимайте более обоснованные решения с помощью адаптивного интеллекта КЛИК в реальном времени.",
       },
       {
         id: 4,
         content: <FourthBentoAnimation once={false} />,
-        title: 'Complete Customization',
+        title: 'Полная кастомизация',
         description:
-          'Tailor MEVO to your specific needs. As a flexible solution, you have full control over its capabilities, integrations, and implementation.',
+          'Настройте КЛИК под свои конкретные потребности. Как гибкое решение, вы имеете полный контроль над его возможностями, интеграциями и внедрением.',
       },
     ],
   },
   benefits: [
     {
       id: 1,
-      text: "Automate everyday tasks with MEVO's powerful AI capabilities.",
+      text: "Автоматизируйте повседневные задачи с помощью мощных возможностей AI КЛИК.",
       image: '/Device-6.png',
     },
     {
       id: 2,
-      text: 'Increase productivity with autonomous task completion.',
+      text: 'Повышайте производительность за счет автономного выполнения задач.',
       image: '/Device-7.png',
     },
     {
       id: 3,
-      text: 'Improve focus on high-value work as MEVO handles the routine.',
+      text: 'Сосредоточьтесь на более ценной работе, пока КЛИК занимается рутиной.',
       image: '/Device-8.png',
     },
     {
       id: 4,
-      text: 'Access cutting-edge AI as a reliable, transparent solution.',
+      text: 'Получите доступ к передовым технологиям ИИ в виде надежного и прозрачного решения.',
       image: '/Device-1.png',
     },
   ],
   growthSection: {
-    title: 'Secure & Reliable',
+    title: 'Безопасно и надежно',
     description:
-      'Where advanced security meets complete transparency—designed to protect your data while providing full access to the code.',
+      'Где передовая безопасность сочетается с полной прозрачностью — разработано для защиты ваших данных при предоставлении полного доступа к коду.',
     items: [
       {
         id: 1,
@@ -888,9 +888,9 @@ export const siteConfig = {
           </div>
         ),
 
-        title: 'Open Source Security',
+        title: 'Безопасность с открытым исходным кодом',
         description:
-          'Benefit from the security of open source code that thousands of eyes can review, audit, and improve.',
+          'Воспользуйтесь безопасностью открытого исходного кода, который могут просматривать, проверять и улучшать тысячи людей.',
       },
       {
         id: 2,
@@ -900,7 +900,7 @@ export const siteConfig = {
           </div>
         ),
 
-        title: 'Community Powered',
+        title: 'Поддержка сообщества',
         description:
           "Join a thriving community of developers and users continuously enhancing and expanding MEVO's capabilities.",
       },
@@ -908,10 +908,10 @@ export const siteConfig = {
   },
   quoteSection: {
     quote:
-      'MEVO has transformed how we approach everyday tasks. The level of automation it provides, combined with its open source nature, makes it an invaluable tool for our entire organization.',
+      'КЛИК изменил наш подход к повседневным задачам. Уровень автоматизации, который он обеспечивает, в сочетании с его открытым исходным кодом делает его бесценным инструментом для всей нашей организации.',
     author: {
-      name: 'Alex Johnson',
-      role: 'CTO, Innovatech',
+      name: 'Алекс Джонсон',
+      role: 'Технический директор, Innovatech',
       image: 'https://randomuser.me/api/portraits/men/91.jpg',
     },
   },
@@ -1181,73 +1181,73 @@ export const siteConfig = {
     },
   ],
   faqSection: {
-    title: 'Frequently Asked Questions',
+    title: 'Часто задаваемые вопросы',
     description:
-      "Answers to common questions about MEVO and its capabilities. If you have any other questions, please don't hesitate to contact us.",
+      "Ответы на часто задаваемые вопросы о КЛИК и его возможностях. Если у вас есть другие вопросы, пожалуйста, не стесняйтесь обращаться к нам.",
     faQitems: [
       {
         id: 1,
-        question: 'What is an AI Worker?',
+        question: 'Что такое ИИ-сотрудник?',
         answer:
-          'An AI Worker is an intelligent software program that can perform tasks autonomously, learn from interactions, and make decisions to help achieve specific goals. It combines artificial intelligence and machine learning to provide personalized assistance and automation.',
+          'ИИ-сотрудник — это интеллектуальная программная программа, которая может автономно выполнять задачи, учиться на взаимодействиях и принимать решения для достижения определенных целей. Она сочетает в себе искусственный интеллект и машинное обучение для предоставления персонализированной помощи и автоматизации.',
       },
       {
         id: 2,
-        question: 'How does MEVO work?',
+        question: 'Как работает КЛИК?',
         answer:
-          'MEVO works by analyzing your requirements, leveraging advanced AI algorithms to understand context, and executing tasks based on your instructions. It can integrate with your workflow, learn from feedback, and continuously improve its performance.',
+          'КЛИК работает, анализируя ваши требования, используя передовые алгоритмы AI для понимания контекста и выполняя задачи на основе ваших инструкций. Он может интегрироваться в ваш рабочий процесс, учиться на отзывах и постоянно улучшать свою производительность.',
       },
       {
         id: 3,
-        question: 'Is MEVO really free?',
+        question: 'КЛИК действительно бесплатный?',
         answer:
-          'Yes, MEVO is completely free and open source. We believe in democratizing AI technology and making it accessible to everyone. You can use it, modify it, and contribute to its development without any cost.',
+          'Да, КЛИК полностью бесплатный и с открытым исходным кодом. Мы верим в демократизацию технологий AI и делаем их доступными для всех. Вы можете использовать его, изменять и вносить свой вклад в его развитие без каких-либо затрат.',
       },
       {
         id: 4,
-        question: 'Can I integrate MEVO with my existing tools?',
+        question: 'Могу ли я интегрировать КЛИК с моими существующими инструментами?',
         answer:
-          'Yes, MEVO is designed to be highly compatible with popular tools and platforms. We offer APIs and pre-built integrations for seamless connection with your existing workflow tools and systems.',
+          'Да, КЛИК разработан таким образом, чтобы быть в высокой степени совместимым с популярными инструментами и платформами. Мы предлагаем API и готовые интеграции для бесшовного подключения к вашим существующим инструментам и системам рабочего процесса.',
       },
       {
         id: 5,
-        question: 'How can I contribute to MEVO?',
+        question: 'Как я могу внести свой вклад в КЛИК?',
         answer:
-          'You can contribute to MEVO by submitting pull requests on GitHub, reporting bugs, suggesting new features, or helping with documentation. Join our Discord community to connect with other contributors and Hire MEVO.',
+          'Вы можете внести свой вклад в КЛИК, отправляя запросы на слияние на GitHub, сообщая об ошибках, предлагая новые функции или помогая с документацией. Присоединяйтесь к нашему сообществу в Discord, чтобы общаться с другими участниками и нанимать КЛИК.',
       },
       {
         id: 6,
-        question: 'How does MEVO save me time?',
+        question: 'Как КЛИК экономит мое время?',
         answer:
-          'MEVO automates repetitive tasks, streamlines workflows, and provides quick solutions to common challenges. This automation and efficiency can save hours of manual work, allowing you to focus on more strategic activities.',
+          'КЛИК автоматизирует повторяющиеся задачи, оптимизирует рабочие процессы и предоставляет быстрые решения для общих проблем. Эта автоматизация и эффективность могут сэкономить часы ручной работы, позволяя вам сосредоточиться на более стратегических задачах.',
       },
     ],
   },
   ctaSection: {
     id: 'cta',
-    title: 'Launch Your First AI Worker Today',
+    title: 'Запустите свой ИИ прямо сейчас',
     backgroundImage: '/holo.png',
     button: {
-      text: 'Get Started for free',
+      text: 'Начать бесплатно',
       href: '/auth',
     },
-    subtext: 'Build, manage and train your AI Workforce',
+    subtext: 'Создавайте, управляйте и обучайте своих ИИ-сотрудников',
   },
   footerLinks: [
     {
-      title: 'MEVO',
+      title: 'КЛИК',
       links: [
-        { id: 1, title: 'About', url: 'https://mevoagent.com' },
-        { id: 3, title: 'Contact', url: 'mailto:support@mevoagent.com' },
-        { id: 4, title: 'Careers', url: 'https://mevoagent.com/careers' },
+        { id: 1, title: 'О нас', url: 'https://mevoagent.com' },
+        { id: 3, title: 'Контакты', url: 'mailto:support@mevoagent.com' },
+        { id: 4, title: 'Карьера', url: 'https://mevoagent.com/careers' },
       ],
     },
     {
-      title: 'Resources',
+      title: 'Ресурсы',
       links: [
         {
           id: 5,
-          title: 'Documentation',
+          title: 'Документация',
           url: 'https://github.com/',
         },
         { id: 7, title: 'Discord', url: '' },
@@ -1255,21 +1255,21 @@ export const siteConfig = {
       ],
     },
     {
-      title: 'Legal',
+      title: 'Юридическая информация',
       links: [
         {
           id: 9,
-          title: 'Privacy Policy',
+          title: 'Политика конфиденциальности',
           url: 'https://mevoagent.com/legal?tab=privacy',
         },
         {
           id: 10,
-          title: 'Terms of Service',
+          title: 'Условия предоставления услуг',
               url: 'https://mevoagent.com/legal?tab=terms',
         },
         {
           id: 11,
-          title: 'License Apache 2.0',
+          title: 'Лицензия Apache 2.0',
           url: 'https://github.com/mevoagent/mevoagent/blob/main/LICENSE',
         },
       ],
@@ -1278,9 +1278,9 @@ export const siteConfig = {
   useCases: [
     {
       id: 'patient-scheduling',
-      title: 'Patient Scheduling and Reminders',
+      title: 'Запись и напоминания для пациентов',
       description:
-        'Automate appointment scheduling, send intelligent reminders, and handle cancellations or rescheduling requests through natural language processing.',
+        'Автоматизируйте запись на прием, отправляйте умные напоминания и обрабатывайте отмены или запросы на перенос с помощью обработки естественного языка.',
       category: 'research',
       featured: true,
       icon: (
@@ -1320,9 +1320,9 @@ export const siteConfig = {
     },
     {
       id: 'insurance-verification',
-      title: 'Insurance Prior Authorization',
+      title: 'Предварительная авторизация страховки',
       description:
-        'Streamline insurance verification processes and automate prior authorization requests using intelligent document processing and real-time payer integration.',
+        'Оптимизируйте процессы проверки страховки и автоматизируйте запросы на предварительную авторизацию с использованием интеллектуальной обработки документов и интеграции с плательщиками в реальном времени.',
       category: 'healthcare',
       featured: true,
       icon: (
@@ -1355,9 +1355,9 @@ export const siteConfig = {
     },
     {
       id: 'medical-coding',
-      title: 'Medical Coding and Billing Audit',
+      title: 'Аудит медицинского кодирования и выставления счетов',
       description:
-        'Automatically assign ICD-10 and CPT codes from clinical documentation while conducting real-time billing audits to ensure accuracy and compliance.',
+        'Автоматически назначайте коды ICD-10 и CPT из клинической документации, проводя аудит выставления счетов в реальном времени для обеспечения точности и соответствия.',
       category: 'healthcare',
       featured: true,
       icon: (
@@ -1397,9 +1397,9 @@ export const siteConfig = {
     },
     {
       id: 'patient-ehr-analysis',
-      title: 'Patients Recovery EHR Analysis',
+      title: 'Анализ электронных медицинских карт для восстановления пациентов',
       description:
-        "Identify patterns, track treatment efficacy, and generate comprehensive clinical insights for improved care coordination and decision support.",
+        "Выявляйте закономерности, отслеживайте эффективность лечения и создавайте всесторонние клинические аналитические отчеты для улучшения координации ухода и поддержки принятия решений.",
       category: 'healthcare',
       featured: true,
       icon: (
@@ -1446,9 +1446,9 @@ export const siteConfig = {
     },
     {
       id: 'post-op-analysis',
-      title: 'Post-Op Recovery Analysis',
+      title: 'Анализ послеоперационного восстановления',
       description:
-        'Compare post-op recovery metrics against 100 similar cases → Flag any protocol deviations',
+        'Сравните показатели послеоперационного восстановления со 100 аналогичными случаями → Отметьте любые отклонения от протокола',
       category: 'healthcare',
       featured: true,
       icon: (
@@ -1488,9 +1488,9 @@ export const siteConfig = {
     },
     {
       id: 'sepsis-guidelines',
-      title: 'Create Pre-op Guidelines Handout',
+      title: 'Создание раздаточного материала по предоперационным рекомендациям',
       description:
-        "Compile latest pre-op guidelines from the past 6 months → Create clinical handout highlighting pre-op workflow impacts and protocol changes.",
+        "Скомпилируйте последние предоперационные рекомендации за последние 6 месяцев → Создайте клинический раздаточный материал, освещающий влияние на предоперационный рабочий процесс и изменения в протоколах.",
       category: 'healthcare',
       featured: true,
       icon: (
@@ -1530,9 +1530,9 @@ export const siteConfig = {
     },
     {
       id: 'alzheimers-biomarkers',
-      title: 'Under-Researched Biomarkers',
+      title: 'Недостаточно изученные биомаркеры',
       description:
-        'Identify top 5 under-researched Alzheimer\'s biomarkers since 2020 → PubMed analysis. Generate a comprehensive report highlighting research gaps and potential clinical applications.',
+        'Определите 5 самых недостаточно изученных биомаркеров болезни Альцгеймера с 2020 года → Анализ PubMed. Создайте исчерпывающий отчет, освещающий пробелы в исследованиях и потенциальные клинические применения.',
       category: 'healthcare',
       featured: true,
       icon: (
@@ -1572,9 +1572,9 @@ export const siteConfig = {
     },
     {
       id: 'nih-grant-justification',
-      title: 'NIH Grant Justification Section',
+      title: 'Раздел обоснования для гранта NIH',
       description:
-        'Generate a comprehensive justification section analyzing success rates of similar Parkinson\'s research proposals for NIH grant applications. Include historical funding trends, priority areas, and strategic positioning recommendations.',
+        'Создайте исчерпывающий раздел обоснования, анализирующий показатели успешности аналогичных исследовательских предложений по болезни Паркинсона для заявок на гранты NIH. Включите исторические тенденции финансирования, приоритетные области и рекомендации по стратегическому позиционированию.',
       category: 'healthcare',
       featured: true,
       icon: (
@@ -1614,9 +1614,9 @@ export const siteConfig = {
     },
     {
       id: 'er-admissions-forecast',
-      title: 'Predict Q3 ER Admissions',
+      title: 'Прогноз поступлений в отделение неотложной помощи на 3 квартал',
       description:
-        "Analyze historical admission data and local flu trends to generate staffing recommendations for the upcoming quarter's emergency room patient volume.",
+        "Проанализируйте исторические данные о поступлениях и местные тенденции гриппа для выработки рекомендаций по кадровому обеспечению для прогнозируемого объема пациентов в отделении неотложной помощи на предстоящий квартал.",
       category: 'healthcare',
       featured: true,
       icon: (
@@ -1663,9 +1663,9 @@ export const siteConfig = {
     },
     {
       id: 'medicare-aco-compliance',
-      title: 'Medicare ACO Renewal Compliance',
+      title: 'Соответствие требованиям для продления Medicare ACO',
       description:
-        'Generate a comprehensive compliance readiness report for Medicare ACO renewal, analyzing current documentation gaps and producing an actionable priority list with implementation timelines.',
+        'Создайте исчерпывающий отчет о готовности к соблюдению требований для продления Medicare ACO, проанализировав текущие пробелы в документации и составив приоритетный список действий с графиком реализации.',
       category: 'healthcare',
       featured: true,
       icon: (
@@ -1712,9 +1712,9 @@ export const siteConfig = {
     },
     {
       id: 'surgical-benchmarks',
-      title: 'Surgical Outcomes Benchmarks',
+      title: 'Сравнительные показатели хирургических результатов',
       description:
-        'Compare surgical outcomes against top 10 US hospitals, analyze performance gaps, and create a comprehensive quality improvement roadmap with actionable steps to enhance surgical standards and patient outcomes.',
+        'Сравните хирургические результаты с 10 лучшими больницами США, проанализируйте разрывы в производительности и создайте комплексную дорожную карту по улучшению качества с практическими шагами для повышения хирургических стандартов и результатов лечения пациентов.',
       category: 'healthcare',
       featured: true,
       icon: (
@@ -1747,9 +1747,9 @@ export const siteConfig = {
     },
     {
       id: 'covid-dashboard',
-      title: 'Dashboard: Current Capacity vs Surge',
+      title: 'Панель мониторинга: текущая мощность в сравнении с всплеском',
       description:
-        'Interactive dashboard that compares current hospital capacity with CDC COVID surge prediction models, enabling healthcare administrators to visualize resource allocation needs and prepare for potential patient influxes.',
+        'Интерактивная панель мониторинга, которая сравнивает текущую пропускную способность больниц с моделями прогнозирования всплесков COVID от CDC, позволяя администраторам визуализировать потребности в распределении ресурсов и готовиться к потенциальному притоку пациентов.',
       category: 'healthcare',
       featured: true,
       icon: (

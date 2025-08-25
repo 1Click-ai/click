@@ -37,39 +37,39 @@ const CustomHeroSection = () => {
             
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20">
               <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-primary">Enterprise Implementation Services</span>
+              <span className="text-sm font-medium text-primary">Услуги по внедрению решений для бизнеса</span>
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium tracking-tighter text-balance text-center">
-              <span className="text-primary">Enterprise AI Workers.</span>
+              <span className="text-primary">ИИ-работники для бизнеса.</span>
               <br />
-              <span className="text-secondary">Delivered in days.</span>
+              <span className="text-secondary">Внедрение за дни.</span>
             </h1>
             
             <p className="text-lg md:text-xl text-center text-muted-foreground font-medium text-balance leading-relaxed tracking-tight max-w-3xl">
-              Skip the learning curve. Our AI specialists design, develop and deploy enterprise-grade AI workers that integrate seamlessly with your operations.
+              Пропустите кривую обучения. Наши ИИ-специалисты проектируют, разрабатывают и внедряют корпоративные ИИ-работники, которые бесшовно интегрируются с вашими операциями.
             </p>
             
             <div className="flex flex-col items-center gap-6 pt-6">
               <KortixEnterpriseModal>
                 <Button size="lg">
                   <Calendar className="w-4 h-4 mr-2" />
-                  Schedule Strategy Call
+                  Запланировать стратегическую встречу
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </KortixEnterpriseModal>
               <div className="flex flex-col sm:flex-row items-center gap-4 text-sm text-muted-foreground">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-primary"></div>
-                  <span>Free consultation</span>
+                  <span>Бесплатная консультация</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-primary"></div>
-                  <span>Custom solution design</span>
+                  <span>Индивидуальный дизайн решения</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-primary"></div>
-                  <span>Tailored pricing</span>
+                  <span>Персонализированные цены</span>
                 </div>
               </div>
             </div>
@@ -89,10 +89,10 @@ const ValuePropSection = () => {
         <div className="max-w-6xl mx-auto border-l border-r border-border">
           <SectionHeader>
             <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-center text-balance pb-1">
-              When Standard Solutions Fall Short
+              Когда стандартные решения не подходят
             </h2>
             <p className="text-muted-foreground text-center text-balance font-medium">
-              Professional implementation services designed for organizations with unique requirements and mission-critical automation needs.
+              Профессиональные услуги внедрения, разработанные для организаций с уникальными требованиями и критически важными потребностями в автоматизации.
             </p>
           </SectionHeader>
 
@@ -103,9 +103,9 @@ const ValuePropSection = () => {
                   <Clock className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-3">Accelerate Time-to-Value</h3>
+                  <h3 className="text-xl font-semibold mb-3">Ускорение времени до ценности</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Bypass months of development cycles. Our proven methodology delivers enterprise-ready AI workers in a fraction of the time, letting you focus on strategy instead of implementation.
+                    Избегайте месяцев циклов разработки. Наша проверенная методология поставляет готовых к работе ИИ-работников за доли времени, позволяя вам сосредоточиться на стратегии вместо внедрения.
                   </p>
                 </div>
               </div>
@@ -117,9 +117,9 @@ const ValuePropSection = () => {
                   <Settings className="w-6 h-6 text-secondary" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-3">Enterprise Integration</h3>
+                  <h3 className="text-xl font-semibold mb-3">Корпоративная интеграция</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Designed for sophisticated business processes requiring seamless integration with legacy systems, compliance frameworks, and industry-specific requirements.
+                    Разработано для сложных бизнес-процессов, требующих бесшовной интеграции с унаследованными системами, фреймворками соответствия и отраслевыми требованиями.
                   </p>
                 </div>
               </div>
@@ -136,21 +136,21 @@ const ProcessSection = () => {
   const steps = [
     {
       icon: <Users className="w-8 h-8" />,
-      title: "Strategic Analysis",
-      description: "Solution architects conduct comprehensive business analysis, workflow mapping, and technical requirements gathering to design optimal AI worker architecture for your organization.",
-      phase: "Discovery"
+      title: "Стратегический анализ",
+      description: "Архитекторы решений проводят комплексный бизнес-анализ, картирование рабочих процессов и сбор технических требований для проектирования оптимальной архитектуры ИИ-работников для вашей организации.",
+      phase: "Исследование"
     },
     {
       icon: <Zap className="w-8 h-8" />,
-      title: "Engineering Excellence", 
-      description: "Full-stack development with enterprise security, scalability design, comprehensive testing, performance optimization, and seamless integration with existing systems.",
-      phase: "Build"
+      title: "Инженерное совершенство", 
+      description: "Полноценная разработка с корпоративной безопасностью, проектированием масштабируемости, комплексным тестированием, оптимизацией производительности и бесшовной интеграцией с существующими системами.",
+      phase: "Создание"
     },
     {
       icon: <Shield className="w-8 h-8" />,
-      title: "Enterprise Support",
-      description: "Dedicated success management, comprehensive training programs, continuous performance monitoring, optimization services, and satisfaction guarantee with full accountability.",
-      phase: "Scale"
+      title: "Корпоративная поддержка",
+      description: "Выделенное управление успехом, комплексные программы обучения, непрерывный мониторинг производительности, услуги оптимизации и гарантия удовлетворения с полной подотчетностью.",
+      phase: "Масштабирование"
     }
   ];
 
@@ -160,10 +160,10 @@ const ProcessSection = () => {
         <div className="max-w-6xl mx-auto border-l border-r border-border">
           <SectionHeader>
             <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-center text-balance pb-1">
-              Our Implementation Methodology
+              Наша методология внедрения
             </h2>
             <p className="text-muted-foreground text-center text-balance font-medium">
-              A proven three-phase approach that transforms your vision into production-ready AI workers
+              Проверенный трехфазный подход, который превращает ваше видение в готовых к производству ИИ-работников
             </p>
           </SectionHeader>
 
@@ -206,12 +206,12 @@ const ProcessSection = () => {
 // Benefits Section
 const BenefitsSection = () => {
   const benefits = [
-    "Dedicated solution architect and technical lead for your project",
-    "Enterprise-grade AI worker design with scalability considerations",
-    "White-glove support with dedicated success manager", 
-    "Comprehensive team training and knowledge transfer",
-    "Quarterly business reviews and performance optimization",
-    "Deep integration with existing technology stack and workflows"
+    "Выделенный архитектор решений и технический руководитель для вашего проекта",
+    "Дизайн ИИ-работников корпоративного уровня с учетом масштабируемости",
+    "Поддержка белых перчаток с выделенным менеджером успеха", 
+    "Комплексное обучение команды и передача знаний",
+    "Ежеквартальные бизнес-обзоры и оптимизация производительности",
+    "Глубокая интеграция с существующим технологическим стеком и рабочими процессами"
   ];
 
   return (
@@ -220,10 +220,10 @@ const BenefitsSection = () => {
         <div className="max-w-6xl mx-auto border-l border-r border-border">
           <SectionHeader>
             <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-center text-balance pb-1">
-              Enterprise-Grade Implementation
+              Внедрение корпоративного уровня
             </h2>
             <p className="text-muted-foreground text-center text-balance font-medium">
-              Premium service tier with dedicated resources and tailored solutions for complex organizational needs
+              Премиальный уровень сервиса с выделенными ресурсами и индивидуальными решениями для сложных организационных потребностей
             </p>
           </SectionHeader>
 
@@ -287,10 +287,10 @@ const TestimonialsSection = () => {
         <div className="max-w-6xl mx-auto border-l border-r border-border">
           <SectionHeader>
             <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-center text-balance pb-1">
-              Client Success Stories
+              Истории успеха клиентов
             </h2>
             <p className="text-muted-foreground text-center text-balance font-medium">
-              Organizations that have transformed their operations with our enterprise implementation services
+              Организации, которые трансформировали свои операции с помощью наших услуг по внедрению решений для бизнеса
             </p>
           </SectionHeader>
 
@@ -344,10 +344,10 @@ const SelfServiceSection = () => {
         <div className="max-w-6xl mx-auto border-l border-r border-border">
           <SectionHeader>
             <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-center text-balance pb-1">
-              Self-Service Alternative
+              Альтернатива самообслуживания
             </h2>
             <p className="text-muted-foreground text-center text-balance font-medium">
-              Explore our platform independently with comprehensive resources and community support
+              Изучайте нашу платформу самостоятельно с комплексными ресурсами и поддержкой сообщества
             </p>
           </SectionHeader>
 
@@ -357,12 +357,12 @@ const SelfServiceSection = () => {
                 <TrendingUp className="w-6 h-6 text-primary" />
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-3">Learning Center</h3>
+                <h3 className="text-xl font-semibold mb-3">Центр обучения</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  Master AI worker development through structured courses, detailed documentation, and hands-on tutorials.
+                  Освойте разработку ИИ-работников через структурированные курсы, подробную документацию и практические туториалы.
                 </p>
                 <Button variant="outline" className="rounded-full">
-                  Start Learning
+                  Начать обучение
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </div>
@@ -373,12 +373,12 @@ const SelfServiceSection = () => {
                 <Headphones className="w-6 h-6 text-secondary" />
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-3">Developer Community</h3>
+                <h3 className="text-xl font-semibold mb-3">Сообщество разработчиков</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  Connect with engineers, solution architects, and other professionals building enterprise AI solutions.
+                  Общайтесь с инженерами, архитекторами решений и другими профессионалами, создающими корпоративные ИИ-решения.
                 </p>
                 <Button variant="outline" className="rounded-full">
-                  Join Community
+                  Присоединиться к сообществу
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </div>
@@ -398,10 +398,10 @@ const FinalCTASection = () => {
         <div className="max-w-6xl mx-auto border-l border-r border-border">
           <SectionHeader>
             <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-center text-balance pb-1">
-              Ready to Transform Your Operations?
+              Готовы трансформировать ваши операции?
             </h2>
             <p className="text-muted-foreground text-center text-balance font-medium">
-              Let's discuss your specific requirements and design a custom AI implementation strategy for your organization.
+              Давайте обсудим ваши конкретные требования и разработаем индивидуальную стратегию внедрения ИИ для вашей организации.
             </p>
           </SectionHeader>
 
@@ -412,25 +412,25 @@ const FinalCTASection = () => {
                   <KortixEnterpriseModal>
                     <Button size="lg">
                       <Calendar className="w-4 h-4 mr-2" />
-                      Book Your Strategy Session
+                      Забронировать стратегическую сессию
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </KortixEnterpriseModal>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center max-w-2xl mx-auto">
                     <div className="flex flex-col items-center gap-2 p-4 rounded-lg bg-accent/20">
                       <Shield className="w-6 h-6 text-primary" />
-                      <span className="text-sm font-medium">100% Satisfaction</span>
-                      <span className="text-xs text-muted-foreground">Guarantee</span>
+                      <span className="text-sm font-medium">100% удовлетворение</span>
+                      <span className="text-xs text-muted-foreground">Гарантия</span>
                     </div>
                     <div className="flex flex-col items-center gap-2 p-4 rounded-lg bg-accent/20">
                       <Users className="w-6 h-6 text-primary" />
-                      <span className="text-sm font-medium">Enterprise Support</span>
-                      <span className="text-xs text-muted-foreground">Dedicated team</span>
+                      <span className="text-sm font-medium">Корпоративная поддержка</span>
+                      <span className="text-xs text-muted-foreground">Выделенная команда</span>
                     </div>
                     <div className="flex flex-col items-center gap-2 p-4 rounded-lg bg-accent/20">
                       <Settings className="w-6 h-6 text-primary" />
-                      <span className="text-sm font-medium">Custom Pricing</span>
-                      <span className="text-xs text-muted-foreground">Tailored to needs</span>
+                      <span className="text-sm font-medium">Индивидуальные цены</span>
+                      <span className="text-xs text-muted-foreground">Под ваши потребности</span>
                     </div>
                   </div>
                 </div>
