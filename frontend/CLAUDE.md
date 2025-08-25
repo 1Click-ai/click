@@ -22,7 +22,7 @@ npm install         # Install dependencies
 ## Architecture
 
 ### Project Structure
-This is a Next.js 15 frontend application (named "Kortix" in package.json, branded as "MEVO") for an AI agent platform. The application is built with:
+This is a Next.js 15 frontend application (named "Kortix" in package.json, branded as "КЛИК") for an AI agent platform. The application is built with:
 
 - **Framework**: Next.js 15 with App Router and Turbopack for development
 - **Language**: TypeScript with relaxed strict mode (strict: false)

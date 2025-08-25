@@ -95,7 +95,7 @@ export function ConfigurationTab({
   const handleSystemPromptChange = (value: string) => {
     if (!isSystemPromptEditable && isSunaAgent) {
       toast.error("System prompt cannot be edited", {
-        description: "MEVO's system prompt is managed centrally and cannot be changed.",
+        description: "Системный промпт КЛИК управляется централизованно и не может быть изменен.",
       });
       return;
     }
@@ -109,7 +109,7 @@ export function ConfigurationTab({
   const handleToolsChange = (tools: Record<string, boolean | { enabled: boolean; description: string }>) => {
     if (!areToolsEditable && isSunaAgent) {
       toast.error("Tools cannot be modified", {
-        description: "MEVO's default tools are managed centrally and cannot be changed.",
+        description: "Стандартные инструменты КЛИК управляются централизованно и не могут быть изменены.",
       });
       return;
     }
@@ -134,8 +134,8 @@ export function ConfigurationTab({
                 <span className="font-semibold text-primary-800">Default Agent</span>
               </div>
               <p className="text-sm text-primary-700">
-                This is MEVO's default agent with centrally managed system prompt and tools.
-                You can customize integrations, knowledge base, playbooks, and triggers to personalize your experience.
+Это стандартный агент КЛИК с централизованно управляемым системным промптом и инструментами.
+                Вы можете настроить интеграции, базу знаний, сценарии и триггеры для персонализации вашего опыта.
               </p>
             </div>
           )}

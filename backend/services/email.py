@@ -9,8 +9,8 @@ logger = logging.getLogger(__name__)
 class EmailService:
     def __init__(self):
         self.api_token = os.getenv('MAILTRAP_API_TOKEN')
-        self.sender_email = os.getenv('MAILTRAP_SENDER_EMAIL', 'support@mevoagent.com')
-        self.sender_name = os.getenv('MAILTRAP_SENDER_NAME', 'MEVO Team')
+        self.sender_email = os.getenv('MAILTRAP_SENDER_EMAIL', 'support@clickai.click')
+        self.sender_name = os.getenv('MAILTRAP_SENDER_NAME', 'Click Team')
         
         if not self.api_token:
             logger.warning("MAILTRAP_API_TOKEN not found in environment variables")
@@ -26,7 +26,7 @@ class EmailService:
         if not user_name:
             user_name = user_email.split('@')[0].title()
         
-        subject = "🎉 Welcome to MEVO — Let's Get Started "
+        subject = "🎉 Welcome to Click — Let's Get Started "
         html_content = self._get_welcome_email_template(user_name)
         text_content = self._get_welcome_email_text(user_name)
         

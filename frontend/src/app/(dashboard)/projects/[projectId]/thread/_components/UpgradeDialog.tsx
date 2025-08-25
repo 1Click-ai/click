@@ -23,8 +23,8 @@ export function UpgradeDialog({ open, onOpenChange, onDismiss }: UpgradeDialogPr
       open={open}
       onOpenChange={onOpenChange}
       icon={Crown}
-      title="Unlock the Full MEVO AI Experience"
-      description="You're currently using MEVO AI's free tier with limited capabilities. Upgrade now to access our most powerful AI model."
+      title="Разблокируйте полный потенциал КЛИК"
+      description="Сейчас вы используете бесплатный тариф КЛИК с ограниченными возможностями. Обновитесь сейчас, чтобы получить доступ к нашей самой мощной ИИ-модели."
       theme="primary"
       size="sm"
       preventOutsideClick={true}

@@ -231,7 +231,7 @@ export function Navbar() {
                       priority
                     />
                     {/* <span className="font-medium text-primary text-sm">
-                      / MEVO
+                      / КЛИК
                     </span> */}
                   </Link>
                   <button
