@@ -1,8 +1,8 @@
 from typing import Dict, List, Optional, Set
 from .models import Model, ModelProvider, ModelCapability, ModelPricing
 
-DEFAULT_FREE_MODEL = "Kimi K2"
-DEFAULT_PREMIUM_MODEL = "Claude Sonnet 4"
+DEFAULT_FREE_MODEL = "openrouter/google/gemini-2.5-flash"
+DEFAULT_PREMIUM_MODEL = "openrouter/google/gemini-2.5-flash"
 
 class ModelRegistry:
     def __init__(self):
@@ -13,9 +13,9 @@ class ModelRegistry:
     def _initialize_models(self):
         self.register(Model(
             id="openrouter/anthropic/claude-sonnet-4",
-            name="IT Expert💰💸",
+            name="Claude Sonnet 4",
             provider=ModelProvider.OPENROUTER,
-            aliases=["claude-sonnet-4", "anthropic/claude-sonnet-4", "Claude Sonnet 4", "claude-sonnet-4-20250514"],
+            aliases=["claude-sonnet-4", "anthropic/claude-sonnet-4",  "IT Expert💰💸", "Claude Sonnet 4", "claude-sonnet-4-20250514"],
             context_window=200_000,
             capabilities=[
                 ModelCapability.CHAT,
@@ -37,7 +37,7 @@ class ModelRegistry:
             id="openrouter/openai/gpt-5-mini",
             name="Medic 🚑🏥🩻",
             provider=ModelProvider.OPENROUTER,
-            aliases=["gpt-5-mini",  "GPT-5 Mini", "Medic 🚑🏥🩻", "openai/gpt-5-mini"],
+            aliases=["gpt-5-mini", "GPT-5 Mini"],
             context_window=400_000,
             capabilities=[
                 ModelCapability.CHAT,
@@ -54,11 +54,11 @@ class ModelRegistry:
         ))
         
         self.register(Model(
-            id="gemini/gemini-2.5-pro",
+            id="openrouter/google/gemini-2.5-pro",
             name="Gemini 2.5 Pro",
-            provider=ModelProvider.GOOGLE,
+            provider=ModelProvider.OPENROUTER,
             aliases=["google/gemini-2.5-pro", "gemini-2.5-pro", "Gemini 2.5 Pro"],
-            context_window=2_000_000,
+            context_window=1_000_000,
             capabilities=[
                 ModelCapability.CHAT,
                 ModelCapability.FUNCTION_CALLING,
@@ -77,7 +77,7 @@ class ModelRegistry:
             id="openrouter/google/gemini-2.5-flash",
             name="Clerk 💨⚡️🚀",
             provider=ModelProvider.OPENROUTER,
-            aliases=["google/gemini-2.5-flash","gemini-2.5-flash", "Gemini 2.5 Flash", "Clerk 💨⚡️🚀"],
+            aliases=["google/gemini-2.5-flash","gemini-2.5-flash", "Gemini 2.5 Flash"],
             context_window=1_000_000,
             capabilities=[
                 ModelCapability.CHAT,
@@ -116,7 +116,7 @@ class ModelRegistry:
         self.register(Model(
             id="openrouter/moonshotai/kimi-k2",
             name="Kimi K2",
-            provider=ModelProvider.MOONSHOTAI,
+            provider=ModelProvider.OPENROUTER,
             aliases=["moonshotai/kimi-k2", "kimi-k2", "Kimi K2"],
             context_window=200_000,
             capabilities=[
@@ -127,7 +127,7 @@ class ModelRegistry:
                 input_cost_per_million_tokens=1.00,
                 output_cost_per_million_tokens=3.00
             ),
-            tier_availability=["free", "paid"],
+            tier_availability=["paid"],
             priority=100,
             enabled=True
         ))

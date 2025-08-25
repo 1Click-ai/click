@@ -83,10 +83,10 @@ class Configuration:
     STRIPE_TIER_200_1000_YEARLY_ID_STAGING: str = 'price_1ReGlXG6l1KZGqIrlgurP5GU'
 
     # Yearly commitment prices - Staging (15% discount, monthly payments with 12-month commitment via schedules)
-    STRIPE_TIER_2_17_YEARLY_COMMITMENT_ID_STAGING: str = 'price_1RqYGaG6l1KZGqIrIzcdPzeQ'  # $17/month
-    STRIPE_TIER_6_42_YEARLY_COMMITMENT_ID_STAGING: str = 'price_1RqYH1G6l1KZGqIrWDKh8xIU'  # $42.50/month
-    STRIPE_TIER_25_170_YEARLY_COMMITMENT_ID_STAGING: str = 'price_1RqYHbG6l1KZGqIrAUVf8KpG'  # $170/month
-    
+    STRIPE_TIER_2_17_YEARLY_COMMITMENT_ID_STAGING: str = 'price_1RskjwPA6ngq7HqUpsn0aBp1'  # $17/month
+    STRIPE_TIER_6_42_YEARLY_COMMITMENT_ID_STAGING: str = 'price_1RskkSPA6ngq7HqUcWqm5p9W'  # $42.50/month
+    STRIPE_TIER_25_170_YEARLY_COMMITMENT_ID_STAGING: str = 'price_1RskkUPA6ngq7HqU6ZB4FJoW'  # $170/month
+
     # Credit package price IDs - Production
     STRIPE_CREDITS_10_PRICE_ID_PROD: str = 'price_1RxmQUG6l1KZGqIru453O1zW'
     STRIPE_CREDITS_25_PRICE_ID_PROD: str = 'price_1RxmQlG6l1KZGqIr3hS5WtGg'
@@ -102,6 +102,9 @@ class Configuration:
     STRIPE_CREDITS_100_PRICE_ID_STAGING: str = 'price_1RxmNwG6l1KZGqIrnliwPDM6'
     STRIPE_CREDITS_250_PRICE_ID_STAGING: str = 'price_1RxmO6G6l1KZGqIrBF8Kx87G'
     STRIPE_CREDITS_500_PRICE_ID_STAGING: str = 'price_1RxmOFG6l1KZGqIrn4wgORnH'
+    
+
+
     
     # Computed subscription tier IDs based on environment
     @property
@@ -215,41 +218,42 @@ class Configuration:
         return self.STRIPE_TIER_25_170_YEARLY_COMMITMENT_ID_PROD
     
     # Credit package price ID properties
-    @property
-    def STRIPE_CREDITS_10_PRICE_ID(self) -> str:
-        if self.ENV_MODE == EnvMode.STAGING:
-            return self.STRIPE_CREDITS_10_PRICE_ID_STAGING
-        return self.STRIPE_CREDITS_10_PRICE_ID_PROD
-    
-    @property
-    def STRIPE_CREDITS_25_PRICE_ID(self) -> str:
-        if self.ENV_MODE == EnvMode.STAGING:
-            return self.STRIPE_CREDITS_25_PRICE_ID_STAGING
-        return self.STRIPE_CREDITS_25_PRICE_ID_PROD
-    
-    @property
-    def STRIPE_CREDITS_50_PRICE_ID(self) -> str:
-        if self.ENV_MODE == EnvMode.STAGING:
-            return self.STRIPE_CREDITS_50_PRICE_ID_STAGING
-        return self.STRIPE_CREDITS_50_PRICE_ID_PROD
-    
-    @property
-    def STRIPE_CREDITS_100_PRICE_ID(self) -> str:
-        if self.ENV_MODE == EnvMode.STAGING:
-            return self.STRIPE_CREDITS_100_PRICE_ID_STAGING
-        return self.STRIPE_CREDITS_100_PRICE_ID_PROD
-    
-    @property
-    def STRIPE_CREDITS_250_PRICE_ID(self) -> str:
-        if self.ENV_MODE == EnvMode.STAGING:
-            return self.STRIPE_CREDITS_250_PRICE_ID_STAGING
-        return self.STRIPE_CREDITS_250_PRICE_ID_PROD
-    
-    @property
-    def STRIPE_CREDITS_500_PRICE_ID(self) -> str:
-        if self.ENV_MODE == EnvMode.STAGING:
-            return self.STRIPE_CREDITS_500_PRICE_ID_STAGING
-        return self.STRIPE_CREDITS_500_PRICE_ID_PROD
+    # TEMPORARILY DISABLED - Missing PROD/STAGING attributes causing startup failures
+    # @property
+    # def STRIPE_CREDITS_10_PRICE_ID(self) -> str:
+    #     if self.ENV_MODE == EnvMode.STAGING:
+    #         return self.STRIPE_CREDITS_10_PRICE_ID_STAGING
+    #     return self.STRIPE_CREDITS_10_PRICE_ID_PROD
+    # 
+    # @property
+    # def STRIPE_CREDITS_25_PRICE_ID(self) -> str:
+    #     if self.ENV_MODE == EnvMode.STAGING:
+    #         return self.STRIPE_CREDITS_25_PRICE_ID_STAGING
+    #     return self.STRIPE_CREDITS_25_PRICE_ID_PROD
+    # 
+    # @property
+    # def STRIPE_CREDITS_50_PRICE_ID(self) -> str:
+    #     if self.ENV_MODE == EnvMode.STAGING:
+    #         return self.STRIPE_CREDITS_50_PRICE_ID_STAGING
+    #     return self.STRIPE_CREDITS_50_PRICE_ID_PROD
+    # 
+    # @property
+    # def STRIPE_CREDITS_100_PRICE_ID(self) -> str:
+    #     if self.ENV_MODE == EnvMode.STAGING:
+    #         return self.STRIPE_CREDITS_100_PRICE_ID_STAGING
+    #     return self.STRIPE_CREDITS_100_PRICE_ID_PROD
+    # 
+    # @property
+    # def STRIPE_CREDITS_250_PRICE_ID(self) -> str:
+    #     if self.ENV_MODE == EnvMode.STAGING:
+    #         return self.STRIPE_CREDITS_250_PRICE_ID_STAGING
+    #     return self.STRIPE_CREDITS_250_PRICE_ID_PROD
+    # 
+    # @property
+    # def STRIPE_CREDITS_500_PRICE_ID(self) -> str:
+    #     if self.ENV_MODE == EnvMode.STAGING:
+    #         return self.STRIPE_CREDITS_500_PRICE_ID_STAGING
+    #     return self.STRIPE_CREDITS_500_PRICE_ID_PROD
     
     # LLM API keys
     ANTHROPIC_API_KEY: Optional[str] = None

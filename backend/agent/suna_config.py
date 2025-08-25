@@ -6,6 +6,7 @@ SUNA_CONFIG = {
     "description": "MEVO is your AI assistant with access to various tools and integrations to help you with tasks across domains.",
     "avatar": "🌞",
     "avatar_color": "#F59E0B",
+    "model": "openrouter/google/gemini-2.5-flash",
     "model": "openai/gpt-5-mini",
     "system_prompt": SYSTEM_PROMPT,
     "configured_mcps": [],
