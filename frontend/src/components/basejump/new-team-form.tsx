@@ -40,7 +40,7 @@ export default function NewTeamForm() {
             htmlFor="name"
             className="text-sm font-medium text-foreground/90 flex items-center gap-2"
           >
-            Team Name
+Название команды
           </Label>
           <div className="relative">
             <Input
@@ -48,7 +48,7 @@ export default function NewTeamForm() {
               name="name"
               value={nameValue}
               onChange={handleNameChange}
-              placeholder="Acme Corporation"
+              placeholder="Корпорация Acme"
               className="h-10 pr-9 rounded-lg border-input/60 dark:border-white/10 bg-white dark:bg-background-secondary shadow-xs focus-visible:ring-primary/30"
               required
             />
@@ -57,7 +57,7 @@ export default function NewTeamForm() {
             )}
           </div>
           <p className="text-xs text-muted-foreground">
-            This is the name that will appear in the team switcher.
+Это имя будет отображаться в переключателе команд.
           </p>
         </div>
 
@@ -66,9 +66,9 @@ export default function NewTeamForm() {
             htmlFor="slug"
             className="text-sm font-medium text-foreground/90 flex items-center gap-2"
           >
-            Team URL{' '}
+Адрес команды{' '}
             <span className="text-xs text-muted-foreground">
-              (unique identifier)
+              (уникальный идентификатор)
             </span>
           </Label>
           <div className="flex items-center gap-x-1.5 relative rounded-lg border-input/60 dark:border-white/10 bg-white dark:bg-background-secondary shadow-xs pl-3 border overflow-hidden focus-within:ring-3 focus-within:ring-primary/30 focus-within:border-ring group">
@@ -86,9 +86,9 @@ export default function NewTeamForm() {
           <div className="flex items-start gap-2 text-xs text-muted-foreground">
             <Info className="size-3.5 mt-0.5 text-muted-foreground/70" />
             <p>
-              This will be used for your team URL:
+Это будет использоваться для адреса вашей команды:
               <span className="block text-primary font-medium mt-0.5">
-                yourapp.com/{slugValue || 'team-name'}
+                yourapp.com/{slugValue || 'имя-команды'}
               </span>
             </p>
           </div>
@@ -106,7 +106,7 @@ export default function NewTeamForm() {
         formAction={async (prevState: any, formData: FormData) =>
           formAction(formData)
         }
-        pendingText="Creating team..."
+        pendingText="Создание команды..."
         className={cn(
           'w-full rounded-lg shadow-xs transition-all',
           'bg-primary hover:bg-primary/90 text-white',
@@ -114,7 +114,7 @@ export default function NewTeamForm() {
         )}
         size="lg"
       >
-        Create Team
+Создать команду
       </SubmitButton>
     </form>
   );

@@ -18,13 +18,13 @@ export default function EditTeamName({ account }: Props) {
             htmlFor="name"
             className="text-sm font-medium text-foreground/90"
           >
-            Team Name
+Название команды
           </Label>
           <Input
             defaultValue={account.name}
             name="name"
             id="name"
-            placeholder="My Team"
+            placeholder="Моя команда"
             required
             className="h-10 rounded-lg border-subtle dark:border-white/10 bg-white dark:bg-background-secondary"
           />
@@ -32,10 +32,10 @@ export default function EditTeamName({ account }: Props) {
         <div className="flex justify-end mt-2">
           <SubmitButton
             formAction={editTeamName}
-            pendingText="Updating..."
+            pendingText="Обновление..."
             className="rounded-lg bg-primary hover:bg-primary/90 text-white h-10"
           >
-            Save Changes
+Сохранить изменения
           </SubmitButton>
         </div>
       </div>

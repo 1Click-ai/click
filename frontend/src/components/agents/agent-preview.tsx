@@ -317,7 +317,7 @@ export const AgentPreview = ({ agent, agentMetadata }: AgentPreviewProps) => {
 
       } catch (err) {
         console.error('[PREVIEW] Error sending message:', err);
-        toast.error(err instanceof Error ? err.message : 'Operation failed');
+        toast.error(err instanceof Error ? err.message : 'Операция не выполнена');
         setMessages((prev) => prev.filter((m) => m.message_id !== optimisticUserMessage.message_id));
       } finally {
         setIsSubmitting(false);

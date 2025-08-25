@@ -347,14 +347,14 @@ export function FileOperationToolView({
                   onClick={handleCopyContent}
                   disabled={isCopyingContent}
                   className="h-8 text-xs bg-white dark:bg-muted/50 hover:bg-zinc-100 dark:hover:bg-zinc-800 shadow-none"
-                  title="Copy file content"
+                  title="Копировать содержимое файла"
                 >
                   {isCopyingContent ? (
                     <Check className="h-3.5 w-3.5 mr-1.5" />
                   ) : (
                     <Copy className="h-3.5 w-3.5 mr-1.5" />
                   )}
-                  <span className="hidden sm:inline">Copy</span>
+                  <span className="hidden sm:inline">Копировать</span>
                 </Button>
               )}
               <TabsList className="h-8 bg-muted/50 border border-border/50 p-0.5 gap-1">
@@ -387,7 +387,7 @@ export function FileOperationToolView({
                   bgColor={config.bgColor}
                   title={config.progressMessage}
                   filePath={processedFilePath || 'Processing file...'}
-                  subtitle="Please wait while the file is being processed"
+                  subtitle="Пожалуйста, подождите, пока файл обрабатывается"
                   showProgress={false}
                 />
               ) : operation === 'delete' ? (
@@ -396,11 +396,11 @@ export function FileOperationToolView({
                     <Icon className={cn("h-10 w-10", config.color)} />
                   </div>
                   <h3 className="text-xl font-semibold mb-6 text-zinc-900 dark:text-zinc-100">
-                    Delete Operation
+Операция удаления
                   </h3>
                   <div className="bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 w-full max-w-md text-center">
                     <code className="text-sm font-mono text-zinc-700 dark:text-zinc-300 break-all">
-                      {processedFilePath || 'Unknown file path'}
+                      {processedFilePath || 'Неизвестный путь к файлу'}
                     </code>
                   </div>
                 </div>
@@ -419,7 +419,7 @@ export function FileOperationToolView({
                   bgColor={config.bgColor}
                   title={config.progressMessage}
                   filePath={processedFilePath || 'Processing file...'}
-                  subtitle="Please wait while the file is being processed"
+                  subtitle="Пожалуйста, подождите, пока файл обрабатывается"
                   showProgress={false}
                 />
               ) : operation === 'delete' ? (

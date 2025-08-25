@@ -175,7 +175,7 @@ const ThreadItem: React.FC<{
                 }
               >
                 <Trash2 className="text-muted-foreground" />
-                <span>Delete</span>
+                <span>Удалить</span>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

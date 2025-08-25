@@ -93,14 +93,14 @@ export default function AccountSelector({
           <Command className="rounded-xl overflow-hidden bg-card-bg dark:bg-background-secondary border-0">
             <CommandList className="border-0 bg-card-bg dark:bg-background-secondary">
               <CommandInput
-                placeholder="Search account..."
+                placeholder="Поиск аккаунта..."
                 className="h-9 border-0 focus:ring-0 rounded-t-xl bg-card-bg dark:bg-background-secondary text-foreground/90"
               />
               <CommandEmpty className="text-foreground/70 text-sm py-2">
-                No account found.
+Аккаунт не найден.
               </CommandEmpty>
               <CommandGroup
-                heading="Personal Account"
+                heading="Личный аккаунт"
                 className="text-xs font-medium text-foreground/70 bg-card-bg dark:bg-background-secondary"
               >
                 <CommandItem
@@ -127,7 +127,7 @@ export default function AccountSelector({
               </CommandGroup>
               {Boolean(teamAccounts?.length) && (
                 <CommandGroup
-                  heading="Teams"
+                  heading="Команды"
                   className="text-xs font-medium text-foreground/70 bg-card-bg dark:bg-background-secondary"
                 >
                   {teamAccounts?.map((team) => (

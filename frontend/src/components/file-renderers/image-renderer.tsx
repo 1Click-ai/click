@@ -142,7 +142,7 @@ export function ImageRenderer({ url, className }: ImageRendererProps) {
             size="sm"
             className="h-8 w-8 p-0"
             onClick={handleZoomOut}
-            title="Zoom out"
+            title="Уменьшить"
             disabled={imgError}
           >
             <ZoomOut className="h-4 w-4" />
@@ -153,7 +153,7 @@ export function ImageRenderer({ url, className }: ImageRendererProps) {
             size="sm"
             className="h-8 w-8 p-0"
             onClick={handleZoomIn}
-            title="Zoom in"
+            title="Увеличить"
             disabled={imgError}
           >
             <ZoomIn className="h-4 w-4" />
@@ -163,7 +163,7 @@ export function ImageRenderer({ url, className }: ImageRendererProps) {
             size="sm"
             className="h-8 w-8 p-0"
             onClick={handleRotate}
-            title="Rotate"
+            title="Повернуть"
             disabled={imgError}
           >
             <RotateCw className="h-4 w-4" />
@@ -176,7 +176,7 @@ export function ImageRenderer({ url, className }: ImageRendererProps) {
             size="sm"
             className="h-8 w-8 p-0"
             onClick={() => setShowInfo(!showInfo)}
-            title="Image information"
+            title="Информация о изображении"
           >
             <Info className="h-4 w-4" />
           </Button>
@@ -185,7 +185,7 @@ export function ImageRenderer({ url, className }: ImageRendererProps) {
             size="sm"
             className="h-8 w-8 p-0"
             onClick={toggleFitToScreen}
-            title={isFitToScreen ? 'Actual size' : 'Fit to screen'}
+            title={isFitToScreen ? 'Реальный размер' : 'По размеру экрана'}
             disabled={imgError}
           >
             {isFitToScreen ? (

@@ -105,7 +105,7 @@ function LoginContent() {
     }
 
     if (result && typeof result === 'object' && 'message' in result) {
-      toast.error('Login failed', {
+      toast.error('Ошибка входа', {
         description: result.message as string,
         duration: 5000,
       });
@@ -302,7 +302,7 @@ function LoginContent() {
               </div>
               <div className="relative flex justify-center text-sm">
                 <span className="px-2 bg-background text-muted-foreground">
-                  or email
+                  или email
                 </span>
               </div>
             </div>
@@ -311,7 +311,7 @@ function LoginContent() {
                 id="email"
                 name="email"
                 type="email"
-                placeholder="Email address"
+                placeholder="Адрес электронной почты"
                 className="h-10 rounded-lg"
                 required
               />
@@ -319,7 +319,7 @@ function LoginContent() {
                 id="password"
                 name="password"
                 type="password"
-                placeholder="Password"
+                placeholder="Пароль"
                 className="h-10 rounded-lg"
                 required
               />
@@ -328,7 +328,7 @@ function LoginContent() {
                   id="confirmPassword"
                   name="confirmPassword"
                   type="password"
-                  placeholder="Confirm password"
+                  placeholder="Подтвердите пароль"
                   className="h-10 rounded-lg"
                   required
                 />
@@ -338,9 +338,9 @@ function LoginContent() {
                   <SubmitButton
                     formAction={isSignUp ? handleSignUp : handleSignIn}
                     className="w-full h-10 bg-primary text-primary-foreground hover:bg-primary/90 transition-colors rounded-lg"
-                    pendingText={isSignUp ? "Creating account..." : "Signing in..."}
+                    pendingText={isSignUp ? "Создание аккаунта..." : "Вход в систему..."}
                   >
-                    {isSignUp ? 'Create account' : 'Sign in'}
+                    {isSignUp ? 'Создать аккаунт' : 'Войти'}
                   </SubmitButton>
                   {wasEmailLastMethod && (
                     <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-background shadow-sm">
@@ -358,7 +358,7 @@ function LoginContent() {
                   onClick={() => setForgotPasswordOpen(true)}
                   className="text-primary hover:underline"
                 >
-                  Forgot password?
+                  Забыли пароль?
                 </button>
               )}
               
@@ -371,8 +371,8 @@ function LoginContent() {
                   className="text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {isSignUp 
-                    ? 'Already have an account? Sign in' 
-                    : "Don't have an account? Sign up"
+                    ? 'Уже есть аккаунт? Войти' 
+                    : "Нет аккаунта? Зарегистрироваться"
                   }
                 </Link>
               </div>
@@ -389,17 +389,17 @@ function LoginContent() {
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
             <div className="flex items-center justify-between">
-              <DialogTitle>Reset Password</DialogTitle>
+              <DialogTitle>Сброс пароля</DialogTitle>
             </div>
             <DialogDescription>
-              Enter your email address and we'll send you a link to reset your password.
+Введите ваш адрес электронной почты, и мы отправим вам ссылку для сброса пароля.
             </DialogDescription>
           </DialogHeader>
           <form onSubmit={handleForgotPassword} className="space-y-4">
             <Input
               id="forgot-password-email"
               type="email"
-              placeholder="Email address"
+              placeholder="Адрес электронной почты"
               value={forgotPasswordEmail}
               onChange={(e) => setForgotPasswordEmail(e.target.value)}
               className="h-11 rounded-xl"
@@ -427,13 +427,13 @@ function LoginContent() {
                 onClick={() => setForgotPasswordOpen(false)}
                 className="h-10 px-4 border border-border bg-background hover:bg-accent transition-colors rounded-md"
               >
-                Cancel
+                Отмена
               </button>
               <button
                 type="submit"
                 className="h-10 px-4 bg-primary text-primary-foreground hover:bg-primary/90 transition-colors rounded-md"
               >
-                Send Reset Link
+                Отправить ссылку
               </button>
             </DialogFooter>
           </form>

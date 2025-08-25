@@ -221,7 +221,7 @@ export function DashboardContent() {
         });
         setShowAgentLimitDialog(true);
       } else {
-        const errorMessage = error instanceof Error ? error.message : 'Operation failed';
+        const errorMessage = error instanceof Error ? error.message : 'Операция не выполнена';
         toast.error(errorMessage);
       }
     } finally {
@@ -349,7 +349,7 @@ export function DashboardContent() {
                     className="tracking-tight text-2xl md:text-3xl font-normal text-foreground/90"
                     data-tour="dashboard-title"
                   >
-                    What would you like to do today?
+                    Что вы хотели бы сделать сегодня?
                   </p>
                 </div>
                 <div className="w-full" data-tour="chat-input">
@@ -357,7 +357,7 @@ export function DashboardContent() {
                     ref={chatInputRef}
                     onSubmit={handleSubmit}
                     loading={isSubmitting}
-                    placeholder="Describe what you need help with..."
+                    placeholder="Опишите, с чем вам нужна помощь..."
                     value={inputValue}
                     onChange={setInputValue}
                     hideAttachments={false}
