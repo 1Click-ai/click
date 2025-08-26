@@ -12,9 +12,9 @@ class ModelRegistry:
     
     def _initialize_models(self):
         self.register(Model(
-            id="anthropic/claude-sonnet-4-20250514",
-            name="Claude Sonnet 4",
-            provider=ModelProvider.ANTHROPIC,
+            id="openrouter/anthropic/claude-sonnet-4",
+            name="IT Expert💰💸",
+            provider=ModelProvider.OPENROUTER,
             aliases=["claude-sonnet-4", "anthropic/claude-sonnet-4", "Claude Sonnet 4", "claude-sonnet-4-20250514"],
             context_window=200_000,
             capabilities=[
@@ -34,71 +34,10 @@ class ModelRegistry:
         ))
         
         self.register(Model(
-            id="anthropic/claude-3-7-sonnet-latest",
-            name="Claude 3.7 Sonnet",
-            provider=ModelProvider.ANTHROPIC,
-            aliases=["sonnet-3.7", "claude-3.7", "Claude 3.7 Sonnet", "claude-3-7-sonnet-latest"],
-            context_window=200_000,
-            capabilities=[
-                ModelCapability.CHAT,
-                ModelCapability.FUNCTION_CALLING,
-                ModelCapability.VISION,
-            ],
-            pricing=ModelPricing(
-                input_cost_per_million_tokens=3.00,
-                output_cost_per_million_tokens=15.00
-            ),
-            tier_availability=["paid"],
-            priority=93,
-            enabled=True
-        ))
-        
-        self.register(Model(
-            id="anthropic/claude-3-5-sonnet-latest",
-            name="Claude 3.5 Sonnet",
-            provider=ModelProvider.ANTHROPIC,
-            aliases=["sonnet-3.5", "claude-3.5", "Claude 3.5 Sonnet", "claude-3-5-sonnet-latest"],
-            context_window=200_000,
-            capabilities=[
-                ModelCapability.CHAT,
-                ModelCapability.FUNCTION_CALLING,
-                ModelCapability.VISION,
-            ],
-            pricing=ModelPricing(
-                input_cost_per_million_tokens=3.00,
-                output_cost_per_million_tokens=15.00
-            ),
-            tier_availability=["paid"],
-            priority=90,
-            enabled=True
-        ))
-        
-        self.register(Model(
-            id="openai/gpt-5",
-            name="GPT-5",
-            provider=ModelProvider.OPENAI,
-            aliases=["gpt-5", "GPT-5"],
-            context_window=400_000,
-            capabilities=[
-                ModelCapability.CHAT,
-                ModelCapability.FUNCTION_CALLING,
-                ModelCapability.VISION,
-                ModelCapability.STRUCTURED_OUTPUT,
-            ],
-            pricing=ModelPricing(
-                input_cost_per_million_tokens=1.25,
-                output_cost_per_million_tokens=10.00
-            ),
-            tier_availability=["paid"],
-            priority=99,
-            enabled=True
-        ))
-        
-        self.register(Model(
-            id="openai/gpt-5-mini",
-            name="GPT-5 Mini",
-            provider=ModelProvider.OPENAI,
-            aliases=["gpt-5-mini", "GPT-5 Mini"],
+            id="openrouter/openai/gpt-5-mini",
+            name="Medic 🚑🏥🩻",
+            provider=ModelProvider.OPENROUTER,
+            aliases=["gpt-5-mini",  "GPT-5 Mini", "Medic 🚑🏥🩻", "openai/gpt-5-mini"],
             context_window=400_000,
             capabilities=[
                 ModelCapability.CHAT,
@@ -132,6 +71,26 @@ class ModelRegistry:
             ),
             tier_availability=["paid"],
             priority=96,
+            enabled=True
+        ))
+        self.register(Model(
+            id="openrouter/google/gemini-2.5-flash",
+            name="Clerk 💨⚡️🚀",
+            provider=ModelProvider.OPENROUTER,
+            aliases=["google/gemini-2.5-flash","gemini-2.5-flash", "Gemini 2.5 Flash", "Clerk 💨⚡️🚀"],
+            context_window=1_000_000,
+            capabilities=[
+                ModelCapability.CHAT,
+                ModelCapability.FUNCTION_CALLING,
+                ModelCapability.VISION,
+                ModelCapability.STRUCTURED_OUTPUT,
+            ],
+            pricing=ModelPricing(
+                input_cost_per_million_tokens=0.30,
+                output_cost_per_million_tokens=2.50
+            ),
+            tier_availability=["free", "paid"],
+            priority=100,
             enabled=True
         ))
         
