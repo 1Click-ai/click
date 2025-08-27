@@ -129,6 +129,46 @@ class ModelRegistry:
             ),
             tier_availability=["paid"],
             priority=100,
+            enabled=False
+        ))
+
+        self.register(Model(
+            id="openrouter/deepseek/deepseek-chat-v3.1",
+            name="Custom",
+            provider=ModelProvider.OPENROUTER,
+            aliases=["deepseek/deepseek-chat-v3.1", "deepseek-chat-v3.1", "DeepSeek Chat V3.1", "openrouter/deepseek/deepseek-chat-v3.1", "Custom"],
+            context_window=163_000,
+            capabilities=[
+                ModelCapability.CHAT,
+                ModelCapability.FUNCTION_CALLING,
+                ModelCapability.THINKING,
+            ],
+            pricing=ModelPricing(
+                input_cost_per_million_tokens=0.6,
+                output_cost_per_million_tokens=1.50
+            ),
+            tier_availability=["free", "paid"],
+            priority=82,
+            enabled=True
+        ))
+
+        self.register(Model(
+            id="openai/gpt-oss-120b",
+            name="Fast GPT",
+            provider=ModelProvider.OPENROUTER,
+            aliases=["openai/gpt-oss-120b", "gpt-oss-120b", "GPT-OSS-120B", "openai/gpt-oss-120b", "Fast"],
+            context_window=128_000,
+            capabilities=[
+                ModelCapability.CHAT,
+                ModelCapability.FUNCTION_CALLING,
+                ModelCapability.THINKING,
+            ],
+            pricing=ModelPricing(
+                input_cost_per_million_tokens=0.13,
+                output_cost_per_million_tokens=0.60
+            ),
+            tier_availability=["free", "paid"],
+            priority=80,
             enabled=True
         ))
 
