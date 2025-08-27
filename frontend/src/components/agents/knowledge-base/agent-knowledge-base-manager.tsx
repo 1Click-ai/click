@@ -29,7 +29,8 @@ import {
   BookOpen,
   PenTool,
   X,
-  ArrowLeft
+  ArrowLeft,
+  // SearchX
 } from 'lucide-react';
 import {
   AlertDialog,
@@ -107,7 +108,7 @@ interface UploadedFile {
 const USAGE_CONTEXT_OPTIONS = [
   { 
     value: 'always', 
-    label: 'Always Active', 
+    label: 'Всегда активен', 
     icon: Globe,
     color: 'bg-green-50 text-green-700 border-green-200 dark:bg-green-900/20 dark:text-green-400 dark:border-green-800'
   },
@@ -475,9 +476,9 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
         ...extractedFiles
       ]);
 
-      let message = `Extracted ${extractedFiles.length} supported files from ${zipFile.name}`;
+      let message = `Извлечено ${extractedFiles.length} поддерживаемых файлов из ${zipFile.name}`;
       if (rejectedFiles.length > 0) {
-        message += `. Skipped ${rejectedFiles.length} unsupported files: ${rejectedFiles.slice(0, 5).join(', ')}${rejectedFiles.length > 5 ? '...' : ''}`;
+        message += `. Пропущено ${rejectedFiles.length} неподдерживаемых файлов: ${rejectedFiles.slice(0, 5).join(', ')}${rejectedFiles.length > 5 ? '...' : ''}`;
       }
       
       toast.success(message);
@@ -487,10 +488,10 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
         f.id === zipId ? { 
           ...f, 
           status: 'error', 
-          error: 'Failed to extract ZIP file' 
+          error: 'Не удалось извлечь ZIP файл' 
         } : f
       ));
-      toast.error('Failed to extract ZIP file');
+      toast.error('Не удалось извлечь ZIP файл');
     }
   };
 
@@ -526,7 +527,7 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
     }
     
     if (rejectedFiles.length > 0) {
-      toast.error(`Unsupported file format(s): ${rejectedFiles.join(', ')}. Only .txt, .pdf, .docx, and .zip files are supported.`);
+      toast.error(`Неподдерживаемый формат файла(ов): ${rejectedFiles.join(', ')}. Поддерживаются только .txt, .pdf, .docx, и .zip файлы.`);
     }
     
     if (newFiles.length > 0) {
@@ -563,7 +564,7 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
           f.id === uploadedFile.id ? { 
             ...f, 
             status: 'error' as const, 
-            error: error instanceof Error ? error.message : 'Upload failed' 
+            error: error instanceof Error ? error.message : 'Загрузка не удалась' 
           } : f
         ));
       }
@@ -576,8 +577,8 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
       
       setTimeout(() => {
         toast.success(
-          `Successfully uploaded ${filesToUpload.length} file${filesToUpload.length > 1 ? 's' : ''}. ` +
-          `Knowledge entries will appear below once processing is complete.`
+          `Успешно загружено ${filesToUpload.length} файл${filesToUpload.length > 1 ? 'а' : ''}. ` +
+          `Знания будут отображаться ниже после завершения обработки.`
         );
         handleCloseDialog();
         
@@ -633,7 +634,7 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
       <div className="flex items-center justify-center py-12">
         <div className="text-center">
           <AlertCircle className="h-8 w-8 text-red-500 mx-auto mb-4" />
-          <p className="text-sm text-red-600 dark:text-red-400">Failed to load agent knowledge base</p>
+          <p className="text-sm text-red-600 dark:text-red-400">Не удалось загрузить базу знаний агента</p>
         </div>
       </div>
     );
@@ -659,9 +660,9 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
         <div className="fixed inset-0 bg-blue-500/20 backdrop-blur-sm z-50 flex items-center justify-center">
           <div className="bg-white dark:bg-gray-900 rounded-lg p-8 shadow-lg border-2 border-dashed border-blue-500">
             <Upload className="h-12 w-12 text-blue-500 mx-auto mb-4" />
-            <p className="text-lg font-medium text-center">Drop files here to upload</p>
+            <p className="text-lg font-medium text-center">Отпустите файлы для загрузки</p>
             <p className="text-sm text-muted-foreground text-center mt-2">
-              Supports documents, images, code files, and ZIP archives
+              Поддерживаются документы и ZIP архивы
             </p>
           </div>
         </div>
@@ -670,15 +671,15 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
         <div className="relative flex-1 max-w-sm">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
-            placeholder="Search knowledge..."
+            placeholder="Поиск знаний..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="pl-9 h-9"
           />
         </div>
-        <Button onClick={() => handleOpenAddDialog()} size="sm" className="gap-2">
+        <Button size="sm" onClick={() => handleOpenAddDialog()} className="gap-2">
           <Plus className="h-4 w-4" />
-          Add Knowledge
+          Добавить знание
         </Button>
       </div>
       {entries.length === 0 ? (
@@ -687,10 +688,10 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
             <BookOpen className="h-6 w-6 text-muted-foreground" />
           </div>
           <h4 className="text-sm font-semibold text-foreground mb-2">
-            No knowledge entries yet
+            Знаний пока нет
           </h4>
           <p className="text-sm text-muted-foreground mb-6 max-w-sm mx-auto">
-            Add knowledge entries to provide {agentName} with specialized context and information
+            Добавьте знания, чтобы предоставить {agentName} с специализированным контекстом и информацией
           </p>
         </div>
       ) : (
@@ -701,10 +702,10 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
                 <Search className="h-6 w-6 text-muted-foreground" />
               </div>
               <h4 className="text-sm font-semibold text-foreground mb-2">
-                No entries match your search
+                Не найдено совпадений
               </h4>
               <p className="text-sm text-muted-foreground mb-6 max-w-sm mx-auto">
-                Try adjusting your search criteria or add new knowledge entries
+                Попробуйте отрегулировать критерии поиска или добавьте новые знания
               </p>
             </div>
           ) : (
@@ -734,7 +735,7 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
                         {entry.source_type && entry.source_type !== 'manual' && (
                           <Badge variant="outline" className="text-xs flex-shrink-0">
                             {entry.source_type === 'git_repo' ? 'Git' : 
-                             entry.source_type === 'zip_extracted' ? 'ZIP' : 'File'}
+                             entry.source_type === 'zip_extracted' ? 'ZIP' : 'Файл'}
                           </Badge>
                         )}
                       </div>
@@ -753,7 +754,7 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
                           {new Date(entry.created_at).toLocaleDateString()}
                         </span>
                         {entry.content_tokens && (
-                          <span>~{entry.content_tokens.toLocaleString()} tokens</span>
+                          <span>~{entry.content_tokens.toLocaleString()} токенов</span>
                         )}
                       </div>
                     </div>
@@ -764,7 +765,7 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
                       variant="ghost" 
                       className="h-8 w-8 p-0"
                       onClick={() => handleOpenEditDialog(entry)}
-                      aria-label="Edit knowledge entry"
+                      aria-label="Редактировать запись знания"
                     >
                       <Edit2 className="h-4 w-4" />
                     </Button>
@@ -773,7 +774,7 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
                       variant="ghost" 
                       className="h-8 w-8 p-0 text-destructive hover:text-destructive"
                       onClick={() => setDeleteEntryId(entry.entry_id)}
-                      aria-label="Delete knowledge entry"
+                      aria-label="Удалить запись знания"
                     >
                       <Trash2 className="h-4 w-4" />
                     </Button>
@@ -790,7 +791,7 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
         <div className="space-y-3">
           <h3 className="text-sm font-medium flex items-center gap-2">
             <RefreshCw className="h-4 w-4" />
-            Processing Status
+            Статус обработки
           </h3>
           <div className="space-y-2">
             {processingJobs.map((job) => {
@@ -806,8 +807,8 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center space-x-2 mb-1">
                         <h4 className="text-sm font-medium">
-                          {job.job_type === 'file_upload' ? 'File Upload' :
-                           job.job_type === 'git_clone' ? 'Git Repository' : 'Processing'}
+                          {job.job_type === 'file_upload' ? 'Загрузка файла' :
+                           job.job_type === 'git_clone' ? 'Клонирование репозитория Git' : 'Обработка'}
                         </h4>
                         <Badge variant={job.status === 'completed' ? 'default' : 
                                      job.status === 'failed' ? 'destructive' : 'secondary'} className="text-xs">
@@ -815,16 +816,16 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
                         </Badge>
                       </div>
                       <p className="text-xs text-muted-foreground truncate">
-                        {job.source_info.filename || job.source_info.git_url || 'Unknown source'}
+                        {job.source_info.filename || job.source_info.git_url || 'Неизвестный источник'}
                       </p>
                       {job.status === 'completed' && job.entries_created > 0 && (
                         <p className="text-xs text-green-600 dark:text-green-400 font-medium">
-                          ✓ {job.entries_created} knowledge entries created
+                          ✓ Создано {job.entries_created} знаний
                         </p>
                       )}
                       {job.status === 'failed' && (
                         <p className="text-xs text-red-600 dark:text-red-400">
-                          {job.error_message || 'Upload failed'}
+                          {job.error_message || 'Загрузка не удалась'}
                         </p>
                       )}
                     </div>
@@ -850,7 +851,7 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
               {addDialogMode === 'selection' && (
                 <>
                   <BookOpen className="h-5 w-5" />
-                  Add Knowledge to {agentName}
+                  Добавить знание в {agentName}
                 </>
               )}
               {addDialogMode === 'manual' && (
@@ -864,7 +865,7 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
                     <ArrowLeft className="h-4 w-4" />
                   </Button>
                   <PenTool className="h-5 w-5" />
-                  Write Knowledge Entry
+                  Написать знание
                 </>
               )}
               {addDialogMode === 'files' && (
@@ -878,7 +879,7 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
                     <ArrowLeft className="h-4 w-4" />
                   </Button>
                   <Upload className="h-5 w-5" />
-                  Upload Files
+                  Загрузить файлы
                 </>
               )}
             </DialogTitle>
@@ -889,7 +890,7 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
               <div className="space-y-6 p-6">
                 <div className="text-center">
                   <p className="text-sm text-muted-foreground">
-                    Choose how you'd like to add knowledge to {agentName}
+                    Выберите, как бы вы хотели добавить знание в {agentName}
                   </p>
                 </div>
                 
@@ -902,9 +903,9 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
                       <PenTool className="h-4 w-4" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-sm font-semibold mb-1">Write Knowledge Entry</h3>
+                      <h3 className="text-sm font-semibold mb-1">Написать знание</h3>
                       <p className="text-xs text-muted-foreground">
-                        Manually write custom knowledge, guidelines, or instructions
+                        Ручной запись специальных знаний, руководств или инструкций
                       </p>
                     </div>
                   </button>
@@ -917,9 +918,9 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
                       <Upload className="h-4 w-4" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-sm font-semibold mb-1">Upload Files</h3>
+                      <h3 className="text-sm font-semibold mb-1">Загрузить файлы</h3>
                       <p className="text-xs text-muted-foreground">
-                        Upload documents (.txt, .pdf, .docx) or ZIP archives
+                        Загрузите документы (.txt, .pdf, .docx) или ZIP архивы
                       </p>
                     </div>
                   </button>
@@ -932,18 +933,18 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
               <div className="space-y-6 p-6">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-2">
-                    <Label htmlFor="name" className="text-sm font-medium">Name *</Label>
+                    <Label htmlFor="name" className="text-sm font-medium">Название *</Label>
                     <Input
                       id="name"
                       value={formData.name}
                       onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                      placeholder="e.g., Coding Standards, Domain Knowledge, API Guidelines"
+                      placeholder="Например, Стандарты кодирования, Облачные знания, Руководства API"
                       required
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="usage_context" className="text-sm font-medium">Usage Context</Label>
+                    <Label htmlFor="usage_context" className="text-sm font-medium">Контекст использования</Label>
                     <Select
                       value={formData.usage_context}
                       onValueChange={(value: 'always' | 'on_request' | 'contextual') => 
@@ -970,33 +971,33 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="description" className="text-sm font-medium">Description</Label>
+                    <Label htmlFor="description" className="text-sm font-medium">Описание</Label>
                     <Input
                       id="description"
                       value={formData.description}
                       onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
-                      placeholder="Brief description of this knowledge (optional)"
+                      placeholder="Краткое описание этого знания (необязательно)"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="content" className="text-sm font-medium">Content *</Label>
+                    <Label htmlFor="content" className="text-sm font-medium">Содержимое *</Label>
                     <Textarea
                       id="content"
                       value={formData.content}
                       onChange={(e) => setFormData(prev => ({ ...prev, content: e.target.value }))}
-                      placeholder={`Enter the specialized knowledge that ${agentName} should know...`}
+                      placeholder={`Введите специальные знания, которые ${agentName} должен знать...`}
                       className="min-h-[200px] resize-y"
                       required
                     />
                     <div className="text-xs text-muted-foreground">
-                      Approximately {Math.ceil(formData.content.length / 4).toLocaleString()} tokens
+                      Примерно {Math.ceil(formData.content.length / 4).toLocaleString()} токенов
                     </div>
                   </div>
 
                   <div className="flex justify-end gap-3 pt-4 border-t">
                     <Button type="button" variant="outline" onClick={handleCloseDialog}>
-                      Cancel
+                      Отмена
                     </Button>
                     <Button 
                       type="submit" 
@@ -1008,7 +1009,7 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
                       ) : (
                         <Plus className="h-4 w-4" />
                       )}
-                      Add Knowledge
+                      Добавить знание
                     </Button>
                   </div>
                 </form>
@@ -1021,10 +1022,10 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
                   {uploadedFiles.length === 0 && (
                     <div className="border-2 border-dashed border-border rounded-lg p-8 text-center">
                       <Upload className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
-                      <h3 className="text-lg font-medium mb-2">Upload Files</h3>
+                      <h3 className="text-lg font-medium mb-2">Загрузить файлы</h3>
                       <p className="text-sm text-muted-foreground mb-4">
-                        Drag and drop files here or click to browse.<br />
-                        Supports: Documents, Code, ZIP archives
+                        Перетащите файлы сюда или нажмите для просмотра.<br />
+                        Поддерживаются: Документы, ZIP архивы
                       </p>
                       <Button 
                         onClick={() => fileInputRef.current?.click()}
@@ -1032,7 +1033,7 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
                         className="gap-2"
                       >
                         <Upload className="h-4 w-4" />
-                        Choose Files
+                        Выбрать файлы
                       </Button>
                     </div>
                   )}
@@ -1045,7 +1046,7 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
                             {extractedFiles.length > 0 && (
                               <div>
                                 <p className="text-sm font-medium text-muted-foreground mb-3">
-                                  Extracted Files ({extractedFiles.length}):
+                                  Извлеченные файлы ({extractedFiles.length}):
                                 </p>
                                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                                   {extractedFiles.map((extractedFile) => {
@@ -1097,7 +1098,7 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
                       {uploadedFiles.filter(f => !f.isFromZip && !f.file.name.toLowerCase().endsWith('.zip')).length > 0 && (
                         <div className="space-y-3">
                           <p className="text-sm font-medium text-muted-foreground">
-                            Individual Files ({uploadedFiles.filter(f => !f.isFromZip && !f.file.name.toLowerCase().endsWith('.zip')).length}):
+                            Индивидуальные файлы ({uploadedFiles.filter(f => !f.isFromZip && !f.file.name.toLowerCase().endsWith('.zip')).length}):
                           </p>
                           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                             {uploadedFiles.filter(f => !f.isFromZip && !f.file.name.toLowerCase().endsWith('.zip')).map((uploadedFile) => {
@@ -1149,7 +1150,7 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
                   {uploadedFiles.length > 0 && (
                     <div className="flex justify-end gap-3 pt-4 border-t">
                       <Button type="button" variant="outline" onClick={handleCloseDialog}>
-                        Cancel
+                        Отмена
                       </Button>
                       <Button 
                         onClick={uploadFiles}
@@ -1164,7 +1165,7 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
                         ) : (
                           <Upload className="h-4 w-4" />
                         )}
-                        Upload Files ({uploadedFiles.filter(f => 
+                        Загрузить файлы ({uploadedFiles.filter(f => 
                           f.status === 'pending' && 
                           (f.isFromZip || !f.file.name.toLowerCase().endsWith('.zip'))
                         ).length})
@@ -1182,25 +1183,25 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
           <DialogHeader className="flex-shrink-0">
             <DialogTitle className="flex items-center gap-2">
               <Edit2 className="h-5 w-5" />
-              Edit Knowledge Entry
+              Редактировать запись базы знаний
             </DialogTitle>
           </DialogHeader>
           
           <div className="flex-1 overflow-y-auto">
             <form onSubmit={handleSubmit} className="space-y-6 p-1">
               <div className="space-y-2">
-                <Label htmlFor="edit-name" className="text-sm font-medium">Name *</Label>
+                <Label htmlFor="edit-name" className="text-sm font-medium">Название *</Label>
                 <Input
                   id="edit-name"
                   value={formData.name}
                   onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                  placeholder="e.g., Coding Standards, Domain Knowledge, API Guidelines"
+                  placeholder="Например, Стандарты кодирования, Облачные знания, Руководства API"
                   required
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="edit-usage_context" className="text-sm font-medium">Usage Context</Label>
+                <Label htmlFor="edit-usage_context" className="text-sm font-medium">Контекст использования</Label>
                 <Select
                   value={formData.usage_context}
                   onValueChange={(value: 'always' | 'on_request' | 'contextual') => 
@@ -1227,33 +1228,33 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="edit-description" className="text-sm font-medium">Description</Label>
+                <Label htmlFor="edit-description" className="text-sm font-medium">Описание</Label>
                 <Input
                   id="edit-description"
                   value={formData.description}
                   onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
-                  placeholder="Brief description of this knowledge (optional)"
+                  placeholder="Краткое описание этого знания (необязательно)"
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="edit-content" className="text-sm font-medium">Content *</Label>
+                <Label htmlFor="edit-content" className="text-sm font-medium">Содержимое *</Label>
                 <Textarea
                   id="edit-content"
                   value={formData.content}
                   onChange={(e) => setFormData(prev => ({ ...prev, content: e.target.value }))}
-                  placeholder={`Enter the specialized knowledge that ${agentName} should know...`}
+                  placeholder={`Введите специальные знания, которые ${agentName} должен знать...`}
                   className="min-h-[200px] resize-y"
                   required
                 />
                 <div className="text-xs text-muted-foreground">
-                  Approximately {Math.ceil(formData.content.length / 4).toLocaleString()} tokens
+                  Примерно {Math.ceil(formData.content.length / 4).toLocaleString()} токенов
                 </div>
               </div>
 
               <div className="flex justify-end gap-3 pt-4 border-t">
                 <Button type="button" variant="outline" onClick={handleCloseDialog}>
-                  Cancel
+                  Отмена
                 </Button>
                 <Button 
                   type="submit" 
@@ -1265,7 +1266,7 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
                   ) : (
                     <Edit2 className="h-4 w-4" />
                   )}
-                  Save Changes
+                  Сохранить изменения
                 </Button>
               </div>
             </form>
@@ -1277,19 +1278,19 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
           <AlertDialogHeader>
             <AlertDialogTitle className="flex items-center gap-2">
               <AlertCircle className="h-5 w-5 text-destructive" />
-              Delete Knowledge Entry
+              Удалить запись базы знаний
             </AlertDialogTitle>
             <AlertDialogDescription>
-              This will permanently delete this knowledge entry. {agentName} will no longer have access to this information.
+              Это безвозвратно удалит эту запись базы знаний. {agentName} больше не будет иметь доступ к этой информации.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel>Отмена</AlertDialogCancel>
             <AlertDialogAction
               onClick={() => deleteEntryId && handleDelete(deleteEntryId)}
               className="bg-destructive hover:bg-destructive/90"
             >
-              Delete Entry
+              Удалить запись
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

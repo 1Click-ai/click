@@ -73,7 +73,7 @@ export const ComposioProfileSelector: React.FC<ComposioProfileSelectorProps> = (
                 <SelectItem value="new">
                   <div className="flex items-center gap-2">
                     <Plus className="h-4 w-4" />
-                    <span>Create New Connection</span>
+                    <span>Создать новое</span>
                   </div>
                 </SelectItem>
               </SelectContent>
@@ -109,7 +109,7 @@ export const ComposioProfileSelector: React.FC<ComposioProfileSelectorProps> = (
             variant="outline"
             onClick={() => onOpenChange(false)}
           >
-            Cancel
+            Отмена
           </Button>
           <Button
             onClick={handleContinue}
@@ -123,7 +123,7 @@ export const ComposioProfileSelector: React.FC<ComposioProfileSelectorProps> = (
             ) : selectedProfileId === 'new' ? (
               <>
                 <Plus className="mr-2 h-4 w-4" />
-                Create New
+                Создать новое
               </>
             ) : (
               'Continue'

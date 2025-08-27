@@ -1,10 +1,10 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Create Agent | MEVO',
+  title: 'Create Agent | КЛИК',
   description: 'Create an agent',
   openGraph: {
-    title: 'Create Agent | MEVO',
+    title: 'Create Agent | КЛИК',
     description: 'Create an agent',
     type: 'website',
   },

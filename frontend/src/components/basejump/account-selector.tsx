@@ -77,7 +77,7 @@ export default function AccountSelector({
             variant="ghost"
             role="combobox"
             aria-expanded={open}
-            aria-label="Select a team"
+            aria-label="Выбрать команду"
             className={cn(
               'w-full flex items-center gap-2 h-9 pl-3 pr-2 rounded-md justify-between border border-subtle dark:border-white/10 bg-transparent hover:bg-hover-bg text-foreground/90',
               className,
@@ -93,14 +93,14 @@ export default function AccountSelector({
           <Command className="rounded-xl overflow-hidden bg-card-bg dark:bg-background-secondary border-0">
             <CommandList className="border-0 bg-card-bg dark:bg-background-secondary">
               <CommandInput
-                placeholder="Search account..."
+                placeholder="Поиск аккаунта..."
                 className="h-9 border-0 focus:ring-0 rounded-t-xl bg-card-bg dark:bg-background-secondary text-foreground/90"
               />
               <CommandEmpty className="text-foreground/70 text-sm py-2">
-                No account found.
+Аккаунт не найден.
               </CommandEmpty>
               <CommandGroup
-                heading="Personal Account"
+                heading="Личный аккаунт"
                 className="text-xs font-medium text-foreground/70 bg-card-bg dark:bg-background-secondary"
               >
                 <CommandItem
@@ -127,7 +127,7 @@ export default function AccountSelector({
               </CommandGroup>
               {Boolean(teamAccounts?.length) && (
                 <CommandGroup
-                  heading="Teams"
+                  heading="Команды"
                   className="text-xs font-medium text-foreground/70 bg-card-bg dark:bg-background-secondary"
                 >
                   {teamAccounts?.map((team) => (
@@ -169,7 +169,7 @@ export default function AccountSelector({
                     className="text-sm rounded-md bg-card-bg dark:bg-background-secondary hover:!bg-[#f1eee7] dark:hover:!bg-[#141413] text-foreground/90"
                   >
                     <PlusCircle className="mr-2 h-4 w-4 text-primary" />
-                    Create Team
+                    Создать команду
                   </CommandItem>
                 </DialogTrigger>
               </CommandGroup>
@@ -180,10 +180,10 @@ export default function AccountSelector({
       <DialogContent className="sm:max-w-[425px] border-subtle dark:border-white/10 bg-card-bg dark:bg-background-secondary rounded-2xl shadow-custom">
         <DialogHeader>
           <DialogTitle className="text-foreground">
-            Create a new team
+            Создать новую команду
           </DialogTitle>
           <DialogDescription className="text-foreground/70">
-            Create a team to collaborate with others.
+            Создайте команду для совместной работы.
           </DialogDescription>
         </DialogHeader>
         <NewTeamForm />

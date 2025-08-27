@@ -32,7 +32,7 @@ export const AgentToolsConfiguration = ({ tools, onToolsChange, disabled = false
   const handleToolToggle = (toolName: string, enabled: boolean) => {
     if (disabled && isSunaAgent) {
       toast.error("Tools cannot be modified", {
-        description: "MEVO's default tools are managed centrally and cannot be changed.",
+        description: "Стандартные инструменты КЛИК управляются централизованно и не могут быть изменены.",
       });
       return;
     }
@@ -71,7 +71,7 @@ export const AgentToolsConfiguration = ({ tools, onToolsChange, disabled = false
       <div className="relative">
         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
         <Input
-          placeholder="Search tools..."
+          placeholder="Поиск инструментов..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="pl-9"
@@ -115,10 +115,10 @@ export const AgentToolsConfiguration = ({ tools, onToolsChange, disabled = false
                 <Search className="h-6 w-6 text-muted-foreground" />
               </div>
               <h4 className="text-sm font-semibold text-foreground mb-2">
-                No tools found
+                Инструменты не найдены
               </h4>
               <p className="text-sm text-muted-foreground mb-6 max-w-sm mx-auto">
-                Try adjusting your search criteria
+                Попробуйте изменить критерии поиска
               </p>
             </div>
           )}

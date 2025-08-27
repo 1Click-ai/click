@@ -39,7 +39,7 @@ const AgentCard = ({ agent }: { agent: any }) => {
             initial={{ y: 10 }}
             whileHover={{ y: 0 }}
           >
-            Try {agent.name} 
+            Попробовать {agent.name} 
             <ArrowRight className="w-4 h-4" />
           </motion.button>
         </div>
@@ -77,13 +77,13 @@ const CustomAgentCard = () => {
           
           <div className="space-y-3">
             <h3 className="text-xl font-semibold tracking-tighter group-hover:text-primary transition-colors">
-              Build Your Own
+              Создайте своего
             </h3>
             <p className="text-sm text-primary/70 font-medium uppercase tracking-wider">
-              Custom Agent
+              Пользовательский агент
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
-              Create a specialized AI Worker tailored to your unique business needs and workflow.
+              Создайте специализированного ИИ-сотрудника, адаптированного к вашим уникальным бизнес-потребностям и рабочему процессу.
             </p>
           </div>
 
@@ -92,7 +92,7 @@ const CustomAgentCard = () => {
             initial={{ y: 10 }}
             whileHover={{ y: 0 }}
           >
-            Start Building 
+            Начать создание 
             <ArrowRight className="w-4 h-4" />
           </motion.button>
         </div>
@@ -100,10 +100,10 @@ const CustomAgentCard = () => {
       
       <div className="flex-1 flex-col gap-2 p-6">
         <h4 className="text-lg tracking-tighter font-semibold">
-          Custom Agent • Your Choice
+          Пользовательский агент • Ваш выбор
         </h4>
         <p className="text-muted-foreground text-sm">
-          Design your own AI specialist for any task or industry
+          Создайте своего собственного ИИ-специалиста для любой задачи или отрасли
         </p>
       </div>
     </motion.div>
@@ -115,52 +115,52 @@ const AgentGrid = () => {
   const agents = [
     { 
       name: 'Maya', 
-      role: 'Copywriter', 
+      role: 'Копирайтер', 
       icon: '✍️', 
-      desc: 'Creates compelling copy for ads, blogs, and marketing campaigns that convert readers into customers.',
-      shortDesc: 'AI copywriter for marketing content and campaigns'
+      desc: 'Создает привлекательные тексты для рекламы, блогов и маркетинговых кампаний, которые превращают читателей в клиентов.',
+      shortDesc: 'ИИ-копирайтер для маркетингового контента и кампаний'
     },
     { 
       name: 'Hunter', 
-      role: 'Recruiter', 
+      role: 'Рекрутер', 
       icon: '🎯', 
-      desc: 'Turns hiring challenges into opportunities with magnetic job posts and smooth onboarding.',
-      shortDesc: 'AI recruiter for job posting and candidate screening'
+      desc: 'Превращает проблемы с наймом в возможности с помощью привлекательных вакансий и гладкого онбординга.',
+      shortDesc: 'ИИ-рекрутер для размещения вакансий и отбора кандидатов'
     },
     { 
       name: 'Nova', 
-      role: 'SEO Specialist', 
+      role: 'SEO-специалист', 
       icon: '📈', 
-      desc: 'Boosts website rankings with proven SEO strategies and optimized content.',
-      shortDesc: 'AI SEO expert for website optimization and rankings'
+      desc: 'Повышает рейтинг сайта с помощью проверенных SEO-стратегий и оптимизированного контента.',
+      shortDesc: 'ИИ-эксперт по SEO для оптимизации и повышения рейтинга сайта'
     },
     { 
       name: 'Pixel', 
-      role: 'Social Media Manager', 
+      role: 'Менеджер по социальным сетям', 
       icon: '📱', 
-      desc: 'Generates content, plans strategies, and manages social media presence effectively.',
-      shortDesc: 'AI social media manager for content and engagement'
+      desc: 'Эффективно генерирует контент, планирует стратегии и управляет присутствием в социальных сетях.',
+      shortDesc: 'ИИ-менеджер по социальным сетям для создания контента и вовлечения'
     },
     { 
       name: 'Sage', 
-      role: 'Data Analyst', 
+      role: 'Аналитик данных', 
       icon: '📊', 
-      desc: 'Transforms raw data into actionable insights with comprehensive analysis and reporting.',
-      shortDesc: 'AI data analyst for insights and reporting'
+      desc: 'Преобразует необработанные данные в полезные идеи с помощью всестороннего анализа и отчетности.',
+      shortDesc: 'ИИ-аналитик данных для получения инсайтов и отчетности'
     },
     { 
       name: 'Echo', 
-      role: 'Project Manager', 
+      role: 'Менеджер проектов', 
       icon: '📋', 
-      desc: 'Streamlines workflows, coordinates tasks, and ensures timely project delivery.',
-      shortDesc: 'AI project manager for workflow coordination'
+      desc: 'Оптимизирует рабочие процессы, координирует задачи и обеспечивает своевременную реализацию проектов.',
+      shortDesc: 'ИИ-менеджер проектов для координации рабочих процессов'
     },
     { 
       name: 'Byte', 
-      role: 'Code Assistant', 
+      role: 'Ассистент по коду', 
       icon: '💻', 
-      desc: 'Provides expert programming support with code review, debugging, and architecture design.',
-      shortDesc: 'AI coding assistant for development and debugging'
+      desc: 'Предоставляет экспертную поддержку в программировании с ревью кода, отладкой и проектированием архитектуры.',
+      shortDesc: 'ИИ-агент для разработки и отладки кода'
     },
   ];
 
@@ -184,10 +184,10 @@ export function AgentShowcaseSection() {
         <div className="max-w-6xl mx-auto border-l border-r">
           <SectionHeader>
             <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-center text-balance pb-1">
-              Build Your AI Team
+              Создайте свою команду ИИ
             </h2>
             <p className="text-muted-foreground text-center text-balance font-medium">
-              Specialized AI Workers ready to transform your workflow. Choose from our curated team of experts.
+              Специализированные ИИ-сотрудники готовы преобразить ваш рабочий процесс. Выбирайте из нашей команды экспертов.
             </p>
           </SectionHeader>
 

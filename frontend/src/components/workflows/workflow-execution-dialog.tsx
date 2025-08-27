@@ -83,7 +83,7 @@ export function WorkflowExecutionDialog({
               variant="outline" 
               onClick={handleClose}
             >
-              Cancel
+              Отмена
             </Button>
             <Button 
               onClick={handleConfirmExecution}

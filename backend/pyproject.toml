@@ -73,7 +73,7 @@ dependencies = [
 ]
 
 [project.urls]
-homepage = "https://www.mevoagent.com"
+homepage = "https://clickai.click"
 repository = ""
 
 [tool.uv]

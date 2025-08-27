@@ -50,7 +50,7 @@ REDIS_RESPONSE_LIST_TTL = 3600 * 24
 class AgentStartRequest(BaseModel):
     model_name: Optional[str] = None  # Will be set to default model in the endpoint
     enable_thinking: Optional[bool] = False
-    reasoning_effort: Optional[str] = 'low'
+    reasoning_effort: Optional[str] = 'high'
     stream: Optional[bool] = True
     enable_context_manager: Optional[bool] = False
     agent_id: Optional[str] = None  # Custom agent to use
@@ -2136,7 +2136,7 @@ async def update_agent(
                 logger.error(f"User {user_id} attempted to modify restricted name of Suna agent {agent_id}")
                 raise HTTPException(
                     status_code=403, 
-                    detail="Suna's name cannot be modified. This restriction is managed centrally."
+                    detail="Имя КЛИК нельзя изменить. Это ограничение управляется централизованно."
                 )
             
             if (agent_data.description is not None and
@@ -2145,7 +2145,7 @@ async def update_agent(
                 logger.error(f"User {user_id} attempted to modify restricted description of Suna agent {agent_id}")
                 raise HTTPException(
                     status_code=403, 
-                    detail="Suna's description cannot be modified."
+                    detail="Описание КЛИК нельзя изменить."
                 )
             
             if (agent_data.system_prompt is not None and 
@@ -2153,7 +2153,7 @@ async def update_agent(
                 logger.error(f"User {user_id} attempted to modify restricted system prompt of Suna agent {agent_id}")
                 raise HTTPException(
                     status_code=403, 
-                    detail="Suna's system prompt cannot be modified. This is managed centrally to ensure optimal performance."
+                    detail="Системный запрос КЛИК нельзя изменить. Это управляется централизованно для обеспечения оптимальной производительности."
                 )
             
             if (agent_data.agentpress_tools is not None and 
@@ -2161,7 +2161,7 @@ async def update_agent(
                 logger.error(f"User {user_id} attempted to modify restricted tools of Suna agent {agent_id}")
                 raise HTTPException(
                     status_code=403, 
-                    detail="Suna's default tools cannot be modified. These tools are optimized for Suna's capabilities."
+                    detail="Инструменты КЛИК по умолчанию нельзя изменить. Эти инструменты оптимизированы для возможностей КЛИК."
                 )
             
             if ((agent_data.configured_mcps is not None or agent_data.custom_mcps is not None) and 
@@ -2169,7 +2169,7 @@ async def update_agent(
                 logger.error(f"User {user_id} attempted to modify restricted MCPs of Suna agent {agent_id}")
                 raise HTTPException(
                     status_code=403, 
-                    detail="Suna's integrations cannot be modified."
+                    detail="Интеграции КЛИК нельзя изменить."
                 )
             
             logger.debug(f"Suna agent update validation passed for agent {agent_id} by user {user_id}")
@@ -2525,7 +2525,7 @@ async def delete_agent(agent_id: str, user_id: str = Depends(get_current_user_id
             raise HTTPException(status_code=400, detail="Cannot delete default agent")
         
         if agent.get('metadata', {}).get('is_suna_default', False):
-            raise HTTPException(status_code=400, detail="Cannot delete Suna default agent")
+            raise HTTPException(status_code=400, detail="Невозможно удалить агент КЛИК по умолчанию")
         
         # Clean up triggers before deleting agent to ensure proper remote cleanup
         try:

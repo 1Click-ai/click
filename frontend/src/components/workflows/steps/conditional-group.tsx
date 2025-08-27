@@ -537,7 +537,7 @@ export function ConditionalGroup({
                                 </DndContext>
                             ) : (
                                 <div className="text-center py-8 text-zinc-400 dark:text-zinc-500 text-sm">
-                                    No steps in this condition
+                                    Нет шагов в этом условии
                                 </div>
                             )}
 
@@ -550,7 +550,7 @@ export function ConditionalGroup({
                                     className="border-dashed text-xs"
                                 >
                                     <Plus className="h-3 w-3" />
-                                    Add step
+                                    Добавить шаг
                                 </Button>
                             </div>
                         </div>
@@ -562,17 +562,17 @@ export function ConditionalGroup({
             <Dialog open={!!deleteConfirmStep} onOpenChange={(open) => !open && handleDeleteCancel()}>
                 <DialogContent className="max-w-md">
                     <DialogHeader>
-                        <DialogTitle>Delete Condition</DialogTitle>
+                        <DialogTitle>Удалить условие</DialogTitle>
                         <DialogDescription>
-                            Are you sure you want to delete this "Else If" condition? This action cannot be undone and will remove all steps within this condition.
+                            Вы уверены, что хотите удалить это условие? Это действие нельзя отменить и будет удалены все шаги в этом условии.
                         </DialogDescription>
                     </DialogHeader>
                     <DialogFooter>
                         <Button variant="outline" onClick={handleDeleteCancel}>
-                            Cancel
+                            Отмена
                         </Button>
                         <Button variant="destructive" onClick={handleDeleteConfirm}>
-                            Delete
+                            Удалить
                         </Button>
                     </DialogFooter>
                 </DialogContent>

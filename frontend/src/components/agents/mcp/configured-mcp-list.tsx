@@ -17,6 +17,7 @@ import { MCPConfiguration } from './types';
 import { useCredentialProfilesForMcp } from '@/hooks/react-query/mcp/use-credential-profiles';
 
 import { useComposioToolkits } from '@/hooks/react-query/composio/use-composio';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 
 interface ConfiguredMcpListProps {
   configuredMCPs: MCPConfiguration[];
@@ -107,7 +108,7 @@ const MCPConfigurationItem: React.FC<{
             <h4 className="text-sm font-medium truncate">{mcp.name}</h4>
           </div>
           <div className="flex items-center gap-3 text-xs text-muted-foreground">
-            <span>{mcp.enabledTools?.length || 0} tools enabled</span>
+            <span>{mcp.enabledTools?.length || 0} инструментов включено</span>
             {hasCredentialProfile && (
               <div className="flex items-center gap-1">
                 <Key className="h-3 w-3 text-green-600" />
@@ -120,26 +121,38 @@ const MCPConfigurationItem: React.FC<{
         </div>
       </div>
       <div className="flex items-center space-x-2 flex-shrink-0">
-        {onConfigureTools && (
-          <Button
-            size="sm"
-            variant="ghost"
-            className="h-8 w-8 p-0"
-            onClick={() => onConfigureTools(index)}
-            title="Configure tools"
-          >
-            <Settings className="h-4 w-4" />
-          </Button>
-        )}
-        <Button
-          size="sm"
-          variant="ghost"
-          className="h-8 w-8 p-0 text-destructive hover:text-destructive"
-          onClick={() => onRemove(index)}
-          title="Remove integration"
-        >
-          <Trash2 className="h-4 w-4" />
-        </Button>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button
+              size="sm"
+              variant="ghost"
+              className="h-8 w-8 p-0"
+              onClick={() => onConfigureTools(index)}
+              title="Настроить инструменты"
+            >
+              <Settings className="h-4 w-4" />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Настроить инструменты</p>
+          </TooltipContent>
+        </Tooltip>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button
+              size="sm"
+              variant="ghost"
+              className="h-8 w-8 p-0 text-destructive hover:text-destructive"
+              onClick={() => onRemove(index)}
+              title="Удалить интеграцию"
+            >
+              <Trash2 className="h-4 w-4" />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Удалить интеграцию</p>
+          </TooltipContent>
+        </Tooltip>
       </div>
     </div>
   );
@@ -187,18 +200,18 @@ export const ConfiguredMcpList: React.FC<ConfiguredMcpListProps> = ({
       <AlertDialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Remove Integration</AlertDialogTitle>
+            <AlertDialogTitle>Удалить интеграцию</AlertDialogTitle>
             <AlertDialogDescription>
-              Are you sure you want to remove the "{mcpToDelete?.mcp.name}" integration? This will disconnect all associated tools and cannot be undone.
+              Вы уверены, что хотите удалить интеграцию "{mcpToDelete?.mcp.name}"? Это отключит все связанные инструменты и не может быть отменено.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel>Отмена</AlertDialogCancel>
             <AlertDialogAction
               onClick={confirmDelete}
               className="bg-destructive hover:bg-destructive/90"
             >
-              Remove Integration
+              Удалить интеграцию
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

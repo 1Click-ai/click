@@ -45,7 +45,7 @@ export default function GitHubSignIn({ returnUrl }: GitHubSignInProps) {
   const handleError = useCallback(
     (data: AuthMessage) => {
       cleanupAuthState();
-      toast.error(data.message || 'GitHub sign-in failed. Please try again.');
+      toast.error(data.message || 'Вход через GitHub не удался. Пожалуйста, попробуйте снова.');
     },
     [cleanupAuthState],
   );
@@ -109,7 +109,7 @@ export default function GitHubSignIn({ returnUrl }: GitHubSignInProps) {
 
       if (!popup) {
         throw new Error(
-          'Popup was blocked. Please enable popups and try again.',
+          'Всплывающее окно заблокировано. Пожалуйста, включите всплывающие окна и попробуйте снова.',
         );
       }
 
@@ -125,7 +125,7 @@ export default function GitHubSignIn({ returnUrl }: GitHubSignInProps) {
           setTimeout(() => {
             if (sessionStorage.getItem('isGitHubAuthInProgress')) {
               cleanupAuthState();
-              toast.error('GitHub sign-in was cancelled or not completed.');
+              toast.error('Вход через GitHub был отменен или не завершен.');
             }
           }, 500);
         }
@@ -139,7 +139,7 @@ export default function GitHubSignIn({ returnUrl }: GitHubSignInProps) {
       toast.error(
         error instanceof Error
           ? error.message
-          : 'Failed to start GitHub sign-in',
+          : 'Не удалось начать вход через GitHub',
       );
     }
   };
@@ -151,7 +151,7 @@ export default function GitHubSignIn({ returnUrl }: GitHubSignInProps) {
         disabled={isLoading}
         className="w-full h-12 flex items-center justify-center text-sm font-medium tracking-wide rounded-full bg-background text-foreground border border-border hover:bg-accent/30 transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed font-sans"
         aria-label={
-          isLoading ? 'Signing in with GitHub...' : 'Sign in with GitHub'
+          isLoading ? 'Вход через GitHub...' : 'Войти через GitHub'
         }
         type="button"
       >
@@ -161,7 +161,7 @@ export default function GitHubSignIn({ returnUrl }: GitHubSignInProps) {
           <FaGithub className="w-4 h-4 mr-2" />
         )}
         <span className="font-medium">
-          {isLoading ? 'Signing in...' : 'Continue with GitHub'}
+          {isLoading ? 'Вход...' : 'Продолжить с GitHub'}
         </span>
       </button>
       

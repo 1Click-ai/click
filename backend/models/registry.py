@@ -15,7 +15,7 @@ class ModelRegistry:
             id="openrouter/anthropic/claude-sonnet-4",
             name="Claude Sonnet 4",
             provider=ModelProvider.OPENROUTER,
-            aliases=["claude-sonnet-4", "anthropic/claude-sonnet-4",  "IT Expert💰💸", "Claude Sonnet 4", "claude-sonnet-4-20250514"],
+            aliases=["claude-sonnet-4", "anthropic/claude-sonnet-4",  "IT Expert", "Claude Sonnet 4", "claude-sonnet-4-20250514"],
             context_window=200_000,
             capabilities=[
                 ModelCapability.CHAT,
@@ -35,9 +35,9 @@ class ModelRegistry:
         
         self.register(Model(
             id="openrouter/openai/gpt-5-mini",
-            name="Medic 🚑🏥🩻",
+            name="GPT-5M",
             provider=ModelProvider.OPENROUTER,
-            aliases=["gpt-5-mini", "GPT-5 Mini"],
+            aliases=["gpt-5-mini", "GPT-5M", "GPT-5 Mini", "openrouter/openai/gpt-5-mini"],
             context_window=400_000,
             capabilities=[
                 ModelCapability.CHAT,
@@ -48,7 +48,7 @@ class ModelRegistry:
                 input_cost_per_million_tokens=0.25,
                 output_cost_per_million_tokens=2.00
             ),
-            tier_availability=["free", "paid"],
+            tier_availability=["paid"],
             priority=85,
             enabled=True
         ))
@@ -75,9 +75,9 @@ class ModelRegistry:
         ))
         self.register(Model(
             id="openrouter/google/gemini-2.5-flash",
-            name="Clerk 💨⚡️🚀",
+            name="КЛИК-Менеджер",
             provider=ModelProvider.OPENROUTER,
-            aliases=["google/gemini-2.5-flash","gemini-2.5-flash", "Gemini 2.5 Flash"],
+            aliases=["google/gemini-2.5-flash","gemini-2.5-flash", "Gemini 2.5 Flash", "КЛИК-менеджер", "openrouter/google/gemini-2.5-flash"],
             context_window=1_000_000,
             capabilities=[
                 ModelCapability.CHAT,
@@ -113,19 +113,57 @@ class ModelRegistry:
             enabled=True
         ))
         
+
         self.register(Model(
             id="openrouter/moonshotai/kimi-k2",
-            name="Kimi K2",
+            name="КЛИК-интерн2",
             provider=ModelProvider.OPENROUTER,
-            aliases=["moonshotai/kimi-k2", "kimi-k2", "Kimi K2"],
+            aliases=["moonshotai/kimi-k2", "kimi-k2", "Kimi K2", "openrouter/moonshotai/kimi-k2", "КЛИК-интерн2"],
+            context_window=131_000,
+            capabilities=[
+                ModelCapability.CHAT,
+                ModelCapability.FUNCTION_CALLING,
+            ],
+            pricing=ModelPricing(
+                input_cost_per_million_tokens=0.6,
+                output_cost_per_million_tokens=2.50
+            ),
+            tier_availability=["free", "paid"],
+            priority=95,
+            enabled=True
+        ))
+        self.register(Model(
+            id="openrouter/deepseek/deepseek-chat-v3.1",
+            name="КЛИК-Профи",
+            provider=ModelProvider.OPENROUTER,
+            aliases=["deepseek/deepseek-chat-v3.1", "deepseek-chat-v3.1", "DeepSeek Chat V3.1", "openrouter/deepseek/deepseek-chat-v3.1", "КЛИК-Профи", "КЛИК"],
+            context_window=163_000,
+            capabilities=[
+                ModelCapability.CHAT,
+                ModelCapability.FUNCTION_CALLING,
+            ],
+            pricing=ModelPricing(
+                input_cost_per_million_tokens=0.6,
+                output_cost_per_million_tokens=1.50
+            ),
+            tier_availability=["free", "paid"],
+            priority=100,
+            enabled=True
+        ))
+
+        self.register(Model(
+            id="openrouter/z-ai/glm-4.5",
+            name="КЛИК-интерн",
+            provider=ModelProvider.OPENROUTER,
+            aliases=["z-ai/glm-4.5", "glm-4.5", "GLM 4.5", "openrouter/z-ai/glm-4.5", "КЛИК-интерн"],
             context_window=200_000,
             capabilities=[
                 ModelCapability.CHAT,
                 ModelCapability.FUNCTION_CALLING,
             ],
             pricing=ModelPricing(
-                input_cost_per_million_tokens=1.00,
-                output_cost_per_million_tokens=3.00
+                input_cost_per_million_tokens=0.60,
+                output_cost_per_million_tokens=2.20
             ),
             tier_availability=["paid"],
             priority=100,
@@ -171,6 +209,9 @@ class ModelRegistry:
             priority=80,
             enabled=True
         ))
+
+
+
 
         """
         # DeepSeek Models

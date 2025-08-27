@@ -39,10 +39,10 @@ export default function EditTeamSlug({ account }: Props) {
         <div className="flex justify-end mt-2">
           <SubmitButton
             formAction={editTeamSlug}
-            pendingText="Updating..."
+            pendingText="Сохранение..."
             className="rounded-lg bg-primary hover:bg-primary/90 text-white h-10"
           >
-            Save Changes
+            Сохранить изменения
           </SubmitButton>
         </div>
       </div>

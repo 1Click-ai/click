@@ -29,7 +29,7 @@ import {
   DialogDescription,
   DialogFooter,
 } from '@/components/ui/dialog';
-import GitHubSignIn from '@/components/GithubSignIn';
+// import GitHubSignIn from '@/components/GithubSignIn';
 import { KortixLogo } from '@/components/sidebar/kortix-logo';
 import { Ripple } from '@/components/ui/ripple';
 import { ReleaseBadge } from '@/components/auth/release-badge';
@@ -57,9 +57,9 @@ function LoginContent() {
 
   const isSuccessMessage =
     message &&
-    (message.includes('Check your email') ||
-      message.includes('Account created') ||
-      message.includes('success'));
+    (message.includes('Проверь свой email') ||
+      message.includes('Аккаунт создан') ||
+      message.includes('успешно'));
 
   // Registration success state
   const [registrationSuccess, setRegistrationSuccess] =
@@ -105,7 +105,7 @@ function LoginContent() {
     }
 
     if (result && typeof result === 'object' && 'message' in result) {
-      toast.error('Login failed', {
+      toast.error('Ошибка входа', {
         description: result.message as string,
         duration: 5000,
       });
@@ -146,7 +146,7 @@ function LoginContent() {
     // Check if registration was successful but needs email verification
     if (result && typeof result === 'object' && 'message' in result) {
       const resultMessage = result.message as string;
-      if (resultMessage.includes('Check your email')) {
+      if (resultMessage.includes('Проверь свой email')) {
         setRegistrationSuccess(true);
 
         // Update URL without causing a refresh
@@ -161,7 +161,7 @@ function LoginContent() {
 
         return result;
       } else {
-        toast.error('Sign up failed', {
+        toast.error('Ошибка регистрации', {
           description: resultMessage,
           duration: 5000,
         });
@@ -180,7 +180,7 @@ function LoginContent() {
     if (!forgotPasswordEmail || !forgotPasswordEmail.includes('@')) {
       setForgotPasswordStatus({
         success: false,
-        message: 'Please enter a valid email address',
+        message: 'Пожалуйста, введите корректный email',
       });
       return;
     }
@@ -230,11 +230,11 @@ function LoginContent() {
             </div>
 
             <h1 className="text-3xl font-semibold text-foreground mb-4">
-              Check your email
+              Проверь свой email
             </h1>
 
             <p className="text-muted-foreground mb-2">
-              We've sent a confirmation link to:
+              Мы отправили ссылку для подтверждения на ваш email:
             </p>
 
             <p className="text-lg font-medium mb-6">
@@ -243,7 +243,7 @@ function LoginContent() {
 
             <div className="bg-green-50 dark:bg-green-950/20 border border-green-100 dark:border-green-900/50 rounded-lg p-4 mb-8">
               <p className="text-sm text-green-800 dark:text-green-400">
-                Click the link in the email to activate your account. If you don't see the email, check your spam folder.
+                Нажмите на ссылку в письме, чтобы активировать ваш аккаунт. Если вы не видите письмо, проверьте папку спама.
               </p>
             </div>
 
@@ -252,13 +252,13 @@ function LoginContent() {
                 href="/"
                 className="flex h-11 items-center justify-center px-6 text-center rounded-lg border border-border bg-background hover:bg-accent transition-colors"
               >
-                Return to home
+                На главную
               </Link>
               <button
                 onClick={resetRegistrationSuccess}
                 className="flex h-11 items-center justify-center px-6 text-center rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
               >
-                Back to sign in
+                Назад ко входу
               </button>
             </div>
           </div>
@@ -282,19 +282,19 @@ function LoginContent() {
                 className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-4"
               >
                 <ArrowLeft className="h-4 w-4" />
-                Back to home
+                Назад
               </Link>
             </div>
             <div className="w-full max-w-sm">
               <div className="mb-4 flex items-center flex-col gap-3 sm:gap-4 justify-center">
                 {customAgentsEnabled && <ReleaseBadge className='mb-2 sm:mb-4' text="Custom Agents, Playbooks, and more!" link="/changelog" />}
                 <h1 className="text-xl sm:text-2xl font-semibold text-foreground text-center leading-tight">
-                  {isSignUp ? 'Create your account' : 'Log into your account'}
+                  {isSignUp ? 'Создать аккаунт' : 'Войти в аккаунт'}
                 </h1>
               </div>
             <div className="space-y-3 mb-4">
               <GoogleSignIn returnUrl={returnUrl || undefined} />
-              <GitHubSignIn returnUrl={returnUrl || undefined} />
+              {/* <GitHubSignIn returnUrl={returnUrl || undefined} /> */}
             </div>
             <div className="relative my-4">
               <div className="absolute inset-0 flex items-center">
@@ -302,7 +302,7 @@ function LoginContent() {
               </div>
               <div className="relative flex justify-center text-sm">
                 <span className="px-2 bg-background text-muted-foreground">
-                  or email
+                  или email
                 </span>
               </div>
             </div>
@@ -311,7 +311,7 @@ function LoginContent() {
                 id="email"
                 name="email"
                 type="email"
-                placeholder="Email address"
+                placeholder="Адрес электронной почты"
                 className="h-10 rounded-lg"
                 required
               />
@@ -319,7 +319,7 @@ function LoginContent() {
                 id="password"
                 name="password"
                 type="password"
-                placeholder="Password"
+                placeholder="Пароль"
                 className="h-10 rounded-lg"
                 required
               />
@@ -328,7 +328,7 @@ function LoginContent() {
                   id="confirmPassword"
                   name="confirmPassword"
                   type="password"
-                  placeholder="Confirm password"
+                  placeholder="Подтвердите пароль"
                   className="h-10 rounded-lg"
                   required
                 />
@@ -338,9 +338,9 @@ function LoginContent() {
                   <SubmitButton
                     formAction={isSignUp ? handleSignUp : handleSignIn}
                     className="w-full h-10 bg-primary text-primary-foreground hover:bg-primary/90 transition-colors rounded-lg"
-                    pendingText={isSignUp ? "Creating account..." : "Signing in..."}
+                    pendingText={isSignUp ? "Создание аккаунта..." : "Вход в систему..."}
                   >
-                    {isSignUp ? 'Create account' : 'Sign in'}
+                    {isSignUp ? 'Создать аккаунт' : 'Войти'}
                   </SubmitButton>
                   {wasEmailLastMethod && (
                     <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-background shadow-sm">
@@ -358,7 +358,7 @@ function LoginContent() {
                   onClick={() => setForgotPasswordOpen(true)}
                   className="text-primary hover:underline"
                 >
-                  Forgot password?
+                  Забыли пароль?
                 </button>
               )}
               
@@ -371,8 +371,8 @@ function LoginContent() {
                   className="text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {isSignUp 
-                    ? 'Already have an account? Sign in' 
-                    : "Don't have an account? Sign up"
+                    ? 'Уже есть аккаунт? Войти' 
+                    : "Нет аккаунта? Зарегистрироваться"
                   }
                 </Link>
               </div>
@@ -389,17 +389,17 @@ function LoginContent() {
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
             <div className="flex items-center justify-between">
-              <DialogTitle>Reset Password</DialogTitle>
+              <DialogTitle>Сброс пароля</DialogTitle>
             </div>
             <DialogDescription>
-              Enter your email address and we'll send you a link to reset your password.
+Введите ваш адрес электронной почты, и мы отправим вам ссылку для сброса пароля.
             </DialogDescription>
           </DialogHeader>
           <form onSubmit={handleForgotPassword} className="space-y-4">
             <Input
               id="forgot-password-email"
               type="email"
-              placeholder="Email address"
+              placeholder="Адрес электронной почты"
               value={forgotPasswordEmail}
               onChange={(e) => setForgotPasswordEmail(e.target.value)}
               className="h-11 rounded-xl"
@@ -427,13 +427,13 @@ function LoginContent() {
                 onClick={() => setForgotPasswordOpen(false)}
                 className="h-10 px-4 border border-border bg-background hover:bg-accent transition-colors rounded-md"
               >
-                Cancel
+                Отмена
               </button>
               <button
                 type="submit"
                 className="h-10 px-4 bg-primary text-primary-foreground hover:bg-primary/90 transition-colors rounded-md"
               >
-                Send Reset Link
+                Отправить ссылку
               </button>
             </DialogFooter>
           </form>

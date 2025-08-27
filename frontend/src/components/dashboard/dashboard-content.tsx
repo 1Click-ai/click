@@ -41,22 +41,22 @@ const PENDING_PROMPT_KEY = 'pendingAgentPrompt';
 const dashboardTourSteps: Step[] = [
   {
     target: '[data-tour="chat-input"]',
-    content: 'Type your questions or tasks here. Agent can help with research, analysis, automation, and much more.',
-    title: 'Start a Conversation',
+    content: 'Введите здесь свои вопросы или задачи. Агент может помочь в исследованиях, анализе, автоматизации и многом другом.',
+    title: 'Начать разговор',
     placement: 'top',
     disableBeacon: true,
   },
   {
     target: '[data-tour="my-agents"]',
-    content: 'Create and manage your custom AI agents here. Build specialized agents for different tasks and workflows.',
-    title: 'Manage Your Agents',
+    content: 'Создавайте и управляйте своими собственными ИИ-агентами здесь. Создавайте специализированных агентов для различных задач и рабочих процессов.',
+    title: 'Управление вашими агентами',
     placement: 'right',
     disableBeacon: true,
   },
   {
     target: '[data-tour="examples"]',
-    content: 'Get started quickly with these example prompts. Click any example to try it out.',
-    title: 'Example Prompts',
+    content: 'Начните быстро с этими примерами запросов. Нажмите на любой пример, чтобы попробовать.',
+    title: 'Примеры запросов',
     placement: 'top',
     disableBeacon: true,
   },
@@ -221,7 +221,7 @@ export function DashboardContent() {
         });
         setShowAgentLimitDialog(true);
       } else {
-        const errorMessage = error instanceof Error ? error.message : 'Operation failed';
+        const errorMessage = error instanceof Error ? error.message : 'Операция не выполнена';
         toast.error(errorMessage);
       }
     } finally {
@@ -339,7 +339,7 @@ export function DashboardContent() {
           <div className="min-h-full flex flex-col">
             {customAgentsEnabled && (
               <div className="flex justify-center px-4 pt-4 md:pt-8">
-                <ReleaseBadge text="Custom Agents, Playbooks, and more!" link="/agents?tab=my-agents" />
+                <ReleaseBadge text="Маркетплейс агентов, шаблоны и многое другое!" link="/agents?tab=my-agents" />
               </div>
             )}
             <div className="flex-1 flex items-center justify-center px-4 py-8">
@@ -349,7 +349,7 @@ export function DashboardContent() {
                     className="tracking-tight text-2xl md:text-3xl font-normal text-foreground/90"
                     data-tour="dashboard-title"
                   >
-                    What would you like to do today?
+                    Что вы хотели бы сделать сегодня?
                   </p>
                 </div>
                 <div className="w-full" data-tour="chat-input">
@@ -357,7 +357,7 @@ export function DashboardContent() {
                     ref={chatInputRef}
                     onSubmit={handleSubmit}
                     loading={isSubmitting}
-                    placeholder="Describe what you need help with..."
+                    placeholder="Опишите, с чем вам нужна помощь..."
                     value={inputValue}
                     onChange={setInputValue}
                     hideAttachments={false}

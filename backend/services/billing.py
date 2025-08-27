@@ -27,7 +27,7 @@ import json
 stripe.api_key = config.STRIPE_SECRET_KEY
 
 # Token price multiplier
-TOKEN_PRICE_MULTIPLIER = 2
+TOKEN_PRICE_MULTIPLIER = 2.0
 
 # Minimum credits required to allow a new request when over subscription limit
 CREDIT_MIN_START_DOLLARS = 0.20
@@ -2574,7 +2574,7 @@ async def purchase_credits(
                         'currency': 'usd',
                         'product_data': {
                             'name': f'Suna AI Credits',
-                            'description': f'${request.amount_dollars:.2f} in usage credits for Suna AI',
+                            'description': f'${request.amount_dollars:.2f} в кредитах использования для КЛИК AI',
                         },
                         'unit_amount': int(request.amount_dollars * 100),
                     },

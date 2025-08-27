@@ -25,7 +25,7 @@ import { useModelSelection } from '@/components/thread/chat-input/_use-model-sel
 // Example task data with token usage
 const exampleTasks = [
   {
-    name: 'Social Automation System',
+    name: 'Система социальной автоматизации',
     complexity: 'Complex',
     complexityVariant: 'destructive' as const,
     inputTokens: 3410337,
@@ -34,7 +34,7 @@ const exampleTasks = [
     originalModel: 'claude-sonnet-4',
   },
   {
-    name: 'Content Marketing Strategy',
+    name: 'Стратегия контент-маркетинга',
     complexity: 'Standard Complexity',
     complexityVariant: 'secondary' as const,
     inputTokens: 212312,
@@ -43,7 +43,7 @@ const exampleTasks = [
     originalModel: 'claude-sonnet-4',
   },
   {
-    name: 'Go-to-Market Strategy',
+    name: 'Стратегия выхода на рынок',
     complexity: 'Standard Complexity',
     complexityVariant: 'secondary' as const,
     inputTokens: 307719,
@@ -52,7 +52,7 @@ const exampleTasks = [
     originalModel: 'claude-sonnet-4',
   },
   {
-    name: 'Learning Path Generator',
+    name: 'Генератор обучающих путей',
     complexity: 'Standard Complexity',
     complexityVariant: 'secondary' as const,
     inputTokens: 90953,
@@ -61,7 +61,7 @@ const exampleTasks = [
     originalModel: 'claude-sonnet-4',
   },
   {
-    name: 'Customer Journey Mapping',
+    name: 'Составление карты пути клиента',
     complexity: 'Complex',
     complexityVariant: 'destructive' as const,
     inputTokens: 360013,
@@ -70,7 +70,7 @@ const exampleTasks = [
     originalModel: 'claude-sonnet-4',
   },
   {
-    name: 'Sales Funnel Optimization',
+    name: 'Оптимизация воронки продаж',
     complexity: 'Complex',
     complexityVariant: 'destructive' as const,
     inputTokens: 559918,
@@ -79,7 +79,7 @@ const exampleTasks = [
     originalModel: 'claude-sonnet-4',
   },
   {
-    name: 'Startup Pitch Deck',
+    name: 'Питч-дек для стартапа',
     complexity: 'Standard Complexity',
     complexityVariant: 'secondary' as const,
     inputTokens: 169175,
@@ -88,7 +88,7 @@ const exampleTasks = [
     originalModel: 'claude-sonnet-4',
   },
   {
-    name: 'Health Tracking Dashboard',
+    name: 'Панель мониторинга здоровья',
     complexity: 'Standard Complexity',
     complexityVariant: 'secondary' as const,
     inputTokens: 110952,
@@ -97,7 +97,7 @@ const exampleTasks = [
     originalModel: 'claude-sonnet-4',
   },
   {
-    name: 'Recommendation Engine',
+    name: 'Движок рекомендаций',
     complexity: 'Complex',
     complexityVariant: 'destructive' as const,
     inputTokens: 4220364,
@@ -106,7 +106,7 @@ const exampleTasks = [
     originalModel: 'claude-sonnet-4',
   },
   {
-    name: 'Automated ETL Pipeline',
+    name: 'Автоматизированный ETL-конвейер',
     complexity: 'Complex',
     complexityVariant: 'destructive' as const,
     inputTokens: 2513197,
@@ -115,7 +115,7 @@ const exampleTasks = [
     originalModel: 'claude-sonnet-4',
   },
   {
-    name: 'Automated Code Reviewer',
+    name: 'Автоматический рецензент кода',
     complexity: 'Complex',
     complexityVariant: 'destructive' as const,
     inputTokens: 1707944,
@@ -124,7 +124,7 @@ const exampleTasks = [
     originalModel: 'claude-sonnet-4',
   },
   {
-    name: 'Risk Assessment',
+    name: 'Оценка рисков',
     complexity: 'Complex',
     complexityVariant: 'destructive' as const,
     inputTokens: 693487,
@@ -230,16 +230,16 @@ export default function PricingPage() {
           <AlertCircle className="w-12 h-12 text-red-500 mx-auto" />
           <div className="space-y-2">
             <h3 className="text-lg font-semibold text-foreground">
-              Pricing Unavailable
+              Цены недоступны
             </h3>
             <p className="text-sm text-muted-foreground">
               {error instanceof Error
                 ? error.message
-                : 'Failed to fetch model pricing'}
+                : 'Не удалось получить цены на модель'}
             </p>
           </div>
           <Button onClick={() => refetch()} size="sm">
-            Try Again
+            Повторить попытку
           </Button>
         </div>
       </div>
@@ -250,10 +250,10 @@ export default function PricingPage() {
     <div className="space-y-8 p-8 max-w-4xl mx-auto">
       {/* Header Section */}
       <div className="space-y-4">
-        <h1 className="text-3xl font-bold text-foreground">Token Pricing</h1>
+        <h1 className="text-3xl font-bold text-foreground">Цены на токены</h1>
         <p className="text-lg text-muted-foreground max-w-3xl">
-          Understand how tokens work, explore pricing for AI models, and find
-          the right plan for your needs.
+          Узнайте, как работают токены, изучите цены на модели ИИ и найдите
+          подходящий план для ваших нужд.
         </p>
       </div>
 
@@ -262,17 +262,17 @@ export default function PricingPage() {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Zap className="w-5 h-5 text-blue-500" />
-            Understanding Tokens & Compute
+            Понимание токенов и вычислений
           </CardTitle>
         </CardHeader>
         <CardContent>
           <p className="text-muted-foreground">
-            Tokens are the fundamental units that AI models use to process text
-            - the more complex or lengthy your task, the more tokens it
-            requires. Compute usage is measured by both input tokens (your
-            prompts and context) and output tokens (the AI's responses), with
-            different models having varying computational requirements and costs
-            per token.
+            Токены являются основными единицами, которые модели ИИ используют для обработки текста
+            - чем сложнее или объемнее ваша задача, тем больше токенов требуется.
+            Использование вычислений измеряется как входными токенами (ваши
+            подсказки и контекст), так и выходными токенами (ответы ИИ), при этом
+            разные модели имеют разные вычислительные требования и затраты
+            на токен.
           </p>
         </CardContent>
       </Card>
@@ -282,16 +282,16 @@ export default function PricingPage() {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Server className="w-5 h-5 text-green-500" />
-            How does pricing work?
+            Как работает ценообразование?
           </CardTitle>
         </CardHeader>
         <CardContent>
           <p className="text-muted-foreground">
-            Usage costs are calculated based on token consumption from AI model
-            interactions. We apply a small markup over direct model provider costs
-            to maintain our AWS servers and APIs. Your total cost depends on
-            the specific model used and the number of tokens processed for both
-            input (prompts, context) and output (generated responses).
+            Затраты на использование рассчитываются на основе потребления токенов при взаимодействии с моделями ИИ.
+            Мы применяем небольшую наценку на прямые затраты поставщика модели,
+            чтобы поддерживать наши серверы AWS и API. Ваши общие затраты зависят от
+            конкретной используемой модели и количества токенов, обработанных как для
+            ввода (подсказки, контекст), так и для вывода (сгенерированные ответы).
           </p>
         </CardContent>
       </Card>
@@ -302,11 +302,10 @@ export default function PricingPage() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Globe className="w-5 h-5 text-orange-500" />
-              Usage Examples
+              Примеры использования
             </CardTitle>
             <CardDescription>
-              Here are some examples demonstrating credits consumption across
-              different task types and complexity levels.
+              Вот несколько примеров, демонстрирующих потребление кредитов различными моделями
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -314,14 +313,14 @@ export default function PricingPage() {
               {/* Model Selection */}
               <div className="space-y-2">
                 <label className="text-sm font-medium text-foreground">
-                  Select a model to see pricing:
+                  Выберите модель, чтобы увидеть цены:
                 </label>
                 <Select
                   value={selectedModelId}
                   onValueChange={setSelectedModelId}
                 >
                   <SelectTrigger className="w-full max-w-md">
-                    <SelectValue placeholder="Choose a model to calculate costs" />
+                    <SelectValue placeholder="Выберите модель для расчета затрат" />
                   </SelectTrigger>
                   <SelectContent>
                     {models.map((model) => (
@@ -358,7 +357,7 @@ export default function PricingPage() {
                         <div className="space-y-2 text-sm mt-6">
                           <div className="flex justify-between">
                             <span className="text-muted-foreground">
-                              Model:
+                              Модель:
                             </span>
                             <span>
                               {selectedModel?.display_name ||
@@ -367,25 +366,25 @@ export default function PricingPage() {
                           </div>
                           <div className="flex justify-between">
                             <span className="text-muted-foreground">
-                              Input Tokens:
+                              Входные токены:
                             </span>
                             <span>{task.inputTokens.toLocaleString()}</span>
                           </div>
                           <div className="flex justify-between">
                             <span className="text-muted-foreground">
-                              Output Tokens:
+                              Выходные токены:
                             </span>
                             <span>{task.outputTokens.toLocaleString()}</span>
                           </div>
                           <div className="flex justify-between font-semibold">
-                            <span className="text-muted-foreground">Cost:</span>
+                            <span className="text-muted-foreground">Стоимость:</span>
                             {calculatedCost !== null ? (
                               <span className="text-blue-600">
                                 ${calculatedCost.toFixed(2)}
                               </span>
                             ) : (
                               <span className="text-muted-foreground">
-                                Select model above
+                                Выберите модель выше
                               </span>
                             )}
                           </div>
@@ -404,7 +403,7 @@ export default function PricingPage() {
                     onClick={() => setShowAllTasks(!showAllTasks)}
                     className="gap-2"
                   >
-                    {showAllTasks ? 'Show Less' : `Show More`}
+                    {showAllTasks ? 'Показать меньше' : `Показать больше`}
                   </Button>
                 </div>
               )}
@@ -416,18 +415,18 @@ export default function PricingPage() {
       {/* Model Pricing Table */}
       <Card>
         <CardHeader>
-          <CardTitle>Compute Pricing by Model</CardTitle>
+          <CardTitle>Цены на вычисления по модели</CardTitle>
           <CardDescription>
-            Detailed pricing information for available AI models.
+            Подробная информация о ценах на доступные модели ИИ.
           </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="bg-card border border-border rounded-lg">
             <div className="px-6 py-4 border-b border-border">
               <div className="grid grid-cols-3 gap-4 text-sm font-medium text-muted-foreground">
-                <div className="col-span-1">Model</div>
-                <div className="col-span-1 text-center">Input Cost</div>
-                <div className="col-span-1 text-center">Output Cost</div>
+                <div className="col-span-1">Модель</div>
+                <div className="col-span-1 text-center">Стоимость ввода</div>
+                <div className="col-span-1 text-center">Стоимость вывода</div>
               </div>
             </div>
 
@@ -464,7 +463,7 @@ export default function PricingPage() {
                               ${model.input_cost_per_million_tokens.toFixed(2)}
                             </div>
                             <div className="text-xs text-muted-foreground">
-                              per 1M tokens
+                              за 1 млн токенов
                             </div>
                           </>
                         ) : (
@@ -485,7 +484,7 @@ export default function PricingPage() {
                               ${model.output_cost_per_million_tokens.toFixed(2)}
                             </div>
                             <div className="text-xs text-muted-foreground">
-                              per 1M tokens
+                              за 1 млн токенов
                             </div>
                           </>
                         ) : (

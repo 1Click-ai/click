@@ -14,13 +14,13 @@ const agentTabs: TabConfig[] = [
   {
     value: 'marketplace',
     icon: ShoppingBag,
-    label: 'Explore',
-    shortLabel: 'Explore',
+    label: 'Маркетплейс',
+    shortLabel: 'Маркетплейс',
   },
   {
     value: 'my-agents',
     icon: Bot,
-    label: 'My Agents',
+    label: 'Мои агенты',
   },
 ]; 
 
@@ -29,7 +29,7 @@ export const TabsNavigation = ({ activeTab, onTabChange, onCreateAgent }: TabsNa
     if (onCreateAgent) {
       return [
         ...agentTabs,
-        { value: 'create-agent', icon: Plus, label: 'Create Agent' }
+        { value: 'create-agent', icon: Plus, label: 'Создать ИИ' }
       ];
     }
     return agentTabs;

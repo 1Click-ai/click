@@ -21,8 +21,8 @@ export const ExpandableMarkdownEditor: React.FC<ExpandableMarkdownEditorProps> =
   value, 
   onSave, 
   className = '', 
-  placeholder = 'Click to edit...',
-  title = 'Edit Instructions',
+  placeholder = 'Нажмите для редактирования...',
+  title = 'Редактировать инструкции',
   disabled = false
 }) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -164,7 +164,7 @@ export const ExpandableMarkdownEditor: React.FC<ExpandableMarkdownEditorProps> =
                   className="h-8 px-3"
                 >
                   <Edit2 className="h-3 w-3 mr-1" />
-                  Edit
+                  Редактировать
                 </Button>
               )}
             </DialogTitle>
@@ -181,11 +181,11 @@ export const ExpandableMarkdownEditor: React.FC<ExpandableMarkdownEditorProps> =
                     className="w-full h-[70vh] rounded-xl bg-muted/30 p-6 resize-none text-sm leading-relaxed font-mono"
                     style={{ minHeight: '60vh' }}
                     disabled={disabled}
-                    placeholder="Write your markdown content here..."
+                    placeholder="Напишите свой контент в формате Markdown здесь..."
                   />
                 </ScrollArea>
                 <div className="text-xs text-muted-foreground/60 flex-shrink-0 px-2">
-                  Markdown supported • <kbd className="bg-muted px-1 py-0.5 rounded text-xs">⌘+Enter</kbd> to save • <kbd className="bg-muted px-1 py-0.5 rounded text-xs">Esc</kbd> to cancel
+                  Поддерживается Markdown • <kbd className="bg-muted px-1 py-0.5 rounded text-xs">⌘+Enter</kbd> для сохранения • <kbd className="bg-muted px-1 py-0.5 rounded text-xs">Esc</kbd> для отмены
                 </div>
               </div>
             ) : (
@@ -214,7 +214,7 @@ export const ExpandableMarkdownEditor: React.FC<ExpandableMarkdownEditorProps> =
                 className="h-9 px-4"
               >
                 <X className="h-3 w-3 mr-1" />
-                Cancel
+                Отмена
               </Button>
               <Button
                 size="default"
@@ -223,7 +223,7 @@ export const ExpandableMarkdownEditor: React.FC<ExpandableMarkdownEditorProps> =
                 className="h-9 px-4"
               >
                 <Save className="h-3 w-3 mr-1" />
-                Save Changes
+                Сохранить изменения
               </Button>
             </DialogFooter>
           )}

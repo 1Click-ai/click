@@ -367,7 +367,7 @@ export function ConditionalWorkflowBuilder({
               className="h-9 px-3 border-dashed text-xs"
             >
               <Plus className="h-3 w-3 mr-1" />
-              Else If
+              Иначе если
             </Button>
           )}
           {!hasElse && (
@@ -378,7 +378,7 @@ export function ConditionalWorkflowBuilder({
               className="h-9 px-3 border-dashed text-xs"
             >
               <Plus className="h-3 w-3 mr-1" />
-              Else
+              Иначе
             </Button>
           )}
         </div>
@@ -387,7 +387,7 @@ export function ConditionalWorkflowBuilder({
             {(activeStep.conditions?.type === 'if' || activeStep.conditions?.type === 'elseif') ? (
               <div className="space-y-3">
                 <Label className="text-sm font-medium">
-                  {activeStep.conditions?.type === 'if' ? 'Condition' : 'Else If Condition'}
+                  {activeStep.conditions?.type === 'if' ? 'Условие' : 'Иначе если условие'}
                 </Label>
                 <Input
                   type="text"
@@ -395,13 +395,13 @@ export function ConditionalWorkflowBuilder({
                   onChange={(e) => updateStep(activeStep.id, {
                     conditions: { ...activeStep.conditions, expression: e.target.value }
                   })}
-                  placeholder="e.g., user asks about pricing"
+                  placeholder="например, пользователь спрашивает о ценах"
                   className="w-full bg-transparent text-sm px-3 py-2 rounded-md"
                 />
               </div>
             ) : (
               <div className="text-sm text-muted-foreground font-medium">
-                Otherwise (fallback condition)
+                В противном случае (резервное условие)
               </div>
             )}
             <div className="mt-4 space-y-3">
@@ -418,7 +418,7 @@ export function ConditionalWorkflowBuilder({
                   className="border-dashed text-xs"
                 >
                   <Plus className="h-3 w-3" />
-                  Add step
+                  Добавить шаг
                 </Button>
               </div>
             </div>
@@ -463,7 +463,7 @@ export function ConditionalWorkflowBuilder({
                     type="text"
                     value={step.name + ' ' + stepNumber}
                     onChange={(e) => updateStep(step.id, { name: e.target.value })}
-                    placeholder="Step name"
+                    placeholder="Имя шага"
                     className="w-full bg-transparent border-0 outline-none text-base font-medium placeholder:text-muted-foreground"
                   />
                 )}
@@ -473,8 +473,8 @@ export function ConditionalWorkflowBuilder({
                   type="text"
                   value={step.description}
                   onChange={(e) => updateStep(step.id, { description: e.target.value })}
-                  placeholder="Add a description"
-                  className="-mt-2 w-full bg-transparent border-0 outline-none text-sm text-muted-foreground placeholder:text-muted-foreground mb-3"
+                  placeholder="Добавьте описание"
+                  className="w-full bg-transparent border-0 outline-none text-sm placeholder:text-muted-foreground"
                 />
               )}
               {!isSequence && (
@@ -514,35 +514,36 @@ export function ConditionalWorkflowBuilder({
                           })()}
                         </span>
                       ) : (
-                        <span className="text-muted-foreground">Select tool (optional)</span>
+                        <span className="text-muted-foreground">Выберите инструмент (необязательно)</span>
                       )}
                       <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent className="w-[320px] p-0" align="start">
                     <Command>
-                      <CommandInput placeholder="Search tools..." className="h-9" />
-                      <CommandEmpty>No tools found.</CommandEmpty>
+                      <CommandInput placeholder="Поиск инструментов..." className="h-9" />
+                      <CommandEmpty>Инструменты не найдены.</CommandEmpty>
                       <CommandList>
                         {isLoadingTools ? (
-                          <CommandItem disabled>Loading tools...</CommandItem>
+                          <CommandItem disabled>Загрузка инструментов...</CommandItem>
                         ) : agentTools ? (
                           <>
                             {agentTools.agentpress_tools.filter(tool => tool.enabled).length > 0 && (
-                              <CommandGroup heading="Default Tools">
+                              <CommandGroup heading="Инструменты АИ-агента">
                                 {agentTools.agentpress_tools.filter(tool => tool.enabled).map((tool) => (
                                   <CommandItem
                                     key={tool.name}
                                     value={`${normalizeToolName(tool.name, 'agentpress')} ${tool.name}`}
-                                    onSelect={() => {
+                                    onSelect={(currentValue) => {
+                                      if (tool.name === step.config.tool_name) {
+                                        return setToolSearchOpen(prev => ({ ...prev, [step.id]: false }));
+                                      }
                                       updateStep(step.id, { config: { ...step.config, tool_name: tool.name } });
                                       setToolSearchOpen(prev => ({ ...prev, [step.id]: false }));
                                     }}
                                   >
-                                    <div className="flex items-center gap-2">
-                                      <span>{tool.icon || '🔧'}</span>
-                                      <span>{normalizeToolName(tool.name, 'agentpress')}</span>
-                                    </div>
+                                    <span>{tool.icon || '🔧'}</span>
+                                    <span>{normalizeToolName(tool.name, 'agentpress')}</span>
                                     <Check
                                       className={cn(
                                         "ml-auto h-4 w-4",
@@ -551,23 +552,28 @@ export function ConditionalWorkflowBuilder({
                                     />
                                   </CommandItem>
                                 ))}
+                                {agentTools.agentpress_tools.filter(tool => tool.enabled).length === 0 && (
+                                  <CommandItem disabled>Не удалось загрузить инструменты</CommandItem>
+                                )}
                               </CommandGroup>
                             )}
                             {agentTools.mcp_tools.length > 0 && (
-                              <CommandGroup heading="External Tools">
+                              <CommandGroup heading="Внешние инструменты">
                                 {agentTools.mcp_tools.map((tool) => (
                                   <CommandItem
                                     key={`${tool.server || 'default'}-${tool.name}`}
                                     value={`${normalizeToolName(tool.name, 'mcp')} ${tool.name} ${tool.server || ''}`}
-                                    onSelect={() => {
-                                      updateStep(step.id, { config: { ...step.config, tool_name: tool.server ? `${tool.server}:${tool.name}` : tool.name } });
+                                    onSelect={(currentValue) => {
+                                      const toolId = `${tool.server}:${tool.name}`;
+                                      if (toolId === step.config.tool_name) {
+                                        return setToolSearchOpen(prev => ({ ...prev, [step.id]: false }));
+                                      }
+                                      updateStep(step.id, { config: { ...step.config, tool_name: toolId } });
                                       setToolSearchOpen(prev => ({ ...prev, [step.id]: false }));
                                     }}
                                   >
-                                    <div className="flex items-center gap-2">
-                                      <span>{tool.icon || '🔧'}</span>
-                                      <span>{normalizeToolName(tool.name, 'mcp')}</span>
-                                    </div>
+                                    <span>{tool.icon || '🔧'}</span>
+                                    <span>{normalizeToolName(tool.name, 'mcp')}</span>
                                     <Check
                                       className={cn(
                                         "ml-auto h-4 w-4",
@@ -580,7 +586,7 @@ export function ConditionalWorkflowBuilder({
                             )}
                           </>
                         ) : (
-                          <CommandItem disabled>Failed to load tools</CommandItem>
+                          <CommandItem disabled>Не удалось загрузить инструменты</CommandItem>
                         )}
                       </CommandList>
                     </Command>
@@ -607,7 +613,7 @@ export function ConditionalWorkflowBuilder({
                   className="w-full justify-start text-destructive hover:text-destructive hover:bg-destructive/10"
                 >
                   <Trash2 className="h-4 w-4" />
-                  Delete step
+                  Удалить шаг
                 </Button>
               </PopoverContent>
             </Popover>
@@ -640,7 +646,7 @@ export function ConditionalWorkflowBuilder({
                 </div>
               </div>
               <div className="flex-1">
-                <div className="text-base font-medium mb-4">Add rule</div>
+                <div className="text-base font-medium mb-4">Добавить правило</div>
                 {renderConditionTabs(conditionGroup, conditionGroup[0].id)}
               </div>
             </div>
@@ -663,15 +669,15 @@ export function ConditionalWorkflowBuilder({
           <div className="w-16 h-16 bg-muted rounded-2xl flex items-center justify-center mx-auto mb-4">
             <Plus className="h-8 w-8 text-muted-foreground" />
           </div>
-          <h3 className="text-lg font-semibold mb-2">Start building your workflow</h3>
+          <h3 className="text-lg font-semibold mb-2">Начните создавать свой рабочий процесс</h3>
           <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-            Add steps and conditions to create a smart workflow that adapts to different scenarios.
+            Добавляйте шаги и условия для создания умного рабочего процесса, который адаптируется к различным сценариям.
           </p>
           <Button
             onClick={() => addStep()}
           >
             <Plus className="h-4 w-4" />
-            Add step
+            Добавить шаг
           </Button>
         </div>
       ) : (
@@ -685,7 +691,7 @@ export function ConditionalWorkflowBuilder({
                 className="border-dashed"
               >
                 <Plus className="h-4 w-4" />
-                Add step
+                Добавить шаг
               </Button>
 
               <Button
@@ -694,7 +700,7 @@ export function ConditionalWorkflowBuilder({
                 className="border-dashed"
               >
                 <Plus className="h-4 w-4" />
-                Add rule
+                Добавить правило
               </Button>
             </div>
           </div>

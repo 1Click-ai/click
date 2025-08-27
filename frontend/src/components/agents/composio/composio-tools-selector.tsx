@@ -301,7 +301,7 @@ export const ComposioToolsSelector: React.FC<ComposioToolsSelectorProps> = ({
                 <Search className="h-6 w-6 text-muted-foreground" />
               </div>
               <p className="text-sm text-muted-foreground">
-                {searchTerm ? `No tools found matching "${searchTerm}"` : 'No tools available'}
+                {searchTerm ? `Не найдено инструментов, соответствующих "${searchTerm}"` : 'Нет доступных инструментов'}
               </p>
             </div>
           )}
@@ -316,7 +316,7 @@ export const ComposioToolsSelector: React.FC<ComposioToolsSelectorProps> = ({
               {selectedCount > 0 ? (
                 `${selectedCount} tool${selectedCount === 1 ? '' : 's'} will be added to your agent`
               ) : (
-                'No tools selected'
+                'Не выбраны инструменты'
               )}
             </div>
             <div className="flex gap-3">
@@ -326,7 +326,7 @@ export const ComposioToolsSelector: React.FC<ComposioToolsSelectorProps> = ({
                   onClick={onCancel}
                   disabled={isSaving}
                 >
-                  Cancel
+                  Отмена
                 </Button>
               )}
               <Button
@@ -337,12 +337,12 @@ export const ComposioToolsSelector: React.FC<ComposioToolsSelectorProps> = ({
                 {isSaving ? (
                   <>
                     <Loader2 className="w-4 h-4 animate-spin" />
-                    Saving...
+                    Сохранение...
                   </>
                 ) : (
                   <>
                     <Save className="h-4 w-4" />
-                    Save Tools
+                    Сохранить
                   </>
                 )}
               </Button>

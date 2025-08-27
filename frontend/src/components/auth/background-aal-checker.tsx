@@ -67,7 +67,6 @@ export function BackgroundAALChecker({
         
         case 'reauthenticate':
           // User has stale JWT due to MFA changes, force reauthentication
-          router.push('/auth?message=Please sign in again due to security changes');
           break;
         
         case 'none':

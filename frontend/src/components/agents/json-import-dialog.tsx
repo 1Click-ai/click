@@ -264,7 +264,7 @@ export const JsonImportDialog: React.FC<JsonImportDialogProps> = ({
       </div>
       <div className="flex justify-end space-x-2">
         <Button variant="outline" onClick={() => onOpenChange(false)}>
-          Cancel
+          Отмена
         </Button>
         <Button onClick={analyzeJson} disabled={analyzeJsonMutation.isPending || !jsonText.trim()}>
           {analyzeJsonMutation.isPending && <Loader2 className="h-4 w-4 animate-spin" />}

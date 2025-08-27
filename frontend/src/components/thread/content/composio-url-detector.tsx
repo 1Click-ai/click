@@ -260,7 +260,7 @@ const ComposioConnectButton: React.FC<ComposioConnectButtonProps> = ({
             <div className="flex flex-col mb-3">
               <div className="flex items-center">
                 <h3 className="font-semibold text-zinc-900 dark:text-zinc-100 text-sm">
-                    Sign in to {displayName}
+                    Войти в {displayName}
                 </h3>
               </div>
               <p className="text-xs text-zinc-600 dark:text-zinc-400 -mt-1">
@@ -273,7 +273,7 @@ const ComposioConnectButton: React.FC<ComposioConnectButtonProps> = ({
               className="max-w-64"
             >
               <ExternalLink className="w-3 h-3" />
-              Sign in
+              Войти
             </Button>
           </div>
         </div>

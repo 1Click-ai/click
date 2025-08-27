@@ -349,13 +349,13 @@ export function AttachmentGroup({
                                 "flex items-center justify-center transition-colors",
                                 isMobile ? "w-full" : "min-w-[120px] w-fit"
                             )}
-                            title={`${moreCount} more ${moreCount === 1 ? 'file' : 'files'}`}
+                            title={`${moreCount} еще ${moreCount === 1 ? 'файл' : 'файла'}`}
                         >
                             <div className="flex items-center gap-2">
                                 <div className="flex items-center justify-center w-6 h-6 bg-primary/10 rounded-full">
                                     <Plus size={14} className="text-primary" />
                                 </div>
-                                <span className="text-sm font-medium">{moreCount} more</span>
+                                <span className="text-sm font-medium">{moreCount} еще</span>
                             </div>
                         </button>
                     )}

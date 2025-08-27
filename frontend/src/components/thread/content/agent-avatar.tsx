@@ -17,7 +17,7 @@ export const AgentAvatar: React.FC<AgentAvatarProps> = ({
   agentId, 
   size = 16, 
   className = "", 
-  fallbackName = "MEVO" 
+  fallbackName = "КЛИК" 
 }) => {
   const { data: agent, isLoading } = useAgent(agentId || '');
 
@@ -79,12 +79,12 @@ interface AgentNameProps {
 
 export const AgentName: React.FC<AgentNameProps> = ({ 
   agentId, 
-  fallback = "MEVO" 
+  fallback = "КЛИК" 
 }) => {
   const { data: agent, isLoading } = useAgent(agentId || '');
 
   if (isLoading && agentId) {
-    return <span className="text-muted-foreground">Loading...</span>;
+    return <span className="text-muted-foreground">Загрузка...</span>;
   }
 
   return <span>{agent?.name || fallback}</span>;

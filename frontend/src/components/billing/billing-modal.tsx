@@ -74,14 +74,14 @@ export function BillingModal({ open, onOpenChange, returnUrl = typeof window !==
             <Dialog open={open} onOpenChange={onOpenChange}>
                 <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
                     <DialogHeader>
-                        <DialogTitle>Billing & Subscription</DialogTitle>
+                        <DialogTitle>Биллинг и подписка</DialogTitle>
                     </DialogHeader>
                     <div className="p-4 bg-muted/30 border border-border rounded-lg text-center">
                         <p className="text-sm text-muted-foreground">
-                            Running in local development mode - billing features are disabled
+                            Работает в режиме локальной разработки — функции оплаты отключены
                         </p>
                         <p className="text-xs text-muted-foreground mt-2">
-                            All premium features are available in this environment
+                            Все премиум-функции доступны в этой среде
                         </p>
                     </div>
                 </DialogContent>
@@ -93,7 +93,7 @@ export function BillingModal({ open, onOpenChange, returnUrl = typeof window !==
         <Dialog open={open} onOpenChange={onOpenChange}>
             <DialogContent className="max-w-5xl max-h-[80vh] overflow-y-auto">
                 <DialogHeader>
-                    <DialogTitle>Upgrade Your Plan</DialogTitle>
+                    <DialogTitle>Обновите свой план</DialogTitle>
                 </DialogHeader>
 
                 {isLoading || authLoading ? (
@@ -104,7 +104,7 @@ export function BillingModal({ open, onOpenChange, returnUrl = typeof window !==
                     </div>
                 ) : error ? (
                     <div className="p-4 bg-destructive/10 border border-destructive/20 rounded-lg text-center">
-                        <p className="text-sm text-destructive">Error loading billing status: {error}</p>
+                        <p className="text-sm text-destructive">Ошибка загрузки статуса оплаты: {error}</p>
                     </div>
                 ) : (
                     <>
@@ -117,9 +117,9 @@ export function BillingModal({ open, onOpenChange, returnUrl = typeof window !==
                                             <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-destructive" />
                                         </div>
                                         <div className="text-xs sm:text-sm min-w-0">
-                                            <p className="font-medium text-destructive">Usage Limit Reached</p>
+                                            <p className="font-medium text-destructive">Превышен лимит использования</p>
                                             <p className="text-destructive break-words">
-                                                Your current plan has been exhausted for this billing period.
+                                                Ваш текущий план исчерпан на этот расчетный период.
                                             </p>
                                         </div>
                                     </div>
@@ -132,7 +132,7 @@ export function BillingModal({ open, onOpenChange, returnUrl = typeof window !==
                                 <div className="rounded-lg border bg-background p-4">
                                     <div className="flex justify-between items-center">
                                         <span className="text-sm font-medium text-foreground/90">
-                                            Agent Usage This Month
+                                            Использование агента в этом месяце
                                         </span>
                                         <span className="text-sm font-medium">
                                             ${subscriptionData.current_usage?.toFixed(2) || '0'} /{' '}
@@ -162,7 +162,7 @@ export function BillingModal({ open, onOpenChange, returnUrl = typeof window !==
                                 disabled={isManaging}
                                 className="max-w-xs mx-auto w-full bg-primary hover:bg-primary/90 shadow-md hover:shadow-lg transition-all mt-4"
                             >
-                                {isManaging ? 'Loading...' : 'Manage Subscription'}
+                                {isManaging ? 'Загрузка...' : 'Управление подпиской'}
                             </Button>
                         )}
                     </>

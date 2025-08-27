@@ -22,8 +22,8 @@ type Props = {
 };
 
 const memberOptions = [
-  { label: 'Owner', value: 'owner' },
-  { label: 'Member', value: 'member' },
+  { label: 'Владелец', value: 'owner' },
+  { label: 'Участник', value: 'member' },
 ];
 
 export default function EditTeamMemberRoleForm({
@@ -40,10 +40,10 @@ export default function EditTeamMemberRoleForm({
       <input type="hidden" name="userId" value={teamMember.user_id} />
       <input type="hidden" name="returnUrl" value={pathName} />
       <div className="flex flex-col gap-y-2">
-        <Label htmlFor="accountRole">Team Role</Label>
+        <Label htmlFor="accountRole">Роль в команде</Label>
         <Select value={teamRole} onValueChange={setTeamRole} name="accountRole">
           <SelectTrigger>
-            <SelectValue placeholder="Member type" />
+            <SelectValue placeholder="Выберите тип участника" />
           </SelectTrigger>
           <SelectContent>
             {memberOptions.map((option) => (
@@ -61,12 +61,12 @@ export default function EditTeamMemberRoleForm({
             htmlFor="makePrimaryOwner"
             className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
           >
-            Make this user the primary owner
+Сделать этого пользователя основным владельцем
           </label>
         </div>
       )}
-      <SubmitButton formAction={updateTeamMemberRole} pendingText="Updating...">
-        Update Role
+      <SubmitButton formAction={updateTeamMemberRole} pendingText="Обновление...">
+        Обновить роль
       </SubmitButton>
     </form>
   );

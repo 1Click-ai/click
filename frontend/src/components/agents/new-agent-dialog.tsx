@@ -95,23 +95,23 @@ export function NewAgentDialog({ open, onOpenChange, onSuccess }: NewAgentDialog
     <AlertDialog open={open} onOpenChange={handleDialogClose}>
       <AlertDialogContent className="max-w-lg">
         <AlertDialogHeader className="space-y-3">
-          <AlertDialogTitle className="text-xl">Create New Agent</AlertDialogTitle>
+          <AlertDialogTitle className="text-xl">Создать нового агента</AlertDialogTitle>
           <AlertDialogDescription className="text-base leading-relaxed">
-            Create a new agent with default settings that you can customize later, or{' '}
+            Создайте нового ИИ-агента с настройками по умолчанию, которые вы сможете настроить позже, или{' '}
             <button
               onClick={handleFileImport}
               className="text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 disabled:cursor-not-allowed disabled:opacity-50"
               disabled={isLoading}
             >
-              import from file
+              импортируйте из файла
             </button>
-            {' '}or{' '}
+            {' '}или{' '}
             <button
               onClick={() => !isLoading && setShowJsonImport(true)}
               className="text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 disabled:cursor-not-allowed disabled:opacity-50"
               disabled={isLoading}
             >
-              import from JSON
+              импортируйте из JSON
             </button>
             .
           </AlertDialogDescription>
@@ -125,7 +125,7 @@ export function NewAgentDialog({ open, onOpenChange, onSuccess }: NewAgentDialog
         />
         <AlertDialogFooter className="flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2 space-y-2 space-y-reverse sm:space-y-0 pt-6">
           <AlertDialogCancel disabled={isLoading} className="mt-2 sm:mt-0">
-            Cancel
+            Отмена
           </AlertDialogCancel>
           <AlertDialogAction 
             onClick={handleCreateNewAgent}
@@ -135,12 +135,12 @@ export function NewAgentDialog({ open, onOpenChange, onSuccess }: NewAgentDialog
             {createNewAgentMutation.isPending ? (
               <>
                 <Loader2 className="h-4 w-4 animate-spin" />
-                Creating...
+                Создание...
               </>
             ) : (
               <>
                 <Plus className="h-4 w-4" />
-                Create Agent
+                Создать ИИ
               </>
             )}
           </AlertDialogAction>

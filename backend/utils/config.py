@@ -247,8 +247,8 @@ class Configuration:
     OPENROUTER_API_BASE: Optional[str] = "https://openrouter.ai/api/v1"
     OPENAI_COMPATIBLE_API_KEY: Optional[str] = None
     OPENAI_COMPATIBLE_API_BASE: Optional[str] = None
-    OR_SITE_URL: Optional[str] = "http://mevoagent.com"
-    OR_APP_NAME: Optional[str] = "MEVO"    
+    OR_SITE_URL: Optional[str] = "https://agentclick.click"
+    OR_APP_NAME: Optional[str] = "AgentClick"    
     
     # AWS Bedrock credentials
     AWS_ACCESS_KEY_ID: Optional[str] = None

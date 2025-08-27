@@ -1,11 +1,11 @@
 export const siteConfig = {
-  name: 'MEVO AI Healthcare Agent',
-  url: 'https://mevoagent.com/',
-  description: 'MEVO AI Healthcare Agent',
+  name: 'КЛИК',
+  url: 'https://clickai.click/',
+  description: 'КЛИК - Универсальный ИИ-агент',
   links: {
-    twitter: 'https://x.com/mevoagent',
-    github: 'https://github.com/mevoagent',
-    linkedin: 'https://www.linkedin.com/company/mevoagent',
+    twitter: 'https://x.com/clickai',
+    github: 'https://github.com/clickai',
+    linkedin: 'https://www.linkedin.com/company/clickai',
   },
 };
 

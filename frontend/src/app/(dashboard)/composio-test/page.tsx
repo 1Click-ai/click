@@ -184,9 +184,9 @@ export default function ComposioTestPage() {
   return (
     <div className="container mx-auto py-6 space-y-6">
       <div className="space-y-2">
-        <h1 className="text-3xl font-bold">Composio Authentication Test</h1>
+        <h1 className="text-3xl font-bold">Тест аутентификации Composio</h1>
         <p className="text-muted-foreground">
-          Test Composio authentication flows - automatically get MCP server URLs with successful connections!
+          Протестируйте потоки аутентификации Composio - автоматически получайте URL-адреса сервера MCP при успешных подключениях!
         </p>
       </div>
 
@@ -196,9 +196,9 @@ export default function ComposioTestPage() {
             <div className="lg:col-span-2">
               <Card>
                 <CardHeader>
-                  <CardTitle>Authentication Test Configuration</CardTitle>
+                  <CardTitle>Конфигурация теста аутентификации</CardTitle>
                   <CardDescription>
-                    Choose between auth config ID (manual) or toolkit name (automatic auth config creation).
+                    Выберите между ID конфигурации аутентификации (вручную) или именем инструментария (автоматическое создание конфигурации аутентификации).
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
@@ -206,18 +206,18 @@ export default function ComposioTestPage() {
                     <TabsList className="grid w-full grid-cols-2">
                       <TabsTrigger value="toolkit" className="flex items-center gap-2">
                         <Zap className="h-4 w-4" />
-                        Toolkit Mode (Recommended)
+                        Режим инструментария (Рекомендуется)
                       </TabsTrigger>
-                      <TabsTrigger value="auth_config">Auth Config Mode</TabsTrigger>
+                      <TabsTrigger value="auth_config">Режим конфигурации аутентификации</TabsTrigger>
                     </TabsList>
 
                     <TabsContent value="toolkit" className="space-y-4">
                       <div className="space-y-2">
-                        <Label htmlFor="toolkit">Toolkit/App Name</Label>
+                        <Label htmlFor="toolkit">Название инструментария/приложения</Label>
                         <div className="flex gap-2">
                           <Select value={toolkit} onValueChange={setToolkit} disabled={isLoading}>
                             <SelectTrigger className="flex-1">
-                              <SelectValue placeholder="Select a toolkit" />
+                              <SelectValue placeholder="Выберите инструментарий" />
                             </SelectTrigger>
                             <SelectContent>
                               {commonToolkits.map((tool) => (
@@ -230,62 +230,62 @@ export default function ComposioTestPage() {
                           <Input
                             value={toolkit}
                             onChange={(e) => setToolkit(e.target.value)}
-                            placeholder="Or type custom toolkit"
+                            placeholder="Или введите свой собственный инструментарий"
                             className="flex-1"
                             disabled={isLoading}
                           />
                         </div>
                         <p className="text-sm text-muted-foreground">
-                          🚀 <strong>Auto-creates auth config!</strong> Just pick any app from 500+ supported toolkits.
+                          🚀 <strong>Автоматически создает конфигурацию аутентификации!</strong> Просто выберите любое приложение из 500+ поддерживаемых инструментариев.
                         </p>
                       </div>
                     </TabsContent>
 
                     <TabsContent value="auth_config" className="space-y-4">
                       <div className="space-y-2">
-                        <Label htmlFor="auth-config-id">Auth Config ID</Label>
+                        <Label htmlFor="auth-config-id">ID конфигурации аутентификации</Label>
                         <Input
                           id="auth-config-id"
                           value={authConfigId}
                           onChange={(e) => setAuthConfigId(e.target.value)}
-                          placeholder="Enter auth config ID"
+                          placeholder="Введите ID конфигурации аутентификации"
                           disabled={isLoading}
                         />
                         <p className="text-sm text-muted-foreground">
-                          The pre-created auth configuration ID from your Composio dashboard.
+                          Идентификатор предварительно созданной конфигурации аутентификации из вашей панели управления Composio.
                         </p>
                       </div>
                     </TabsContent>
                   </Tabs>
 
                   <div className="space-y-2">
-                    <Label htmlFor="user-id">User ID</Label>
+                    <Label htmlFor="user-id">Идентификатор пользователя</Label>
                     <Input
                       id="user-id"
                       value={userId}
                       onChange={(e) => setUserId(e.target.value)}
-                      placeholder="Enter user ID"
+                      placeholder="Введите идентификатор пользователя"
                       disabled={isLoading}
                     />
                     <p className="text-sm text-muted-foreground">
-                      The unique identifier for the user (can be any string)
+                      Уникальный идентификатор для пользователя (может быть любой строкой)
                     </p>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="auth-scheme">Authentication Scheme</Label>
+                    <Label htmlFor="auth-scheme">Схема аутентификации</Label>
                     <Select value={authScheme} onValueChange={setAuthScheme} disabled={isLoading}>
                       <SelectTrigger>
-                        <SelectValue placeholder="Select auth scheme" />
+                        <SelectValue placeholder="Выберите схему аутентификации" />
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="OAUTH2">OAuth 2.0</SelectItem>
-                        <SelectItem value="API_KEY">API Key</SelectItem>
-                        <SelectItem value="BASIC">Basic Auth</SelectItem>
+                        <SelectItem value="API_KEY">Ключ API</SelectItem>
+                        <SelectItem value="BASIC">Базовая аутентификация</SelectItem>
                       </SelectContent>
                     </Select>
                     <p className="text-sm text-muted-foreground">
-                      The authentication scheme for your integration
+                      Схема аутентификации для вашей интеграции
                     </p>
                   </div>
 
@@ -302,7 +302,7 @@ export default function ComposioTestPage() {
                       ) : (
                         <CheckCircle className="mr-2 h-4 w-4" />
                       )}
-                      Test Authentication (Authenticated)
+                      Проверить аутентификацию (аутентифицирован)
                     </Button>
 
                     <Button
@@ -316,7 +316,7 @@ export default function ComposioTestPage() {
                       ) : (
                         <CheckCircle className="mr-2 h-4 w-4" />
                       )}
-                      Demo Test (No Auth)
+                      Демонстрационный тест (без аутентификации)
                     </Button>
                   </div>
                 </CardContent>
@@ -326,9 +326,9 @@ export default function ComposioTestPage() {
             {/* Auth Service Info */}
             <Card>
               <CardHeader>
-                <CardTitle>Authentication Info</CardTitle>
+                <CardTitle>Информация об аутентификации</CardTitle>
                 <CardDescription>
-                  Service health and example values.
+                  Состояние службы и примеры значений.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -348,30 +348,30 @@ export default function ComposioTestPage() {
                   }}
                   className="w-full"
                 >
-                  Check Service Health
+                  Проверить состояние службы
                 </Button>
 
                 <Separator />
 
                 <div className="space-y-3">
-                  <Label className="text-sm font-semibold">💡 Toolkit Mode Benefits:</Label>
+                  <Label className="text-sm font-semibold">💡 Преимущества режима инструментария:</Label>
                   <ul className="text-sm space-y-1 text-muted-foreground">
-                    <li>• Auto-creates auth configs</li>
-                    <li>• Supports 500+ apps instantly</li>
-                    <li>• No manual ID management</li>
-                    <li>• 🚀 Auto-generates MCP URLs!</li>
-                    <li>• Perfect for production</li>
+                    <li>• Автоматически создает конфигурации аутентификации</li>
+                    <li>• Мгновенно поддерживает более 500 приложений</li>
+                    <li>• Не требуется ручное управление ID</li>
+                    <li>• 🚀 Автоматически генерирует URL-адреса MCP!</li>
+                    <li>• Идеально подходит для производства</li>
                   </ul>
                 </div>
 
                 <Separator />
 
                 <div className="space-y-2">
-                  <Label className="text-sm font-semibold">Example Values:</Label>
+                  <Label className="text-sm font-semibold">Примеры значений:</Label>
                   <div className="text-sm space-y-1">
-                    <p><strong>Toolkit:</strong> github, gmail, slack</p>
-                    <p><strong>User ID:</strong> 0000-1111-2222</p>
-                    <p><strong>Auth Config ID:</strong> ac_dqYN9oElNVlg</p>
+                    <p><strong>Инструментарий:</strong> github, gmail, slack</p>
+                    <p><strong>Идентификатор пользователя:</strong> 0000-1111-2222</p>
+                    <p><strong>ID конфигурации аутентификации:</strong> ac_dqYN9oElNVlg</p>
                   </div>
                 </div>
               </CardContent>
@@ -382,7 +382,7 @@ export default function ComposioTestPage() {
           {error && (
             <Alert variant="destructive">
               <XCircle className="h-4 w-4" />
-              <AlertDescription>{error}</AlertDescription>
+              <AlertDescription>Произошла ошибка аутентификации: {error}</AlertDescription>
             </Alert>
           )}
 
@@ -390,14 +390,14 @@ export default function ComposioTestPage() {
           {testResult && (
             <div className="space-y-4">
               <div className="flex items-center gap-2">
-                <h2 className="text-2xl font-semibold">Authentication Results</h2>
+                <h2 className="text-2xl font-semibold">Результаты аутентификации</h2>
                 <Badge variant={testResult.test_status === 'success' ? 'default' : 'destructive'}>
-                  {testResult.test_status === 'success' ? 'Success' : 'Failed'}
+                  {testResult.test_status === 'success' ? 'Успешно' : 'Неудача'}
                 </Badge>
                 {testResult.toolkit_info && (
                   <Badge variant="outline" className="bg-green-50">
                     <Zap className="h-3 w-3 mr-1" />
-                    Toolkit Mode
+                    Режим инструментария
                   </Badge>
                 )}
               </div>
@@ -408,13 +408,13 @@ export default function ComposioTestPage() {
                   <Card>
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2">
-                        Auth Configuration
+                        Конфигурация аутентификации
                         <Badge variant="outline">{testResult.auth_config_info.auth_scheme}</Badge>
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-3">
                       <div>
-                        <Label className="text-sm font-medium">Auth Config ID</Label>
+                        <Label className="text-sm font-medium">ID конфигурации аутентификации</Label>
                         <div className="flex items-center gap-2 mt-1">
                           <code className="bg-muted px-2 py-1 rounded text-sm flex-1">
                             {testResult.auth_config_info.auth_config_id}
@@ -430,7 +430,7 @@ export default function ComposioTestPage() {
                       </div>
 
                       <div>
-                        <Label className="text-sm font-medium">User ID</Label>
+                        <Label className="text-sm font-medium">Идентификатор пользователя</Label>
                         <div className="flex items-center gap-2 mt-1">
                           <code className="bg-muted px-2 py-1 rounded text-sm flex-1">
                             {testResult.auth_config_info.user_id}
@@ -446,7 +446,7 @@ export default function ComposioTestPage() {
                       </div>
 
                       <div>
-                        <Label className="text-sm font-medium">Authentication Scheme</Label>
+                        <Label className="text-sm font-medium">Схема аутентификации</Label>
                         <p className="text-sm mt-1">{testResult.auth_config_info.auth_scheme}</p>
                       </div>
                     </CardContent>
@@ -459,13 +459,13 @@ export default function ComposioTestPage() {
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2">
                         <Zap className="h-4 w-4" />
-                        Toolkit Configuration
+                        Конфигурация инструментария
                         <Badge variant="outline">{testResult.toolkit_info.auth_scheme}</Badge>
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-3">
                       <div>
-                        <Label className="text-sm font-medium">Toolkit</Label>
+                        <Label className="text-sm font-medium">Инструментарий</Label>
                         <div className="flex items-center gap-2 mt-1">
                           <code className="bg-muted px-2 py-1 rounded text-sm flex-1">
                             {testResult.toolkit_info.toolkit}
@@ -481,7 +481,7 @@ export default function ComposioTestPage() {
                       </div>
 
                       <div>
-                        <Label className="text-sm font-medium">Auto-Created Auth Config ID</Label>
+                        <Label className="text-sm font-medium">Автоматически созданный ID конфигурации аутентификации</Label>
                         <div className="flex items-center gap-2 mt-1">
                           <code className="bg-muted px-2 py-1 rounded text-sm flex-1">
                             {testResult.toolkit_info.auth_config_id}
@@ -494,11 +494,11 @@ export default function ComposioTestPage() {
                             <Copy className="h-3 w-3" />
                           </Button>
                         </div>
-                        <p className="text-xs text-green-600 mt-1">✨ Automatically created!</p>
+                        <p className="text-xs text-green-600 mt-1">✨ Автоматически создано!</p>
                       </div>
 
                       <div>
-                        <Label className="text-sm font-medium">User ID</Label>
+                        <Label className="text-sm font-medium">Идентификатор пользователя</Label>
                         <div className="flex items-center gap-2 mt-1">
                           <code className="bg-muted px-2 py-1 rounded text-sm flex-1">
                             {testResult.toolkit_info.user_id}
@@ -521,14 +521,14 @@ export default function ComposioTestPage() {
                   <Card className={testResult.mcp_urls ? "lg:col-span-2" : "lg:col-span-2"}>
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2">
-                        Connection Request
+                        Запрос на подключение
                         <Badge variant="outline">{testResult.connection_request.status}</Badge>
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-3">
                       {testResult.connection_request.redirect_url && (
                         <div>
-                          <Label className="text-sm font-medium">Redirect URL</Label>
+                          <Label className="text-sm font-medium">URL-адрес перенаправления</Label>
                           <div className="flex items-center gap-2 mt-1">
                             <code className="bg-muted px-2 py-1 rounded text-sm flex-1 break-all">
                               {testResult.connection_request.redirect_url}
@@ -553,7 +553,7 @@ export default function ComposioTestPage() {
 
                       {testResult.connection_request.connected_account_id && (
                         <div>
-                          <Label className="text-sm font-medium">Connected Account ID</Label>
+                          <Label className="text-sm font-medium">ID подключенного аккаунта</Label>
                           <div className="flex items-center gap-2 mt-1">
                             <code className="bg-muted px-2 py-1 rounded text-sm flex-1">
                               {testResult.connection_request.connected_account_id}
@@ -571,7 +571,7 @@ export default function ComposioTestPage() {
 
                       {testResult.connection_request.connection_id && (
                         <div>
-                          <Label className="text-sm font-medium">Connection ID</Label>
+                          <Label className="text-sm font-medium">ID подключения</Label>
                           <div className="flex items-center gap-2 mt-1">
                             <code className="bg-muted px-2 py-1 rounded text-sm flex-1">
                               {testResult.connection_request.connection_id}
@@ -596,22 +596,22 @@ export default function ComposioTestPage() {
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2">
                         <Server className="h-4 w-4" />
-                        🚀 Auto-Generated MCP Server URLs
+                        🚀 Автоматически сгенерированные URL-адреса сервера MCP
                         <Badge variant="default" className="bg-green-600">
-                          Ready to Use!
+                          Готовы к использованию!
                         </Badge>
                       </CardTitle>
                       <CardDescription>
-                        These MCP server URLs were automatically generated after your successful connection.
+                        Эти URL-адреса сервера MCP были автоматически сгенерированы после успешного подключения.
                       </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-4">
                       {/* MCP Server Info */}
                       <div className="bg-muted/30 p-3 rounded-lg space-y-3">
-                        <Label className="text-sm font-semibold">MCP Server Information</Label>
+                        <Label className="text-sm font-semibold">Информация о сервере MCP</Label>
                         
                         <div>
-                          <Label className="text-xs font-medium text-muted-foreground">Server ID</Label>
+                          <Label className="text-xs font-medium text-muted-foreground">ID сервера</Label>
                           <div className="flex items-center gap-2 mt-1">
                             <code className="bg-background px-2 py-1 rounded text-sm flex-1">
                               {testResult.mcp_urls.mcp_server_info.id}
@@ -628,14 +628,14 @@ export default function ComposioTestPage() {
 
                         {testResult.mcp_urls.mcp_server_info.name && (
                           <div>
-                            <Label className="text-xs font-medium text-muted-foreground">Server Name</Label>
+                            <Label className="text-xs font-medium text-muted-foreground">Имя сервера</Label>
                             <p className="text-sm mt-1">{testResult.mcp_urls.mcp_server_info.name}</p>
                           </div>
                         )}
 
                         {testResult.mcp_urls.mcp_server_info.allowed_tools.length > 0 && (
                           <div>
-                            <Label className="text-xs font-medium text-muted-foreground">Allowed Tools</Label>
+                            <Label className="text-xs font-medium text-muted-foreground">Разрешенные инструменты</Label>
                             <div className="flex flex-wrap gap-1 mt-1">
                               {testResult.mcp_urls.mcp_server_info.allowed_tools.map((tool, index) => (
                                 <Badge key={index} variant="secondary" className="text-xs">
@@ -649,7 +649,7 @@ export default function ComposioTestPage() {
 
                       {/* Base MCP URL */}
                       <div>
-                        <Label className="text-sm font-medium">Base MCP Server URL</Label>
+                        <Label className="text-sm font-medium">Базовый URL-адрес сервера MCP</Label>
                         <div className="flex items-center gap-2 mt-1">
                           <code className="bg-muted px-2 py-1 rounded text-sm flex-1 break-all">
                             {testResult.mcp_urls.mcp_url}
@@ -674,13 +674,13 @@ export default function ComposioTestPage() {
                       {/* User-Specific URLs */}
                       {testResult.mcp_urls.user_ids_url.length > 0 && (
                         <div>
-                          <Label className="text-sm font-medium">🎯 User-Specific URLs (Recommended)</Label>
+                          <Label className="text-sm font-medium">🎯 URL-адреса для конкретного пользователя (рекомендуется)</Label>
                           <p className="text-xs text-muted-foreground mb-2">
-                            URLs configured for your user ID with the connected account - use these in your MCP client!
+                            URL-адреса, настроенные для вашего ID пользователя с подключенной учетной записью - используйте их в своем клиенте MCP!
                           </p>
                           {testResult.mcp_urls.user_ids_url.map((url, index) => (
                             <div key={index} className="mb-2">
-                              <Label className="text-xs font-medium text-muted-foreground">User URL {index + 1}</Label>
+                              <Label className="text-xs font-medium text-muted-foreground">URL-адрес пользователя {index + 1}</Label>
                               <div className="flex items-center gap-2 mt-1">
                                 <code className="bg-muted px-2 py-1 rounded text-sm flex-1 break-all">
                                   {url}
@@ -708,13 +708,13 @@ export default function ComposioTestPage() {
                       {/* Connected Account URLs */}
                       {testResult.mcp_urls.connected_account_urls.length > 0 && (
                         <div>
-                          <Label className="text-sm font-medium">Connected Account URLs</Label>
+                          <Label className="text-sm font-medium">URL-адреса подключенных аккаунтов</Label>
                           <p className="text-xs text-muted-foreground mb-2">
-                            Individual URLs for each connected account
+                            Отдельные URL-адреса для каждого подключенного аккаунта
                           </p>
                           {testResult.mcp_urls.connected_account_urls.map((url, index) => (
                             <div key={index} className="mb-2">
-                              <Label className="text-xs font-medium text-muted-foreground">Account URL {index + 1}</Label>
+                              <Label className="text-xs font-medium text-muted-foreground">URL-адрес аккаунта {index + 1}</Label>
                               <div className="flex items-center gap-2 mt-1">
                                 <code className="bg-muted px-2 py-1 rounded text-sm flex-1 break-all">
                                   {url}
@@ -754,11 +754,11 @@ export default function ComposioTestPage() {
                   <div className="space-y-2">
                     <p>{testResult.message}</p>
                     {testResult.instructions && (
-                      <p><strong>Next Steps:</strong> {testResult.instructions}</p>
+                      <p><strong>Следующие шаги:</strong> {testResult.instructions}</p>
                     )}
                     {testResult.error && (
                       <div className="mt-2 text-sm">
-                        <strong>Error:</strong> {testResult.error}
+                        <strong>Ошибка:</strong> {testResult.error}
                       </div>
                     )}
                   </div>

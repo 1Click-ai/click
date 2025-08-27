@@ -64,7 +64,7 @@ function FloatingMobileMenuButton() {
           </Button>
         </TooltipTrigger>
         <TooltipContent side="bottom">
-          Open menu
+          Открыть меню
         </TooltipContent>
       </Tooltip>
     </div>
@@ -162,7 +162,7 @@ export function SidebarLeft({
                 <TooltipTrigger asChild>
                   <SidebarTrigger className="h-8 w-8" />
                 </TooltipTrigger>
-                <TooltipContent>Toggle sidebar (CMD+B)</TooltipContent>
+                <TooltipContent>Переключить боковую панель (CMD+B)</TooltipContent>
               </Tooltip>
             )}
           </div>
@@ -182,7 +182,7 @@ export function SidebarLeft({
             >
               <Plus className="h-4 w-4 mr-1" />
               <span className="flex items-center justify-between w-full">
-                New Task
+                Новая задача
               </span>
             </SidebarMenuButton>
           </Link>
@@ -195,7 +195,7 @@ export function SidebarLeft({
                 <SidebarMenuItem>
                   <CollapsibleTrigger asChild>
                     <SidebarMenuButton
-                      tooltip="Agents"
+                      tooltip="Агенты"
                       onClick={() => {
                         if (state === 'collapsed') {
                           setOpen(true);
@@ -203,7 +203,7 @@ export function SidebarLeft({
                       }}
                     >
                       <Bot className="h-4 w-4 mr-1" />
-                      <span>Agents</span>
+                      <span>Агенты</span>
                       <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                     </SidebarMenuButton>
                   </CollapsibleTrigger>
@@ -214,7 +214,7 @@ export function SidebarLeft({
                           'bg-accent text-accent-foreground font-medium': pathname === '/agents' && searchParams.get('tab') === 'marketplace',
                         })} asChild>
                           <Link href="/agents?tab=marketplace" onClick={() => isMobile && setOpenMobile(false)}>
-                            <span>Explore</span>
+                            <span>Маркетплейс</span>
                           </Link>
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
@@ -223,7 +223,7 @@ export function SidebarLeft({
                           'bg-accent text-accent-foreground font-medium': pathname === '/agents' && (searchParams.get('tab') === 'my-agents' || searchParams.get('tab') === null),
                         })} asChild>
                           <Link href="/agents?tab=my-agents" onClick={() => isMobile && setOpenMobile(false)}>
-                            <span>My Agents</span>
+                            <span>Мои агенты</span>
                           </Link>
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
@@ -235,7 +235,7 @@ export function SidebarLeft({
                           }}
                           className="cursor-pointer pl-3 touch-manipulation"
                         >
-                          <span>New Agent</span>
+                          <span>Новый агент</span>
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
                     </SidebarMenuSub>
@@ -260,7 +260,7 @@ export function SidebarLeft({
               <TooltipTrigger asChild>
                 <SidebarTrigger className="h-8 w-8" />
               </TooltipTrigger>
-              <TooltipContent>Expand sidebar (CMD+B)</TooltipContent>
+              <TooltipContent>Развернуть боковую панель (CMD+B)</TooltipContent>
             </Tooltip>
           </div>
         )}

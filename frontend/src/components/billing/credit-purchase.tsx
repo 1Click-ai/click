@@ -140,7 +140,7 @@ export function CreditPurchaseModal({
                         Purchase Credits
                     </DialogTitle>
                     <DialogDescription>
-                        Add credits to your account for usage beyond your subscription limit.
+                        Добавьте кредиты на свой счет для использования сверх лимита подписки.
                     </DialogDescription>
                 </DialogHeader>
 
@@ -193,7 +193,7 @@ export function CreditPurchaseModal({
                         onClick={() => onOpenChange(false)}
                         disabled={isProcessing}
                     >
-                        Cancel
+                        Отмена
                     </Button>
                     <Button
                         onClick={handleConfirmPurchase}
@@ -236,7 +236,7 @@ export function CreditBalanceDisplay({ balance, canPurchase, onPurchaseClick }: 
                             variant="outline"
                             onClick={onPurchaseClick}
                         >
-                            Add Credits
+                            Добавить кредиты
                         </Button>
                     )}
                 </CardTitle>

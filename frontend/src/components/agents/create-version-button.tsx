@@ -99,9 +99,9 @@ export function CreateVersionButton({
       <Dialog open={showDialog} onOpenChange={setShowDialog}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Create New Version</DialogTitle>
+            <DialogTitle>Создать новую версию</DialogTitle>
             <DialogDescription>
-              Save the current agent configuration as a new version. This allows you to preserve different configurations and switch between them.
+              Сохранить текущую конфигурацию агента как новую версию. Это позволяет сохранять различные конфигурации и переключаться между ними.
             </DialogDescription>
           </DialogHeader>
           
@@ -135,7 +135,7 @@ export function CreateVersionButton({
               onClick={() => setShowDialog(false)}
               disabled={createVersionMutation.isPending}
             >
-              Cancel
+              Отмена
             </Button>
             <Button
               onClick={handleCreateVersion}
@@ -144,10 +144,10 @@ export function CreateVersionButton({
               {createVersionMutation.isPending ? (
                 <>
                   <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                  Creating...
+                  Создание...
                 </>
               ) : (
-                'Create Version'
+                'Создать версию'
               )}
             </Button>
           </DialogFooter>

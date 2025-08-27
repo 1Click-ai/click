@@ -61,7 +61,7 @@ export function AgentPlaybooksConfiguration({ agentId, agentName }: AgentPlayboo
             <div className="flex items-center justify-start">
                 <Button onClick={() => { setEditing(null); setIsCreateOpen(true); }} size="sm" className="gap-2">
                     <Plus className="h-4 w-4" />
-                    New Workflow
+                    Новый шаблон
                 </Button>
             </div>
 
@@ -72,12 +72,14 @@ export function AgentPlaybooksConfiguration({ agentId, agentName }: AgentPlayboo
                     <div className="mx-auto w-12 h-12 bg-muted rounded-full flex items-center justify-center mb-4 border">
                         <BookOpen className="h-6 w-6 text-muted-foreground" />
                     </div>
-                    <h4 className="text-sm font-semibold text-foreground mb-2">
-                        No playbooks yet
-                    </h4>
-                    <p className="text-sm text-muted-foreground mb-6 max-w-sm mx-auto">
-                        Create your first playbook to automate common workflows with variable-driven runs
+                    <h3 className="text-sm font-semibold mb-2">Пока нет шаблонов</h3>
+                    <p className="text-muted-foreground mb-4">
+                        Создайте свой первый шаблон, чтобы начать автоматизировать задачи.
                     </p>
+                    <Button onClick={() => { setEditing(null); setIsCreateOpen(true); }} size="sm" className="gap-2">
+                        <Plus className="h-4 w-4" />
+                            Новый шаблон
+                    </Button>
                 </div>
             ) : (
                 <div className="space-y-2">
@@ -97,13 +99,13 @@ export function AgentPlaybooksConfiguration({ agentId, agentName }: AgentPlayboo
                                 </div>
                             </div>
                             <div className="flex items-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0">
-                                <Button size="sm" variant="ghost" className="h-8 w-8 p-0" onClick={() => setExecuting(pb)} aria-label="Run playbook">
+                                <Button size="sm" variant="ghost" className="h-8 w-8 p-0" onClick={() => setExecuting(pb)} aria-label="Запустить шаблон">
                                     <Play className="h-4 w-4" />
                                 </Button>
-                                <Button size="sm" variant="ghost" className="h-8 w-8 p-0" onClick={() => { setEditing(pb); setIsCreateOpen(true); }} aria-label="Edit playbook">
+                                <Button size="sm" variant="ghost" className="h-8 w-8 p-0" onClick={() => { setEditing(pb); setIsCreateOpen(true); }} aria-label="Редактировать шаблон">
                                     <Pencil className="h-4 w-4" />
                                 </Button>
-                                <Button size="sm" variant="ghost" className="h-8 w-8 p-0 text-destructive hover:text-destructive" onClick={() => handleDelete(pb)} aria-label="Delete playbook">
+                                <Button size="sm" variant="ghost" className="h-8 w-8 p-0 text-destructive hover:text-destructive" onClick={() => handleDelete(pb)} aria-label="Удалить шаблон">
                                     <Trash2 className="h-4 w-4" />
                                 </Button>
                             </div>

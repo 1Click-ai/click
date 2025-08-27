@@ -28,7 +28,7 @@ async def admin_install_suna_for_user(
     else:
         raise HTTPException(
             status_code=500, 
-            detail=f"Failed to install Suna agent for user {account_id}"
+            detail=f"Не удалось установить агент КЛИК для пользователя {account_id}"
         )
 
 @router.get("/env-vars")

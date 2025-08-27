@@ -162,8 +162,8 @@ export default function SubscriptionStatusManagement({
           <Badge variant={isAlreadyCancelled ? 'destructive' : 'secondary'}>
             {isAlreadyCancelled
               ? subscription.cancel_at
-                ? 'Cancelling at commitment end'
-                : 'Cancelling at period end'
+                ? 'Отмена по окончании договора'
+                : 'Отмена по окончании периода'
               : 'Active'}
           </Badge>
         </div>

@@ -313,7 +313,7 @@ export const ToolsManager: React.FC<ToolsManagerProps> = (props) => {
                 onClick={hasChanges ? handleCancel : () => onOpenChange(false)}
                 disabled={isUpdating}
               >
-                {hasChanges ? 'Cancel' : 'Close'}
+                {hasChanges ? 'Отмена' : 'Закрыть'}
               </Button>
               
               {hasChanges && (
@@ -334,7 +334,7 @@ export const ToolsManager: React.FC<ToolsManagerProps> = (props) => {
                   ) : (
                     <>
                       <Save className="h-4 w-4" />
-                      Save Changes
+                      Сохранить изменения
                     </>
                   )}
                 </Button>

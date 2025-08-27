@@ -44,6 +44,7 @@ import {
   CheckCircle2,
   XCircle,
   Trash2,
+  Loader2,
 } from 'lucide-react';
 import { useComposioCredentialsProfiles, useComposioMcpUrl } from '@/hooks/react-query/composio/use-composio-profiles';
 import { useDeleteProfile, useBulkDeleteProfiles, useSetDefaultProfile } from '@/hooks/react-query/composio/use-composio-mutations';
@@ -91,26 +92,33 @@ const DeleteConfirmationDialog: React.FC<DeleteConfirmationDialogProps> = ({
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>
-            {isSingle ? 'Delete Profile' : `Delete ${selectedProfiles.length} Profiles`}
+            {isSingle ? 'Удалить профиль' : `'Удалить ${selectedProfiles.length} профилей'`}
           </AlertDialogTitle>
           <AlertDialogDescription>
             {isSingle 
-              ? `Are you sure you want to delete "${selectedProfiles[0]?.profile_name}"? This action cannot be undone.`
-              : `Are you sure you want to delete ${selectedProfiles.length} profiles? This action cannot be undone.`
+              ? `'Вы уверены, что хотите удалить "${selectedProfiles[0]?.profile_name}"? Это действие невозможно отменить.'`
+              : `'Вы уверены, что хотите удалить ${selectedProfiles.length} профилей? Это действие невозможно отменить.'`
             }
             <div className="mt-2 text-amber-600 dark:text-amber-400">
-              <strong>Warning:</strong> This may affect existing integrations.
+              <strong>Внимание:</strong> Это может повлиять на существующие интеграции.
             </div>
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel disabled={isDeleting}>Cancel</AlertDialogCancel>
+          <AlertDialogCancel disabled={isDeleting}>Отмена</AlertDialogCancel>
           <AlertDialogAction 
             onClick={onConfirm}
             disabled={isDeleting}
-            className="bg-destructive text-white hover:bg-destructive/90"
+            className="bg-destructive hover:bg-destructive/90 text-white"
           >
-            {isDeleting ? 'Deleting...' : 'Delete'}
+            {isDeleting ? (
+              <>
+                <Loader2 className="h-4 w-4 animate-spin mr-2" />
+                Удаление...
+              </>
+            ) : (
+              <>Удалить</>
+            )}
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
@@ -189,13 +197,13 @@ const McpUrlDialog: React.FC<McpUrlDialogProps> = ({
         <div className="space-y-6">
           <Alert className="border-amber-400/50 dark:border-amber-600/30 bg-amber-400/10 dark:bg-amber-900/10">
             <AlertDescription className="text-amber-800 dark:text-amber-600">
-              <strong>Security Warning:</strong> This MCP URL contains sensitive authentication 
-              information and must not be shared. Anyone with access to this URL can perform actions on your behalf.
+              <strong>Предупреждение безопасности:</strong> Этот URL-адрес MCP содержит конфиденциальную информацию для аутентификации и не должен быть передан.
+              Любой, у кого есть доступ к этому URL-адресу, может выполнять действия от вашего имени.
             </AlertDescription>
           </Alert>
           <div className="space-y-3">
             <div className="flex items-center justify-between">
-              <label className="text-sm font-medium">MCP Connection URL</label>
+              <label className="text-sm font-medium">URL-адрес подключения MCP</label>
               <Button
                 variant="ghost"
                 size="sm"
@@ -205,12 +213,12 @@ const McpUrlDialog: React.FC<McpUrlDialogProps> = ({
                 {showUrl ? (
                   <>
                     <EyeOff className="h-4 w-4" />
-                    Hide
+                    Скрыть
                   </>
                 ) : (
                   <>
                     <Eye className="h-4 w-4" />
-                    Show
+                    Показать
                   </>
                 )}
               </Button>
@@ -221,7 +229,7 @@ const McpUrlDialog: React.FC<McpUrlDialogProps> = ({
               <Alert className="border-red-200 bg-red-50">
                 <XCircle className="h-4 w-4 text-red-600" />
                 <AlertDescription className="text-red-800">
-                  Failed to load MCP URL. Please try again.
+                  Не удалось загрузить URL-адрес MCP. Пожалуйста, попробуйте еще раз.
                 </AlertDescription>
               </Alert>
             ) : urlData ? (
@@ -245,11 +253,11 @@ const McpUrlDialog: React.FC<McpUrlDialogProps> = ({
                   <div className="flex items-center gap-4">
                     <div className="flex items-center gap-1">
                       <div className="h-2 w-2 rounded-full bg-blue-500" />
-                      <span>Streamable HTTP</span>
+                      <span>Потоковый HTTP</span>
                     </div>
                   </div>
                   {showUrl && (
-                    <span className="font-mono">{urlData.mcp_url.length} chars</span>
+                    <span className="font-mono">{urlData.mcp_url.length} симв.</span>
                   )}
                 </div>
               </div>
@@ -258,7 +266,7 @@ const McpUrlDialog: React.FC<McpUrlDialogProps> = ({
 
           <div className="flex justify-end gap-3">
             <Button variant="outline" onClick={() => onOpenChange(false)}>
-              Close
+              Закрыть
             </Button>
           </div>
         </div>
@@ -307,13 +315,13 @@ const ToolkitTable: React.FC<ToolkitTableProps> = ({ toolkit }) => {
   const columns: DataTableColumn<ComposioProfileSummary>[] = [
     {
       id: 'name',
-      header: 'Profile Name',
+      header: 'Имя профиля',
       width: 'w-1/3',
       cell: (profile) => (
         <div className="flex items-center gap-2">
           <span className="font-medium">{profile.profile_name}</span>
           {profile.is_default && (
-            <span title="Default profile">
+            <span title="Профиль по умолчанию">
               <Crown className="h-4 w-4 text-amber-500" />
             </span>
           )}
@@ -322,7 +330,7 @@ const ToolkitTable: React.FC<ToolkitTableProps> = ({ toolkit }) => {
     },
     {
       id: 'mcp_url',
-      header: 'MCP URL',
+      header: 'URL-адрес MCP',
       width: 'w-1/3',
       cell: (profile) => (
         <div className="flex items-center gap-2">
@@ -341,7 +349,7 @@ const ToolkitTable: React.FC<ToolkitTableProps> = ({ toolkit }) => {
               </code>
             </div>
           ) : (
-            <span className="text-xs text-muted-foreground">No URL available</span>
+            <span className="text-xs text-muted-foreground">URL-адрес недоступен</span>
           )}
         </div>
       ),
@@ -368,7 +376,7 @@ const ToolkitTable: React.FC<ToolkitTableProps> = ({ toolkit }) => {
     // },
     {
       id: 'actions',
-      header: 'Actions',
+      header: 'Действия',
       width: 'w-1/6',
       headerClassName: 'text-right',
       className: 'text-right',
@@ -389,13 +397,13 @@ const ToolkitTable: React.FC<ToolkitTableProps> = ({ toolkit }) => {
                 <>
                   <DropdownMenuItem className="rounded-lg" onClick={() => handleViewUrl(profile.profile_id, profile.profile_name, toolkit.toolkit_name)}>
                     <Eye className="h-4 w-4" />
-                    View MCP URL
+                    Посмотреть URL-адрес MCP
                   </DropdownMenuItem>
                 </>
               )}
               <DropdownMenuItem className="rounded-lg" onClick={() => handleSetDefault(profile.profile_id)} disabled={setDefaultProfile.isPending}>
                 <CheckCircle2 className="h-4 w-4" />
-                {profile.is_default ? 'Remove Default' : 'Set as Default'}
+                {profile.is_default ? 'Удалить по умолчанию' : 'Установить по умолчанию'}
               </DropdownMenuItem>
               <DropdownMenuItem 
                 onClick={() => {
@@ -406,7 +414,7 @@ const ToolkitTable: React.FC<ToolkitTableProps> = ({ toolkit }) => {
                 disabled={isDeleting}
               >
                 <Trash2 className="h-4 w-4 text-destructive" />
-                Delete Profile
+                Удалить профиль
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -436,7 +444,7 @@ const ToolkitTable: React.FC<ToolkitTableProps> = ({ toolkit }) => {
           <div>
             <h3 className="font-semibold text-foreground">{toolkit.toolkit_name}</h3>
             <p className="text-xs text-muted-foreground">
-              {toolkit.profiles.length} profile{toolkit.profiles.length !== 1 ? 's' : ''}
+              {toolkit.profiles.length} профил{toolkit.profiles.length !== 1 ? 'я' : 'ь'}
             </p>
           </div>
         </div>
@@ -459,7 +467,7 @@ const ToolkitTable: React.FC<ToolkitTableProps> = ({ toolkit }) => {
               disabled={isDeleting}
             >
               <Trash2 className="h-4 w-4" />
-              Delete {selectedProfiles.length > 1 ? `${selectedProfiles.length} Profiles` : 'Profile'}
+              Удалить {selectedProfiles.length > 1 ? `${selectedProfiles.length} Профилей` : 'Профиль'}
             </Button>
           ) : null
         }
@@ -566,7 +574,7 @@ export const ComposioConnectionsSection: React.FC<ComposioConnectionsSectionProp
         <Alert className="border-red-200 bg-red-50">
           <XCircle className="h-4 w-4 text-red-600" />
           <AlertDescription className="text-red-800">
-            Failed to load Composio connections. Please try again.
+            Не удалось загрузить соединения Composio. Пожалуйста, попробуйте еще раз.
           </AlertDescription>
         </Alert>
       </div>
@@ -580,9 +588,9 @@ export const ComposioConnectionsSection: React.FC<ComposioConnectionsSectionProp
           <CardContent className="py-12">
             <div className="text-center">
               <Settings className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-              <h3 className="text-lg font-medium mb-2">No Connections</h3>
+              <h3 className="text-lg font-medium mb-2">Нет подключений</h3>
               <p className="text-muted-foreground">
-                Connect integrations to your agents and you will be able to manage them here.
+                Подключите интеграции к своим агентам, и вы сможете управлять ими здесь.
               </p>
             </div>
           </CardContent>
@@ -597,8 +605,8 @@ export const ComposioConnectionsSection: React.FC<ComposioConnectionsSectionProp
         <div>
           <p className="text-sm text-muted-foreground">
             {searchQuery 
-              ? `${filteredStats.filteredToolkitsCount} ${filteredStats.filteredToolkitsCount === 1 ? 'app' : 'apps'} with ${filteredStats.filteredProfilesCount} ${filteredStats.filteredProfilesCount === 1 ? 'profile' : 'profiles'} found`
-              : `${stats.uniqueToolkits} ${stats.uniqueToolkits === 1 ? 'app' : 'apps'} with ${stats.totalProfiles} ${stats.totalProfiles === 1 ? 'profile' : 'profiles'} (${stats.connectedProfiles} connected)`
+              ? `${filteredStats.filteredToolkitsCount} ${filteredStats.filteredToolkitsCount === 1 ? 'приложение' : 'приложений'} с ${filteredStats.filteredProfilesCount} ${filteredStats.filteredProfilesCount === 1 ? 'профилем' : 'профилями'} найдено`
+              : `${stats.uniqueToolkits} ${stats.uniqueToolkits === 1 ? 'приложение' : 'приложений'} с ${stats.totalProfiles} ${stats.totalProfiles === 1 ? 'профилем' : 'профилями'} (${stats.connectedProfiles} подключено)`
             }
           </p>
         </div>
@@ -607,13 +615,13 @@ export const ComposioConnectionsSection: React.FC<ComposioConnectionsSectionProp
           size="sm"
         >
           <Plus className="h-4 w-4" />
-          Connect New App
+          Подключить новое приложение
         </Button>
       </div>
       <div className="relative max-w-sm">
         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
         <Input
-          placeholder="Search apps and profiles..."
+          placeholder="Поиск приложений и профилей..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="pl-12 h-12 rounded-xl bg-muted/50 border-0 focus:bg-background focus:ring-2 focus:ring-primary/20 transition-all"
@@ -637,9 +645,9 @@ export const ComposioConnectionsSection: React.FC<ComposioConnectionsSectionProp
                 <Search className="h-6 w-6 text-muted-foreground" />
               </div>
               <div className="space-y-1">
-                <h3 className="font-semibold text-foreground">No results found</h3>
+                <h3 className="font-semibold text-foreground">Результаты не найдены</h3>
                 <p className="text-sm text-muted-foreground">
-                  Try adjusting your search terms or browse all apps
+                  Попробуйте изменить условия поиска или просмотрите все приложения
                 </p>
               </div>
               <Button 
@@ -647,7 +655,7 @@ export const ComposioConnectionsSection: React.FC<ComposioConnectionsSectionProp
                 variant="outline"
                 size="sm"
               >
-                Clear search
+                Очистить поиск
               </Button>
             </div>
           </CardContent>
@@ -670,7 +678,7 @@ export const ComposioConnectionsSection: React.FC<ComposioConnectionsSectionProp
       <Dialog open={showRegistry} onOpenChange={setShowRegistry}>
         <DialogContent className="p-0 max-w-6xl h-[90vh] overflow-hidden">
           <DialogHeader className="sr-only">
-            <DialogTitle>Connect New App</DialogTitle>
+            <DialogTitle>Подключить новое приложение</DialogTitle>
           </DialogHeader>
           <ComposioRegistry
             mode="profile-only"

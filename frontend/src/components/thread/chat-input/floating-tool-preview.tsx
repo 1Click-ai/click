@@ -159,7 +159,7 @@ export const FloatingToolPreview: React.FC<FloatingToolPreviewProps> = ({
                   )} />
                   <span className="text-xs text-muted-foreground truncate">
                     {isStreaming
-                      ? `${agentName || 'MEVO Default Agent'} is working...`
+                      ? `${agentName || 'Default Agent'} is working...`
                       : isSuccess
                         ? "Success"
                         : "Failed"

@@ -38,9 +38,9 @@ export default function PersonalAccountBillingPage() {
         variant="destructive"
         className="border-red-300 dark:border-red-800 rounded-xl"
       >
-        <AlertTitle>Error</AlertTitle>
+        <AlertTitle>Ошибка</AlertTitle>
         <AlertDescription>
-          {error instanceof Error ? error.message : 'Failed to load account data'}
+          {error instanceof Error ? error.message : 'Не удалось загрузить данные аккаунта'}
         </AlertDescription>
       </Alert>
     );
@@ -61,9 +61,9 @@ export default function PersonalAccountBillingPage() {
         variant="destructive"
         className="border-red-300 dark:border-red-800 rounded-xl"
       >
-        <AlertTitle>Account Not Found</AlertTitle>
+        <AlertTitle>Аккаунт не найден</AlertTitle>
         <AlertDescription>
-          Your personal account could not be found.
+          Ваш личный аккаунт не найден.
         </AlertDescription>
       </Alert>
     );
@@ -79,15 +79,15 @@ export default function PersonalAccountBillingPage() {
       
       {/* Billing Status Card */}
       <div className="rounded-xl border shadow-sm bg-card p-6">
-        <h2 className="text-xl font-semibold mb-4">Billing Status</h2>
+        <h2 className="text-xl font-semibold mb-4">Статус оплаты</h2>
 
         {isLocalMode() ? (
           <div className="p-4 mb-4 bg-muted/30 border border-border rounded-lg text-center">
             <p className="text-sm text-muted-foreground">
-              Running in local development mode - billing features are disabled
+              Работает в режиме локальной разработки — функции оплаты отключены
             </p>
             <p className="text-xs text-muted-foreground mt-2">
-              Agent usage limits are not enforced in this environment
+              Ограничения на использование агента не применяются в этой среде
             </p>
           </div>
         ) : subscriptionLoading ? (
@@ -98,7 +98,7 @@ export default function PersonalAccountBillingPage() {
         ) : subscriptionError ? (
           <div className="p-4 mb-4 bg-destructive/10 border border-destructive/20 rounded-lg text-center">
             <p className="text-sm text-destructive">
-              Error loading billing status: {subscriptionError.message}
+              Ошибка загрузки статуса оплаты: {subscriptionError.message}
             </p>
           </div>
         ) : (
@@ -108,7 +108,7 @@ export default function PersonalAccountBillingPage() {
                 <div className="rounded-lg border bg-background p-4">
                   <div className="flex justify-between items-center gap-4">
                     <span className="text-sm font-medium text-foreground/90">
-                      Agent Usage This Month
+                      Использование агента в этом месяце
                     </span>
                     <span className="text-sm font-medium">
                       ${subscriptionData.current_usage?.toFixed(2) || '0'} /{' '}
@@ -116,7 +116,7 @@ export default function PersonalAccountBillingPage() {
                     </span>
                     <Button variant='outline' asChild className='text-sm'>
                       <Link href="/settings/usage-logs">
-                        Usage logs
+                        Журналы использования
                       </Link>
                     </Button>
                   </div>
@@ -142,14 +142,14 @@ export default function PersonalAccountBillingPage() {
                 asChild
               >
                 <Link href="/model-pricing">
-                  View Model Pricing
+                  Посмотреть цены на модели
                 </Link>
               </Button>
               <Button
                 onClick={() => setShowBillingModal(true)}
                 className="bg-primary hover:bg-primary/90 shadow-md hover:shadow-lg transition-all"
               >
-                Manage Subscription
+                Управление подпиской
               </Button>
             </div>
           </>

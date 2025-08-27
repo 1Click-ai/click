@@ -95,7 +95,7 @@ export function ConfigurationTab({
   const handleSystemPromptChange = (value: string) => {
     if (!isSystemPromptEditable && isSunaAgent) {
       toast.error("System prompt cannot be edited", {
-        description: "MEVO's system prompt is managed centrally and cannot be changed.",
+        description: "Системный промпт КЛИК управляется централизованно и не может быть изменен.",
       });
       return;
     }
@@ -109,7 +109,7 @@ export function ConfigurationTab({
   const handleToolsChange = (tools: Record<string, boolean | { enabled: boolean; description: string }>) => {
     if (!areToolsEditable && isSunaAgent) {
       toast.error("Tools cannot be modified", {
-        description: "MEVO's default tools are managed centrally and cannot be changed.",
+        description: "Стандартные инструменты КЛИК управляются централизованно и не могут быть изменены.",
       });
       return;
     }
@@ -131,11 +131,11 @@ export function ConfigurationTab({
                 <div className="text-primary-600">
                   <KortixLogo size={20} />
                 </div>
-                <span className="font-semibold text-primary-800">MEVO Default Agent</span>
+                <span className="font-semibold text-primary-800">ИИ-агент по умолчанию</span>
               </div>
               <p className="text-sm text-primary-700">
-                This is MEVO's default agent with centrally managed system prompt and tools.
-                You can customize integrations, knowledge base, playbooks, and triggers to personalize your experience.
+Это стандартный агент КЛИК с централизованно управляемым системным промптом и инструментами.
+                Вы можете настроить интеграции, базу знаний, сценарии и триггеры для персонализации вашего опыта.
               </p>
             </div>
           )}
@@ -156,8 +156,8 @@ export function ConfigurationTab({
                         </div>
                       </div>
                       <div className="text-left flex-1 min-w-0">
-                        <h4 className="text-sm font-semibold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">Model Configuration</h4>
-                        <p className="text-xs text-muted-foreground group-hover:text-foreground/70 transition-colors duration-300">Choose the AI model for your agent</p>
+                        <h4 className="text-sm font-semibold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">Конфигурация модели</h4>
+                        <p className="text-xs text-muted-foreground group-hover:text-foreground/70 transition-colors duration-300">Выберите модель ИИ для вашего агента</p>
                       </div>
                       <ChevronDown className={`h-4 w-4 flex-shrink-0 transition-transform duration-300 ease-out ${openAccordion === 'model' ? 'rotate-180' : ''}`} />
                     </div>
@@ -193,8 +193,8 @@ export function ConfigurationTab({
                         </div>
                       </div>
                       <div className="text-left flex-1 min-w-0">
-                        <h4 className="text-sm font-semibold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">System Prompt</h4>
-                        <p className="text-xs text-muted-foreground group-hover:text-foreground/70 transition-colors duration-300">Define agent behavior and goals</p>
+                        <h4 className="text-sm font-semibold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">Системная подсказка</h4>
+                        <p className="text-xs text-muted-foreground group-hover:text-foreground/70 transition-colors duration-300">Определите поведение и цели агента</p>
                       </div>
                       <ChevronDown className={`h-4 w-4 flex-shrink-0 transition-transform duration-300 ease-out ${openAccordion === 'system' ? 'rotate-180' : ''}`} />
                     </div>
@@ -205,8 +205,8 @@ export function ConfigurationTab({
                         <ExpandableMarkdownEditor
                           value={displayData.system_prompt}
                           onSave={handleSystemPromptChange}
-                          placeholder="Click to set system instructions..."
-                          title="System Instructions"
+                          placeholder="Нажмите, чтобы установить системные инструкции..."
+                          title="Системные инструкции"
                           disabled={!isSystemPromptEditable || isLoading}
                         />
                       </div>
@@ -229,8 +229,8 @@ export function ConfigurationTab({
                     </div>
                   </div>
                   <div className="text-left flex-1 min-w-0">
-                    <h4 className="text-sm font-semibold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">Tools</h4>
-                    <p className="text-xs text-muted-foreground group-hover:text-foreground/70 transition-colors duration-300">Configure agent capabilities</p>
+                    <h4 className="text-sm font-semibold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">Инструменты</h4>
+                    <p className="text-xs text-muted-foreground group-hover:text-foreground/70 transition-colors duration-300">Настройте возможности агента</p>
                   </div>
                   <ChevronDown className={`h-4 w-4 flex-shrink-0 transition-transform duration-300 ease-out ${openAccordion === 'tools' ? 'rotate-180' : ''}`} />
                 </div>
@@ -263,8 +263,8 @@ export function ConfigurationTab({
                     </div>
                   </div>
                   <div className="text-left flex-1 min-w-0">
-                    <h4 className="text-sm font-semibold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">Integrations</h4>
-                    <p className="text-xs text-muted-foreground group-hover:text-foreground/70 transition-colors duration-300">Connect external services</p>
+                    <h4 className="text-sm font-semibold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">Интеграции</h4>
+                    <p className="text-xs text-muted-foreground group-hover:text-foreground/70 transition-colors duration-300">Подключайте внешние сервисы</p>
                   </div>
                   <ChevronDown className={`h-4 w-4 flex-shrink-0 transition-transform duration-300 ease-out ${openAccordion === 'integrations' ? 'rotate-180' : ''}`} />
                 </div>
@@ -305,8 +305,8 @@ export function ConfigurationTab({
                     </div>
                   </div>
                   <div className="text-left flex-1 min-w-0">
-                    <h4 className="text-sm font-semibold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">Knowledge Base</h4>
-                    <p className="text-xs text-muted-foreground group-hover:text-foreground/70 transition-colors duration-300">Upload and manage knowledge for the agent</p>
+                    <h4 className="text-sm font-semibold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">База знаний</h4>
+                    <p className="text-xs text-muted-foreground group-hover:text-foreground/70 transition-colors duration-300">Загружайте и управляйте знаниями для агента</p>
                   </div>
                   <ChevronDown className={`h-4 w-4 flex-shrink-0 transition-transform duration-300 ease-out ${openAccordion === 'knowledge' ? 'rotate-180' : ''}`} />
                 </div>
@@ -341,8 +341,8 @@ export function ConfigurationTab({
                     </div>
                   </div>
                   <div className="text-left flex-1 min-w-0">
-                    <h4 className="text-sm font-semibold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">Workflows</h4>
-                    <p className="text-xs text-muted-foreground group-hover:text-foreground/70 transition-colors duration-300">Simple variable-driven runs</p>
+                    <h4 className="text-sm font-semibold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">Шаблоны</h4>
+                    <p className="text-xs text-muted-foreground group-hover:text-foreground/70 transition-colors duration-300">Сценарии на основе переменных</p>
                   </div>
                   <ChevronDown className={`h-4 w-4 flex-shrink-0 transition-transform duration-300 ease-out ${openAccordion === 'playbooks' ? 'rotate-180' : ''}`} />
                 </div>
@@ -377,8 +377,8 @@ export function ConfigurationTab({
                     </div>
                   </div>
                   <div className="text-left flex-1 min-w-0">
-                    <h4 className="text-sm font-semibold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">Schedule</h4>
-                    <p className="text-xs text-muted-foreground group-hover:text-foreground/70 transition-colors duration-300">Set up automated agent runs</p>
+                    <h4 className="text-sm font-semibold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">Расписание</h4>
+                    <p className="text-xs text-muted-foreground group-hover:text-foreground/70 transition-colors duration-300">Настроить автоматические запуски агента</p>
                   </div>
                   <ChevronDown className={`h-4 w-4 flex-shrink-0 transition-transform duration-300 ease-out ${openAccordion === 'triggers' ? 'rotate-180' : ''}`} />
                 </div>

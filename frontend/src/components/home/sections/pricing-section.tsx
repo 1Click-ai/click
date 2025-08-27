@@ -95,7 +95,7 @@ function BillingPeriodToggle({
             )}
             onClick={() => setBillingPeriod('monthly')}
           >
-            Monthly
+            Месячно
           </div>
           <div 
             className={cn("px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 flex items-center gap-1 cursor-pointer",
@@ -105,9 +105,9 @@ function BillingPeriodToggle({
             )}
             onClick={() => setBillingPeriod('yearly_commitment')}
           >
-            Yearly
+            Ежегодно
             <span className="bg-green-600 text-green-50 dark:bg-green-500 dark:text-green-50 text-[10px] px-1.5 py-0.5 rounded-full font-semibold whitespace-nowrap">
-              15% off
+              Скидка 15%
             </span>
           </div>
         </div>
@@ -197,34 +197,34 @@ function PricingTier({
             console.error(
               "Error: Received status but no checkout URL.",
             );
-            toast.error('Failed to initiate subscription. Please try again.');
+            toast.error('Не удалось инициировать подписку. Пожалуйста, попробуйте еще раз.');
           }
           break;
         case 'upgraded':
         case 'updated':
           const upgradeMessage = response.details?.is_upgrade
-            ? `Subscription upgraded from $${response.details.current_price} to $${response.details.new_price}`
-            : 'Subscription updated successfully';
+            ? `Подписка обновлена с $${response.details.current_price} до $${response.details.new_price}`
+            : 'Подписка успешно обновлена';
           toast.success(upgradeMessage);
           posthog.capture('plan_upgraded');
           if (onSubscriptionUpdate) onSubscriptionUpdate();
           break;
         case 'commitment_blocks_downgrade':
-          toast.warning(response.message || 'Cannot downgrade during commitment period');
+          toast.warning(response.message || 'Невозможно понизить план в период действия обязательств');
           break;
         case 'downgrade_scheduled':
         case 'scheduled':
           const effectiveDate = response.effective_date
             ? new Date(response.effective_date).toLocaleDateString()
-            : 'the end of your billing period';
+            : 'конец вашего расчетного периода';
 
-          const statusChangeMessage = 'Subscription change scheduled';
+          const statusChangeMessage = 'Изменение подписки запланировано';
 
           toast.success(
             <div>
               <p>{statusChangeMessage}</p>
               <p className="text-sm mt-1">
-                Your plan will change on {effectiveDate}.
+                Ваш план изменится {effectiveDate}.
               </p>
             </div>,
           );
@@ -232,21 +232,21 @@ function PricingTier({
           if (onSubscriptionUpdate) onSubscriptionUpdate();
           break;
         case 'no_change':
-          toast.info(response.message || 'You are already on this plan.');
+          toast.info(response.message || 'Вы уже на этом плане.');
           break;
         default:
           console.warn(
-            'Received unexpected status from createCheckoutSession:',
+            'Получен неожиданный статус от createCheckoutSession:',
             response.status,
           );
-          toast.error('An unexpected error occurred. Please try again.');
+          toast.error('Произошла непредвиденная ошибка. Пожалуйста, попробуйте еще раз.');
       }
     } catch (error: any) {
-      console.error('Error processing subscription:', error);
+      console.error('Ошибка обработки подписки:', error);
       const errorMessage =
         error?.response?.data?.detail ||
         error?.message ||
-        'Failed to process subscription. Please try again.';
+        'Не удалось обработать подписку. Пожалуйста, попробуйте еще раз.';
       toast.error(errorMessage);
     }
   };
@@ -263,7 +263,7 @@ function PricingTier({
     isScheduled && currentSubscription?.scheduled_price_id === priceId;
   const isPlanLoading = isLoading[priceId];
 
-  let buttonText = isAuthenticated ? 'Select Plan' : 'Start Free';
+  let buttonText = isAuthenticated ? 'Выбрать план' : 'Начать бесплатно';
   let buttonDisabled = isPlanLoading;
   let buttonVariant: ButtonVariant = null;
   let ringClass = '';
@@ -277,18 +277,18 @@ function PricingTier({
 
   if (isAuthenticated) {
     if (isCurrentActivePlan) {
-      buttonText = 'Current Plan';
+      buttonText = 'Текущий план';
       buttonDisabled = true;
       buttonVariant = 'secondary';
       ringClass = isCompact ? 'ring-1 ring-primary' : 'ring-2 ring-primary';
       buttonClassName = 'bg-primary/5 hover:bg-primary/10 text-primary';
       statusBadge = (
         <span className="bg-primary/10 text-primary text-[10px] font-medium px-1.5 py-0.5 rounded-full">
-          Current
+          Текущий
         </span>
       );
     } else if (isScheduledTargetPlan) {
-      buttonText = 'Scheduled';
+      buttonText = 'Запланировано';
       buttonDisabled = true;
       buttonVariant = 'outline';
       ringClass = isCompact
@@ -298,17 +298,17 @@ function PricingTier({
         'bg-yellow-500/5 hover:bg-yellow-500/10 text-yellow-600 border-yellow-500/20';
       statusBadge = (
         <span className="bg-yellow-500/10 text-yellow-600 text-[10px] font-medium px-1.5 py-0.5 rounded-full">
-          Scheduled
+          Запланировано
         </span>
       );
     } else if (isScheduled && currentSubscription?.price_id === priceId) {
-      buttonText = 'Change Scheduled';
+      buttonText = 'Изменить запланированное';
       buttonVariant = 'secondary';
       ringClass = isCompact ? 'ring-1 ring-primary' : 'ring-2 ring-primary';
       buttonClassName = 'bg-primary/5 hover:bg-primary/10 text-primary';
       statusBadge = (
         <span className="bg-yellow-500/10 text-yellow-600 text-[10px] font-medium px-1.5 py-0.5 rounded-full">
-          Downgrade Pending
+          Ожидается понижение
         </span>
       );
     } else {
@@ -347,13 +347,13 @@ function PricingTier({
         targetAmount === 0 &&
         currentSubscription?.status !== 'no_subscription'
       ) {
-        buttonText = 'Select Plan';
+        buttonText = 'Выбрать план';
         buttonDisabled = true;
         buttonVariant = 'secondary';
         buttonClassName = 'bg-primary/5 hover:bg-primary/10 text-primary';
       } else if (!planChangeValidation.allowed) {
         // Plan change not allowed due to business rules
-        buttonText = 'Not Available';
+        buttonText = 'Недоступно';
         buttonDisabled = true;
         buttonVariant = 'secondary';
         buttonClassName = 'opacity-50 cursor-not-allowed bg-muted text-muted-foreground';
@@ -361,30 +361,30 @@ function PricingTier({
         if (targetAmount > currentAmount || isSameTierUpgradeToLongerTerm) {
           // Allow upgrade to higher tier OR upgrade to longer term on same tier
           if (currentIsMonthly && targetIsYearlyCommitment && targetAmount <= currentAmount) {
-            buttonText = 'Upgrade';
+            buttonText = 'Обновить';
             buttonVariant = tier.buttonColor as ButtonVariant;
             buttonClassName = 'bg-primary hover:bg-primary/90 text-primary-foreground';
           } else if (currentIsMonthly && targetIsYearly && targetAmount <= currentAmount) {
-            buttonText = 'Switch to Legacy Yearly';
+            buttonText = 'Переключиться на годовой (старый)';
             buttonVariant = 'default';
             buttonClassName = 'bg-green-600 hover:bg-green-700 text-white';
           } else if (currentIsYearlyCommitment && targetIsYearly && currentTier?.name === tier.name) {
-            buttonText = 'Switch to Legacy Yearly';
+            buttonText = 'Переключиться на годовой (старый)';
             buttonVariant = 'default';
             buttonClassName = 'bg-green-600 hover:bg-green-700 text-white';
           } else {
-            buttonText = 'Upgrade';
+            buttonText = 'Обновить';
             buttonVariant = tier.buttonColor as ButtonVariant;
             buttonClassName = 'bg-primary hover:bg-primary/90 text-primary-foreground';
           }
         } else if (targetAmount < currentAmount || isSameTierDowngradeToShorterTerm) {
           // Prevent downgrades and downgrades to shorter terms
-          buttonText = 'Not Available';
+          buttonText = 'Недоступно';
           buttonDisabled = true;
           buttonVariant = 'secondary';
           buttonClassName = 'opacity-50 cursor-not-allowed bg-muted text-muted-foreground';
         } else {
-          buttonText = 'Select Plan';
+          buttonText = 'Выбрать план';
           buttonVariant = tier.buttonColor as ButtonVariant;
           buttonClassName = 'bg-primary hover:bg-primary/90 text-primary-foreground';
         }
@@ -392,7 +392,7 @@ function PricingTier({
     }
 
     if (isPlanLoading) {
-      buttonText = 'Loading...';
+      buttonText = 'Загрузка...';
       buttonClassName = 'opacity-70 cursor-not-allowed';
     }
   } else {
@@ -425,7 +425,7 @@ function PricingTier({
           {tier.name}
           {tier.isPopular && (
             <span className="bg-gradient-to-b from-secondary/50 from-[1.92%] to-secondary to-[100%] text-white inline-flex w-fit items-center justify-center px-1.5 py-0.5 rounded-full text-[10px] font-medium shadow-[0px_6px_6px_-3px_rgba(0,0,0,0.08),0px_3px_3px_-1.5px_rgba(0,0,0,0.08),0px_1px_1px_-0.5px_rgba(0,0,0,0.08),0px_0px_0px_1px_rgba(255,255,255,0.12)_inset,0px_1px_0px_0px_rgba(255,255,255,0.12)_inset]">
-              Popular
+              Популярный
             </span>
           )}
           {/* Show upgrade badge for yearly commitment plans when user is on monthly */}
@@ -441,14 +441,14 @@ function PricingTier({
                 </span>
               </div>
               <div className="flex items-center gap-1 mt-1">
-                <span className="text-xs text-muted-foreground">/month</span>
-                <span className="text-xs text-muted-foreground">for one year</span>
+                <span className="text-xs text-muted-foreground">/месяц</span>
+                <span className="text-xs text-muted-foreground">на один год</span>
               </div>
             </div>
           ) : billingPeriod === 'yearly' && tier.yearlyPrice && displayPrice !== '$0' ? (
             <div className="flex flex-col">
               <div className="flex items-baseline gap-2">
-                <PriceDisplay price={`$${Math.round(parseFloat(tier.yearlyPrice.slice(1)) / 12)}`} isCompact={insideDialog} />
+                <PriceDisplay price={`${Math.round(parseFloat(tier.yearlyPrice.slice(1)) / 12)}`} isCompact={insideDialog} />
                 {tier.discountPercentage && (
                   <span className="text-xs line-through text-muted-foreground">
                     ${Math.round(parseFloat(tier.originalYearlyPrice?.slice(1) || '0') / 12)}
@@ -456,14 +456,14 @@ function PricingTier({
                 )}
               </div>
               <div className="flex items-center gap-2 mt-1">
-                <span className="text-xs text-muted-foreground">/month</span>
-                <span className="text-xs text-muted-foreground">billed yearly</span>
+                <span className="text-xs text-muted-foreground">/месяц</span>
+                <span className="text-xs text-muted-foreground">оплата за год</span>
               </div>
             </div>
           ) : (
             <div className="flex items-baseline">
               <PriceDisplay price={displayPrice} isCompact={insideDialog} />
-              <span className="ml-2">{displayPrice !== '$0' ? '/month' : ''}</span>
+              <span className="ml-2">{displayPrice !== '$0' ? '/месяц' : ''}</span>
             </div>
           )}
         </div>
@@ -471,17 +471,17 @@ function PricingTier({
 
         {billingPeriod === 'yearly_commitment' && tier.monthlyCommitmentStripePriceId ? (
           <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-green-50 border-green-200 text-green-700 w-fit">
-            Save ${Math.round((parseFloat(tier.price.slice(1)) - parseFloat(displayPrice.slice(1))) * 12)} per year
+            Экономия ${Math.round((parseFloat(tier.price.slice(1)) - parseFloat(displayPrice.slice(1))) * 12)} в год
           </div>
         ) : billingPeriod === 'yearly' && tier.yearlyPrice && tier.discountPercentage ? (
           <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-green-50 border-green-200 text-green-700 w-fit">
-            Save ${Math.round(parseFloat(tier.originalYearlyPrice?.slice(1) || '0') - parseFloat(tier.yearlyPrice.slice(1)))} per year
+            Экономия ${Math.round(parseFloat(tier.originalYearlyPrice?.slice(1) || '0') - parseFloat(tier.yearlyPrice.slice(1)))} в год
           </div>
         ) : (
           <div className="hidden items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-primary/10 border-primary/20 text-primary w-fit">
             {billingPeriod === 'yearly' && tier.yearlyPrice && displayPrice !== '$0'
-              ? `$${Math.round(parseFloat(tier.yearlyPrice.slice(1)) / 12)}/month (billed yearly)`
-              : `${displayPrice}/month`
+              ? `${Math.round(parseFloat(tier.yearlyPrice.slice(1)) / 12)}/месяц (оплата за год)`
+              : `${displayPrice}/месяц`
             }
           </div>
         )}
@@ -606,7 +606,7 @@ export function PricingSection({
     return (
       <div className="p-4 bg-muted/30 border border-border rounded-lg text-center">
         <p className="text-sm text-muted-foreground">
-          Running in local development mode - billing features are disabled
+          Работает в режиме локальной разработки — функции выставления счетов отключены
         </p>
       </div>
     );
@@ -621,10 +621,10 @@ export function PricingSection({
         {showTitleAndTabs && (
           <SectionHeader>
             <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-center text-balance">
-              Choose the right plan for your needs
+              Выберите подходящий план для ваших нужд
             </h2>
             <p className="text-muted-foreground text-center text-balance font-medium">
-              Start with our free plan or upgrade for more AI token credits
+              Начните с нашего бесплатного плана или сделайте апгрейд, чтобы получить больше кредитов на ИИ-токены
             </p>
           </SectionHeader>
         )}
@@ -665,9 +665,9 @@ export function PricingSection({
       {showInfo && (
         <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800 rounded-lg max-w-2xl mx-auto">
           <p className="text-sm text-blue-800 dark:text-blue-200 text-center">
-            <strong>What are AI tokens?</strong> Tokens are units of text that AI models process. 
-            Your plan includes credits to spend on various AI models - the more complex the task, 
-            the more tokens used.
+            <strong>Что такое ИИ-токены?</strong> Токены — это единицы текста, которые обрабатывают ИИ-модели. 
+            Ваш план включает кредиты для использования различных ИИ-моделей - чем сложнее задача, 
+            тем больше токенов используется.
           </p>
         </div>
       )}

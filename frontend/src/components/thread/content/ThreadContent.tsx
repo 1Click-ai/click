@@ -355,7 +355,7 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
     project,
     debugMode = false,
     isPreviewMode = false,
-    agentName = 'MEVO Default Agent',
+    agentName = 'Default Agent',
     agentAvatar = <KortixLogo size={16} />,
     emptyStateComponent,
     threadMetadata,
@@ -382,7 +382,7 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
     // Helper function to get agent info robustly
     const getAgentInfo = useCallback(() => {
 
-        // Check if this is a Suna default agent from metadata
+        // Проверьте, является ли это агентом КЛИК по умолчанию из метаданных
         const isSunaDefaultAgent = agentMetadata?.is_suna_default || false;
 
         // Then check recent messages for agent info
@@ -410,7 +410,7 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
         }
 
         if (recentAssistantWithAgent?.agents?.name) {
-            const isSunaAgent = recentAssistantWithAgent.agents.name === 'Suna' || isSunaDefaultAgent;
+            const isSunaAgent = recentAssistantWithAgent.agents.name === 'КЛИК' || isSunaDefaultAgent;
             // Prefer profile image if available on the agent payload
             const profileUrl = (recentAssistantWithAgent as any)?.agents?.profile_image_url;
             const avatar = profileUrl && !isSunaDefaultAgent ? (
@@ -438,10 +438,10 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
             };
         }
 
-        // Fallback: if this is a Suna default agent, always show KortixLogo
+        // Резерв: если это агент КЛИК по умолчанию, всегда показывать KortixLogo
         if (isSunaDefaultAgent) {
             return {
-                name: agentName || 'MEVO',
+                name: agentName || 'КЛИК',
                 avatar: (
                     <div className="h-5 w-5 flex items-center justify-center rounded text-xs">
                         <KortixLogo size={16} />
@@ -451,7 +451,7 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
         }
 
         return {
-            name: agentName || 'MEVO Default Agent',
+            name: agentName || 'Агент по умолчанию',
             avatar: agentAvatar
         };
     }, [threadMetadata, displayMessages, agentName, agentAvatar, agentMetadata, agentData]);
@@ -1045,7 +1045,7 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
                                             <div className="animate-shimmer inline-flex items-center gap-1.5 py-1.5 px-3 text-xs font-medium text-primary bg-primary/10 rounded-md border border-primary/20">
                                                 <CircleDashed className="h-3.5 w-3.5 text-primary flex-shrink-0 animate-spin animation-duration-2000" />
                                                 <span className="font-mono text-xs text-primary">
-                                                    {currentToolCall.name || 'Using Tool'}
+                                                    {currentToolCall.name || 'Использование инструмента'}
                                                 </span>
                                             </div>
                                         </div>

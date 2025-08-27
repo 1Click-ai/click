@@ -9,7 +9,7 @@ export function HeroVideoSection() {
     >
       <SectionHeader>
         <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-center text-balance pb-1">
-          MEVO: the 1st AI agent built for healthcare.
+          КЛИК: the 1st AI agent built for healthcare.
         </h2>
         <p className="text-muted-foreground text-center text-balance font-medium">
           

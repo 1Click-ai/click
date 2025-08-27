@@ -221,7 +221,7 @@ export const TriggerConfigDialog: React.FC<TriggerConfigDialogProps> = ({
       </div>
       <DialogFooter className="px-2">
         <Button variant="outline" onClick={onCancel} disabled={isLoading}>
-          Cancel
+          Отмена
         </Button>
         <Button onClick={handleSave} disabled={isLoading}>
           {isLoading ? (

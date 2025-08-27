@@ -98,12 +98,12 @@ const MarketplaceBadge: React.FC<{
       {isKortixTeam && (
         <Badge variant="secondary" className="bg-blue-100 text-blue-700 border-0 dark:bg-blue-950 dark:text-blue-300">
           <CheckCircle className="h-3 w-3 mr-1" />
-          MEVO Default Agent
+          Проверенный ИИ-агент
         </Badge>
       )}
       {isOwner && (
         <Badge variant="secondary" className="bg-green-100 text-green-700 border-0 dark:bg-green-950 dark:text-green-300">
-          Owner
+          Владелец
         </Badge>
       )}
     </div>
@@ -115,14 +115,14 @@ const TemplateBadge: React.FC<{ isPublic?: boolean }> = ({ isPublic }) => {
     return (
       <Badge variant="default" className="bg-green-100 text-green-700 border-0 dark:bg-green-950 dark:text-green-300">
         <Globe className="h-3 w-3" />
-        Public
+        Публичный
       </Badge>
     );
   }
   return (
     <Badge variant="secondary" className="bg-gray-100 text-gray-700 border-0 dark:bg-gray-800 dark:text-gray-300">
       <GlobeLock className="h-3 w-3" />
-      Private
+      Частный
     </Badge>
   );
 };
@@ -138,7 +138,7 @@ const AgentBadges: React.FC<{ agent: AgentData, isSunaAgent: boolean }> = ({ age
     {!isSunaAgent && agent.is_public && (
       <Badge variant="default" className="bg-green-100 text-green-700 border-0 dark:bg-green-950 dark:text-green-300 text-xs">
         <Globe className="h-3 w-3 mr-1" />
-        Published
+        Опубликовано
       </Badge>
     )}
   </div>
@@ -148,11 +148,11 @@ const MarketplaceMetadata: React.FC<{ data: MarketplaceData }> = ({ data }) => (
   <div className="flex items-center justify-between text-xs text-muted-foreground">
     <div className="flex items-center gap-1">
       <User className="h-3 w-3" />
-      <span>{data.creator_name || 'Anonymous'}</span>
+      <span>{data.creator_name || 'Аноним'}</span>
     </div>
     <div className="flex items-center gap-1">
       <Download className="h-3 w-3" />
-      <span>{data.download_count} installs</span>
+      <span>{data.download_count} установок</span>
     </div>
   </div>
 );
@@ -162,7 +162,7 @@ const TemplateMetadata: React.FC<{ data: TemplateData }> = ({ data }) => (
     {data.is_public && data.download_count !== undefined && data.download_count > 0 && (
       <div className="flex items-center gap-1">
         <Download className="h-3 w-3" />
-        <span>{data.download_count} downloads</span>
+        <span>{data.download_count} загрузок</span>
       </div>
     )}
   </div>
@@ -173,7 +173,7 @@ const AgentMetadata: React.FC<{ data: AgentData }> = ({ data }) => (
     {data.is_public && data.marketplace_published_at && data.download_count != null && data.download_count > 0 && (
       <div className="flex items-center gap-1">
         <Download className="h-3 w-3" />
-        <span>{data.download_count} downloads</span>
+        <span>{data.download_count} загрузок</span>
       </div>
     )}
   </div>
@@ -214,12 +214,12 @@ const MarketplaceActions: React.FC<{
           {isActioning ? (
             <>
               <Loader2 className="h-4 w-4 animate-spin mr-2" />
-              Installing...
+              Установка...
             </>
           ) : (
             <>
               <Download className="h-4 w-4 mr-2" />
-              Install
+              Установить
             </>
           )}
         </Button>
@@ -242,7 +242,7 @@ const MarketplaceActions: React.FC<{
                 onClick={handleDeleteClick}
               >
                 <Trash2 className="h-4 w-4" />
-                Delete Template
+                Удалить шаблон
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -252,14 +252,14 @@ const MarketplaceActions: React.FC<{
       <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Delete Template</AlertDialogTitle>
+            <AlertDialogTitle>Удалить шаблон</AlertDialogTitle>
             <AlertDialogDescription>
-              Are you sure you want to delete "<strong>{data.name}</strong>"? This will permanently remove it from the marketplace and cannot be undone.
+              Вы уверены, что хотите удалить "<strong>{data.name}</strong>"? Это безвозвратно удалит его с торговой площадки и не может быть отменено.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel onClick={(e) => e.stopPropagation()}>
-              Cancel
+              Отмена
             </AlertDialogCancel>
             <AlertDialogAction
               onClick={(e) => {
@@ -271,10 +271,10 @@ const MarketplaceActions: React.FC<{
               {isActioning ? (
                 <>
                   <Loader2 className="h-4 w-4 animate-spin" />
-                  Deleting...
+                  Удаление...
                 </>
               ) : (
-                'Delete Template'
+                'Удалить шаблон'
               )}
             </AlertDialogAction>
           </AlertDialogFooter>
@@ -303,12 +303,12 @@ const TemplateActions: React.FC<{
           {isActioning ? (
             <>
               <Loader2 className="h-3 w-3 animate-spin " />
-              Unpublishing...
+              Отмена публикации...
             </>
           ) : (
             <>
               <GlobeLock className="h-3 w-3 " />
-              Make Private
+              Сделать частным
             </>
           )}
         </Button>
@@ -324,12 +324,12 @@ const TemplateActions: React.FC<{
         {isActioning ? (
           <>
             <Loader2 className="h-3 w-3 animate-spin " />
-            Publishing...
+            Публикация...
           </>
         ) : (
           <>
             <Globe className="h-3 w-3 " />
-            Publish to Marketplace
+            Опубликовать на торговой площадке
           </>
         )}
       </Button>
@@ -377,7 +377,7 @@ const CardAvatar: React.FC<{
   
   if (profileImageUrl) {
     return (
-      <img src={profileImageUrl} alt="Agent" className="h-14 w-14 rounded-2xl object-cover" />
+      <img src={profileImageUrl} alt="ИИ-агент" className="h-14 w-14 rounded-2xl object-cover" />
     );
   }
   
@@ -501,7 +501,7 @@ export const AgentCard: React.FC<AgentCardProps> = ({
           {data.name}
         </h3>
         <p className="text-sm text-muted-foreground mb-4 line-clamp-2 min-h-[2.5rem]">
-          {data.description || 'No description available'}
+          {data.description || 'Описание отсутствует'}
         </p>
         
         <div className="flex-1 flex flex-col">

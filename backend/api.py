@@ -130,17 +130,14 @@ async def log_requests_middleware(request: Request, call_next):
         raise
 
 # Define allowed origins based on environment
-allowed_origins = ["https://www.mevoagent.com", "https://mevoagent.com"]
+allowed_origins = ["https://www.clickai.click", "https://clickai.click", "https://agentclick.click", "https://www.agentclick.click"]
 allow_origin_regex = None
 
 # Add Claude Code origins for MCP
 allowed_origins.extend([
     "https://claude.ai",
     "https://www.claude.ai", 
-    "https://app.claude.ai",
-    "http://localhost",
-    "http://127.0.0.1",
-    "http://192.168.1.1"
+    "https://app.claude.ai"
 ])
 
 # Add wildcard for local development and Claude Code CLI
@@ -154,14 +151,16 @@ if config.ENV_MODE == EnvMode.LOCAL:
 if config.ENV_MODE == EnvMode.STAGING:
 
     allowed_origins.append("http://localhost:3000")
-    allow_origin_regex = r"https://mevo-.*\.vercel\.app"
+    allow_origin_regex = r"https://click-.*\.vercel\.app"
 
 # Add production-specific origins
 if config.ENV_MODE == EnvMode.PRODUCTION:
     # Allow all Vercel preview deployments and production domain
-    allow_origin_regex = r"https://mevo-.*\.vercel\.app"
-    allowed_origins.append("https://www.mevoagent.com")
-    allowed_origins.append("https://mevoagent.com")
+    allow_origin_regex = r"https://click-.*\.vercel\.app"
+    allowed_origins.append("https://www.clickai.click")
+    allowed_origins.append("https://clickai.click")
+    allowed_origins.append("https://agentclick.click")
+    allowed_origins.append("https://www.agentclick.click")
 
 app.add_middleware(
     CORSMiddleware,

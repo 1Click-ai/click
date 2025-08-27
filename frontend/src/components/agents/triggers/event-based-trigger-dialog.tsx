@@ -446,7 +446,7 @@ export const EventBasedTriggerDialog: React.FC<EventBasedTriggerDialogProps> = (
                                         <ArrowLeft className="h-4 w-4" />
                                     </Button>
                                 )}
-                                <DialogTitle className="text-lg font-semibold">Create Event Trigger</DialogTitle>
+                                <DialogTitle className="text-lg font-semibold">Создать триггер</DialogTitle>
                             </div>
                         </DialogHeader>
                         <ProgressStepper currentStep={step} />
@@ -611,7 +611,7 @@ export const EventBasedTriggerDialog: React.FC<EventBasedTriggerDialogProps> = (
 
                                                     <div className="border rounded-lg p-4 space-y-4">
                                                         <div>
-                                                            <h3 className="font-medium mb-1">Execution Settings</h3>
+                                                            <h3 className="font-medium mb-1">Настройки выполнения</h3>
                                                             <p className="text-sm text-muted-foreground">Choose how to handle this event</p>
                                                         </div>
 
@@ -653,7 +653,7 @@ export const EventBasedTriggerDialog: React.FC<EventBasedTriggerDialogProps> = (
                                                                                 <SelectItem value="__create_new__">
                                                                                     <div className="flex items-center gap-2 text-primary">
                                                                                         <Plus className="h-3 w-3" />
-                                                                                        <span>Create New Connection</span>
+                                                                                        <span>Создать новое подключение</span>
                                                                                     </div>
                                                                                 </SelectItem>
                                                                             </>
@@ -773,10 +773,10 @@ export const EventBasedTriggerDialog: React.FC<EventBasedTriggerDialogProps> = (
                                                     {createTrigger.isPending ? (
                                                         <>
                                                             <Loader2 className="h-3 w-3 animate-spin mr-2" />
-                                                            Creating...
+                                                            Создание...
                                                         </>
                                                     ) : (
-                                                        'Create Trigger'
+                                                        'Создать триггер'
                                                     )}
                                                 </Button>
                                             </div>
@@ -795,7 +795,7 @@ export const EventBasedTriggerDialog: React.FC<EventBasedTriggerDialogProps> = (
                         slug: selectedApp.slug,
                         name: selectedApp.name,
                         logo: selectedApp.logo,
-                        description: `Connect your ${selectedApp.name} account to create event triggers`,
+                        description: `Создавайте автоматические триггеры из событий ${selectedApp.name}`,
                         tags: [],
                         auth_schemes: toolkitDetails?.toolkit.auth_schemes || ['oauth'],
                         categories: []

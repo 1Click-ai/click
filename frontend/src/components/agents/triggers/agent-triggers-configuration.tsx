@@ -137,6 +137,7 @@ export const AgentTriggersConfiguration: React.FC<AgentTriggersConfigurationProp
           onRemove={handleRemoveTrigger}
           onToggle={handleToggleTrigger}
           isLoading={deleteTriggerMutation.isPending || toggleTriggerMutation.isPending}
+          onAddNewTrigger={() => setConfiguringProvider(null)}
         />
       )}
 

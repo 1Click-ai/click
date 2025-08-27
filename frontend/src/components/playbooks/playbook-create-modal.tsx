@@ -169,23 +169,23 @@ export const PlaybookCreateModal: React.FC<PlaybookCreateModalProps> = ({
         <Dialog open={open} onOpenChange={onOpenChange}>
             <DialogContent className="max-w-2xl">
                 <DialogHeader>
-                    <DialogTitle>{isEditing ? 'Edit Playbook' : 'Create Playbook'}</DialogTitle>
+                    <DialogTitle>{isEditing ? 'Редактировать шаблон' : 'Создать шаблон'}</DialogTitle>
                 </DialogHeader>
 
                 <div className="space-y-4">
                     <div className="space-y-2">
-                        <Label htmlFor="pb-name">Name</Label>
-                        <Input id="pb-name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Company Research and Sheet Update" />
+                        <Label htmlFor="pb-name">Имя</Label>
+                        <Input id="pb-name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Исследование компании и обновление таблицы" />
                     </div>
 
                     <div className="space-y-2">
-                        <Label htmlFor="pb-template">Playbook Template</Label>
+                        <Label htmlFor="pb-template">Шаблон</Label>
                         {/* Component-scoped style injection */}
                         <style dangerouslySetInnerHTML={{ __html: tokenEditorStyles }} />
                         <TokenEditor
                             value={template}
                             onChange={setTemplate}
-                            placeholder="Write the playbook instructions here. Use {{google_sheet_id}}, {{sheet_name}}, {{start_row}}, {{limit_rows}} as needed."
+                            placeholder="Напишите инструкции для шаблона здесь. Используйте {{google_sheet_id}}, {{sheet_name}}, {{start_row}}, {{limit_rows}} по мере необходимости."
                             className="min-h-[220px] max-h-[220px] overflow-y-auto"
                         />
                         <p className="text-xs text-muted-foreground">Use double braces like {'{{token}}'} for variables.</p>
@@ -194,9 +194,9 @@ export const PlaybookCreateModal: React.FC<PlaybookCreateModalProps> = ({
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2" />
                         <div className="flex items-center gap-2">
-                            <Button type="button" variant="outline" onClick={() => onOpenChange(false)}>Cancel</Button>
+                            <Button type="button" variant="outline" onClick={() => onOpenChange(false)}>Отмена</Button>
                             <Button type="button" onClick={handleSave} disabled={!isValid || createWorkflowMutation.isPending || updateWorkflowMutation.isPending}>
-                                {isEditing ? 'Save' : 'Create'}
+                                {isEditing ? 'Сохранить' : 'Создать'}
                             </Button>
                         </div>
                     </div>

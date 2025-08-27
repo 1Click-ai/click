@@ -23,26 +23,26 @@ export function UpgradeDialog({ open, onOpenChange, onDismiss }: UpgradeDialogPr
       open={open}
       onOpenChange={onOpenChange}
       icon={Crown}
-      title="Unlock the Full MEVO AI Experience"
-      description="You're currently using MEVO AI's free tier with limited capabilities. Upgrade now to access our most powerful AI model."
+      title="Разблокируйте полный потенциал КЛИК"
+      description="Сейчас вы используете бесплатный тариф КЛИК с ограниченными возможностями. Обновитесь сейчас, чтобы получить доступ к нашей самой мощной ИИ-модели."
       theme="primary"
       size="sm"
       preventOutsideClick={true}
       actions={[
         {
-          label: "Maybe Later",
+          label: "Может быть, позже",
           onClick: onDismiss,
           variant: "outline"
         },
         {
-          label: "Upgrade Now",
+          label: "Обновить сейчас",
           onClick: handleUpgradeClick,
           icon: Sparkles
         }
       ]}
     >
       <div className="py-4">
-        <h3 className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-3">Pro Benefits</h3>
+        <h3 className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-3">Преимущества Pro</h3>
 
         <div className="space-y-3">
           <div className="flex items-start">
@@ -50,8 +50,8 @@ export function UpgradeDialog({ open, onOpenChange, onDismiss }: UpgradeDialogPr
               <Brain className="h-4 w-4 text-secondary" />
             </div>
             <div className="ml-3">
-              <h4 className="text-sm font-medium text-slate-900 dark:text-slate-100">Advanced AI Models</h4>
-              <p className="text-xs text-slate-500 dark:text-slate-400">Get access to advanced models suited for complex tasks</p>
+              <h4 className="text-sm font-medium text-slate-900 dark:text-slate-100">Продвинутые модели ИИ</h4>
+              <p className="text-xs text-slate-500 dark:text-slate-400">Получите доступ к продвинутым моделям, подходящим для сложных задач</p>
             </div>
           </div>
 
@@ -60,8 +60,8 @@ export function UpgradeDialog({ open, onOpenChange, onDismiss }: UpgradeDialogPr
               <Zap className="h-4 w-4 text-secondary" />
             </div>
             <div className="ml-3">
-              <h4 className="text-sm font-medium text-slate-900 dark:text-slate-100">Faster Responses</h4>
-              <p className="text-xs text-slate-500 dark:text-slate-400">Get access to faster models that breeze through your tasks</p>
+              <h4 className="text-sm font-medium text-slate-900 dark:text-slate-100">Более быстрые ответы</h4>
+              <p className="text-xs text-slate-500 dark:text-slate-400">Получите доступ к более быстрым моделям, которые легко справляются с вашими задачами</p>
             </div>
           </div>
 
@@ -70,8 +70,8 @@ export function UpgradeDialog({ open, onOpenChange, onDismiss }: UpgradeDialogPr
               <Clock className="h-4 w-4 text-secondary" />
             </div>
             <div className="ml-3">
-              <h4 className="text-sm font-medium text-slate-900 dark:text-slate-100">Higher Usage Limits</h4>
-              <p className="text-xs text-slate-500 dark:text-slate-400">Enjoy more conversations and longer run durations</p>
+              <h4 className="text-sm font-medium text-slate-900 dark:text-slate-100">Более высокие лимиты использования</h4>
+              <p className="text-xs text-slate-500 dark:text-slate-400">Наслаждайтесь большим количеством разговоров и большей продолжительностью выполнения</p>
             </div>
           </div>
         </div>

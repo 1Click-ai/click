@@ -43,16 +43,16 @@ export function DeleteConfirmationDialog({
     <AlertDialog open={isOpen} onOpenChange={onClose}>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Delete conversation</AlertDialogTitle>
+          <AlertDialogTitle>Удалить беседу</AlertDialogTitle>
           <AlertDialogDescription>
-            Are you sure you want to delete the conversation{' '}
+Вы уверены, что хотите удалить беседу{' '}
             <span className="font-semibold">"{threadName}"</span>?
             <br />
-            This action cannot be undone.
+            Это действие невозможно отменить.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel disabled={isDeleting}>Cancel</AlertDialogCancel>
+          <AlertDialogCancel disabled={isDeleting}>Отмена</AlertDialogCancel>
           <AlertDialogAction
             onClick={(e) => {
               e.preventDefault();
@@ -64,10 +64,10 @@ export function DeleteConfirmationDialog({
             {isDeleting ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Deleting...
+Удаление...
               </>
             ) : (
-              'Delete'
+'Удалить'
             )}
           </AlertDialogAction>
         </AlertDialogFooter>

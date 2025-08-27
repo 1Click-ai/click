@@ -193,7 +193,7 @@ export function WorkflowSidePanel({
             <div className="pt-4 pl-4 pr-4">
                 <div className="flex items-center justify-between">
                     <div className="ml-2 flex items-center gap-2">
-                        <h2 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">Add Step</h2>
+                        <h2 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">Добавить шаг</h2>
                     </div>
                     <Button
                         variant="ghost"
@@ -208,9 +208,9 @@ export function WorkflowSidePanel({
             <div className="flex-1 p-4 overflow-auto">
                 <div className="space-y-6">
                     <div>
-                        <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-4">Choose a step type to add to your workflow</p>
+                        <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-4">Выберите тип шага для добавления в ваш рабочий процесс</p>
                         <Input
-                            placeholder="Search steps..."
+                            placeholder="Поиск шагов..."
                             value={searchQuery}
                             onChange={(e) => onSearchChange(e.target.value)}
                             className="w-full"
@@ -260,8 +260,8 @@ export function WorkflowSidePanel({
 
                     {filteredStepTypes.length === 0 && (
                         <div className="text-center py-8">
-                            <div className="text-zinc-400 dark:text-zinc-500 mb-2">No steps found</div>
-                            <div className="text-xs text-zinc-500 dark:text-zinc-400">Try adjusting your search</div>
+                            <div className="text-zinc-400 dark:text-zinc-500 mb-2">Шаги не найдены</div>
+                            <div className="text-xs text-zinc-500 dark:text-zinc-400">Попробуйте изменить поиск</div>
                         </div>
                     )}
                 </div>
@@ -277,7 +277,7 @@ export function WorkflowSidePanel({
                 <div className="pt-4 pl-4 pr-4">
                     <div className="flex items-center justify-between">
                         <div className="ml-2 flex items-center gap-2">
-                            <h2 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">Edit Step</h2>
+                            <h2 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">Редактировать шаг</h2>
                         </div>
                         <Button
                             variant="ghost"
@@ -294,23 +294,23 @@ export function WorkflowSidePanel({
                         {/* Basic info */}
                         <div className="space-y-4">
                             <div>
-                                <Label htmlFor="step-name" className="text-sm font-medium text-zinc-900 dark:text-zinc-100">Name</Label>
+                                <Label htmlFor="step-name" className="text-sm font-medium text-zinc-900 dark:text-zinc-100">Название</Label>
                                 <Input
                                     id="step-name"
                                     value={selectedStep.name}
                                     onChange={(e) => onUpdateStep({ id: selectedStep.id, name: e.target.value })}
-                                    placeholder="Step name"
+                                    placeholder="Имя шага"
                                     className="mt-1"
                                 />
                             </div>
 
                             <div>
-                                <Label htmlFor="step-description" className="text-sm font-medium text-zinc-900 dark:text-zinc-100">Description</Label>
+                                <Label htmlFor="step-description" className="text-sm font-medium text-zinc-900 dark:text-zinc-100">Описание</Label>
                                 <Textarea
                                     id="step-description"
                                     value={selectedStep.description}
                                     onChange={(e) => onUpdateStep({ id: selectedStep.id, description: e.target.value })}
-                                    placeholder="What should this step do?"
+                                    placeholder="Что должен делать этот шаг?"
                                     rows={3}
                                     className="mt-1 resize-none"
                                 />
@@ -320,7 +320,7 @@ export function WorkflowSidePanel({
                         {/* Tool configuration */}
                         {selectedStep.config?.tool_name && (
                             <div className="p-4 bg-zinc-50 dark:bg-zinc-900/50 rounded-xl border border-zinc-200 dark:border-zinc-800">
-                                <div className="font-medium text-sm mb-2 text-zinc-900 dark:text-zinc-100">Tool Configuration</div>
+                                <div className="font-medium text-sm mb-2 text-zinc-900 dark:text-zinc-100">Конфигурация инструмента</div>
                                 <div className="text-sm text-zinc-600 dark:text-zinc-400">
                                     Using: <Badge variant="default" className="ml-1">{selectedStep.config.tool_name}</Badge>
                                 </div>
@@ -331,7 +331,7 @@ export function WorkflowSidePanel({
                         {selectedStep.type === 'condition' && (
                             <div className="space-y-4">
                                 <div>
-                                    <Label htmlFor="condition-expression" className="text-sm font-medium text-zinc-900 dark:text-zinc-100">Condition</Label>
+                                    <Label htmlFor="condition-expression" className="text-sm font-medium text-zinc-900 dark:text-zinc-100">Условие</Label>
                                     <Input
                                         id="condition-expression"
                                         value={selectedStep.conditions?.expression || ''}
@@ -339,7 +339,7 @@ export function WorkflowSidePanel({
                                             id: selectedStep.id,
                                             conditions: { ...selectedStep.conditions, expression: e.target.value }
                                         })}
-                                        placeholder="Enter condition expression"
+                                        placeholder="Введите выражение условия"
                                         className="mt-1"
                                     />
                                 </div>
@@ -359,7 +359,7 @@ export function WorkflowSidePanel({
                                 className="w-full"
                             >
                                 <Trash2 className="h-4 w-4" />
-                                {selectedStep.conditions?.type === 'if' ? 'Delete Conditional Group' : 'Delete Step'}
+                                {selectedStep.conditions?.type === 'if' ? 'Удалить группу условий' : 'Удалить шаг'}
                             </Button>
                         </div>
                     </div>
@@ -412,7 +412,7 @@ export function WorkflowSidePanel({
             <Dialog open={showComposioRegistry} onOpenChange={setShowComposioRegistry}>
                 <DialogContent className="p-0 max-w-6xl h-[90vh] overflow-hidden">
                     <DialogHeader className="sr-only">
-                        <DialogTitle>App Integrations</DialogTitle>
+                        <DialogTitle>Интеграции приложений</DialogTitle>
                     </DialogHeader>
                     <ComposioRegistry
                         selectedAgentId={agentId}

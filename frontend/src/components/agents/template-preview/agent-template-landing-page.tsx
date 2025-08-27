@@ -111,7 +111,7 @@ export const AgentTemplateLandingPage: React.FC<AgentTemplateLandingPageProps> =
 
   const handleInstall = async () => {
     if (!user) {
-      toast.error('Please sign in to install this agent');
+      toast.error('Пожалуйста, войдите, чтобы установить этого ИИ-агента');
       router.push('/auth');
       return;
     }
@@ -136,7 +136,7 @@ export const AgentTemplateLandingPage: React.FC<AgentTemplateLandingPageProps> =
     navigator.clipboard.writeText(currentUrl).then(() => {
       toast.success('Share link copied to clipboard!');
     }).catch(() => {
-      toast.error('Failed to copy link to clipboard');
+      toast.error('Не удалось скопировать ссылку в буфер обмена');
     });
   };
 
@@ -178,7 +178,7 @@ export const AgentTemplateLandingPage: React.FC<AgentTemplateLandingPageProps> =
                 variants={fadeInUp}
               >
                 <Badge variant="secondary" className="px-3 py-1 text-white">
-                  Built by MEVO
+                  Built by КЛИК
                 </Badge>
               </motion.div>
             )}

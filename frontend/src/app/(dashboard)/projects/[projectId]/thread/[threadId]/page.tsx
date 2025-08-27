@@ -585,7 +585,7 @@ export default function ThreadPage({
   // SEO title update
   useEffect(() => {
     if (projectName) {
-      document.title = `${projectName} | MEVO`;
+      document.title = `${projectName} | КЛИК`;
 
       const metaDescription = document.querySelector(
         'meta[name="description"]',
@@ -593,13 +593,13 @@ export default function ThreadPage({
       if (metaDescription) {
         metaDescription.setAttribute(
           'content',
-          `${projectName} - Interactive agent conversation powered by MEVO`,
+          `${projectName} - КЛИК`,
         );
       }
 
       const ogTitle = document.querySelector('meta[property="og:title"]');
       if (ogTitle) {
-        ogTitle.setAttribute('content', `${projectName} | MEVO`);
+        ogTitle.setAttribute('content', `${projectName} | КЛИК`);
       }
 
       const ogDescription = document.querySelector(
@@ -815,7 +815,7 @@ export default function ThreadPage({
               value={newMessage}
               onChange={setNewMessage}
               onSubmit={handleSubmitMessage}
-              placeholder={`Describe what you need help with...`}
+              placeholder={`Опишите, с чем вам нужна помощь...`}
               loading={isSending}
               disabled={
                 isSending ||

@@ -31,7 +31,7 @@ export default function GoogleSignIn({ returnUrl }: GoogleSignInProps) {
       }
     } catch (error: any) {
       console.error('Google sign-in error:', error);
-      toast.error(error.message || 'Failed to sign in with Google');
+      toast.error(error.message || 'Не удалось войти через Google');
       setIsLoading(false);
     }
   };
@@ -49,7 +49,7 @@ export default function GoogleSignIn({ returnUrl }: GoogleSignInProps) {
         <FcGoogle className="w-4 h-4 mr-2" />
       )}
       <span className="font-medium">
-        {isLoading ? 'Signing in...' : 'Continue with Google'}
+        {isLoading ? 'Вход...' : 'Продолжить с Google'}
       </span>
     </button>
   );

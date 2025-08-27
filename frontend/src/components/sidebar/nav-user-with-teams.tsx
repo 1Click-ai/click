@@ -213,7 +213,7 @@ export function NavUserWithTeams({
               {personalAccount && (
                 <>
                   <DropdownMenuLabel className="text-muted-foreground text-xs">
-                    Personal Account
+                    Личный аккаунт
                   </DropdownMenuLabel>
                   <DropdownMenuItem
                     key={personalAccount.account_id}
@@ -241,7 +241,7 @@ export function NavUserWithTeams({
               {teamAccounts?.length > 0 && (
                 <>
                   <DropdownMenuLabel className="text-muted-foreground text-xs mt-2">
-                    Teams
+                    Команды
                   </DropdownMenuLabel>
                   {teamAccounts.map((team, index) => (
                     <DropdownMenuItem
@@ -289,14 +289,14 @@ export function NavUserWithTeams({
                 <DropdownMenuItem asChild>
                   <Link href="/settings/billing">
                     <CreditCard className="h-4 w-4" />
-                    Billing
+                    Биллинг
                   </Link>
                 </DropdownMenuItem>
                 {!flagLoading && customAgentsEnabled && (
                   <DropdownMenuItem asChild>
                     <Link href="/settings/credentials">
                       <Plug className="h-4 w-4" />
-                      Integrations
+                      Интеграции
                     </Link>
                   </DropdownMenuItem>
                 )}
@@ -304,14 +304,14 @@ export function NavUserWithTeams({
                   <DropdownMenuItem asChild>
                     <Link href="/settings/api-keys">
                       <Key className="h-4 w-4" />
-                      API Keys (Admin)
+                      API-ключи (Админ)
                     </Link>
                   </DropdownMenuItem>
-                )}
-                {isLocalMode() && <DropdownMenuItem asChild>
+                )} */}
+                {/* {isLocalMode() && <DropdownMenuItem asChild>
                   <Link href="/settings/env-manager">
                     <KeyRound className="h-4 w-4" />
-                    Local .Env Manager
+                    Менеджер локальных .Env
                   </Link>
                 </DropdownMenuItem>} */}
                 {/* <DropdownMenuItem asChild>
@@ -326,14 +326,14 @@ export function NavUserWithTeams({
                   <div className="flex items-center gap-2">
                     <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
                     <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-                    <span>Theme</span>
+                    <span>Тема</span>
                   </div>
                 </DropdownMenuItem>
               </DropdownMenuGroup>
               <DropdownMenuSeparator />
               <DropdownMenuItem className='text-destructive focus:text-destructive focus:bg-destructive/10' onClick={handleLogout}>
                 <LogOut className="h-4 w-4 text-destructive" />
-                Log out
+                Выйти
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -343,10 +343,10 @@ export function NavUserWithTeams({
       <DialogContent className="sm:max-w-[425px] border-subtle dark:border-white/10 bg-card-bg dark:bg-background-secondary rounded-2xl shadow-custom">
         <DialogHeader>
           <DialogTitle className="text-foreground">
-            Create a new team
+            Создать новую команду
           </DialogTitle>
           <DialogDescription className="text-foreground/70">
-            Create a team to collaborate with others.
+            Создайте команду для совместной работы.
           </DialogDescription>
         </DialogHeader>
         <NewTeamForm />

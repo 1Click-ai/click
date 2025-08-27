@@ -776,11 +776,11 @@ export const startAgent = async (
       const networkError = new Error(
         `Cannot connect to backend server. Please check your internet connection and make sure the backend is running.`,
       );
-      handleApiError(networkError, { operation: 'start agent', resource: 'AI assistant' });
+      handleApiError(networkError, { operation: 'start agent', resource: 'ИИ-агент' });
       throw networkError;
     }
 
-    handleApiError(error, { operation: 'start agent', resource: 'AI assistant' });
+    handleApiError(error, { operation: 'start agent', resource: 'ИИ-агент' });
     throw error;
   }
 };
@@ -801,7 +801,7 @@ export const stopAgent = async (agentRunId: string): Promise<void> => {
 
   if (!session?.access_token) {
     const authError = new NoAccessTokenAvailableError();
-    handleApiError(authError, { operation: 'stop agent', resource: 'AI assistant' });
+    handleApiError(authError, { operation: 'stop agent', resource: 'ИИ-агент' });
     throw authError;
   }
 
@@ -818,7 +818,7 @@ export const stopAgent = async (agentRunId: string): Promise<void> => {
 
   if (!response.ok) {
     const stopError = new Error(`Error stopping agent: ${response.statusText}`);
-    handleApiError(stopError, { operation: 'stop agent', resource: 'AI assistant' });
+    handleApiError(stopError, { operation: 'stop agent', resource: 'ИИ-агент' });
     throw stopError;
   }
 };
@@ -872,7 +872,7 @@ export const getAgentStatus = async (agentRunId: string): Promise<AgentRun> => {
     return data;
   } catch (error) {
     console.error('[API] Failed to get agent status:', error);
-    handleApiError(error, { operation: 'get agent status', resource: 'AI assistant status', silent: true });
+    handleApiError(error, { operation: 'get agent status', resource: 'статус ИИ-агента', silent: true });
     throw error;
   }
 };
@@ -1529,7 +1529,7 @@ export const initiateAgent = async (
       const networkError = new Error(
         `Cannot connect to backend server. Please check your internet connection and make sure the backend is running.`,
       );
-      handleApiError(networkError, { operation: 'initiate agent', resource: 'AI assistant' });
+      handleApiError(networkError, { operation: 'initiate agent', resource: 'ИИ-агент' });
       throw networkError;
     }
     handleApiError(error, { operation: 'initiate agent' });

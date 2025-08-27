@@ -14,9 +14,9 @@ export const useInitiateAgentMutation = createMutationHook<
 >(
   initiateAgent,
   {
-    errorContext: { operation: 'initiate agent', resource: 'AI assistant' },
+    errorContext: { operation: 'initiate agent', resource: 'ИИ-агент' },
     onSuccess: (data) => {
-      handleApiSuccess("Agent initiated successfully", "Your AI assistant is ready to help");
+      handleApiSuccess("Агент успешно инициализирован", "Ваш ИИ-агент готов помочь");
     },
     onError: (error) => {
       // Let BillingError and AgentRunLimitError bubble up to be handled by components
@@ -26,7 +26,7 @@ export const useInitiateAgentMutation = createMutationHook<
       if (error instanceof Error && error.message.toLowerCase().includes("payment required")) {
         return;
       }
-      handleApiError(error, { operation: 'initiate agent', resource: 'AI assistant' });
+      handleApiError(error, { operation: 'initiate agent', resource: 'ИИ-агент' });
     }
   }
 );

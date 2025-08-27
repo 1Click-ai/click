@@ -2,11 +2,11 @@ from agent.prompt import SYSTEM_PROMPT
 
 # Suna default configuration - simplified and centralized
 SUNA_CONFIG = {
-    "name": "MEVO",
-    "description": "MEVO is your AI assistant with access to various tools and integrations to help you with tasks across domains.",
+    "name": "АгентКлик",
+    "description": "КЛИК это ИИ-агент с доступом к различным инструментам для помощи вам в выполнении задач.",
     "avatar": "🌞",
     "avatar_color": "#F59E0B",
-    "model": "Clerk 💨⚡️🚀",
+    "model": "КЛИК",
     "system_prompt": SYSTEM_PROMPT,
     "configured_mcps": [],
     "custom_mcps": [],

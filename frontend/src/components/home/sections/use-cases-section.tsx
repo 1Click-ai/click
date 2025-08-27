@@ -30,10 +30,10 @@ export function UseCasesSection() {
     >
       <SectionHeader>
         <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-center text-balance">
-          See MEVO in action
+          Посмотрите, как работает КЛИК
         </h2>
         <p className="text-muted-foreground text-center text-balance font-medium">
-        AI Agent uses its own computer like a human operator would work with your existing EMR systems, documentation, and clinical tools.
+        КЛИК использует свою собственную компьютерную систему, как человек-оператор работает с вашими существующими системами, документацией и инструментами.
         </p>
       </SectionHeader>
 
@@ -77,7 +77,7 @@ export function UseCasesSection() {
                         useCase.image ||
                         `https://placehold.co/800x400/f5f5f5/666666?text=MEVO+${useCase.title.split(' ').join('+')}`
                       }
-                      alt={`MEVO ${useCase.title}`}
+                      alt={`КЛИК ${useCase.title}`}
                       className="w-full h-full object-cover"
                     />
                     <a
@@ -100,7 +100,7 @@ export function UseCasesSection() {
 
         {featuredUseCases.length === 0 && (
           <div className="flex flex-col items-center justify-center py-16 text-center">
-            <p className="text-muted-foreground">No use cases available yet.</p>
+            <p className="text-muted-foreground">Пока нет доступных вариантов использования.</p>
           </div>
         )}
       </div>

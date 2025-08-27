@@ -9,23 +9,23 @@ export function BentoSection() {
     {
       id: 1,
       content: <FirstBentoAnimation />,
-      title: 'Step 1: Describe your tasks',
+      title: 'Шаг 1: Опишите ваши задачи',
       description:
-        'Tell what you need your AI agent to accomplish, and it will set up itself.',
+        'Расскажите, что должен выполнять ваш ИИ-сотрудник и он настроит сам свою конфигурацию.',
     },
     {
       id: 2,
       content: <SecondBentoAnimation />,
-      title: 'Step 2: Add your worktools',
+      title: 'Шаг 2: Добавьте инструменты',
       description:
-        'Connect to your favorite tools and services with our extensive library of integrations.',
+        'Подключайтесь к вашим любимым инструментам и сервисам с помощью нашей библиотеки интеграций.',
     },
     {
       id: 3,
       content: <ThirdBentoAnimation />,
-      title: 'Step 3: Your tasks are done',
+      title: 'Шаг 3: Ваши задачи выполняются',
       description:
-        'Watch your agent handle complex tasks and workflows with advanced AI reasoning.',
+        'Наблюдайте, как ваш ИИ-сотрудник справляется со сложными задачами и рабочими процессами',
     },
   ];
 
@@ -38,10 +38,10 @@ export function BentoSection() {
         <div className="max-w-6xl mx-auto border-l border-r border-border">
           <SectionHeader>
             <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-center text-balance pb-1">
-              Build Your AI Worker in 3 Simple Steps
+              Создайте свой ИИ за 3 простых шага
             </h2>
             <p className="text-muted-foreground text-center text-balance font-medium">
-              From description to deployment, create powerful AI Workers that work autonomously in minutes.
+            Создавайте умных ИИ-агентов, которые работают автономно, за считанные минуты.
             </p>
           </SectionHeader>
 

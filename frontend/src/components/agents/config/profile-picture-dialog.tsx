@@ -328,12 +328,12 @@ export function ProfilePictureDialog({
             variant="outline"
             onClick={onClose}
           >
-            Cancel
+            Отмена
           </Button>
           <Button 
             onClick={handleIconSave}
           >
-            Save Icon
+            Сохранить иконку
           </Button>
         </DialogFooter>
       </DialogContent>

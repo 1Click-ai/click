@@ -4,11 +4,11 @@ import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
-  title: 'Agent Conversation | MEVO',
-  description: 'Interactive agent conversation powered by MEVO',
+  title: 'Agent Conversation | КЛИК',
+  description: 'Interactive agent conversation powered by КЛИК',
   openGraph: {
-    title: 'Agent Conversation | MEVO',
-    description: 'Interactive agent conversation powered by MEVO',
+    title: 'Agent Conversation | КЛИК',
+    description: 'Interactive agent conversation powered by КЛИК',
     type: 'website',
   },
 };

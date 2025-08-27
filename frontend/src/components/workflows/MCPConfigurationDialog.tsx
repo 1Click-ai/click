@@ -392,7 +392,7 @@ export default function MCPConfigurationDialog({
                     </Button>
                     <Button onClick={handleConfigSave} disabled={!isConfigValid()}>
                       <Save className="h-4 w-4 mr-2" />
-                      Save Configuration
+                      Сохранить конфигурацию
                     </Button>
                   </div>
                 </div>
@@ -486,11 +486,11 @@ export default function MCPConfigurationDialog({
 
         <DialogFooter>
           <Button variant="outline" onClick={() => onOpenChange(false)}>
-            Cancel
+            Отмена
           </Button>
           <Button onClick={handleSaveAll}>
             <Save className="h-4 w-4 mr-2" />
-            Save All Configurations
+            Сохранить все конфигурации
           </Button>
         </DialogFooter>
       </DialogContent>

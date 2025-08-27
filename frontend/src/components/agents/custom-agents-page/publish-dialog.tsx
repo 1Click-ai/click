@@ -28,9 +28,9 @@ export const PublishDialog = ({
     <Dialog open={!!publishDialog} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>Publish Template to Marketplace</DialogTitle>
+          <DialogTitle>Опубликовать шаблон на маркетплейсе</DialogTitle>
           <DialogDescription>
-            Make "{publishDialog?.templateName}" available for the community to discover and install.
+            Сделайте "{publishDialog?.templateName}" доступным для сообщества, чтобы они могли его найти и установить.
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
@@ -39,7 +39,7 @@ export const PublishDialog = ({
             onClick={onClose}
             disabled={!!templatesActioningId}
           >
-            Cancel
+            Отмена
           </Button>
           <Button
             onClick={onPublish}
@@ -48,12 +48,12 @@ export const PublishDialog = ({
             {templatesActioningId ? (
               <>
                 <Loader2 className="h-4 w-4 animate-spin" />
-                Publishing...
+                Публикация...
               </>
             ) : (
               <>
                 <Globe className="h-4 w-4" />
-                Publish Template
+                Опубликовать шаблон
               </>
             )}
           </Button>

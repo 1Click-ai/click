@@ -322,7 +322,7 @@ export const agentApi = {
       `/thread/${threadId}/agent/start`,
       options,
       {
-        errorContext: { operation: 'start agent', resource: 'AI assistant' },
+        errorContext: { operation: 'start agent', resource: 'ИИ-агент' },
         timeout: 60000,
       }
     );
@@ -334,12 +334,12 @@ export const agentApi = {
       `/agent/${agentRunId}/stop`,
       undefined,
       {
-        errorContext: { operation: 'stop agent', resource: 'AI assistant' },
+        errorContext: { operation: 'stop agent', resource: 'ИИ-агент' },
       }
     );
 
     if (result.success) {
-      handleApiSuccess('AI assistant stopped');
+      handleApiSuccess('ИИ-агент остановлен');
     }
 
     return result.success;
@@ -349,7 +349,7 @@ export const agentApi = {
     const result = await backendApi.get(
       `/agent/${agentRunId}/status`,
       {
-        errorContext: { operation: 'get agent status', resource: 'AI assistant status' },
+        errorContext: { operation: 'get agent status', resource: 'статус ИИ-агента' },
         showErrors: false,
       }
     );

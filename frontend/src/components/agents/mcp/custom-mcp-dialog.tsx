@@ -218,8 +218,8 @@ export const CustomMCPDialog: React.FC<CustomMCPDialogProps> = ({
           </div>
           <DialogDescription>
             {step === 'setup' 
-              ? 'Connect to a Model Context Protocol (MCP) server to expand your agent\'s capabilities with new tools and integrations.'
-              : 'Choose which tools you\'d like to enable from this MCP server.'
+              ? 'Подключитесь к серверу Model Context Protocol (MCP) для расширения возможностей вашего агента новыми инструментами и интеграциями.'
+              : 'Выберите, какие инструменты вы хотите включить от этого сервера MCP.'
             }
           </DialogDescription>
           <div className="flex items-center gap-2 pt-2">
@@ -411,7 +411,7 @@ export const CustomMCPDialog: React.FC<CustomMCPDialogProps> = ({
                 Back
               </Button>
               <Button variant="outline" onClick={() => onOpenChange(false)} disabled={isSaving}>
-                Cancel
+                Отмена
               </Button>
               <Button 
                 onClick={handleToolsNext}
@@ -430,7 +430,7 @@ export const CustomMCPDialog: React.FC<CustomMCPDialogProps> = ({
           ) : (
             <>
               <Button variant="outline" onClick={() => onOpenChange(false)}>
-                Cancel
+                Отмена
               </Button>
               <Button
                 onClick={validateAndDiscoverTools}

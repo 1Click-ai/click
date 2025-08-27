@@ -28,7 +28,7 @@ export interface Changelog1Props {
 
 export const Changelog = ({
   title = "Changelog",
-  description = "The latest updates and improvements to MEVO.",
+  description = "The latest updates and improvements to КЛИК.",
   data = changeLogData,
 }: Changelog1Props) => {
   return (

@@ -9,8 +9,8 @@ logger = logging.getLogger(__name__)
 class EmailService:
     def __init__(self):
         self.api_token = os.getenv('MAILTRAP_API_TOKEN')
-        self.sender_email = os.getenv('MAILTRAP_SENDER_EMAIL', 'support@mevoagent.com')
-        self.sender_name = os.getenv('MAILTRAP_SENDER_NAME', 'MEVO Team')
+        self.sender_email = os.getenv('MAILTRAP_SENDER_EMAIL', 'support@clickai.click')
+        self.sender_name = os.getenv('MAILTRAP_SENDER_NAME', 'Click Team')
         
         if not self.api_token:
             logger.warning("MAILTRAP_API_TOKEN not found in environment variables")
@@ -26,7 +26,7 @@ class EmailService:
         if not user_name:
             user_name = user_email.split('@')[0].title()
         
-        subject = "🎉 Welcome to MEVO — Let's Get Started "
+        subject = "🎉 Welcome to Click — Let's Get Started "
         html_content = self._get_welcome_email_template(user_name)
         text_content = self._get_welcome_email_text(user_name)
         
@@ -71,7 +71,7 @@ class EmailService:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to MEVO</title>
+  <title>Добро пожаловать в КЛИК</title>
   <style>
     body {{
       font-family: Arial, sans-serif;
@@ -139,11 +139,11 @@ class EmailService:
     <div class="logo-container">
       <img src="" alt="Logo" class="logo">
     </div>
-    <h1>Welcome to MEVO!</h1>
+    <h1>Добро пожаловать в КЛИК!</h1>
 
     <p>Hi {user_name},</p>
 
-    <p><em><strong>Welcome to MEVO — we're excited to have you on board!</strong></em></p>
+    <p><em><strong>Добро пожаловать в КЛИК — мы рады видеть вас!</strong></em></p>
 
   
     <p>To celebrate your arrival, here's a <strong>15% discount</strong> for your first month to get more usage:</p>
@@ -152,11 +152,11 @@ class EmailService:
 
     <p><strong>For your business:</strong> if you want to automate manual and ordinary tasks for your company, book a call with us <a href="https://cal.com/problemx">here</a></p>
 
-    <p>Thanks again, and welcome to the MEVO community <span class="emoji">🌞</span></p>
+    <p>Еще раз спасибо и добро пожаловать в сообщество КЛИК <span class="emoji">🌞</span></p>
 
-    <p>— The MEVO Team</p>
+    <p>— Команда КЛИК</p>
 
-    <a href="https://www.mevoagent.com/" class="button">Go to the platform</a>
+    <a href="https://www.klikagent.com/" class="button">Перейти на платформу</a>
   </div>
 </body>
 </html>"""
@@ -164,7 +164,7 @@ class EmailService:
     def _get_welcome_email_text(self, user_name: str) -> str:
         return f"""Hi {user_name},
 
-Welcome to MEVO — we're excited to have you on board!
+Добро пожаловать в КЛИК — мы рады видеть вас!
 
 To celebrate your arrival, here's a 15% discount for your first month to get more usage:
 🎁 Use code WELCOME15 at checkout.
@@ -172,14 +172,14 @@ To celebrate your arrival, here's a 15% discount for your first month to get mor
 
 For your business: if you want to automate manual and ordinary tasks for your company, book a call with us here: https://cal.com/problemx
 
-Thanks again, and welcome to the MEVO community 🌞
+Thanks again, and welcome to the КЛИК community 🌞
 
-— The MEVO Team
+— Команда КЛИК
 
-Go to the platform: https://www.mevoagent.com/
+Go to the platform: https://www.klikagent.com/
 
 ---
-© 2025 MEVO. All rights reserved.
-You received this email because you signed up for a MEVO account."""
+© 2025 КЛИК. Все права защищены.
+You received this email because you signed up for a КЛИК account."""
 
 email_service = EmailService() 

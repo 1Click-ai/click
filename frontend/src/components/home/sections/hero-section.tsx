@@ -222,7 +222,7 @@ export function HeroSection() {
           error.message.includes('Failed to fetch');
         if (!isLocalMode() || isConnectionError) {
           toast.error(
-            error.message || 'Failed to create agent. Please try again.',
+            error.message || 'Не удалось создать агента. Пожалуйста, попробуйте еще раз.',
           );
         }
       }
@@ -325,11 +325,11 @@ export function HeroSection() {
           </Link> */}
           <div className="flex flex-col items-center justify-center gap-4 pt-12 max-w-4xl mx-auto">
             <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-medium tracking-tighter text-balance text-center">
-              <span className="text-secondary">MEVO</span>
-              <span className="text-primary"> AI Healthcare Agent</span>
+              <span className="text-secondary">КЛИК</span>
+              <span className="text-primary"> - Универсальный Искуственный Интеллект</span>
             </h1>
             <p className="text-base md:text-lg text-center text-muted-foreground font-medium text-balance leading-relaxed tracking-tight max-w-2xl">
-            Build, manage and train your AI workforce.
+            Создавайте, управляйте и обучайте своих ИИ-агентов.
             </p>
           </div>
 
@@ -339,7 +339,7 @@ export function HeroSection() {
                 <ChatInput
                   ref={chatInputRef}
                   onSubmit={handleChatInputSubmit}
-                  placeholder="Describe the agent you want to build or the task you want completed..."
+                  placeholder="Опишите задачу, которую вы хотите выполнить или выберите ИИ-агента..."
                   loading={isSubmitting}
                   disabled={isSubmitting}
                   value={inputValue}
@@ -372,7 +372,7 @@ export function HeroSection() {
           <DialogHeader>
             <div className="flex items-center justify-between">
               <DialogTitle className="text-xl font-medium">
-                Sign in to continue
+                Войдите, чтобы продолжить
               </DialogTitle>
               {/* <button 
                 onClick={() => setAuthDialogOpen(false)}
@@ -382,7 +382,7 @@ export function HeroSection() {
               </button> */}
             </div>
             <DialogDescription className="text-muted-foreground">
-              Sign in or create an account to talk with MEVO
+              Войдите или создайте учетную запись с КЛИК
             </DialogDescription>
           </DialogHeader>
 
@@ -401,7 +401,7 @@ export function HeroSection() {
             </div>
             <div className="relative flex justify-center text-sm">
               <span className="px-2 bg-[#F3F4F6] dark:bg-[#F9FAFB]/[0.02] text-muted-foreground">
-                or continue with email
+                или продолжить через email
               </span>
             </div>
           </div>
@@ -413,7 +413,7 @@ export function HeroSection() {
               className="flex h-12 items-center justify-center w-full text-center rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-md"
               onClick={() => setAuthDialogOpen(false)}
             >
-              Sign in with email
+              Войти через электронную почту
             </Link>
 
             <Link
@@ -421,18 +421,18 @@ export function HeroSection() {
               className="flex h-12 items-center justify-center w-full text-center rounded-full border border-border bg-background hover:bg-accent/20 transition-all"
               onClick={() => setAuthDialogOpen(false)}
             >
-              Create new account
+              Создать новую учетную запись
             </Link>
           </div>
 
           <div className="mt-4 text-center text-xs text-muted-foreground">
-            By continuing, you agree to our{' '}
+            Продолжая, вы соглашаетесь с нашими{' '}
             <Link href="/terms" className="text-primary hover:underline">
-              Terms of Service
+              Условиями предоставления услуг
             </Link>{' '}
-            and{' '}
+            и{' '}
             <Link href="/privacy" className="text-primary hover:underline">
-              Privacy Policy
+              Политикой конфиденциальности
             </Link>
           </div>
         </DialogContent>

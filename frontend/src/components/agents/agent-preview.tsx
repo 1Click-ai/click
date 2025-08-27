@@ -317,7 +317,7 @@ export const AgentPreview = ({ agent, agentMetadata }: AgentPreviewProps) => {
 
       } catch (err) {
         console.error('[PREVIEW] Error sending message:', err);
-        toast.error(err instanceof Error ? err.message : 'Operation failed');
+        toast.error(err instanceof Error ? err.message : 'Операция не выполнена');
         setMessages((prev) => prev.filter((m) => m.message_id !== optimisticUserMessage.message_id));
       } finally {
         setIsSubmitting(false);
@@ -349,7 +349,7 @@ export const AgentPreview = ({ agent, agentMetadata }: AgentPreviewProps) => {
       <div className="flex-shrink-0 flex items-center gap-3 px-8 py-8">
         <div className="flex-1">
         </div>
-        <Badge variant="highlight" className="text-sm">Preview Mode</Badge>
+        <Badge variant="highlight" className="text-sm">Режим предварительного просмотра</Badge>
       </div>
       <div className="flex-1 overflow-hidden">
         <div className="h-full overflow-y-auto scrollbar-hide">
@@ -394,8 +394,8 @@ export const AgentPreview = ({ agent, agentMetadata }: AgentPreviewProps) => {
                     <div className="text-4xl">{avatar}</div>
                   )}
                 </div>
-                <p className='w-[60%] text-2xl mb-3'>Start conversation with <span className='text-primary/80 font-semibold'>{agent.name}</span></p>
-                <p className='w-[70%] text-sm text-muted-foreground/60'>Build and test your agent by previewing how it will behave and respond. Here you can also ask the agent to self-configure</p>
+                <p className='w-[60%] text-2xl mb-3'>Начать разговор с <span className='text-primary/80 font-semibold'>{agent.name}</span></p>
+                <p className='w-[70%] text-sm text-muted-foreground/60'>Создавайте и тестируйте своего ИИ-агента, просматривая его поведение и ответы. Здесь вы также можете попросить ИИ-агента самонастроиться</p>
               </div>
             }
           />
@@ -408,7 +408,7 @@ export const AgentPreview = ({ agent, agentMetadata }: AgentPreviewProps) => {
             ref={chatInputRef}
             onSubmit={threadId ? handleSubmitMessage : handleSubmitFirstMessage}
             loading={isSubmitting}
-            placeholder={`Message ${agent.name || 'agent'}...`}
+            placeholder={`Сообщение ${agent.name || 'агенту'}...`}
             value={inputValue}
             onChange={setInputValue}
             disabled={isSubmitting}

@@ -59,13 +59,13 @@ export const MyTemplatesTab = ({
           <div className="mx-auto w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/10 rounded-3xl flex items-center justify-center mb-6">
             <Globe className="h-10 w-10 text-primary" />
           </div>
-          <h3 className="text-xl font-semibold mb-3">No templates yet</h3>
+          <h3 className="text-xl font-semibold mb-3">Пока нет шаблонов</h3>
           <p className="text-muted-foreground mb-8 max-w-md mx-auto">
-            Create your first secure agent template to share with the community while keeping your credentials safe.
+            Создайте свой первый безопасный шаблон ИИ-агента, чтобы поделиться им с сообществом, сохраняя свои учетные данные в безопасности.
           </p>
           <Button onClick={onSwitchToMyAgents} size="lg">
             <Plus className="h-4 w-4 mr-2" />
-            Create Your First Agent
+            Создайте своего первого ИИ-агента
           </Button>
         </div>
       ) : (

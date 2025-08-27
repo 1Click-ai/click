@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Settings, Trash2, Star, MessageCircle, Wrench, Globe, GlobeLock, Download, Shield, AlertTriangle, GitBranch } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '@/components/ui/alert-dialog';
-import { Dialog, DialogContent, DialogTitle, DialogHeader, DialogDescription } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTitle, DialogHeader, DialogDescription, DialogFooter } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
 import { useRouter } from 'next/navigation';
 import { useCreateTemplate, useUnpublishTemplate } from '@/hooks/react-query/secure-mcp/use-secure-mcp';
@@ -10,6 +10,8 @@ import { toast } from 'sonner';
 import { AgentCard } from './custom-agents-page/agent-card';
 import { KortixLogo } from '../sidebar/kortix-logo';
 import { DynamicIcon } from 'lucide-react/dynamic';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
 
 interface Agent {
   agent_id: string;
@@ -89,14 +91,14 @@ const AgentModal: React.FC<AgentModalProps> = ({
   const isSunaAgent = agent.metadata?.is_suna_default || false;
   
   const truncateDescription = (text?: string, maxLength = 120) => {
-    if (!text || text.length <= maxLength) return text || 'Try out this agent';
+    if (!text || text.length <= maxLength) return text || 'Попробуйте этого агента';
     return text.substring(0, maxLength) + '...';
   };
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-md p-0 overflow-hidden border-none">
-        <DialogTitle className="sr-only">Agent actions</DialogTitle>
+        <DialogTitle className="sr-only">Действия агента</DialogTitle>
         <div className="relative">
           <div className={`p-4 h-24 flex items-start justify-start relative`}>
             {isSunaAgent ? (
@@ -138,7 +140,7 @@ const AgentModal: React.FC<AgentModalProps> = ({
                 {agent.is_public && (
                   <Badge variant="outline" className="text-xs">
                     <Shield className="h-3 w-3 mr-1" />
-                    Published
+                    Опубликовано
                   </Badge>
                 )}
               </div>
@@ -154,14 +156,14 @@ const AgentModal: React.FC<AgentModalProps> = ({
                 className="flex-1 gap-2"
               >
                 <Wrench className="h-4 w-4" />
-                Customize
+                Настроить
               </Button>
               <Button
                 onClick={() => onChat(agent.agent_id)}
                 className="flex-1 gap-2 bg-primary hover:bg-primary/90"
               >
                 <MessageCircle className="h-4 w-4" />
-                Chat
+                Чат
               </Button>
             </div>
             {!isSunaAgent && (
@@ -169,10 +171,10 @@ const AgentModal: React.FC<AgentModalProps> = ({
                 {agent.is_public ? (
                   <div className="space-y-2">
                     <div className="flex items-center justify-between text-sm text-muted-foreground">
-                      <span>Published as secure template</span>
+                      <span>Опубликовано как проверенный шаблон</span>
                       <div className="flex items-center gap-1">
                         <Download className="h-3 w-3" />
-                        {agent.download_count || 0} downloads
+                        {agent.download_count || 0} загрузок
                       </div>
                     </div>
                     <Button
@@ -184,12 +186,12 @@ const AgentModal: React.FC<AgentModalProps> = ({
                       {isUnpublishing ? (
                         <>
                           <div className="h-4 w-4 animate-spin rounded-full border-2 border-primary border-t-transparent" />
-                          Making Private...
+                          Делаем приватным...
                         </>
                       ) : (
                         <>
                           <GlobeLock className="h-4 w-4" />
-                          Make Private
+                          Сделать частным
                         </>
                       )}
                     </Button>
@@ -204,12 +206,12 @@ const AgentModal: React.FC<AgentModalProps> = ({
                     {isPublishing ? (
                       <>
                         <div className="h-4 w-4 animate-spin rounded-full border-2 border-primary border-t-transparent" />
-                        Publishing...
+                        Публикация...
                       </>
                     ) : (
                       <>
                         <Shield className="h-4 w-4" />
-                        Publish as Template
+                        Опубликовать как шаблон
                       </>
                     )}
                   </Button>
@@ -294,7 +296,7 @@ export const AgentsGrid: React.FC<AgentsGridProps> = ({
                 <div className="absolute inset-0 bg-destructive/10 backdrop-blur-sm rounded-lg z-20 flex items-center justify-center">
                   <div className="bg-background/95 backdrop-blur-sm rounded-lg px-4 py-3 flex items-center gap-2 shadow-lg border">
                     <div className="h-4 w-4 animate-spin rounded-full border-2 border-destructive border-t-transparent" />
-                    <span className="text-sm font-medium text-destructive">Deleting...</span>
+                    <span className="text-sm font-medium text-destructive">Удаление...</span>
                   </div>
                 </div>
               )}
@@ -318,7 +320,7 @@ export const AgentsGrid: React.FC<AgentsGridProps> = ({
                         size="sm"
                         className="h-7 w-7 p-0 hover:bg-destructive/10 hover:text-destructive text-muted-foreground"
                         disabled={isDeleting || isGloballyDeleting}
-                        title="Delete agent"
+                        title="Удалить агента"
                         onClick={(e) => e.stopPropagation()}
                       >
                         {isDeleting ? (
@@ -330,19 +332,19 @@ export const AgentsGrid: React.FC<AgentsGridProps> = ({
                     </AlertDialogTrigger>
                     <AlertDialogContent className="max-w-md">
                       <AlertDialogHeader>
-                        <AlertDialogTitle className="text-xl">Delete Agent</AlertDialogTitle>
+                        <AlertDialogTitle className="text-xl">Удалить ИИ-агента</AlertDialogTitle>
                         <AlertDialogDescription>
-                          Are you sure you want to delete &quot;{agent.name}&quot;? This action cannot be undone.
+                          Вы уверены, что хотите удалить &quot;{agent.name}&quot;? Это действие невозможно отменить.
                           {agent.is_public && (
                             <span className="block mt-2 text-amber-600 dark:text-amber-400">
-                              Note: This agent is currently published to the marketplace and will be removed from there as well.
+                              Примечание: Этот агент в настоящее время опубликован на торговой площадке и будет удален оттуда.
                             </span>
                           )}
                         </AlertDialogDescription>
                       </AlertDialogHeader>
                       <AlertDialogFooter>
                         <AlertDialogCancel onClick={(e) => e.stopPropagation()}>
-                          Cancel
+                          Отмена
                         </AlertDialogCancel>
                         <AlertDialogAction
                           onClick={(e) => {
@@ -355,10 +357,10 @@ export const AgentsGrid: React.FC<AgentsGridProps> = ({
                           {isDeleting ? (
                             <>
                               <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent mr-2" />
-                              Deleting...
+                              Удаление...
                             </>
                           ) : (
-                            'Delete'
+                            'Удалить'
                           )}
                         </AlertDialogAction>
                       </AlertDialogFooter>

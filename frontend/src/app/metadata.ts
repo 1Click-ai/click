@@ -4,17 +4,17 @@ import { siteConfig } from '@/lib/site';
 export const metadata: Metadata = {
   title: siteConfig.name,
   description: siteConfig.description,
-  keywords: ['MEVO', 'AI', 'Agent'],
+  keywords: ['КЛИК', 'ИИ', 'Агент', 'AI', 'Agent'],
   authors: [
     {
-      name: 'MEVO Corp',
-      url: 'https://mevoagent.com',
+      name: 'КЛИК',
+      url: 'https://clickai.click',
     },
   ],
-  creator: 'MEVO Corp',
+  creator: 'КЛИК',
   openGraph: {
     type: 'website',
-    locale: 'en_US',
+    locale: 'ru_RU',
     url: siteConfig.url,
     title: siteConfig.name,
     description: siteConfig.description,
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: siteConfig.name,
     description: siteConfig.description,
-    creator: '@mevoagent',
+    creator: '@clickai',
   },
   robots: {
     index: true,

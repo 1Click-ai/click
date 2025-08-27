@@ -30,12 +30,12 @@ export const TourConfirmationDialog = React.memo(({ open, onAccept, onDecline }:
             <div className="flex items-center gap-4 mt-4">
               <div>
                 <AlertDialogTitle className="text-xl font-semibold">
-                  Welcome to MEVO
+                  Добро пожаловать в КЛИК
                 </AlertDialogTitle>
               </div>
             </div>
             <AlertDialogDescription>
-            Would you like a quick guided tour to help you get started? We'll show you the key features and how to make the most of MEVO.
+Хотите ли пройти краткий обзор, чтобы начать работу? Мы покажем вам ключевые функции и как наилучшим образом использовать КЛИК.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <div className="flex items-center justify-between p-6">
@@ -44,13 +44,13 @@ export const TourConfirmationDialog = React.memo(({ open, onAccept, onDecline }:
               onClick={onDecline}
               className="flex-1 mr-3"
             >
-              Skip Tour
+Пропустить обзор
             </Button>
             <Button
               onClick={onAccept}
               className="flex-1"
             >
-              Start Tour
+Начать обзор
             </Button>
           </div>
         </div>

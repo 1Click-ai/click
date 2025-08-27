@@ -212,7 +212,7 @@ export const PlaybookExecuteDialog: React.FC<PlaybookExecuteDialogProps> = ({
 
                             <div className="flex items-center justify-end gap-2 pt-2">
                                 <Button type="button" variant="outline" onClick={() => onOpenChange(false)}>
-                                    Cancel
+                                    Отмена
                                 </Button>
                                 <Button type="button" onClick={handleRun} disabled={executeMutation.isPending || !isValid || !isActive}>
                                     {executeMutation.isPending ? (

@@ -1,11 +1,11 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'API Keys | MEVO',
-  description: 'Manage your API keys for programmatic access to MEVO',
+  title: 'API Keys | КЛИК',
+  description: 'Manage your API keys for programmatic access to КЛИК',
   openGraph: {
-    title: 'API Keys | MEVO',
-    description: 'Manage your API keys for programmatic access to MEVO',
+    title: 'API Keys | КЛИК',
+    description: 'Manage your API keys for programmatic access to КЛИК',
     type: 'website',
   },
 };

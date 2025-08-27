@@ -27,64 +27,64 @@ import { TourConfirmationDialog } from '@/components/tour/TourConfirmationDialog
 const agentConfigTourSteps: Step[] = [
   {
     target: '[data-tour="agent-header"]',
-    content: 'This is your agent\'s profile. You can edit the name and profile picture to personalize your agent.',
-    title: 'Agent Profile',
+    content: 'Это профиль вашего ИИ-агента. Вы можете изменить имя и изображение профиля, чтобы персонализировать своего ИИ-агента.',
+    title: 'Профиль агента',
     placement: 'bottom',
     disableBeacon: true,
   },
   {
     target: '[data-tour="model-section"]',
-    content: 'Choose the AI model that powers your agent. Different models have different capabilities and pricing.',
-    title: 'Model Configuration',
+    content: 'Выберите модель ИИ, которая управляет вашим агентом. Различные модели имеют разные возможности и цены.',
+    title: 'Конфигурация модели',
     placement: 'right',
     disableBeacon: true,
   },
   {
     target: '[data-tour="system-prompt"]',
-    content: 'Define how your agent behaves and responds. This is the core instruction that guides your agent\'s personality and capabilities.',
-    title: 'System Prompt',
+    content: 'Определите, как ваш агент себя ведет и реагирует. Это основная инструкция, которая направляет личность и возможности вашего агента.',
+    title: 'Системная подсказка',
     placement: 'right',
     disableBeacon: true,
   },
   {
     target: '[data-tour="tools-section"]',
-    content: 'Configure the tools and capabilities your agent can use. Enable browser automation, web development, and more.',
-    title: 'Agent Tools',
+    content: 'Настройте инструменты и возможности, которые может использовать ваш агент. Включите автоматизацию браузера, веб-разработку и многое другое.',
+    title: 'Инструменты агента',
     placement: 'right',
     disableBeacon: true,
   },
   {
     target: '[data-tour="integrations-section"]',
-    content: 'Connect your agent to external services. Add integrations to extend your agent\'s capabilities.',
-    title: 'Integrations',
+    content: 'Подключите своего агента к внешним сервисам. Добавьте интеграции для расширения возможностей вашего агента.',
+    title: 'Интеграции',
     placement: 'right',
     disableBeacon: true,
   },
   {
     target: '[data-tour="knowledge-section"]',
-    content: 'Add knowledge to your agent to provide it with context and information.',
-    title: 'Knowledge Base',
+    content: 'Добавьте знания своему агенту, чтобы предоставить ему контекст и информацию.',
+    title: 'База знаний',
     placement: 'right',
     disableBeacon: true,
   },
   {
     target: '[data-tour="playbooks-section"]',
-    content: 'Add playbooks to your agent to help it perform tasks and automate workflows.',
-    title: 'Playbooks',
+    content: 'Добавьте рабочие процессы своему агенту, чтобы помочь ему выполнять задачи и автоматизировать рабочие процессы.',
+    title: 'Шаблоны',
     placement: 'right',
     disableBeacon: true,
   },
   {
     target: '[data-tour="triggers-section"]',
-    content: 'Set up automated triggers for your agent to run on schedules or events.',
-    title: 'Triggers & Automation',
+    content: 'Настройте автоматические триггеры для запуска вашего агента по расписанию или событиям.',
+    title: 'Триггеры и автоматизация',
     placement: 'right',
     disableBeacon: true,
   },
   {
     target: '[data-tour="preview-agent"]',
-    content: 'Build and test your agent by previewing how it will behave and respond. Here you can also ask the agent to self-configure',
-    title: 'Build & Test Your Agent',
+    content: 'Создайте и протестируйте своего агента, просмотрев, как он будет себя вести и реагировать. Здесь вы также можете попросить агента настроиться самостоятельно',
+    title: 'Создайте и протестируйте своего агента',
     placement: 'left',
     disableBeacon: true,
   },
@@ -521,12 +521,12 @@ function AgentConfigurationContent() {
                     <DrawerTrigger asChild>
                       <Button variant="outline" size="sm">
                         <Eye className="h-4 w-4 mr-2" />
-                        Preview
+                        Предварительный просмотр
                       </Button>
                     </DrawerTrigger>
                     <DrawerContent className="h-[85vh]">
                       <DrawerHeader>
-                        <DrawerTitle>Agent Preview</DrawerTitle>
+                        <DrawerTitle>Предварительный просмотр агента</DrawerTitle>
                       </DrawerHeader>
                       <div className="flex-1 overflow-hidden">
                         <AgentPreview agent={previewAgent} />

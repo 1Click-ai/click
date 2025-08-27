@@ -97,7 +97,7 @@ export function AgentHeader({
     if (editName !== displayData.name) {
       if (!isNameEditable && isSunaAgent) {
         toast.error("Name cannot be edited", {
-          description: "Suna's name is managed centrally and cannot be changed.",
+          description: "КЛИК's name is managed centrally and cannot be changed.",
         });
         setEditName(displayData.name);
         setIsEditing(false);
@@ -226,7 +226,7 @@ export function AgentHeader({
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>{isExporting ? 'Exporting...' : 'Export Agent'}</p>
+                  <p>{isExporting ? 'Экспорт...' : 'Экспортировать агента'}</p>
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>

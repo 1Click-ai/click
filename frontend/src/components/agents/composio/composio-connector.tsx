@@ -58,7 +58,8 @@ const stepConfigs: StepConfig[] = [
   },
   {
     id: Step.ProfileCreate,
-    title: 'Create Profile',
+    title: 'Создать профиль',
+    description: 'Create a new connection to a service. This will allow your agent to use tools related to that service.',
     icon: <Plus className="h-4 w-4" />,
     showInProgress: true
   },
@@ -738,7 +739,7 @@ export const ComposioConnector: React.FC<ComposioConnectorProps> = ({
                                       <Plus className="w-5 h-5 text-primary" />
                                     </div>
                                     <div>
-                                      <h5 className="font-medium text-sm">Create New Connection</h5>
+                                      <h5 className="font-medium text-sm">Создать новое подключение</h5>
                                       <p className="text-xs text-muted-foreground">Connect a new {app.name} account</p>
                                     </div>
                                   </div>
@@ -811,7 +812,7 @@ export const ComposioConnector: React.FC<ComposioConnectorProps> = ({
                             onClick={() => onOpenChange(false)}
                             className="px-6"
                           >
-                            Cancel
+                            Отмена
                           </Button>
                           <Button
                             onClick={() => {
@@ -826,7 +827,7 @@ export const ComposioConnector: React.FC<ComposioConnectorProps> = ({
                           >
                             {selectedConnectionType === 'new' ? (
                               <>
-                                Create Connection
+                                Создать подключение
                                 <ChevronRight className="h-4 w-4 ml-1" />
                               </>
                             ) : selectedConnectionType === 'existing' && selectedProfileId ? (
@@ -1091,7 +1092,7 @@ export const ComposioConnector: React.FC<ComposioConnectorProps> = ({
                           className="min-w-[80px]"
                         >
                           <Save className="h-4 w-4" />
-                          Save Tools
+                          Сохранить инструменты
                         </Button>
                       </div>
                     </div>

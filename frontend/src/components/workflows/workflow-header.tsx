@@ -131,7 +131,7 @@ export function WorkflowHeader({
                     className="h-8"
                 >
                     <Save className="h-3.5 w-3.5" />
-                    {isSaving ? 'Saving...' : 'Save Workflow'}
+                    {isSaving ? 'Сохранение...' : 'Сохранить рабочий процесс'}
                 </Button>
             </div>
         </div>

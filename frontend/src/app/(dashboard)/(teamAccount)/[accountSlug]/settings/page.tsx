@@ -59,16 +59,16 @@ export default function TeamSettingsPage({
   return (
     <div className="space-y-6">
       <div>
-        <h3 className="text-lg font-medium text-card-title">Team Settings</h3>
+        <h3 className="text-lg font-medium text-card-title">Настройки команды</h3>
         <p className="text-sm text-foreground/70">
-          Manage your team account details.
+          Управляйте настройками вашей команды.
         </p>
       </div>
 
       <Card className="border-subtle dark:border-white/10 bg-white dark:bg-background-secondary shadow-none">
         <CardHeader>
-          <CardTitle className="text-base text-card-title">Team Name</CardTitle>
-          <CardDescription>Update your team name.</CardDescription>
+          <CardTitle className="text-base text-card-title">Название команды</CardTitle>
+          <CardDescription>Обновите название вашей команды.</CardDescription>
         </CardHeader>
         <CardContent>
           <EditTeamName account={teamAccount} />
@@ -77,8 +77,8 @@ export default function TeamSettingsPage({
 
       <Card className="border-subtle dark:border-white/10 bg-white dark:bg-background-secondary shadow-none">
         <CardHeader>
-          <CardTitle className="text-base text-card-title">Team URL</CardTitle>
-          <CardDescription>Update your team URL slug.</CardDescription>
+          <CardTitle className="text-base text-card-title">URL команды</CardTitle>
+          <CardDescription>Обновите URL вашей команды.</CardDescription>
         </CardHeader>
         <CardContent>
           <EditTeamSlug account={teamAccount} />

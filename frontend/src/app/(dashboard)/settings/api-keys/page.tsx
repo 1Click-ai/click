@@ -131,10 +131,10 @@ export default function APIKeysPage() {
     mutationFn: (keyId: string) => apiKeysApi.delete(keyId),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['api-keys'] });
-      toast.success('API key deleted successfully');
+      toast.success('Ключ API успешно удален');
     },
     onError: (error) => {
-      toast.error('Failed to delete API key');
+      toast.error('Не удалось удалить ключ API');
       console.error('Error deleting API key:', error);
     },
   });
@@ -155,9 +155,9 @@ export default function APIKeysPage() {
   const handleCopyKey = async (key: string, keyType: string = 'key') => {
     try {
       await navigator.clipboard.writeText(key);
-      toast.success(`${keyType} copied to clipboard`);
+      toast.success(`${keyType} скопирован в буфер обмена`);
     } catch (error) {
-      toast.error(`Failed to copy ${keyType}`);
+      toast.error(`Не удалось скопировать ${keyType}`);
     }
   };
 
@@ -165,9 +165,9 @@ export default function APIKeysPage() {
     try {
       const fullKey = `${publicKey}:${secretKey}`;
       await navigator.clipboard.writeText(fullKey);
-      toast.success('Full API key copied to clipboard');
+      toast.success('Полный API-ключ скопирован в буфер обмена');
     } catch (error) {
-      toast.error('Failed to copy full API key');
+      toast.error('Не удалось скопировать полный API-ключ');
     }
   };
 
@@ -186,19 +186,19 @@ export default function APIKeysPage() {
       case 'active':
         return (
           <Badge className="bg-green-100 text-green-800 border-green-200">
-            Active
+            Активный
           </Badge>
         );
       case 'revoked':
         return (
           <Badge className="bg-red-100 text-red-800 border-red-200">
-            Revoked
+            Отзыв
           </Badge>
         );
       case 'expired':
         return (
           <Badge className="bg-yellow-100 text-yellow-800 border-yellow-200">
-            Expired
+            Просрочен
           </Badge>
         );
       default:
@@ -238,10 +238,10 @@ export default function APIKeysPage() {
         <div className="space-y-2">
           <div className="flex items-center gap-3">
             <Key className="w-6 h-6" />
-            <h1 className="text-2xl font-bold">API Keys</h1>
+            <h1 className="text-2xl font-bold">Ключи API</h1>
           </div>
           <p className="text-muted-foreground">
-            Manage your API keys for programmatic access to MEVO
+            Управляйте API-ключами для программного доступа к КЛИК
           </p>
         </div>
 
@@ -255,18 +255,18 @@ export default function APIKeysPage() {
                 </div>
                 <div className="absolute -top-1 -right-1">
                   <Badge variant="secondary" className="h-5 px-1.5 text-xs bg-blue-100 text-blue-800 border-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-700">
-                    Beta
+                    Бета
                   </Badge>
                 </div>
               </div>
               <div className="flex-1 space-y-3">
                 <div>
                   <h3 className="text-base font-semibold text-blue-900 dark:text-blue-100 mb-1">
-                    SDK & API
+                    SDK и API
                   </h3>
                   <p className="text-sm text-blue-700 dark:text-blue-300 leading-relaxed">
-                    Our SDK and API are currently in beta. Use these API keys to integrate with our 
-                    programmatic interface for building custom applications and automations.
+                    Наши SDK и API в настоящее время находятся в стадии бета-тестирования. Используйте эти API-ключи для интеграции с нашим
+                    программным интерфейсом для создания пользовательских приложений и автоматизаций.
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
@@ -276,7 +276,7 @@ export default function APIKeysPage() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
                   >
-                    <span>View SDK Documentation</span>
+                    <span>Посмотреть документацию SDK</span>
                     <ExternalLink className="w-4 h-4" />
                   </a>
                 </div>
@@ -295,23 +295,23 @@ export default function APIKeysPage() {
                 </div>
                 <div className="absolute -top-1 -right-1">
                   <Badge variant="secondary" className="h-5 px-1.5 text-xs bg-purple-100 text-purple-800 border-purple-200 dark:bg-purple-900/30 dark:text-purple-300 dark:border-purple-700">
-                    New
+                    Новый
                   </Badge>
                 </div>
               </div>
               <div className="flex-1 space-y-3">
                 <div>
                   <h3 className="text-base font-semibold text-purple-900 dark:text-purple-100 mb-1">
-                    Claude Code Integration
+                    Интеграция с кодом Claude
                   </h3>
                   <p className="text-sm text-purple-700 dark:text-purple-300 leading-relaxed mb-3">
-                    Connect your agents to Claude Code for seamless AI-powered collaboration. 
-                    Use your API key to add an MCP server in Claude Code.
+                    Подключите своих агентов к коду Claude для бесшовной совместной работы на основе ИИ.
+                    Используйте свой API-ключ для добавления MCP-сервера в код Claude.
                   </p>
                 </div>
                 <div className="space-y-2">
                   <p className="text-xs font-medium text-purple-800 dark:text-purple-200 mb-1">
-                    Connection Command:
+                    Команда подключения:
                   </p>
                   <div className="bg-purple-900/10 dark:bg-purple-900/30 border border-purple-200/50 dark:border-purple-700/50 rounded-lg p-3">
                     <code className="text-xs font-mono text-purple-800 dark:text-purple-200 break-all">
@@ -319,7 +319,7 @@ export default function APIKeysPage() {
                     </code>
                   </div>
                   <p className="text-xs text-purple-600 dark:text-purple-400">
-                    Replace  <code className="bg-purple-100 dark:bg-purple-900/50 px-1 rounded">YOUR_DOMAIN</code> and <code className="bg-purple-100 dark:bg-purple-900/50 px-1 rounded">YOUR_API_KEY</code> with your actual API key from below.
+                    Замените <code className="bg-purple-100 dark:bg-purple-900/50 px-1 rounded">YOUR_DOMAIN</code> и <code className="bg-purple-100 dark:bg-purple-900/50 px-1 rounded">YOUR_API_KEY</code> на ваш фактический API-ключ из нижеследующего.
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
@@ -329,7 +329,7 @@ export default function APIKeysPage() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-sm font-medium text-purple-600 hover:text-purple-800 dark:text-purple-400 dark:hover:text-purple-300 transition-colors"
                   >
-                    <span>Learn about Claude Code MCP</span>
+                    <span>Узнайте о Claude Code MCP</span>
                     <ExternalLink className="w-4 h-4" />
                   </a>
                 </div>
@@ -343,7 +343,7 @@ export default function APIKeysPage() {
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <Shield className="w-4 h-4" />
             <span>
-              API keys use a public/secret key pair for secure authentication
+              Ключи API используют пару открытого/секретного ключей для безопасной аутентификации
             </span>
           </div>
 
@@ -354,25 +354,25 @@ export default function APIKeysPage() {
             <DialogTrigger asChild>
               <Button>
                 <Plus className="w-4 h-4 mr-2" />
-                New API Key
+                Новый API-ключ
               </Button>
             </DialogTrigger>
             <DialogContent className="max-w-md">
               <DialogHeader>
-                <DialogTitle>Create API Key</DialogTitle>
+                <DialogTitle>Создать API-ключ</DialogTitle>
                 <DialogDescription>
-                  Create a new API key for programmatic access to your account.
+                  Создайте новый API-ключ для программного доступа к вашей учетной записи.
                 </DialogDescription>
               </DialogHeader>
 
               <div className="space-y-4">
                 <div>
                   <Label htmlFor="title" className="m-1">
-                    Title *
+                    Название *
                   </Label>
                   <Input
                     id="title"
-                    placeholder="My API Key"
+                    placeholder="Мой API-ключ"
                     value={newKeyData.title}
                     onChange={(e) =>
                       setNewKeyData((prev) => ({
@@ -385,11 +385,11 @@ export default function APIKeysPage() {
 
                 <div>
                   <Label htmlFor="description" className="m-1">
-                    Description
+                    Описание
                   </Label>
                   <Textarea
                     id="description"
-                    placeholder="Optional description for this API key"
+                    placeholder="Необязательное описание для этого API-ключа"
                     value={newKeyData.description}
                     onChange={(e) =>
                       setNewKeyData((prev) => ({
@@ -402,7 +402,7 @@ export default function APIKeysPage() {
 
                 <div>
                   <Label htmlFor="expires" className="m-1">
-                    Expires In
+                    Истекает через
                   </Label>
                   <Select
                     value={newKeyData.expiresInDays}
@@ -414,14 +414,14 @@ export default function APIKeysPage() {
                     }
                   >
                     <SelectTrigger>
-                      <SelectValue placeholder="Never expires" />
+                      <SelectValue placeholder="Никогда не истекает" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="never">Never expires</SelectItem>
-                      <SelectItem value="7">7 days</SelectItem>
-                      <SelectItem value="30">30 days</SelectItem>
-                      <SelectItem value="90">90 days</SelectItem>
-                      <SelectItem value="365">1 year</SelectItem>
+                      <SelectItem value="never">Никогда не истекает</SelectItem>
+                      <SelectItem value="7">7 дней</SelectItem>
+                      <SelectItem value="30">30 дней</SelectItem>
+                      <SelectItem value="90">90 дней</SelectItem>
+                      <SelectItem value="365">1 год</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -432,7 +432,7 @@ export default function APIKeysPage() {
                   variant="outline"
                   onClick={() => setIsCreateDialogOpen(false)}
                 >
-                  Cancel
+                  Отмена
                 </Button>
                 <Button
                   onClick={handleCreateAPIKey}
@@ -440,7 +440,7 @@ export default function APIKeysPage() {
                     !newKeyData.title.trim() || createMutation.isPending
                   }
                 >
-                  {createMutation.isPending ? 'Creating...' : 'Create API Key'}
+                  {createMutation.isPending ? 'Создание...' : 'Создать API-ключ'}
                 </Button>
               </div>
             </DialogContent>
@@ -466,7 +466,7 @@ export default function APIKeysPage() {
           <Card>
             <CardContent className="p-6 text-center">
               <p className="text-muted-foreground">
-                Failed to load API keys. Please try again.
+                Не удалось загрузить ключи API. Пожалуйста, попробуйте еще раз.
               </p>
             </CardContent>
           </Card>
@@ -474,15 +474,15 @@ export default function APIKeysPage() {
           <Card>
             <CardContent className="p-6 text-center">
               <Key className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-              <h3 className="text-lg font-medium mb-2">No API keys yet</h3>
+              <h3 className="text-lg font-medium mb-2">Пока нет ключей API</h3>
               <p className="text-muted-foreground mb-4">
-                Create your first API key pair to start using the API
-                programmatically. Each key includes a public identifier and
-                secret for secure authentication.
+                Создайте свою первую пару ключей API, чтобы начать программно использовать API.
+                Каждый ключ включает общедоступный идентификатор и
+                секрет для безопасной аутентификации.
               </p>
               <Button onClick={() => setIsCreateDialogOpen(true)}>
                 <Plus className="w-4 h-4 mr-2" />
-                Create API Key
+                Создать API-ключ
               </Button>
             </CardContent>
           </Card>
@@ -514,14 +514,14 @@ export default function APIKeysPage() {
                   <div className="space-y-4">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
                       <div>
-                        <p className="text-muted-foreground mb-1">Created</p>
+                        <p className="text-muted-foreground mb-1">Создан</p>
                         <p className="font-medium">
                           {formatDate(apiKey.created_at)}
                         </p>
                       </div>
                       {apiKey.expires_at && (
                         <div>
-                          <p className="text-muted-foreground mb-1">Expires</p>
+                          <p className="text-muted-foreground mb-1">Истекает</p>
                           <p
                             className={`font-medium ${isKeyExpired(apiKey.expires_at) ? 'text-yellow-600' : ''}`}
                           >
@@ -532,7 +532,7 @@ export default function APIKeysPage() {
                       {apiKey.last_used_at && (
                         <div>
                           <p className="text-muted-foreground mb-1">
-                            Last Used
+                            Последнее использование
                           </p>
                           <p className="font-medium">
                             {formatDate(apiKey.last_used_at)}
@@ -548,27 +548,27 @@ export default function APIKeysPage() {
                         <AlertDialogTrigger asChild>
                           <Button variant="outline" size="sm">
                             <Trash2 className="w-4 h-4 mr-2" />
-                            Revoke
+                            Отзыв
                           </Button>
                         </AlertDialogTrigger>
                         <AlertDialogContent>
                           <AlertDialogHeader>
-                            <AlertDialogTitle>Revoke API Key</AlertDialogTitle>
+                            <AlertDialogTitle>Отозвать API-ключ</AlertDialogTitle>
                             <AlertDialogDescription>
-                              Are you sure you want to revoke "{apiKey.title}"?
-                              This action cannot be undone and any applications
-                              using this key will stop working.
+                              Вы уверены, что хотите отозвать &quot;{apiKey.title}&quot;?
+                              Это действие невозможно отменить, и любые приложения,
+                              использующие этот ключ, перестанут работать.
                             </AlertDialogDescription>
                           </AlertDialogHeader>
                           <AlertDialogFooter>
-                            <AlertDialogCancel>Cancel</AlertDialogCancel>
+                            <AlertDialogCancel>Отмена</AlertDialogCancel>
                             <AlertDialogAction
                               onClick={() =>
                                 revokeMutation.mutate(apiKey.key_id)
                               }
                               className="bg-destructive hover:bg-destructive/90 text-white"
                             >
-                              Revoke Key
+                              Отозвать ключ
                             </AlertDialogAction>
                           </AlertDialogFooter>
                         </AlertDialogContent>
@@ -583,26 +583,26 @@ export default function APIKeysPage() {
                         <AlertDialogTrigger asChild>
                           <Button variant="outline" size="sm">
                             <Trash2 className="w-4 h-4 mr-2" />
-                            Delete
+                            Удалить
                           </Button>
                         </AlertDialogTrigger>
                         <AlertDialogContent>
                           <AlertDialogHeader>
-                            <AlertDialogTitle>Delete API Key</AlertDialogTitle>
+                            <AlertDialogTitle>Удалить ключ API</AlertDialogTitle>
                             <AlertDialogDescription>
-                              Are you sure you want to permanently delete "
-                              {apiKey.title}"? This action cannot be undone.
+                              Вы уверены, что хотите безвозвратно удалить &quot;
+                              {apiKey.title}&quot;? Это действие невозможно отменить.
                             </AlertDialogDescription>
                           </AlertDialogHeader>
                           <AlertDialogFooter>
-                            <AlertDialogCancel>Cancel</AlertDialogCancel>
+                            <AlertDialogCancel>Отмена</AlertDialogCancel>
                             <AlertDialogAction
                               onClick={() =>
                                 deleteMutation.mutate(apiKey.key_id)
                               }
                               className="bg-destructive hover:bg-destructive/90 text-white"
                             >
-                              Delete Key
+                              Удалить ключ
                             </AlertDialogAction>
                           </AlertDialogFooter>
                         </AlertDialogContent>
@@ -621,17 +621,17 @@ export default function APIKeysPage() {
             <DialogHeader>
               <DialogTitle className="flex items-center gap-2">
                 <Shield className="w-5 h-5 text-green-600" />
-                API Key Created
+                Ключ API создан
               </DialogTitle>
               <DialogDescription>
-                Your API key has been created successfully
+                Ваш ключ API успешно создан
               </DialogDescription>
             </DialogHeader>
 
             {createdApiKey && (
               <div className="space-y-4">
                 <div>
-                  <Label className="m-1">API Key</Label>
+                  <Label className="m-1">Ключ API</Label>
                   <div className="flex gap-2">
                     <Input
                       value={`${createdApiKey.public_key}:${createdApiKey.secret_key}`}
@@ -656,8 +656,8 @@ export default function APIKeysPage() {
                 <div className="space-y-3">
                   <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
                     <p className="text-sm text-yellow-800">
-                      <strong>Important:</strong> Store this API key securely.
-                      For security reasons, we cannot show it again.
+                      <strong>Важно:</strong> Надежно храните этот API-ключ.
+                      По соображениям безопасности мы не можем показать его снова.
                     </p>
                   </div>
                 </div>
@@ -665,7 +665,7 @@ export default function APIKeysPage() {
             )}
 
             <div className="flex justify-end">
-              <Button onClick={() => setShowCreatedKey(false)}>Close</Button>
+              <Button onClick={() => setShowCreatedKey(false)}>Закрыть</Button>
             </div>
           </DialogContent>
         </Dialog>

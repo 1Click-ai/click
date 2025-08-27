@@ -185,7 +185,7 @@ export function SidebarSearch() {
 
       {/* Search results */}
       <SidebarGroupLabel>
-        {query ? 'Search Results' : 'Recent'}
+        {query ? 'Результаты поиска' : 'Недавние'}
       </SidebarGroupLabel>
       <SidebarMenu className="overflow-y-auto max-h-[calc(100vh-270px)] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
         {isLoading ? (
@@ -214,11 +214,11 @@ export function SidebarSearch() {
             // Format date as "today", "yesterday", or formatted date
             let dateDisplay;
             if (isToday) {
-              dateDisplay = 'Today';
+              dateDisplay = 'Сегодня';
             } else if (isYesterday) {
-              dateDisplay = 'Yesterday';
+              dateDisplay = 'Вчера';
             } else {
-              dateDisplay = format(updatedDate, 'MMM d, yyyy');
+              dateDisplay = format(updatedDate, 'dd.MM.yyyy');
             }
 
             return (
@@ -247,7 +247,7 @@ export function SidebarSearch() {
                       )}
                       <span className="truncate">{thread.projectName}</span>
                     </div>
-                    <span className="ml-2 text-xs text-muted-foreground shrink-0">
+                    <span className="ml-2 text-xs text-secondary-foreground shrink-0">
                       {dateDisplay}
                     </span>
                   </Link>

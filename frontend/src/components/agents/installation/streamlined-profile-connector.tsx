@@ -172,7 +172,7 @@ export const ProfileConnector: React.FC<ProfileConnectorProps> = ({
               <Alert className="border-primary/20 bg-primary/5">
                 <Shield className="h-4 w-4" />
                 <AlertDescription>
-                  No connected {step.service_name} profiles found. Create and connect one to continue.
+                  Не найдено подключенных профилей {step.service_name}. Создайте и подключите один, чтобы продолжить.
                 </AlertDescription>
               </Alert>
               
@@ -200,7 +200,7 @@ export const ProfileConnector: React.FC<ProfileConnectorProps> = ({
                 className="w-full"
               >
                 <Plus className="h-4 w-4" />
-                Connect Different Account
+                Подключить другой аккаунт
               </Button>
             </>
           )}
@@ -235,7 +235,7 @@ export const ProfileConnector: React.FC<ProfileConnectorProps> = ({
             className="w-full"
           >
             <Plus className="h-4 w-4" />
-            Create New Profile
+            Создать новый профиль
           </Button>
         </div>
       )}
@@ -261,18 +261,18 @@ export const ProfileConnector: React.FC<ProfileConnectorProps> = ({
             onClick={() => setProfileStep('select')}
             className="mb-4 p-0 h-auto font-normal text-muted-foreground hover:text-foreground"
           >
-            ← Back to Selection
+            ← Назад к выбору
           </Button>
         </div>
         <h3 className="font-semibold">Create {step.service_name} Profile</h3>
         <p className="text-sm text-muted-foreground">
-          Set up a new credential profile for {step.service_name}
+          Создайте новый профиль учетных данных для {step.service_name}
         </p>
       </div>
 
       <div className="space-y-4">
         <div className="space-y-2">
-          <Label htmlFor="profile-name">Profile Name</Label>
+          <Label htmlFor="profile-name">Имя профиля</Label>
           <Input
             id="profile-name"
             placeholder="e.g., Personal Account, Work Account"
@@ -283,7 +283,7 @@ export const ProfileConnector: React.FC<ProfileConnectorProps> = ({
             className="h-11"
           />
           <p className="text-xs text-muted-foreground">
-            This helps you identify different configurations
+            Это поможет вам идентифицировать различные конфигурации
           </p>
         </div>
 
@@ -291,7 +291,7 @@ export const ProfileConnector: React.FC<ProfileConnectorProps> = ({
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <Settings className="h-4 w-4" />
-              <span className="text-sm font-medium">Connection Settings</span>
+              <span className="text-sm font-medium">Настройки подключения</span>
             </div>
             {Object.entries(configProperties).map(([key, schema]: [string, any]) => (
               <div key={key} className="space-y-2">
@@ -320,7 +320,7 @@ export const ProfileConnector: React.FC<ProfileConnectorProps> = ({
           <Alert className="border-primary/20 bg-primary/5">
             <Shield className="h-4 w-4" />
             <AlertDescription>
-              This service doesn't require any credentials to connect.
+              Этот сервис не требует учетных данных для подключения.
             </AlertDescription>
           </Alert>
         )}
@@ -335,12 +335,12 @@ export const ProfileConnector: React.FC<ProfileConnectorProps> = ({
           {isCreatingProfile ? (
             <>
               <Loader2 className="h-4 w-4 animate-spin" />
-              Creating...
+              Создание...
             </>
           ) : (
             <>
               <Plus className="h-4 w-4" />
-              Create & Continue
+              Создать и продолжить
             </>
           )}
         </Button>

@@ -103,7 +103,7 @@ const ViewToggle: React.FC<ViewToggleProps> = ({ currentView, onViewChange }) =>
             ? 'text-black'
             : 'text-gray-500 dark:text-gray-400'
         }`}
-        title="Switch to Tool View"
+        title="Переключить на вид инструмента"
       >
         <Wrench className="h-3.5 w-3.5" />
       </Button>
@@ -116,7 +116,7 @@ const ViewToggle: React.FC<ViewToggleProps> = ({ currentView, onViewChange }) =>
             ? 'text-black'
             : 'text-gray-500 dark:text-gray-400'
         }`}
-        title="Switch to Browser View"
+        title="Переключить на вид браузера"
       >
         <Globe className="h-3.5 w-3.5" />
       </Button>
@@ -126,7 +126,7 @@ const ViewToggle: React.FC<ViewToggleProps> = ({ currentView, onViewChange }) =>
 
 // Helper function to generate the computer title
 const getComputerTitle = (agentName?: string): string => {
-  return agentName ? `${agentName}'s Computer` : "Suna's Computer";
+  return agentName ? `${agentName}'s Computer` : "КЛИК's Computer";
 };
 
 // Reusable header component for the tool panel
@@ -163,7 +163,7 @@ const PanelHeader: React.FC<PanelHeaderProps> = ({
             size="icon"
             onClick={onClose}
             className="h-8 w-8"
-            title="Minimize to floating preview"
+            title="Свернуть в плавающий предварительный просмотр"
           >
             <Minimize2 className="h-4 w-4" />
           </Button>
@@ -191,7 +191,7 @@ const PanelHeader: React.FC<PanelHeaderProps> = ({
             {isStreaming && (
               <div className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-400 flex items-center gap-1.5">
                 <CircleDashed className="h-3 w-3 animate-spin" />
-                <span>Running</span>
+                <span>Выполняется</span>
               </div>
             )}
             <Button
@@ -199,7 +199,7 @@ const PanelHeader: React.FC<PanelHeaderProps> = ({
               size="icon"
               onClick={onClose}
               className="h-8 w-8"
-              title="Minimize to floating preview"
+              title="Свернуть в плавающий предварительный просмотр"
             >
               <Minimize2 className="h-4 w-4" />
             </Button>
@@ -223,7 +223,7 @@ const PanelHeader: React.FC<PanelHeaderProps> = ({
           {isStreaming && (
             <Badge variant="outline" className="gap-1.5 p-2 rounded-3xl">
               <CircleDashed className="h-3 w-3 animate-spin" />
-              <span>Running</span>
+              <span>Выполняется</span>
             </Badge>
           )}
           <Button
@@ -231,7 +231,7 @@ const PanelHeader: React.FC<PanelHeaderProps> = ({
             size="icon"
             onClick={onClose}
             className="h-8 w-8"
-            title={showMinimize ? "Minimize to floating preview" : "Close"}
+            title={showMinimize ? "Свернуть в плавающий предварительный просмотр" : "Закрыть"}
           >
             {showMinimize ? <Minimize2 className="h-4 w-4" /> : <X className="h-4 w-4" />}
           </Button>
@@ -526,9 +526,9 @@ export function ToolCallSidePanel({
     setIsCopyingContent(true);
     const success = await copyToClipboard(fileContent);
     if (success) {
-      toast.success('File content copied to clipboard');
+      toast.success('Содержимое файла скопировано в буфер обмена');
     } else {
-      toast.error('Failed to copy file content');
+      toast.error('Не удалось скопировать содержимое файла');
     }
     setTimeout(() => setIsCopyingContent(false), 500);
   }, [displayToolCall?.toolResult?.content, copyToClipboard]);
@@ -607,14 +607,14 @@ export function ToolCallSidePanel({
         return (
           <div className={`${baseClasses} bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800`}>
             <div className={`${dotClasses} bg-green-500 animate-pulse`} />
-            <span className={`${textClasses} text-green-700 dark:text-green-400`}>Live Updates</span>
+            <span className={`${textClasses} text-green-700 dark:text-green-400`}>Обновления</span>
           </div>
         );
       } else {
         return (
           <div className={`${baseClasses} bg-neutral-50 dark:bg-neutral-900/20 border border-neutral-200 dark:border-neutral-800`}>
             <div className={`${dotClasses} bg-neutral-500`} />
-            <span className={`${textClasses} text-neutral-700 dark:text-neutral-400`}>Latest Tool</span>
+            <span className={`${textClasses} text-neutral-700 dark:text-neutral-400`}>Инструмент</span>
           </div>
         );
       }
@@ -626,7 +626,7 @@ export function ToolCallSidePanel({
             onClick={jumpToLive}
           >
             <div className={`${dotClasses} bg-green-500 animate-pulse`} />
-            <span className={`${textClasses} text-green-700 dark:text-green-400`}>Jump to Live</span>
+            <span className={`${textClasses} text-green-700 dark:text-green-400`}>К реальному времени</span>
           </div>
         );
       } else {
@@ -636,7 +636,7 @@ export function ToolCallSidePanel({
             onClick={jumpToLatest}
           >
             <div className={`${dotClasses} bg-blue-500`} />
-            <span className={`${textClasses} text-blue-700 dark:text-blue-400`}>Jump to Latest</span>
+            <span className={`${textClasses} text-blue-700 dark:text-blue-400`}>Перейти к последнему</span>
           </div>
         );
       }
@@ -788,10 +788,10 @@ export function ToolCallSidePanel({
               </div>
               <div className="space-y-2">
                 <h3 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">
-                  No tool activity
+                  Нет активности инструмента
                 </h3>
                 <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                  Tool calls and computer interactions will appear here when they're being executed.
+                  Вызовы инструментов и взаимодействия с компьютером будут отображаться здесь во время их выполнения.
                 </p>
               </div>
             </div>
@@ -817,7 +817,7 @@ export function ToolCallSidePanel({
                 <div className="flex items-center justify-center">
                   <div className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-400 flex items-center gap-1.5">
                     <CircleDashed className="h-3 w-3 animate-spin" />
-                    <span>Running</span>
+                    <span>Выполняется</span>
                   </div>
                 </div>
               </div>
@@ -831,10 +831,10 @@ export function ToolCallSidePanel({
                 </div>
                 <div className="space-y-2">
                   <h3 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">
-                    Tool is running
+                    Инструмент выполняется
                   </h3>
                   <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                    {getUserFriendlyToolName(firstStreamingTool.toolCall.assistantCall.name || 'Tool')} is currently executing. Results will appear here when complete.
+                    {getUserFriendlyToolName(firstStreamingTool.toolCall.assistantCall.name || 'Инструмент')} в настоящее время выполняется. Результаты появятся здесь после завершения.
                   </p>
                 </div>
               </div>
@@ -918,10 +918,10 @@ export function ToolCallSidePanel({
                   </div>
                   <div className="space-y-2">
                     <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-                      Browser not available
+                      Браузер недоступен
                     </h3>
                     <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                      No active browser session available. The browser will appear here when a sandbox is created and Browser tools are used.
+                      Активная сессия браузера недоступна. Браузер появится здесь после создания песочницы и использования инструментов браузера.
                     </p>
                   </div>
                 </div>
@@ -962,7 +962,7 @@ export function ToolCallSidePanel({
                   className="h-8 px-2.5 text-xs"
                 >
                   <ChevronLeft className="h-3.5 w-3.5 mr-1" />
-                  <span>Prev</span>
+                  <span>Пред.</span>
                 </Button>
 
                 <div className="flex items-center gap-1.5">
@@ -979,7 +979,7 @@ export function ToolCallSidePanel({
                   disabled={displayIndex >= displayTotalCalls - 1}
                   className="h-8 px-2.5 text-xs"
                 >
-                  <span>Next</span>
+                  <span>След.</span>
                   <ChevronRight className="h-3.5 w-3.5 ml-1" />
                 </Button>
               </div>
@@ -1039,6 +1039,7 @@ export function ToolCallSidePanel({
                     disabled={displayIndex >= displayTotalCalls - 1}
                     className="h-7 w-7 text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
                   >
+                    <span>След.</span>
                     <ChevronRight className="h-4 w-4" />
                   </Button>
                 </div>

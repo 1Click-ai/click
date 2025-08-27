@@ -39,14 +39,14 @@ export function KortixEnterpriseModal({
   }, []);
 
   const benefits = [
-    "Dedicated solution architect assigned",
-    "Enterprise-grade security & compliance",
-    "Custom integration with existing systems",
-    "Comprehensive team training included",
-    "Priority support & ongoing optimization",
-    "Scalable architecture for growth",
-    "Performance monitoring & analytics",
-    "100% satisfaction guarantee"
+    "Персональный архитектор решений",
+    "Корпоративная безопасность и соответствие стандартам",
+    "Кастомная интеграция с существующими системами",
+    "Комплексное обучение команды",
+    "Приоритетная поддержка и постоянная оптимизация",
+    "Масштабируемая архитектура для роста",
+    "Мониторинг производительности и аналитика",
+    "100% гарантия удовлетворенности"
   ];
 
   return (
@@ -56,7 +56,7 @@ export function KortixEnterpriseModal({
       </DialogTrigger>
       <DialogContent className="p-0 gap-0 border-none max-w-[90vw] lg:max-w-[80vw] xl:max-w-[70vw] rounded-xl overflow-hidden">
         <DialogTitle className="sr-only">
-          Enterprise AI Implementation - Schedule Consultation
+Корпоративное внедрение ИИ - Запланировать консультацию
         </DialogTitle>
         <div className="grid grid-cols-1 lg:grid-cols-2 h-[700px] lg:h-[800px]">
           {/* Enhanced Info Panel */}
@@ -65,7 +65,7 @@ export function KortixEnterpriseModal({
               <div className="mb-6 flex-shrink-0">
                 <Image
                   src={isDarkMode ? '/kortix-logo-white.svg' : '/kortix-logo.svg'}
-                  alt="Kortix Logo"
+                  alt="Логотип КЛИК"
                   width={80}
                   height={28}
                   className="h-7 w-auto"
@@ -75,19 +75,19 @@ export function KortixEnterpriseModal({
               <div className="mb-6 flex-shrink-0">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 mb-4">
                   <div className="w-2 h-2 rounded-full bg-primary"></div>
-                  <span className="text-xs font-medium text-primary">Enterprise Implementation</span>
+                  <span className="text-xs font-medium text-primary">Корпоративное внедрение</span>
                 </div>
                 
                 <h2 className="text-2xl lg:text-3xl font-semibold tracking-tight mb-3 text-foreground">
-                  Let's Design Your Custom AI Solution
+Создадим ваше ИИ-решение
                 </h2>
                 <p className="text-base lg:text-lg text-muted-foreground mb-6 leading-relaxed">
-                  Schedule a strategy session with our solution architects to explore how custom AI workers can transform your specific business processes and workflows.
+Запланируйте стратегическую сессию с нашими архитекторами решений, чтобы исследовать, как кастомные ИИ-агенты могут трансформировать ваши бизнес-процессы.
                 </p>
               </div>
 
               <div className="border-t border-gray-200 dark:border-gray-800 pt-6 flex-1">
-                <h3 className="text-lg font-semibold mb-4 text-foreground">What's Included</h3>
+                <h3 className="text-lg font-semibold mb-4 text-foreground">Что включено</h3>
                 <div className="space-y-3">
                   {benefits.map((benefit, index) => (
                     <div key={index} className="flex items-start gap-3">
@@ -104,10 +104,10 @@ export function KortixEnterpriseModal({
                 <div className="text-center space-y-2">
                   <div className="flex items-center justify-center gap-2 text-sm font-medium text-foreground">
                     <Calendar className="w-4 h-4 text-primary" />
-                    <span>Free Strategy Session</span>
+                    <span>Бесплатная стратегическая сессия</span>
                   </div>
                   <p className="text-xs text-muted-foreground">
-                    30-minute consultation • No commitment required
+30-минутная консультация • Никаких обязательств
                   </p>
                 </div>
               </div>

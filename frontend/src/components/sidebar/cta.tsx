@@ -7,17 +7,17 @@ export function CTACard() {
       <div className="flex flex-col space-y-4">
         <div className="flex flex-col">
           <span className="text-sm font-medium text-foreground">
-            Enterprise Demo
+            Для корпоративных клиентов
           </span>
           <span className="text-xs text-muted-foreground mt-0.5">
-          Request custom AI Agents implementation
+          Запросите индивидуальную настройку ИИ агентов
           </span>
         </div>
 
         <div>
           <KortixProcessModal>
             <Button className="w-full">
-              Learn more
+              Узнать больше
             </Button>
           </KortixProcessModal>
         </div>

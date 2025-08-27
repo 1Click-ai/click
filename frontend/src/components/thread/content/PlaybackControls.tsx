@@ -428,7 +428,7 @@ export const PlaybackControls = ({
         size="icon"
         onClick={togglePlayback}
         className="h-8 w-8"
-        aria-label={isPlaying ? 'Pause Replay' : 'Play Replay'}
+        aria-label={isPlaying ? 'Приостановить воспроизведение' : 'Начать воспроизведение'}
       >
         {isPlaying ? (
           <Pause className="h-4 w-4" />
@@ -463,7 +463,7 @@ export const PlaybackControls = ({
         disabled={currentMessageIndex === 0}
         onClick={resetPlayback}
         className="h-8 w-8"
-        aria-label="Restart Replay"
+        aria-label="Начать воспроизведение заново"
       >
         <ArrowDown className="h-4 w-4 rotate-90" />
       </Button>
@@ -482,7 +482,7 @@ export const PlaybackControls = ({
                 <Link href="/">
                   <img
                     src="/kortix-symbol.svg"
-                    alt="MEVO"
+                    alt="КЛИК"
                     width={16}
                     height={16}
                     className="object-contain"
@@ -505,7 +505,7 @@ export const PlaybackControls = ({
               size="icon"
               onClick={onToggleSidePanel}
               className={`h-8 w-8 ${isSidePanelOpen ? 'text-primary' : ''}`}
-              aria-label="Toggle Tool Panel"
+              aria-label="Переключить панель инструментов"
             >
               <PanelRightOpen className="h-4 w-4" />
             </Button>
@@ -546,7 +546,7 @@ export const PlaybackControls = ({
                 onClick={skipToEnd}
                 className="text-xs"
               >
-                Skip to end
+                Пропустить до конца
               </Button>
             </div>
           </div>
@@ -578,11 +578,10 @@ export const PlaybackControls = ({
                 <Play className="h-5 w-5 text-primary" />
               </div>
               <h3 className="text-lg font-medium mb-2 text-white">
-                Watch this agent in action
+                Посмотрите на этого агента в действии
               </h3>
               <p className="text-sm text-white/80 mb-4">
-                This is a shared view-only agent run. Click play to replay the
-                entire conversation with realistic timing.
+                Это общий запуск агента только для просмотра. Нажмите кнопку воспроизведения, чтобы воспроизвести весь разговор с реалистичным временем.
               </p>
               <Button
                 onClick={togglePlayback}
@@ -591,7 +590,7 @@ export const PlaybackControls = ({
                 variant="outline"
               >
                 <Play className="h-4 w-4 mr-2" />
-                Start Playback
+                Начать воспроизведение
               </Button>
             </div>
           </div>

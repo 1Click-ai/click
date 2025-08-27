@@ -50,20 +50,20 @@ export const MarketplaceTab = ({
     <div className="space-y-6 mt-8 flex flex-col min-h-full">
       <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between mb-6">
         <SearchBar
-          placeholder="Search agents..."
+          placeholder="Поиск ИИ-агентов..."
           value={marketplaceSearchQuery}
           onChange={setMarketplaceSearchQuery}
         />
         <div className="flex items-center gap-3">
           <Select value={marketplaceFilter} onValueChange={(value: 'all' | 'kortix' | 'community' | 'mine') => setMarketplaceFilter(value)}>
             <SelectTrigger className="w-[180px] h-12 rounded-xl">
-              <SelectValue placeholder="Filter agents" />
+              <SelectValue placeholder="Фильтр ИИ-агентов" />
             </SelectTrigger>
             <SelectContent className='rounded-xl'>
-              <SelectItem className='rounded-xl' value="all">All Agents</SelectItem>
-              <SelectItem className='rounded-xl' value="mine">Mine</SelectItem>
+              <SelectItem className='rounded-xl' value="all">Все агенты</SelectItem>
+              <SelectItem className='rounded-xl' value="mine">Мои</SelectItem>
               {/* <SelectItem className='rounded-xl' value="kortix">Kortix Verified</SelectItem> */}
-              <SelectItem className='rounded-xl' value="community">Community</SelectItem>
+              <SelectItem className='rounded-xl' value="community">Сообщество</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -90,18 +90,18 @@ export const MarketplaceTab = ({
           <div className="text-center py-12">
             <p className="text-muted-foreground">
               {marketplaceSearchQuery 
-                ? "No templates found matching your criteria. Try adjusting your search or filters."
-                : "No agent templates are currently available in the marketplace."}
+                ? "Нет шаблонов, соответствующих вашим критериям. Попробуйте изменить параметры поиска или фильтры."
+                : "В настоящее время в торговой площадке нет доступных шаблонов агентов."}
             </p>
           </div>
         ) : (
           <div className="space-y-12">
             {marketplaceFilter === 'all' ? (
               <div className="space-y-6">
-                {/* <MarketplaceSectionHeader
-                  title="Popular Agents"
-                  subtitle="Sorted by popularity - most downloads first"
-                /> */}
+                <MarketplaceSectionHeader
+                  title="Популярные ИИ-агенты"
+                  subtitle="Отсортировано по популярности - сначала самые загружаемые"
+                />
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                   {allMarketplaceItems.map((item) => (
                     <AgentCard

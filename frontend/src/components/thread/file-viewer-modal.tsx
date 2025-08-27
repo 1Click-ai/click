@@ -1225,7 +1225,7 @@ export function FileViewerModal({
                     ) : (
                       <Copy className="h-4 w-4" />
                     )}
-                    <span className="hidden sm:inline">Copy</span>
+                    <span className="hidden sm:inline">Копировать</span>
                   </Button>
                 )}
 
@@ -1241,7 +1241,7 @@ export function FileViewerModal({
                   ) : (
                     <Download className="h-4 w-4" />
                   )}
-                  <span className="hidden sm:inline">Download</span>
+                  <span className="hidden sm:inline">Скачать</span>
                 </Button>
 
                 {/* Replace the Export as PDF button with a dropdown */}
@@ -1318,7 +1318,7 @@ export function FileViewerModal({
                   ) : (
                     <Upload className="h-4 w-4" />
                   )}
-                  <span className="hidden sm:inline">Upload</span>
+                  <span className="hidden sm:inline">Загрузить</span>
                 </Button>
               </>
             )}

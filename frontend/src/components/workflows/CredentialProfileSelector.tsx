@@ -150,10 +150,10 @@ const InlineCreateProfileDialog: React.FC<InlineCreateProfileDialogProps> = ({
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <Key className="h-5 w-5 text-primary" />
-            Create Credential Profile
+            Создать профиль учетных данных
           </DialogTitle>
           <DialogDescription>
-            Create a new credential profile for <strong>{mcpDisplayName}</strong>
+            Создайте новый профиль учетных данных для <strong>{mcpDisplayName}</strong>
           </DialogDescription>
         </DialogHeader>
 
@@ -184,7 +184,7 @@ const InlineCreateProfileDialog: React.FC<InlineCreateProfileDialogProps> = ({
                 <div className="space-y-4">
                   <h3 className="text-sm font-semibold flex items-center gap-2">
                     <Settings className="h-4 w-4" />
-                    Connection Settings
+                    Настройки подключения
                   </h3>
                   {Object.entries(configProperties).map(([key, schema]: [string, any]) => (
                     <div key={key} className="space-y-2">
@@ -211,7 +211,7 @@ const InlineCreateProfileDialog: React.FC<InlineCreateProfileDialogProps> = ({
                 <Alert>
                   <Key className="h-4 w-4" />
                   <AlertDescription>
-                    This MCP server doesn't require any API credentials to use.
+                    Этот MCP сервер не требует никаких учетных данных для использования.
                   </AlertDescription>
                 </Alert>
               )}
@@ -219,7 +219,7 @@ const InlineCreateProfileDialog: React.FC<InlineCreateProfileDialogProps> = ({
               <Alert>
                 <Shield className="h-4 w-4" />
                 <AlertDescription>
-                  Your credentials will be encrypted and stored securely. You can create multiple profiles for the same MCP server to handle different use cases.
+                  Ваши учетные данные будут зашифрованы и безопасно храниться. Вы можете создать несколько профилей для одного и того же MCP сервера для разных случаев использования.
                 </AlertDescription>
               </Alert>
             </div>
@@ -228,7 +228,7 @@ const InlineCreateProfileDialog: React.FC<InlineCreateProfileDialogProps> = ({
 
         <DialogFooter>
           <Button variant="outline" onClick={() => onOpenChange(false)}>
-            Cancel
+            Отмена
           </Button>
           <Button 
             onClick={handleSubmit}
@@ -237,12 +237,12 @@ const InlineCreateProfileDialog: React.FC<InlineCreateProfileDialogProps> = ({
             {createProfileMutation.isPending ? (
               <>
                 <Loader2 className="h-4 w-4 animate-spin" />
-                Creating...
+                Создание...
               </>
             ) : (
               <>
                 <Plus className="h-4 w-4" />
-                Create Profile
+                Создать профиль
               </>
             )}
           </Button>

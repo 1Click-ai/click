@@ -25,7 +25,7 @@ export function CTASection() {
               >
                 {ctaSection.button.text}
               </Link>
-              <span className="text-white text-sm">{ctaSection.subtext}</span>
+              {/* <span className="text-white text-sm">{ctaSection.subtext}</span> */}
             </div>
           </div>
           </div>

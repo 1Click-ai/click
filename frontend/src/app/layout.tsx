@@ -33,25 +33,28 @@ export const metadata: Metadata = {
     template: `%s - ${siteConfig.name}`,
   },
   description:
-    'MEVO is an enterprise-grade AI assistant that helps you accomplish real-world tasks with ease. Through natural conversation, MEVO becomes your digital companion for research, data analysis, and everyday challenges.',
+    'КЛИК — это корпоративный ИИ-агент, который помогает вам легко решать реальные задачи. Посредством естественного общения КЛИК становится вашим цифровым компаньоном для исследований, анализа данных и ежедневных задач.',
   keywords: [
+    'КЛИК',
+    'ИИ',
+    'Искусственный интеллект',
+    'Автоматизация браузера',
+    'Парсинг веб-сайтов',
+    'Управление файлами',
+    'ИИ-агент',
+    'Открытый код',
+    'Исследования',
+    'Анализ данных',
     'AI',
     'artificial intelligence',
-    'browser automation',
-    'web scraping',
-    'file management',
-    'AI assistant',
-    'open source',
-    'research',
-    'data analysis',
   ],
-  authors: [{ name: 'MEVO', url: 'https://mevoagent.com' }],
+  authors: [{ name: 'КЛИК', url: 'https://klikagent.com' }],
   creator:
-    'MEVO',
+    'КЛИК',
   publisher:
-    'MEVO',
-  category: 'Technology',
-  applicationName: 'MEVO',
+    'КЛИК',
+  category: 'Технологии',
+  applicationName: 'КЛИК',
   formatDetection: {
     telephone: false,
     email: false,
@@ -66,28 +69,28 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'MEVO - Enterprise-Grade General AI Agent',
+    title: 'КЛИК - Универсальный ИИ-Агент',
     description:
-      'MEVO is an enterprise-grade AI assistant that helps you accomplish real-world tasks with ease through natural conversation.',
+      'КЛИК — это корпоративный ИИ-агент, который помогает вам легко решать реальные задачи посредством естественного общения.',
     url: siteConfig.url,
-    siteName: 'MEVO',
+    siteName: 'КЛИК',
     images: [
       {
         url: '/banner.png',
         width: 1200,
         height: 630,
-        alt: 'MEVO - Enterprise-Grade General AI Agent',
+        alt: 'КЛИК - Универсальный ИИ-Агент',
         type: 'image/png',
       },
     ],
-    locale: 'en_US',
+    locale: 'ru_RU',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'MEVO - Enterprise-Grade General AI Agent',
+    title: 'КЛИК - Универсальный ИИ-Агент',
     description:
-      'MEVO is an enterprise-grade AI assistant that helps you accomplish real-world tasks with ease through natural conversation.',
+      'КЛИК — это корпоративный ИИ-агент, который помогает вам легко решать реальные задачи посредством естественного общения.',
     creator: '@kortixai',
     site: '@kortixai',
     images: [
@@ -95,7 +98,7 @@ export const metadata: Metadata = {
         url: '/banner.png',
         width: 1200,
         height: 630,
-        alt: 'MEVO - Enterprise-Grade General AI Agent',
+        alt: 'КЛИК - Универсальный ИИ-Агент'
       },
     ],
   },
@@ -115,7 +118,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="ru" suppressHydrationWarning>
       <head>
         {/* Google Tag Manager */}
         <Script id="google-tag-manager" strategy="afterInteractive">

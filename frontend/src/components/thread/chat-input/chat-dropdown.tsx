@@ -34,8 +34,8 @@ const ChatDropdown = () => {
                     }}
                 >
                     <div className="flex items-center gap-2">
-                        {/* <Image src="/kortix-symbol.svg" alt="MEVO" width={16} height={16} className="h-4 w-4 dark:invert" /> */}
-                        <span>MEVO Default Agent</span>
+                        {/* <Image src="/kortix-symbol.svg" alt="КЛИК" width={16} height={16} className="h-4 w-4 dark:invert" /> */}
+                        <span>ИИ-агент по умолчанию</span>
                         <ChevronDown size={14} className="opacity-50" />
                     </div>
                 </Button>
@@ -54,8 +54,8 @@ const ChatDropdown = () => {
                 >
                     <User size={18} />
                     <div className="flex flex-col">
-                        <span className="font-semibold text-sm">MEVO Default Agent</span>
-                        <span className="text-xs text-muted-foreground">Default</span>
+                        <span className="font-semibold text-sm">Агент по умолчанию</span>
+                        <span className="text-xs text-muted-foreground">По умолчанию</span>
                     </div>
                 </DropdownMenuItem>
 
@@ -64,24 +64,24 @@ const ChatDropdown = () => {
                     <DropdownMenuItem className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-accent border-b m-0">
                         <Bot size={18} />
                         <div className="flex flex-col">
-                            <span className="font-semibold text-sm">Code Assistant</span>
-                            <span className="text-xs text-muted-foreground">Help with coding</span>
+                            <span className="font-semibold text-sm">Помощник по коду</span>
+                            <span className="text-xs text-muted-foreground">Помощь с кодированием</span>
                         </div>
                     </DropdownMenuItem>
 
                     <DropdownMenuItem className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-accent border-b m-0">
                         <Zap size={18} />
                         <div className="flex flex-col">
-                            <span className="font-semibold text-sm">Quick Writer</span>
-                            <span className="text-xs text-muted-foreground">Fast content creation</span>
+                            <span className="font-semibold text-sm">Быстрый писатель</span>
+                            <span className="text-xs text-muted-foreground">Быстрое создание контента</span>
                         </div>
                     </DropdownMenuItem>
 
                     <DropdownMenuItem className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-accent m-0">
                         <FileText size={18} />
                         <div className="flex flex-col">
-                            <span className="font-semibold text-sm">Document Helper</span>
-                            <span className="text-xs text-muted-foreground">Analyze documents</span>
+                            <span className="font-semibold text-sm">Помощник по документам</span>
+                            <span className="text-xs text-muted-foreground">Анализировать документы</span>
                         </div>
                     </DropdownMenuItem>
 
@@ -91,7 +91,7 @@ const ChatDropdown = () => {
                             <div className="rounded-xl bg-gradient-to-br from-slate-50/80 to-slate-100/70 dark:from-slate-900/40 dark:to-slate-800/30 shadow-sm border border-slate-200/50 dark:border-slate-700/50 p-3">
                                 <div className="flex items-center justify-center">
                                     <Lock className="h-4 w-4 text-slate-500 mr-2 flex-shrink-0" />
-                                    <p className="text-sm font-medium">Login to explore all agents</p>
+                                    <p className="text-sm font-medium">Войдите, чтобы исследовать всех агентов</p>
                                 </div>
                             </div>
                         </div>

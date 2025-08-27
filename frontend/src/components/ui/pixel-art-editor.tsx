@@ -248,11 +248,11 @@ export const PixelArtEditor: React.FC<PixelArtEditorProps> = ({
           </Button>
           <div className="flex gap-2">
             <Button variant="outline" onClick={onCancel}>
-              Cancel
+              Отмена
             </Button>
             <Button onClick={handleSave}>
               <Save className="h-4 w-4" />
-              Save
+              Сохранить
             </Button>
           </div>
         </div>

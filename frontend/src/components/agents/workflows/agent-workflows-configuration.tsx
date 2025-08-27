@@ -141,7 +141,7 @@ export function AgentWorkflowsConfiguration({ agentId, agentName }: AgentWorkflo
           disabled={createWorkflowMutation.isPending}
         >
           <Plus className="h-4 w-4" />
-          {createWorkflowMutation.isPending ? 'Creating...' : 'Create Workflow'}
+          {createWorkflowMutation.isPending ? 'Создание...' : 'Создать рабочий процесс'}
         </Button>
       </div>
 
@@ -157,16 +157,16 @@ export function AgentWorkflowsConfiguration({ agentId, agentName }: AgentWorkflo
               </div>
             ) : workflows.length === 0 ? (
               <div className="text-center py-12 px-6 bg-muted/30 rounded-xl border-2 border-dashed border-border">
-                <div className="mx-auto w-12 h-12 bg-muted rounded-full flex items-center justify-center mb-4 border">
+                <div className="w-16 h-16 bg-muted rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <Workflow className="h-8 w-8 text-muted-foreground" />
                 </div>
-                <h3 className="text-sm font-semibold mb-2">No Agent Playbooks</h3>
+                <h3 className="text-sm font-semibold mb-2">Нет шаблонов агента</h3>
                 <p className="text-muted-foreground mb-6 max-w-sm mx-auto">
-                  Create playbook to automate tasks and streamline your agent's operations.
+                  Создайте шаблон для автоматизации задач и оптимизации операций вашего агента.
                 </p>
               </div>
             ) : (
-              <div className="grid gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {workflows.map((workflow) => (
                   <div key={workflow.id} className="group">
                     <Card
@@ -178,7 +178,7 @@ export function AgentWorkflowsConfiguration({ agentId, agentName }: AgentWorkflo
                           <h4 className="text-lg font-semibold">{workflow.name}</h4>
                           <div className="flex items-center space-x-2 mt-2">
                             {getStatusBadge(workflow.status)}
-                            {workflow.is_default && <Badge variant="outline">Default</Badge>}
+                            {workflow.is_default && <Badge variant="outline">По умолчанию</Badge>}
                           </div>
                           <p className="mt-3 text-sm text-muted-foreground">{workflow.description}</p>
                           <div className="flex items-center text-xs mt-4">
@@ -197,7 +197,7 @@ export function AgentWorkflowsConfiguration({ agentId, agentName }: AgentWorkflo
                             disabled={workflow.status !== 'active'}
                           >
                             <Play className="h-4 w-4" />
-                            Execute
+                            Выполнить
                           </Button>
                           <Button
                             variant="ghost"
@@ -210,6 +210,7 @@ export function AgentWorkflowsConfiguration({ agentId, agentName }: AgentWorkflo
                             className="text-red-600 hover:text-red-700 hover:bg-red-50"
                           >
                             <Trash2 className="h-4 w-4" />
+                            Удалить
                           </Button>
                         </div>
                       </div>
@@ -232,19 +233,19 @@ export function AgentWorkflowsConfiguration({ agentId, agentName }: AgentWorkflo
       <AlertDialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Delete Playbook</AlertDialogTitle>
+            <AlertDialogTitle>Удалить шаблон</AlertDialogTitle>
             <AlertDialogDescription>
-              Are you sure you want to delete playbook {workflowToDelete?.name}? This action cannot be undone.
+              Вы уверены, что хотите удалить шаблон {workflowToDelete?.name}? Это действие невозможно отменить.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel>Отмена</AlertDialogCancel>
             <AlertDialogAction 
               onClick={handleConfirmDelete}
               className="bg-red-600 hover:bg-red-700"
               disabled={deleteWorkflowMutation.isPending}
             >
-              {deleteWorkflowMutation.isPending ? 'Deleting...' : 'Delete'}
+              {deleteWorkflowMutation.isPending ? 'Удаление...' : 'Удалить'}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
