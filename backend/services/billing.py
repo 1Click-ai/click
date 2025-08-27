@@ -18,6 +18,7 @@ from services.supabase import DBConnection
 from utils.auth_utils import get_current_user_id_from_jwt
 from pydantic import BaseModel
 from models import model_manager
+from models.registry import registry
 from litellm.cost_calculator import cost_per_token
 import time
 import json
@@ -644,6 +645,19 @@ async def get_usage_logs(client, user_id: str, page: int = 0, items_per_page: in
                 except Exception as project_error:
                     logger.warning(f"[USAGE_LOGS] user_id={user_id} - Error extracting project_id for message {message_id}: {str(project_error)}")
                 
+                # Get display name from registry, fallback to cleaned model name
+                model_display_name = model
+                try:
+                    model_from_registry = registry.get(model)
+                    if model_from_registry and model_from_registry.name:
+                        model_display_name = model_from_registry.name
+                    else:
+                        # Fallback to the old string replacement method if not in registry
+                        model_display_name = model.replace('openrouter/', '').replace('anthropic/', '')
+                except Exception as registry_error:
+                    logger.warning(f"[USAGE_LOGS] user_id={user_id} - Error getting model from registry for {model}: {str(registry_error)}")
+                    model_display_name = model.replace('openrouter/', '').replace('anthropic/', '')
+                
                 # Check if credits were used for this message
                 credit_used = credit_usage_map.get(message_id, {})
                 
@@ -667,7 +681,7 @@ async def get_usage_logs(client, user_id: str, page: int = 0, items_per_page: in
                             'prompt_tokens': int(prompt_tokens),
                             'completion_tokens': int(completion_tokens)
                         },
-                        'model': str(model)
+                        'model': str(model_display_name)
                     },
                     'total_tokens': int(total_tokens),
                     'estimated_cost': float(estimated_cost),
