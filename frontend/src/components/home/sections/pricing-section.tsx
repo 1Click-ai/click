@@ -3,6 +3,7 @@
 import { SectionHeader } from '@/components/home/section-header';
 import type { PricingTier } from '@/lib/home';
 import { siteConfig } from '@/lib/home';
+import { extractPriceFromTierName, config } from '@/lib/config';
 import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
 import React, { useState, useEffect, useCallback } from 'react';
@@ -134,10 +135,11 @@ function PricingTier({
   // Determine the price to display based on billing period
   const getDisplayPrice = () => {
     if (billingPeriod === 'yearly_commitment' && tier.monthlyCommitmentStripePriceId) {
-      // Calculate the yearly commitment price (15% off regular monthly)
-      const regularPrice = parseFloat(tier.price.slice(0, -1)); // Remove ₽ symbol
-      const discountedPrice = Math.round(regularPrice * 0.85);
-      return `${discountedPrice.toLocaleString('ru-RU')}₽`;
+      // Extract price directly from config tier name
+      const commitmentTier = Object.values(config.SUBSCRIPTION_TIERS).find(
+        (t: any) => t.priceId === tier.monthlyCommitmentStripePriceId
+      );
+      return commitmentTier ? extractPriceFromTierName(commitmentTier.name) : tier.price;
     } else if (billingPeriod === 'yearly' && tier.yearlyPrice) {
       // Legacy yearly plans (hidden from UI but still accessible)
       return tier.yearlyPrice;

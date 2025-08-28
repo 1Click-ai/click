@@ -121,6 +121,12 @@ const PROD_TIERS: SubscriptionTiers = {
   },
 } as const;
 
+// Helper function to extract price from tier name
+export function extractPriceFromTierName(tierName: string): string {
+  const match = tierName.match(/(\d+₽)/);
+  return match ? match[1] : '0₽';
+}
+
 // Staging tier IDs
 const STAGING_TIERS: SubscriptionTiers = {
   FREE: {

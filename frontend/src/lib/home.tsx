@@ -6,7 +6,7 @@ import { FlickeringGrid } from '@/components/home/ui/flickering-grid';
 import { Globe } from '@/components/home/ui/globe';
 import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
-import { config } from '@/lib/config';
+import { config, extractPriceFromTierName } from '@/lib/config';
 
 export const Highlight = ({
   children,
@@ -136,7 +136,7 @@ export const siteConfig = {
     },
     {
       name: 'Плюс',
-      price: '1599₽',
+      price: extractPriceFromTierName(config.SUBSCRIPTION_TIERS.TIER_2_20.name),
       yearlyPrice: '16320₽',
       originalYearlyPrice: '19200₽',
       discountPercentage: 15,
@@ -160,7 +160,7 @@ export const siteConfig = {
     },
     {
       name: 'Про',
-      price: '3999₽',
+      price: extractPriceFromTierName(config.SUBSCRIPTION_TIERS.TIER_6_50.name),
       yearlyPrice: '40800₽',
       originalYearlyPrice: '48000₽',
       discountPercentage: 15,
@@ -207,7 +207,7 @@ export const siteConfig = {
     },
     {
       name: 'Ультра',
-      price: '15999₽',
+      price: extractPriceFromTierName(config.SUBSCRIPTION_TIERS.TIER_25_200.name),
       yearlyPrice: '163200₽',
       originalYearlyPrice: '192000₽',
       discountPercentage: 15,
