@@ -380,7 +380,7 @@ export default function PricingPage() {
                             <span className="text-muted-foreground">Стоимость:</span>
                             {calculatedCost !== null ? (
                               <span className="text-blue-600">
-                                ${calculatedCost.toFixed(2)}
+                                {Math.round(calculatedCost * 80).toLocaleString('ru-RU')}₽
                               </span>
                             ) : (
                               <span className="text-muted-foreground">

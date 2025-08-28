@@ -51,31 +51,31 @@ const PROD_TIERS: SubscriptionTiers = {
   },
   TIER_2_20: {
     priceId: 'price_1Rskv5PA6ngq7HqUE4yuvihy',
-    name: '2h/$20',
+    name: '2ч/1599₽',
   },
   TIER_6_50: {
     priceId: 'price_1Rskv5PA6ngq7HqU75HMYmgX',
-    name: '6h/$50',
+    name: '6ч/3999₽',
   },
   TIER_12_100: {
     priceId: 'price_1Rskv5PA6ngq7HqUpY1Vuho6',
-    name: '12h/$100',
+    name: '12ч/7999₽',
   },
   TIER_25_200: {
     priceId: 'price_1Rskv5PA6ngq7HqUoSqcENlm',
-    name: '25h/$200',
+    name: '25ч/15999₽',
   },
   TIER_50_400: {
     priceId: 'price_1Rskv5PA6ngq7HqUUajSvBqN',
-    name: '50h/$400',
+    name: '50ч/31999₽',
   },
   TIER_125_800: {
     priceId: 'price_1Rskv5PA6ngq7HqUkdrI3lUh',
-    name: '125h/$800',
+    name: '125ч/63999₽',
   },
   TIER_200_1000: {
     priceId: 'price_1Rskv5PA6ngq7HqUS0E9z6Qr',
-    name: '200h/$1000',
+    name: '200ч/79999₽',
   },
   // Legacy yearly plans with 15% discount (12x monthly price with 15% off)
   TIER_2_20_YEARLY: {
@@ -109,15 +109,15 @@ const PROD_TIERS: SubscriptionTiers = {
   // Yearly commitment plans (15% discount, monthly payments with 12-month commitment)
   TIER_2_17_YEARLY_COMMITMENT: {
     priceId: 'price_1Rskv4PA6ngq7HqUw2QZ7b1h',
-    name: '2h/$17/month (yearly)',
+    name: '2ч/1359₽/мес (годовой)',
   },
   TIER_6_42_YEARLY_COMMITMENT: {
     priceId: 'price_1Rskv4PA6ngq7HqU0HxMUEMP',
-    name: '6h/$42.50/month (yearly)',
+    name: '6ч/3399₽/мес (годовой)',
   },
   TIER_25_170_YEARLY_COMMITMENT: {
     priceId: 'price_1Rskv4PA6ngq7HqUyHmxD6Lm',
-    name: '25h/$170/month (yearly)',
+    name: '25ч/13599₽/мес (годовой)',
   },
 } as const;
 

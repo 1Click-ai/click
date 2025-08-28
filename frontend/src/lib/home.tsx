@@ -117,7 +117,7 @@ export const siteConfig = {
   cloudPricingItems: [
     {
       name: 'Бесплатный',
-      price: '$0',
+      price: '0₽',
       description: 'Идеально для начала работы',
       buttonText: 'Начать бесплатно',
       buttonColor: 'bg-secondary text-white',
@@ -125,7 +125,7 @@ export const siteConfig = {
       /** @deprecated */
       hours: '60 min',
       features: [
-        'Включено $10 бесплатных токенов ИИ',
+        'Включено 800₽ бесплатных токенов ИИ',
         '5 настраиваемых агентов',
         'Публичные проекты',
         'Базовые модели',
@@ -136,9 +136,9 @@ export const siteConfig = {
     },
     {
       name: 'Плюс',
-      price: '$20',
-      yearlyPrice: '$204',
-      originalYearlyPrice: '$240',
+      price: '1599₽',
+      yearlyPrice: '16320₽',
+      originalYearlyPrice: '19200₽',
       discountPercentage: 15,
       description: 'Лучше всего для отдельных лиц и небольших команд',
       buttonText: 'Начать бесплатно',
@@ -160,7 +160,7 @@ export const siteConfig = {
     },
     {
       name: 'Про',
-      price: '$50',
+      price: '3999₽',
       yearlyPrice: '$510',
       originalYearlyPrice: '$600',
       discountPercentage: 15,
@@ -184,7 +184,7 @@ export const siteConfig = {
     },
     {
       name: 'Бизнес',
-      price: '$100',
+      price: '7999₽',
       yearlyPrice: '$1020',
       originalYearlyPrice: '$1200',
       discountPercentage: 15,
@@ -207,7 +207,7 @@ export const siteConfig = {
     },
     {
       name: 'Ультра',
-      price: '$200',
+      price: '15999₽',
       yearlyPrice: '$2040',
       originalYearlyPrice: '$2400',
       discountPercentage: 15,
@@ -230,7 +230,7 @@ export const siteConfig = {
     },
     {
       name: 'Крупный бизнес',
-      price: '$400',
+      price: '31999₽',
       yearlyPrice: '$4080',
       originalYearlyPrice: '$4800',
       discountPercentage: 15,
@@ -253,7 +253,7 @@ export const siteConfig = {
     },
     {
       name: 'Масштаб',
-      price: '$800',
+      price: '63999₽',
       yearlyPrice: '$8160',
       originalYearlyPrice: '$9600',
       discountPercentage: 15,
@@ -277,7 +277,7 @@ export const siteConfig = {
     },
     {
       name: 'Макс',
-      price: '$1000',
+      price: '79999₽',
       yearlyPrice: '$10200',
       originalYearlyPrice: '$12000',
       discountPercentage: 15,

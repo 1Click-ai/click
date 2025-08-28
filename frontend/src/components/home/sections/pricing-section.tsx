@@ -137,7 +137,8 @@ function PricingTier({
       // Calculate the yearly commitment price (15% off regular monthly)
       const regularPrice = parseFloat(tier.price.slice(1));
       const discountedPrice = Math.round(regularPrice * 0.85);
-      return `$${discountedPrice}`;
+      const rublePrice = Math.round(discountedPrice * 80); // USD to RUB conversion
+      return `${rublePrice.toLocaleString('ru-RU')}₽`;
     } else if (billingPeriod === 'yearly' && tier.yearlyPrice) {
       // Legacy yearly plans (hidden from UI but still accessible)
       return tier.yearlyPrice;
@@ -437,7 +438,7 @@ function PricingTier({
               <div className="flex items-baseline gap-2">
                 <PriceDisplay price={displayPrice} isCompact={insideDialog} />
                 <span className="text-xs line-through text-muted-foreground">
-                  ${tier.price.slice(1)}
+                  {Math.round(parseFloat(tier.price.slice(1)) * 80).toLocaleString('ru-RU')}₽
                 </span>
               </div>
               <div className="flex items-center gap-1 mt-1">
@@ -448,10 +449,10 @@ function PricingTier({
           ) : billingPeriod === 'yearly' && tier.yearlyPrice && displayPrice !== '$0' ? (
             <div className="flex flex-col">
               <div className="flex items-baseline gap-2">
-                <PriceDisplay price={`${Math.round(parseFloat(tier.yearlyPrice.slice(1)) / 12)}`} isCompact={insideDialog} />
+                <PriceDisplay price={`${Math.round(parseFloat(tier.yearlyPrice.slice(1)) / 12 * 80).toLocaleString('ru-RU')}₽`} isCompact={insideDialog} />
                 {tier.discountPercentage && (
                   <span className="text-xs line-through text-muted-foreground">
-                    ${Math.round(parseFloat(tier.originalYearlyPrice?.slice(1) || '0') / 12)}
+                    {Math.round(parseFloat(tier.originalYearlyPrice?.slice(1) || '0') / 12 * 80).toLocaleString('ru-RU')}₽
                   </span>
                 )}
               </div>

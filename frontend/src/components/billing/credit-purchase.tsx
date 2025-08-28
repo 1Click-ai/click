@@ -32,12 +32,12 @@ interface CreditPackage {
 }
 
 const CREDIT_PACKAGES: CreditPackage[] = [
-    { amount: 10, price: 10 },
-    { amount: 25, price: 25 },
-    { amount: 50, price: 50 },
-    { amount: 100, price: 100, popular: true },
-    { amount: 250, price: 250 },
-    { amount: 500, price: 500 },
+    { amount: 800, price: 10 },    // 10 USD = 800 RUB
+    { amount: 2000, price: 25 },   // 25 USD = 2000 RUB
+    { amount: 4000, price: 50 },   // 50 USD = 4000 RUB
+    { amount: 8000, price: 100, popular: true }, // 100 USD = 8000 RUB
+    { amount: 20000, price: 250 }, // 250 USD = 20000 RUB
+    { amount: 40000, price: 500 }, // 500 USD = 40000 RUB
 ];
 
 export function CreditPurchaseModal({ 
@@ -54,11 +54,11 @@ export function CreditPurchaseModal({
 
     const handlePurchase = async (amount: number) => {
         if (amount < 10) {
-            setError('Minimum purchase amount is $10');
+            setError('Minimum purchase amount is 800₽');
             return;
         }
         if (amount > 5000) {
-            setError('Maximum purchase amount is $5000');
+            setError('Maximum purchase amount is 400000₽');
             return;
         }
         setIsProcessing(true);
@@ -243,7 +243,7 @@ export function CreditBalanceDisplay({ balance, canPurchase, onPurchaseClick }: 
             </CardHeader>
             <CardContent>
                 <div className="text-2xl font-bold">
-                    ${balance.toFixed(2)}
+                    {Math.round(balance * 80).toLocaleString('ru-RU')}₽
                 </div>
                 <p className="text-xs text-muted-foreground mt-1">
                     {canPurchase 

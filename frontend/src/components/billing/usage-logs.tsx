@@ -81,14 +81,16 @@ export default function UsageLogs({ accountId }: Props) {
 
   const formatCost = (cost: number | string) => {
     if (typeof cost === 'string' || cost === 0) {
-      return typeof cost === 'string' ? cost : '$0.0000';
+      return typeof cost === 'string' ? cost : '0₽';
     }
-    return `$${cost.toFixed(4)}`;
+    const rubleAmount = (typeof cost === 'number' ? cost : parseFloat(cost)) * 80;
+    return `${Math.round(rubleAmount * 10000) / 10000}₽`;
   };
 
   const formatCreditAmount = (amount: number) => {
     if (amount === 0) return null;
-    return `$${amount.toFixed(4)}`;
+    const rubleAmount = amount * 80;
+    return `${Math.round(rubleAmount * 10000) / 10000}₽`;
   };
 
   const formatDateOnly = (dateString: string) => {
