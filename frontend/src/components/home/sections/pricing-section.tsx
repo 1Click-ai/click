@@ -95,7 +95,7 @@ function BillingPeriodToggle({
             )}
             onClick={() => setBillingPeriod('monthly')}
           >
-            Месячно
+            Ежемесячно
           </div>
           <div 
             className={cn("px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 flex items-center gap-1 cursor-pointer",
