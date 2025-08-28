@@ -460,7 +460,7 @@ export default function PricingPage() {
                         model.input_cost_per_million_tokens !== undefined ? (
                           <>
                             <div className="font-semibold text-foreground">
-                              ${model.input_cost_per_million_tokens.toFixed(2)}
+                              {(model.input_cost_per_million_tokens * 80).toFixed(2)}₽
                             </div>
                             <div className="text-xs text-muted-foreground">
                               за 1 млн токенов
@@ -481,7 +481,7 @@ export default function PricingPage() {
                         model.output_cost_per_million_tokens !== undefined ? (
                           <>
                             <div className="font-semibold text-foreground">
-                              ${model.output_cost_per_million_tokens.toFixed(2)}
+                              {(model.output_cost_per_million_tokens * 80).toFixed(2)}₽
                             </div>
                             <div className="text-xs text-muted-foreground">
                               за 1 млн токенов
