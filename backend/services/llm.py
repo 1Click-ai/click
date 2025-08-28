@@ -247,8 +247,9 @@ def _configure_thinking(params: Dict[str, Any], model_name: str, enable_thinking
     effort_level = reasoning_effort or 'low'
     is_anthropic = "anthropic" in model_name.lower() or "claude" in model_name.lower()
     is_xai = "xai" in model_name.lower() or model_name.startswith("xai/")
-    is_deepseek = "deepseek" in model_name.lower() or "custom" in model_name.lower()
+    is_deepseek = "deepseek" in model_name.lower() or "клик-профи" in model_name.lower()
     is_openai = "openai" in model_name.lower() or "gpt" in model_name.lower()
+    is_gemini = "gemini" in model_name.lower() or "клик-менеджер" in model_name.lower()
     
     if is_anthropic:
         params["reasoning_effort"] = effort_level
@@ -258,11 +259,15 @@ def _configure_thinking(params: Dict[str, Any], model_name: str, enable_thinking
         params["reasoning_effort"] = effort_level
         logger.info(f"xAI thinking enabled with reasoning_effort='{effort_level}'")
     elif is_deepseek:
-        params["reasoning_effort"] = effort_level
+        params["enabled"] = true
         logger.info(f"DeepSeek thinking enabled with reasoning_effort='{effort_level}'")
     elif is_openai:
         params["reasoning_effort"] = effort_level
         logger.info(f"OpenAI thinking enabled with reasoning_effort='{effort_level}'")
+    elif is_gemini:
+        params["max_tokens"] = 2000
+        params["enabled"] = true
+        logger.info(f"Gemini thinking enabled with reasoning_effort='{effort_level}'")
 
 def _add_fallback_model(params: Dict[str, Any], model_name: str, messages: List[Dict[str, Any]]) -> None:
     """Add fallback model to the parameters."""

@@ -1,8 +1,8 @@
 from typing import Dict, List, Optional, Set
 from .models import Model, ModelProvider, ModelCapability, ModelPricing
 
-DEFAULT_FREE_MODEL = "openrouter/google/gemini-2.5-flash"
-DEFAULT_PREMIUM_MODEL = "openrouter/google/gemini-2.5-flash"
+DEFAULT_FREE_MODEL = "openrouter/deepseek/deepseek-chat-v3.1"
+DEFAULT_PREMIUM_MODEL = "openrouter/deepseek/deepseek-chat-v3.1"
 
 class ModelRegistry:
     def __init__(self):
@@ -77,7 +77,7 @@ class ModelRegistry:
             id="openrouter/google/gemini-2.5-flash",
             name="КЛИК-Менеджер",
             provider=ModelProvider.OPENROUTER,
-            aliases=["google/gemini-2.5-flash","gemini-2.5-flash", "Gemini 2.5 Flash", "КЛИК-менеджер", "openrouter/google/gemini-2.5-flash"],
+            aliases=["google/gemini-2.5-flash","gemini-2.5-flash", "Gemini 2.5 Flash", "КЛИК-Менеджер", "openrouter/google/gemini-2.5-flash"],
             context_window=1_000_000,
             capabilities=[
                 ModelCapability.CHAT,
@@ -113,68 +113,11 @@ class ModelRegistry:
             enabled=True
         ))
         
-
-        self.register(Model(
-            id="openrouter/moonshotai/kimi-k2",
-            name="КЛИК-интерн2",
-            provider=ModelProvider.OPENROUTER,
-            aliases=["moonshotai/kimi-k2", "kimi-k2", "Kimi K2", "openrouter/moonshotai/kimi-k2", "КЛИК-интерн2"],
-            context_window=131_000,
-            capabilities=[
-                ModelCapability.CHAT,
-                ModelCapability.FUNCTION_CALLING,
-            ],
-            pricing=ModelPricing(
-                input_cost_per_million_tokens=0.6,
-                output_cost_per_million_tokens=2.50
-            ),
-            tier_availability=["free", "paid"],
-            priority=95,
-            enabled=True
-        ))
         self.register(Model(
             id="openrouter/deepseek/deepseek-chat-v3.1",
             name="КЛИК-Профи",
             provider=ModelProvider.OPENROUTER,
             aliases=["deepseek/deepseek-chat-v3.1", "deepseek-chat-v3.1", "DeepSeek Chat V3.1", "openrouter/deepseek/deepseek-chat-v3.1", "КЛИК-Профи", "КЛИК"],
-            context_window=163_000,
-            capabilities=[
-                ModelCapability.CHAT,
-                ModelCapability.FUNCTION_CALLING,
-            ],
-            pricing=ModelPricing(
-                input_cost_per_million_tokens=0.6,
-                output_cost_per_million_tokens=1.50
-            ),
-            tier_availability=["free", "paid"],
-            priority=100,
-            enabled=True
-        ))
-
-        self.register(Model(
-            id="openrouter/z-ai/glm-4.5",
-            name="КЛИК-интерн",
-            provider=ModelProvider.OPENROUTER,
-            aliases=["z-ai/glm-4.5", "glm-4.5", "GLM 4.5", "openrouter/z-ai/glm-4.5", "КЛИК-интерн"],
-            context_window=200_000,
-            capabilities=[
-                ModelCapability.CHAT,
-                ModelCapability.FUNCTION_CALLING,
-            ],
-            pricing=ModelPricing(
-                input_cost_per_million_tokens=0.60,
-                output_cost_per_million_tokens=2.20
-            ),
-            tier_availability=["paid"],
-            priority=100,
-            enabled=False
-        ))
-
-        self.register(Model(
-            id="openrouter/deepseek/deepseek-chat-v3.1",
-            name="Custom",
-            provider=ModelProvider.OPENROUTER,
-            aliases=["deepseek/deepseek-chat-v3.1", "deepseek-chat-v3.1", "DeepSeek Chat V3.1", "openrouter/deepseek/deepseek-chat-v3.1", "Custom"],
             context_window=163_000,
             capabilities=[
                 ModelCapability.CHAT,
@@ -186,15 +129,17 @@ class ModelRegistry:
                 output_cost_per_million_tokens=1.50
             ),
             tier_availability=["free", "paid"],
-            priority=82,
+            priority=100,
             enabled=True
         ))
 
+
+
         self.register(Model(
-            id="openai/gpt-oss-120b",
+            id="openrouter/openai/gpt-oss-120b",
             name="Fast GPT",
             provider=ModelProvider.OPENROUTER,
-            aliases=["openai/gpt-oss-120b", "gpt-oss-120b", "GPT-OSS-120B", "openai/gpt-oss-120b", "Fast"],
+            aliases=["openai/gpt-oss-120b", "gpt-oss-120b", "GPT-OSS-120B", "openai/gpt-oss-120b", "Fast GPT"],
             context_window=128_000,
             capabilities=[
                 ModelCapability.CHAT,

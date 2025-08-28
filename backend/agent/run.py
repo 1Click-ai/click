@@ -721,8 +721,8 @@ async def run_agent(
     native_max_auto_continues: int = 25,
     max_iterations: int = 100,
     model_name: str = "openrouter/google/gemini-2.5-flash",
-    enable_thinking: Optional[bool] = False,
-    reasoning_effort: Optional[str] = 'low',
+    enable_thinking: Optional[bool] = True,
+    reasoning_effort: Optional[str] = 'high',
     enable_context_manager: bool = True,
     agent_config: Optional[dict] = None,    
     trace: Optional[StatefulTraceClient] = None

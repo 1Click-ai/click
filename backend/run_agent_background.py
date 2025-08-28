@@ -59,7 +59,7 @@ async def run_agent_background(
     instance_id: str,
     project_id: str,
     model_name: str = "openrouter/google/gemini-2.5-flash",
-    enable_thinking: Optional[bool] = False,
+    enable_thinking: Optional[bool] = True,
     reasoning_effort: Optional[str] = 'high',
     stream: bool = True,
     enable_context_manager: bool = True,

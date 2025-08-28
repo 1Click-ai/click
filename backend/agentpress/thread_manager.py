@@ -283,8 +283,8 @@ class ThreadManager:
         native_max_auto_continues: int = 25,
         max_xml_tool_calls: int = 0,
         include_xml_examples: bool = False,
-        enable_thinking: Optional[bool] = False,
-        reasoning_effort: Optional[str] = 'low',
+        enable_thinking: Optional[bool] = True,
+        reasoning_effort: Optional[str] = 'high',
         enable_context_manager: bool = True,
         generation: Optional[StatefulGenerationClient] = None,
     ) -> Union[Dict[str, Any], AsyncGenerator]:
