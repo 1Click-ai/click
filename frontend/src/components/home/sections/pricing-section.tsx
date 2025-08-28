@@ -135,10 +135,9 @@ function PricingTier({
   const getDisplayPrice = () => {
     if (billingPeriod === 'yearly_commitment' && tier.monthlyCommitmentStripePriceId) {
       // Calculate the yearly commitment price (15% off regular monthly)
-      const regularPrice = parseFloat(tier.price.slice(1));
+      const regularPrice = parseFloat(tier.price.slice(0, -1)); // Remove ₽ symbol
       const discountedPrice = Math.round(regularPrice * 0.85);
-      const rublePrice = Math.round(discountedPrice * 80); // USD to RUB conversion
-      return `${rublePrice.toLocaleString('ru-RU')}₽`;
+      return `${discountedPrice.toLocaleString('ru-RU')}₽`;
     } else if (billingPeriod === 'yearly' && tier.yearlyPrice) {
       // Legacy yearly plans (hidden from UI but still accessible)
       return tier.yearlyPrice;
@@ -438,7 +437,7 @@ function PricingTier({
               <div className="flex items-baseline gap-2">
                 <PriceDisplay price={displayPrice} isCompact={insideDialog} />
                 <span className="text-xs line-through text-muted-foreground">
-                  {Math.round(parseFloat(tier.price.slice(1)) * 80).toLocaleString('ru-RU')}₽
+                  {parseFloat(tier.price.slice(0, -1)).toLocaleString('ru-RU')}₽
                 </span>
               </div>
               <div className="flex items-center gap-1 mt-1">
@@ -449,10 +448,10 @@ function PricingTier({
           ) : billingPeriod === 'yearly' && tier.yearlyPrice && displayPrice !== '$0' ? (
             <div className="flex flex-col">
               <div className="flex items-baseline gap-2">
-                <PriceDisplay price={`${Math.round(parseFloat(tier.yearlyPrice.slice(1)) / 12 * 80).toLocaleString('ru-RU')}₽`} isCompact={insideDialog} />
+                <PriceDisplay price={`${Math.round(parseFloat(tier.yearlyPrice.slice(0, -1)) / 12).toLocaleString('ru-RU')}₽`} isCompact={insideDialog} />
                 {tier.discountPercentage && (
                   <span className="text-xs line-through text-muted-foreground">
-                    {Math.round(parseFloat(tier.originalYearlyPrice?.slice(1) || '0') / 12 * 80).toLocaleString('ru-RU')}₽
+                    {Math.round(parseFloat(tier.originalYearlyPrice?.slice(0, -1) || '0') / 12).toLocaleString('ru-RU')}₽
                   </span>
                 )}
               </div>
@@ -472,16 +471,16 @@ function PricingTier({
 
         {billingPeriod === 'yearly_commitment' && tier.monthlyCommitmentStripePriceId ? (
           <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-green-50 border-green-200 text-green-700 w-fit">
-            Экономия ${Math.round((parseFloat(tier.price.slice(1)) - parseFloat(displayPrice.slice(1))) * 12)} в год
+            Экономия {Math.round((parseFloat(tier.price.slice(0, -1)) - parseFloat(displayPrice.slice(0, -1))) * 12).toLocaleString('ru-RU')}₽ в год
           </div>
         ) : billingPeriod === 'yearly' && tier.yearlyPrice && tier.discountPercentage ? (
           <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-green-50 border-green-200 text-green-700 w-fit">
-            Экономия ${Math.round(parseFloat(tier.originalYearlyPrice?.slice(1) || '0') - parseFloat(tier.yearlyPrice.slice(1)))} в год
+            Экономия {Math.round(parseFloat(tier.originalYearlyPrice?.slice(0, -1) || '0') - parseFloat(tier.yearlyPrice.slice(0, -1))).toLocaleString('ru-RU')}₽ в год
           </div>
         ) : (
           <div className="hidden items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-primary/10 border-primary/20 text-primary w-fit">
             {billingPeriod === 'yearly' && tier.yearlyPrice && displayPrice !== '$0'
-              ? `${Math.round(parseFloat(tier.yearlyPrice.slice(1)) / 12)}/месяц (оплата за год)`
+              ? `${Math.round(parseFloat(tier.yearlyPrice.slice(0, -1)) / 12).toLocaleString('ru-RU')}₽/месяц (оплата за год)`
               : `${displayPrice}/месяц`
             }
           </div>
