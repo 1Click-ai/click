@@ -148,7 +148,7 @@ export function CreditPurchaseModal({
                     <Alert className="text-purple-600 dark:text-purple-400 bg-purple-50 border-purple-200 dark:bg-purple-950 dark:border-purple-800">
                         <AlertCircleIcon className="h-4 w-4" />
                         <AlertDescription className="text-purple-600 dark:text-purple-400">
-                            Current balance: <strong>${currentBalance.toFixed(2)}</strong>
+                            Текущий баланс: <strong>{(currentBalance * 80).toFixed(2)}₽</strong>
                         </AlertDescription>
                     </Alert>
                 )}
@@ -228,7 +228,7 @@ export function CreditBalanceDisplay({ balance, canPurchase, onPurchaseClick }: 
                 <CardTitle className="text-sm font-medium flex items-center justify-between">
                     <span className="flex items-center gap-2">
                         <Zap className="h-4 w-4 text-yellow-500" />
-                        Credit Balance
+                        Баланс кредитов
                     </span>
                     {canPurchase && onPurchaseClick && (
                         <Button
@@ -243,12 +243,12 @@ export function CreditBalanceDisplay({ balance, canPurchase, onPurchaseClick }: 
             </CardHeader>
             <CardContent>
                 <div className="text-2xl font-bold">
-                    {Math.round(balance * 80).toLocaleString('ru-RU')}₽
+                    {(balance * 80).toFixed(2)}₽
                 </div>
                 <p className="text-xs text-muted-foreground mt-1">
                     {canPurchase 
-                        ? 'Available for usage beyond subscription limits'
-                        : 'Upgrade to highest tier to purchase credits'
+                        ? 'Доступно для использования сверх лимитов подписки'
+                        : 'Обновитесь до высшего тарифа для покупки кредитов'
                     }
                 </p>
             </CardContent>

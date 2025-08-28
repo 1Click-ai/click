@@ -111,8 +111,8 @@ export default function PersonalAccountBillingPage() {
                       Использование агента в этом месяце
                     </span>
                     <span className="text-sm font-medium">
-                      ${subscriptionData.current_usage?.toFixed(2) || '0'} /{' '}
-                      ${subscriptionData.cost_limit || '0'}
+                      {((subscriptionData.current_usage || 0) * 80).toFixed(2)}₽ /{' '}
+                      {((subscriptionData.cost_limit || 0) * 80).toFixed(2)}₽
                     </span>
                     <Button variant='outline' asChild className='text-sm'>
                       <Link href="/settings/usage-logs">

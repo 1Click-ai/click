@@ -32,7 +32,7 @@ export const UsagePreview: React.FC<UsagePreviewProps> = ({
 
     const formatCurrency = (amount: number) => {
         const rubleAmount = amount * 80; // USD to RUB conversion
-        return `${Math.round(rubleAmount).toLocaleString('ru-RU')}₽`;
+        return `${rubleAmount.toFixed(2)}₽`;
     };
 
     const getUsageDisplay = () => {

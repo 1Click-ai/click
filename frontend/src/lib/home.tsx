@@ -147,7 +147,7 @@ export const siteConfig = {
       /** @deprecated */
       hours: '2 hours',
       features: [
-        '$20 кредитов на ИИ-токены в месяц',
+        '1600₽ кредитов на ИИ-токены в месяц',
         '5 настраиваемых агентов',
         'Частные проекты',
         'Премиум-модели ИИ',
@@ -161,8 +161,8 @@ export const siteConfig = {
     {
       name: 'Про',
       price: '3999₽',
-      yearlyPrice: '$510',
-      originalYearlyPrice: '$600',
+      yearlyPrice: '40800₽',
+      originalYearlyPrice: '48000₽',
       discountPercentage: 15,
       description: 'Идеально для растущего бизнеса',
       buttonText: 'Начать бесплатно',
@@ -171,7 +171,7 @@ export const siteConfig = {
       /** @deprecated */
       hours: '6 hours',
       features: [
-        '$50 кредитов на ИИ-токены в месяц',
+        '4000₽ кредитов на ИИ-токены в месяц',
         '20 настраиваемых агентов',
         'Частные проекты',
         'Премиум-модели ИИ',
@@ -185,8 +185,8 @@ export const siteConfig = {
     {
       name: 'Бизнес',
       price: '7999₽',
-      yearlyPrice: '$1020',
-      originalYearlyPrice: '$1200',
+      yearlyPrice: '81600₽',
+      originalYearlyPrice: '96000₽',
       discountPercentage: 15,
       description: 'Для устоявшегося бизнеса',
       buttonText: 'Начать бесплатно',
@@ -194,7 +194,7 @@ export const siteConfig = {
       isPopular: false,
       hours: '12 hours',
       features: [
-        '$100 кредитов на ИИ-токены в месяц',
+        '8000₽ кредитов на ИИ-токены в месяц',
         '20 настраиваемых агентов',
         'Частные проекты',
         'Премиум-модели ИИ',
@@ -208,8 +208,8 @@ export const siteConfig = {
     {
       name: 'Ультра',
       price: '15999₽',
-      yearlyPrice: '$2040',
-      originalYearlyPrice: '$2400',
+      yearlyPrice: '163200₽',
+      originalYearlyPrice: '192000₽',
       discountPercentage: 15,
       description: 'Для опытных пользователей',
       buttonText: 'Начать бесплатно',
@@ -217,7 +217,7 @@ export const siteConfig = {
       isPopular: false,
       hours: '25 hours',
       features: [
-        '$200 кредитов на ИИ-токены в месяц',
+        '16000₽ кредитов на ИИ-токены в месяц',
         '100 настраиваемых агентов',
         'Частные проекты',
         'Премиум-модели ИИ',
@@ -231,8 +231,8 @@ export const siteConfig = {
     {
       name: 'Крупный бизнес',
       price: '31999₽',
-      yearlyPrice: '$4080',
-      originalYearlyPrice: '$4800',
+      yearlyPrice: '326400₽',
+      originalYearlyPrice: '384000₽',
       discountPercentage: 15,
       description: 'Для больших команд',
       buttonText: 'Начать бесплатно',
@@ -240,7 +240,7 @@ export const siteConfig = {
       isPopular: false,
       hours: '50 hours',
       features: [
-        '$400 кредитов на ИИ-токены в месяц',
+        '32000₽ кредитов на ИИ-токены в месяц',
         'Частные проекты',
         'Премиум-модели ИИ',
         'Приоритетная поддержка',
@@ -254,8 +254,8 @@ export const siteConfig = {
     {
       name: 'Масштаб',
       price: '63999₽',
-      yearlyPrice: '$8160',
-      originalYearlyPrice: '$9600',
+      yearlyPrice: '652800₽',
+      originalYearlyPrice: '768000₽',
       discountPercentage: 15,
       description: 'Для масштабируемых команд',
       buttonText: 'Начать бесплатно',
@@ -263,7 +263,7 @@ export const siteConfig = {
       isPopular: false,
       hours: '125 hours',
       features: [
-        '$800 кредитов на ИИ-токены в месяц',
+        '64000₽ кредитов на ИИ-токены в месяц',
         'Частные проекты',
         'Премиум-модели ИИ',
         'Приоритетная поддержка',
@@ -278,8 +278,8 @@ export const siteConfig = {
     {
       name: 'Макс',
       price: '79999₽',
-      yearlyPrice: '$10200',
-      originalYearlyPrice: '$12000',
+      yearlyPrice: '816000₽',
+      originalYearlyPrice: '960000₽',
       discountPercentage: 15,
       description: 'Максимальная производительность',
       buttonText: 'Начать бесплатно',
@@ -287,7 +287,7 @@ export const siteConfig = {
       isPopular: false,
       hours: '200 hours',
       features: [
-        '$1000 кредитов на ИИ-токены в месяц',
+        '80000₽ кредитов на ИИ-токены в месяц',
         'Частные проекты',
         'Премиум-модели ИИ',
         'Приоритетная поддержка',

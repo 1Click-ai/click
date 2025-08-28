@@ -14,8 +14,8 @@ export default function PersonalAccountSettingsPage({
   const items = [
     // { name: "Profile", href: "/settings" },
     // { name: "Teams", href: "/settings/teams" },
-    { name: 'Billing', href: '/settings/billing' },
-    { name: 'Usage Logs', href: '/settings/usage-logs' },
+    { name: 'Оплата', href: '/settings/billing' },
+    { name: 'Журналы использования', href: '/settings/usage-logs' },
     ...(isLocalMode() ? [{ name: 'Local .Env Manager', href: '/settings/env-manager' }] : []),
   ];
   return (

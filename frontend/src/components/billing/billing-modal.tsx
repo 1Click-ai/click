@@ -135,8 +135,8 @@ export function BillingModal({ open, onOpenChange, returnUrl = typeof window !==
                                             Использование агента в этом месяце
                                         </span>
                                         <span className="text-sm font-medium">
-                                            {Math.round((subscriptionData.current_usage || 0) * 80).toLocaleString('ru-RU')}₽ /{' '}
-                                            {Math.round((subscriptionData.cost_limit || 0) * 80).toLocaleString('ru-RU')}₽
+                                            {((subscriptionData.current_usage || 0) * 80).toFixed(2)}₽ /{' '}
+                                            {((subscriptionData.cost_limit || 0) * 80).toFixed(2)}₽
                                         </span>
                                     </div>
                                 </div>

@@ -81,16 +81,16 @@ export default function UsageLogs({ accountId }: Props) {
 
   const formatCost = (cost: number | string) => {
     if (typeof cost === 'string' || cost === 0) {
-      return typeof cost === 'string' ? cost : '0₽';
+      return typeof cost === 'string' ? cost : '0.00₽';
     }
     const rubleAmount = (typeof cost === 'number' ? cost : parseFloat(cost)) * 80;
-    return `${Math.round(rubleAmount * 10000) / 10000}₽`;
+    return `${rubleAmount.toFixed(2)}₽`;
   };
 
   const formatCreditAmount = (amount: number) => {
     if (amount === 0) return null;
     const rubleAmount = amount * 80;
-    return `${Math.round(rubleAmount * 10000) / 10000}₽`;
+    return `${rubleAmount.toFixed(2)}₽`;
   };
 
   const formatDateOnly = (dateString: string) => {
@@ -151,8 +151,8 @@ export default function UsageLogs({ accountId }: Props) {
     return (
       <Card>
         <CardHeader>
-          <CardTitle>Usage Logs</CardTitle>
-          <CardDescription>Loading your token usage history...</CardDescription>
+          <CardTitle>Журналы использования</CardTitle>
+          <CardDescription>Загружается история использования токенов...</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
@@ -169,7 +169,7 @@ export default function UsageLogs({ accountId }: Props) {
     return (
       <Card>
         <CardHeader>
-          <CardTitle>Usage Logs</CardTitle>
+          <CardTitle>Журналы использования</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="p-4 bg-destructive/10 border border-destructive/20 rounded-lg">
@@ -187,7 +187,7 @@ export default function UsageLogs({ accountId }: Props) {
     return (
       <Card>
         <CardHeader>
-          <CardTitle>Usage Logs</CardTitle>
+          <CardTitle>Журналы использования</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="p-4 bg-muted/30 border border-border rounded-lg text-center">
@@ -216,10 +216,10 @@ export default function UsageLogs({ accountId }: Props) {
       {subscriptionLimit > 0 && totalUsage > subscriptionLimit && (
         <Alert>
           <AlertCircle className="h-4 w-4" />
-          <AlertTitle>Credits Being Used</AlertTitle>
+          <AlertTitle>Используются кредиты</AlertTitle>
           <AlertDescription>
-            You've exceeded your monthly subscription limit of ${subscriptionLimit.toFixed(2)}. 
-            Additional usage is being deducted from your credit balance.
+            Вы превысили месячный лимит подписки в размере {(subscriptionLimit * 80).toFixed(2)}₽. 
+            Дополнительное использование вычитается из баланса кредитов.
           </AlertDescription>
         </Alert>
       )}
@@ -227,13 +227,13 @@ export default function UsageLogs({ accountId }: Props) {
       {/* Usage Logs Accordion */}
       <Card>
         <CardHeader>
-          <CardTitle>Daily Usage Logs</CardTitle>
+          <CardTitle>Ежедневные журналы использования</CardTitle>
           <CardDescription>
             <div className='flex justify-between items-center'>
-              Your token usage organized by day, sorted by most recent.{" "}
+              Использование токенов, организованное по дням, отсортированное по дате.{" "}
               <Button variant='outline' asChild className='text-sm ml-4'>
                 <Link href="/model-pricing">
-                  View Model Pricing <OpenInNewWindowIcon className='w-4 h-4' />
+                  Цены моделей <OpenInNewWindowIcon className='w-4 h-4' />
                 </Link>
               </Button>
             </div>
@@ -242,7 +242,7 @@ export default function UsageLogs({ accountId }: Props) {
         <CardContent>
           {dailyUsage.length === 0 ? (
             <div className="text-center py-8">
-              <p className="text-muted-foreground">No usage logs found.</p>
+              <p className="text-muted-foreground">Журналы использования не найдены.</p>
             </div>
           ) : (
             <>

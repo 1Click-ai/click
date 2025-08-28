@@ -12,7 +12,7 @@ const USD_TO_RUB_RATE = 80;
  */
 export function formatRubles(usdAmount: number): string {
   const rubleAmount = usdAmount * USD_TO_RUB_RATE;
-  return `${Math.round(rubleAmount).toLocaleString('ru-RU')}₽`;
+  return `${rubleAmount.toFixed(2)}₽`;
 }
 
 /**

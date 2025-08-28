@@ -97,15 +97,15 @@ export default function TeamBillingPage({
       />
       
       <div>
-        <h3 className="text-lg font-medium text-card-title">Team Billing</h3>
+        <h3 className="text-lg font-medium text-card-title">Оплата команды</h3>
         <p className="text-sm text-foreground/70">
-          Manage your team's subscription and billing details.
+          Управляйте подпиской и деталями оплаты вашей команды.
         </p>
       </div>
 
       {/* Billing Status Card */}
       <div className="rounded-xl border shadow-sm bg-card p-6">
-        <h2 className="text-xl font-semibold mb-4">Billing Status</h2>
+        <h2 className="text-xl font-semibold mb-4">Статус оплаты</h2>
 
         {isLocalMode() ? (
           <div className="p-4 mb-4 bg-muted/30 border border-border rounded-lg text-center">
